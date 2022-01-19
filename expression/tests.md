@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Test expressions
-sidebar: splang
 ---
 
 # Comparisons and Test expressions

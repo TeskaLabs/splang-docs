@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Utility expressions
-sidebar: splang
 ---
 
 # Utility expressions

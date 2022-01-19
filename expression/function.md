@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Function expressions
-sidebar: splang
 ---
 
 # Functions expressions

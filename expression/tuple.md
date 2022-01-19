@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Tuple expression
-sidebar: splang
 ---
 
 # Tuple expressions

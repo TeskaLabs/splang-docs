@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: IP address expressions
-sidebar: splang
 ---
 
 # IP Address expressions

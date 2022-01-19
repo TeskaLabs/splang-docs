@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: List expression
-sidebar: splang
 ---
 
 # List expressions

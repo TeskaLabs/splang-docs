@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Date/time expressions
-sidebar: splang
 ---
 
 # Date/time expressions

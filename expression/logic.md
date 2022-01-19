@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Logic expressions
-sidebar: splang
 ---
 
 # Logic expressions

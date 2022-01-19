@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Record expression
-sidebar: splang
 ---
 
 # Record expressions

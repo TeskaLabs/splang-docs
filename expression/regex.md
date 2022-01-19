@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Regex expressions
-sidebar: splang
 ---
 
 # Regex expressions

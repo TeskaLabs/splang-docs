@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Control expressions
-sidebar: splang
 ---
 
 # Control expressions

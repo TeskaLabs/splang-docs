@@ -1,7 +1,6 @@
 ---
 layout: default
 title: SP-Lang Documentation
-sidebar: splang
 ---
 
 # SP-Lang design
@@ -55,4 +54,11 @@ This allows for the early detection of errors and reinforc optimizations.
 Types are derived from their use without being declared.
 For example, setting a variable to a number results in that variable's type being established as a number.
 This further reduces a complexity for a maker without any performance sacrifice known from interpretted languages.
+
+
+## Turing completeness
+
+SP-Lang is designed to be [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness).
+
+
 

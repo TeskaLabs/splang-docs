@@ -1,7 +1,6 @@
 ---
 layout: default
 title: SP-Lang Documentation
-sidebar: splang
 ---
 
 # SP-Lang Type system

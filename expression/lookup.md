@@ -1,8 +1,6 @@
 ---
 layout: default
 title: SP-Lang documentation
-header: Lookup expressions
-sidebar: splang
 ---
 
 # Lookup expressions

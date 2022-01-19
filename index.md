@@ -1,7 +1,6 @@
 ---
 layout: default
 title: SP-Lang Documentation
-sidebar: splang
 ---
 
 # SP-Lang
@@ -31,7 +30,7 @@ This is the simple example of "Hello world" expression in SP-Lang.
 !ADD [Hello, " ", world, "!"]
 ```
 
-Your first steps with SP-Lang starts [here](tutorial).
+Your first steps with SP-Lang start [here](tutorial).
 
 
 ## Made with ❤️ by TeskaLabs
