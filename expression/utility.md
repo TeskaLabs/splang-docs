@@ -10,5 +10,16 @@ title: SP-Lang documentation
 
 ---
 
-HASH
-DEBUG
+## `!HASH`: Calculate a digest {#EXPR-HASH}
+
+Type: _Mapping_.
+
+Calculate the hash for an input.
+
+---
+
+## `!DEBUG`: Debug the expression {#EXPR-DEBUG}
+
+Type: _Mapping_.
+
+Print the content of the input and pass the value unchanged on the output.

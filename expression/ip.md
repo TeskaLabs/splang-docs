@@ -20,21 +20,20 @@ Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !IP.FORMAT
 what: <ip>
-{% endhighlight %}
+```
 
 Convert the internal representation of the IP address into a string.
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !IP.FORMAT
-what:
-  67305985
-{% endhighlight %}
+what: 67305985
+```
 
 Returns `0:0:0:0:0:0:403:201`.
 
@@ -46,24 +45,22 @@ Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
-!IP.FORMAT
+```yaml
+!IP.INSUBNET
 what: <ip>
 subnet: <string>
-{% endhighlight %}
+```
 
-Test if `what` IP address belongs to a `subnet`.
+Test if `what` IP address belongs to a `subnet`, returns `true` if yes otherwise `false`.
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !IP.INSUBNET
-what:
-  192.168.1.1
-subnet:
-  192.168.0.0/16
-{% endhighlight %}
+what: 192.168.1.1
+subnet: 192.168.0.0/16
+```
 
 --- 
 

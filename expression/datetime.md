@@ -10,8 +10,35 @@ title: SP-Lang documentation
 
 ---
 
-NOW
-DATETIME
-GET
-DATETIME.FORMAT
-DATETIME.PARSE
+## `!NOW`: A current date and time {#EXPR-NOW}
+
+Type: _Mapping_.
+
+
+---
+
+## `!DATETIME`: ... {#EXPR-DATETIME}
+
+Type: _Mapping_.
+
+
+---
+
+## `!DATETIME.FORMAT`: ... {#EXPR-DATETIME-FORMAT}
+
+Type: _Mapping_.
+
+
+---
+
+## `!DATETIME.PARSE`: ... {#EXPR-DATETIME-PARSE}
+
+Type: _Mapping_.
+
+
+---
+
+## `!GET`: ...
+
+Type: _Mapping_.
+
