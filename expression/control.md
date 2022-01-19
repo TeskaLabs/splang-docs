@@ -146,17 +146,60 @@ Returns `None` (error) when end of the list is reached.
 
 ---
 
-## `!MAP`: TODO  {#EXPR-MAP}
+## `!MAP`: Transform items in the sequence {#EXPR-MAP}
 
 Type: _Mapping_.
 
-Apply `do` for each item in `each`.
-
+The `apply` expression is applied to all items of a  `on` sequence.
 
 ### Synopsis
 
-{% highlight yaml %}
-!FOR
-  each: <...>
-  do: <...>
-{% endhighlight %}
+```yaml
+!MAP
+apply: <expression>
+on: <sequence>
+```
+
+`apply` expression is repeatitively called with local argument `a` containing the respective value from `on`.
+
+### Example
+
+```yaml
+!MAP
+apply: !ADD [!ARG a, 1]
+on: [1, 2, 3, 4]
+```
+
+Result is `[2, 3, 4, 5]`.
+
+
+
+---
+
+## `!REDUCE`: Reduce the sequence into a single value {#EXPR-REDUCE}
+
+Type: _Mapping_.
+
+Iterate through the values in `on` sequence, apply `apply` expression and produce a singular output value.
+
+### Synopsis
+
+```yaml
+!REDUCE
+apply: <expression>
+on: <sequence>
+```
+
+`apply` expression is called with local arguments `a` and `b`.
+
+
+### Example
+
+```yaml
+!REDUCE
+apply: !ADD [!ARG a, !ARG b]
+on: [1, 2, 3, 4]
+```
+
+Calculates a sum of the `on` sequence, result is `10`.
+
