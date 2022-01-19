@@ -17,9 +17,13 @@ Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !ARGUMENT name
-{% endhighlight %}
+```
+
+```yaml
+!ARG name
+```
 
 Provides an access to an argument `name`.
 
@@ -42,7 +46,7 @@ It means that in a majority of cases, `!FUNCTION` can be skipped, and only `do` 
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !FUNCTION
 name: <name of function>
 arguments:
@@ -53,12 +57,17 @@ returns: <type>
 schemas: <dictionary of schemas>
 do:
   <expression>
-{% endhighlight %}
+```
+
+```yaml
+!FN
+...
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !FUNCTION
 arguments:
   a: si64
@@ -72,24 +81,23 @@ do:
   - !ARGUMENT b
   - !ARGUMENT c
   - !ARGUMENT d
-{% endhighlight %}
+```
 
 
 --- 
 
-## `!SELF`: A current function  {#EXPR-SET}
+## `!SELF`: Apply a current function  {#EXPR-SET}
 
 Type: _Mapping_.
 
-Represents a current function.
-The `!SELF` provides an ability to recursivelly call "self".
+The `!SELF` provides an ability to recursivelly apply "self" aka a current function.
 
-{% highlight yaml %}
+```yaml
 !SELF
-  arg1: <value>
-  arg2: <value>
-  ...
-{% endhighlight %}
+arg1: <value>
+arg2: <value>
+...
+```
 
 _Note: Self expression is a [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator)._
 
@@ -98,27 +106,14 @@ _Note: Self expression is a [Y combinator](https://en.wikipedia.org/wiki/Fixed-p
 
 Factorial calculation in a SP-Lang:
 
-{% highlight yaml %}
+```yaml
 ---
 !FUNCTION
-arguments:
-  x: int
+arguments: {x: int}
 returns: int
-
 do:
-  !IF
-  test:
-    !LE # value <= 1
-    - !ARGUMENT x
-    - 1
-  then:
-    1
-  else:
-    !MUL
-    - !SELF
-      x:
-        !SUB
-        - !ARGUMENT x
-        - 1
-    - !ARGUMENT x
-{% endhighlight %}
+  !IF # value <= 1
+  test: !GT [!ARG x, 1]
+  then: !MUL [!SELF {x: !SUB [!ARG x, 1]}, !ARG x]
+  else: 1
+```
