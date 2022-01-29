@@ -16,7 +16,7 @@ toc:
     - {title: Aggregate, url: /expression/aggregate}
     - {title: Logic, url: /expression/logic}
     - {title: Bitwise, url: /expression/bitwise}
-    - {title: Comparisons and Tests, url: /expression/tests}
+    - {title: Comparisons, url: /expression/comparisons}
     - {title: Control, url: /expression/control}
     - {title: List, url: /expression/list}
     - {title: Set, url: /expression/set}

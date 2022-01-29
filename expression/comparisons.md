@@ -3,7 +3,7 @@ layout: default
 title: SP-Lang documentation
 ---
 
-# Comparisons and Test expressions
+# Comparisons expressions
 
 * This will become a table of contents (this text will be scrapped).
 {:toc}
