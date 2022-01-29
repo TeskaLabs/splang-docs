@@ -23,11 +23,11 @@ Type:  _Implicit sequence_, _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SET
 - ...
 - ...
-{% endhighlight %}
+```
 
 _Hint: Use `!COUNT` to determine number of items in the set._
 
@@ -36,36 +36,36 @@ _Hint: Use `!COUNT` to determine number of items in the set._
 
 There are several ways, how a set can be specified in SP-Lang:
 
-{% highlight yaml %}
+```yaml
 !SET
 - "One"
 - "Two"
 - "Three"
 - "Four"
 - "Five"
-{% endhighlight %}
+```
 
 
 [YAML unordered set](https://yaml.org/spec/1.2.2/#example-unordered-sets):
 
-{% highlight yaml %}
+```yaml
 !!set
 ? Yellow pork
 ? Pink grass
 ? White snow
-{% endhighlight %}
+```
 
 
 Consise set using [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
-{% highlight yaml %}
+```yaml
 !SET ["One", "Two", "Three", "Four", "Five"]
-{% endhighlight %}
+```
 
 
 The mapping form:
 
-{% highlight yaml %}
+```yaml
 !SET
 with:
   - "One"
@@ -73,7 +73,7 @@ with:
   - "Three"
   - "Four"
   - "Five"
-{% endhighlight %}
+```
 
 
 --- 
@@ -86,7 +86,7 @@ The expression `!IN` is described in the "Tests" chapter.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !IN
 what: 3
 where:
@@ -96,7 +96,7 @@ where:
     - 2
     - 5
     - 8 
-{% endhighlight %}
+```
 
 
 --- 
@@ -110,11 +110,11 @@ The set is also a list, items can be obtains by its numeric index.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !GET
 what: <index of the item in the set>
 from: <set>
-{% endhighlight %}
+```
 
 `index` is an integer (number).
 
@@ -126,7 +126,7 @@ If the `index` is out of bound of the set, the statement returns with error.
 
 ### Examples
 
-{% highlight yaml %}
+```yaml
 !GET
 what: 3
 from:
@@ -137,12 +137,12 @@ from:
   - 50
   - 80
   - 120
-{% endhighlight %}
+```
 
 Returns `50`.
 
 
-{% highlight yaml %}
+```yaml
 !GET
 what: -1
 from:
@@ -153,7 +153,6 @@ from:
   - 50
   - 80
   - 120
-{% endhighlight %}
+```
 
 Returns the last item in the set, which is `120`.
-
