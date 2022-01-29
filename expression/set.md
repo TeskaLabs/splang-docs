@@ -98,3 +98,62 @@ where:
     - 8 
 {% endhighlight %}
 
+
+--- 
+
+## `!GET`: Get the item from the set {#EXPR-SET-GET}
+
+Type: _Mapping_.
+
+The set is also a list, items can be obtains by its numeric index.
+
+
+### Synopsis
+
+{% highlight yaml %}
+!GET
+what: <index of the item in the set>
+from: <set>
+{% endhighlight %}
+
+`index` is an integer (number).
+
+`index` can be negative, in that case, it specifies an item from the end of the set.
+Items are indexed from the 0, it means that the first item in the sey has an index 0.
+
+If the `index` is out of bound of the set, the statement returns with error.
+
+
+### Examples
+
+{% highlight yaml %}
+!GET
+what: 3
+from:
+  !SET
+  - 1
+  - 5
+  - 30
+  - 50
+  - 80
+  - 120
+{% endhighlight %}
+
+Returns `50`.
+
+
+{% highlight yaml %}
+!GET
+what: -1
+from:
+  !SET
+  - 1
+  - 5
+  - 30
+  - 50
+  - 80
+  - 120
+{% endhighlight %}
+
+Returns the last item in the set, which is `120`.
+
