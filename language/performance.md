@@ -46,13 +46,14 @@ The list is provided by the [blackweb](https://github.com/maravento/blackweb) pr
 # JSON parsing
 
 ```yaml
----
 !JSON.PARSE
 what: |
   {
   	< https://github.com/TeskaLabs/cysimdjson/blob/main/perftest/jsonexamples/test.json >
   }
 ```
+
+_Note: Fast JSON parsing is powered by [cysimdjson](https://github.com/TeskaLabs/cysimdjson) respectively [simdjson](https://simdjson.org) projects._
 
 * Single CPU Core on `HW-M1-20`: 968502 EPS
 * Single CPU Core on `HW-I7-15`: 562862 EPS
@@ -124,7 +125,7 @@ This is the IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/rfc5
 ## HW-M1-20
 
 * Machine: MacBook Air (M1, 2020)
-* CPU: Apple M1, Launched at 2020
+* CPU: [Apple M1](https://en.wikipedia.org/wiki/Apple_M1), Launched at 2020
 
 ## HW-I7-15
 
