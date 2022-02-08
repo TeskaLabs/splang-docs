@@ -23,12 +23,17 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
 
 ## Hello world!
 
-This is the simple example of "Hello world" expression in SP-Lang.
+This is the simple example of "Hello world" expression in SP-Lang:
+
 
 ```yaml
----
 !ADD [Hello, " ", world, "!"]
 ```
+
+And the same example in the visual SP-Lang:
+
+<img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
+
 
 Your first steps with SP-Lang start [here](tutorial).
 

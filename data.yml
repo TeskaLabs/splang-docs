@@ -10,6 +10,10 @@ toc:
     - title: Syntax
       url: /syntax
 
+    - title: Visual programming
+      url: /visual/intro
+
+
   - title: Expressions
     items:
     - {title: Arithmetics, url: /expression/arithmetics}
