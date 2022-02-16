@@ -12,12 +12,12 @@ Set and Dictionary types are implemented using a [hash table](https://en.wikiped
 
 ## Set
 
-The *set* is a composition of the `list` (called *internal list* aka *intlist* ) and the hash table.
+The *set* is a composition of the internal *list* and the hash table.
 
 
 ## Dict
 
-The *dict* (aka dictionary) is a composition of the `set` of keys (called *key set* with *keylist* ) and a `list` of values (called *value list*).
+The *dict* (aka dictionary) is a composition of the set (itself a hash table and a list) of keys (called *key set* with *key list* ) and a list of values (called *value list*).
 
 
 ## Hash table
@@ -38,4 +38,3 @@ The used hashing function are:
 
  * [XXH3 64bit](https://cyan4973.github.io/xxHash/) with seed for `str`
  * `xor` with seed for `si64`, `si32`, `si16`, `si8`, `ui64`, `ui32`, `si16`, `ui8`
- 
