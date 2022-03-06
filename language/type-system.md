@@ -155,6 +155,13 @@ Underlying scalar type: `ui128`
 IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
 
 
+## IP Subnetwork
+
+`ipsubnet`
+
+Used to store IP [subnetwork](https://en.wikipedia.org/wiki/Subnetwork), specifically the IP of the network (stored as `ip`) and netmask.
+
+
 # Generic types
 
 Generic types are used in the early stage of the SP-Lang parsing, optimization and compilation.

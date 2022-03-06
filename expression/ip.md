@@ -28,15 +28,6 @@ what: <ip>
 Convert the internal representation of the IP address into a string.
 
 
-### Example
-
-```yaml
-!IP.FORMAT
-what: 67305985
-```
-
-Returns `0:0:0:0:0:0:403:201`.
-
 --- 
 
 ## `!IP.INSUBNET`: Check if IP address falls into a subnet {#EXPR-IP-INSUBNET}
@@ -62,7 +53,27 @@ what: 192.168.1.1
 subnet: 192.168.0.0/16
 ```
 
---- 
+---
 
-## `!IP.PARSE`: Parse a string into the IP address {#EXPR-IP-PARSE}
+## Parse of the IP address
 
+IP address is parsed automatically from a string.
+If needed, you may explicitly cast string-based IP address into the `ip` type:
+
+```yaml
+!CAST
+type: ip
+what: 192.168.1.1
+```
+
+
+## Parse of the IP subnet
+
+IP subnet is parsed automatically from a string.
+If needed, you may explicitly cast string-based IP address into the `ipsubnet` type:
+
+```yaml
+!CAST
+type: ipsubnet
+what: 192.168.1.1/16
+```

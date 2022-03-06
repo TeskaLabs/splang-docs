@@ -10,6 +10,40 @@ title: SP-Lang documentation
 
 ---
 
+## `!CAST`: Convert type of the argument into another {#EXPR-CAST}
+
+Type: _Mapping_.
+
+### Synopsis
+
+```yaml
+!CAST
+what: <input>
+type: <type>
+```
+
+Explicitly convert type of `what` into the type of `type`.
+
+SP-Lang automatically converts types of arguments so that the user doesn't need to think about types at all.
+This feature is called *implicit casting*.
+
+In case of explicit need for a type conversion, use `!CAST` expression.
+It is very powerful method that do a lot of heavylifting.
+
+For more details about types, see Type System chapter.
+
+### Example
+
+```yaml
+!CAST
+what: "10.3"
+type: fp64
+```
+
+This is an explicit casting of the string into a floating-point number.
+
+---
+
 ## `!HASH`: Calculate a digest {#EXPR-HASH}
 
 Type: _Mapping_.
