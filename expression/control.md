@@ -129,6 +129,7 @@ Type: _Mapping_.
 
 `!SWITCH` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
 
+`!SWITCH` is simplier but less versatile than `!WHEN`.
 
 ### Synopsis
 
