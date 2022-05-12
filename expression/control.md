@@ -89,6 +89,19 @@ else:
   "Other number"
 {% endhighlight %}
 
+    
+Use of `!SWITCH` to structure the code:
+
+{% highlight yaml %}
+!SWITCH
+what: !ARG code
+cases:
+  1: !INCLUDE code-1.yaml
+  2: !INCLUDE code-2.yaml
+else:
+  !INCLUDE code-else.yaml
+{% endhighlight %}
+
 ---
 
 ## `!WHEN`: Powerful branching  {#EXPR-WHEN}
