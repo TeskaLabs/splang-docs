@@ -55,7 +55,7 @@ else:
 
 Type: _Sequence_.
 
-`!WHEN` expression is condiderably more powerful than `!IF` expression.
+`!WHEN` expression is considerably more powerful than `!IF` expression.
 Cases can match many different patterns, including interval matches, tuples, and so on. 
 
 
@@ -122,6 +122,48 @@ Example of `!WHEN` use for exact match, range match and set match:
 {% endhighlight %}
 
 --- 
+
+## `!SWITCH`: Simple branching  {#EXPR-SWITCH}
+
+Type: _Mapping_.
+
+`! SWITCH ` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
+
+
+
+### Synopsis
+
+{% highlight yaml %}
+!SWITCH
+what: <expression>
+cases:
+  <value>: <expression>
+  <value>: <expression>
+  ...
+
+else:
+  <expression>
+{% endhighlight %}
+
+
+
+### Example
+
+Example of `!SWITCH`:
+
+{% highlight yaml %}
+!SWITCH
+what: 1
+cases:
+  1: "One"
+  2: "Two"
+  3: "Three"
+
+else:
+  "Other number"
+{% endhighlight %}
+
+---
 
 ## `!FIRST`: Execute till first non-error expression  {#EXPR-WHEN}
 
