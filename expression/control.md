@@ -123,12 +123,11 @@ Example of `!WHEN` use for exact match, range match and set match:
 
 --- 
 
-## `!SWITCH`: Simple branching  {#EXPR-SWITCH}
+## `!SWITCH`: Search and map branching  {#EXPR-SWITCH}
 
 Type: _Mapping_.
 
-`! SWITCH ` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
-
+`!SWITCH` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
 
 
 ### Synopsis
