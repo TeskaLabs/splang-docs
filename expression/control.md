@@ -50,11 +50,9 @@ else:
 
 --- 
 
-## `!SWITCH`: Search and map branching  {#EXPR-SWITCH}
+## `!SWITCH`: Multiple cases branching  {#EXPR-SWITCH}
 
 Type: _Mapping_.
-
-`!SWITCH` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
 
 `!SWITCH` is simplier but less versatile than `!WHEN`.
 
@@ -62,7 +60,7 @@ Type: _Mapping_.
 
 {% highlight yaml %}
 !SWITCH
-what: <expression>
+what: <what-expression>
 cases:
   <value>: <expression>
   <value>: <expression>
@@ -72,7 +70,9 @@ else:
   <expression>
 {% endhighlight %}
 
+`!SWITCH` expression evaluates the `what-expression`, matching the expression's value to a case clause, and executes `expression` associated with that case.
 
+    
 
 ### Example
 
@@ -85,7 +85,6 @@ cases:
   1: "One"
   2: "Two"
   3: "Three"
-
 else:
   "Other number"
 {% endhighlight %}
