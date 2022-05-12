@@ -48,6 +48,47 @@ else:
   It is NOT two.
 {% endhighlight %}
 
+--- 
+
+## `!SWITCH`: Search and map branching  {#EXPR-SWITCH}
+
+Type: _Mapping_.
+
+`!SWITCH` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
+
+`!SWITCH` is simplier but less versatile than `!WHEN`.
+
+### Synopsis
+
+{% highlight yaml %}
+!SWITCH
+what: <expression>
+cases:
+  <value>: <expression>
+  <value>: <expression>
+  ...
+
+else:
+  <expression>
+{% endhighlight %}
+
+
+
+### Example
+
+Example of `!SWITCH`:
+
+{% highlight yaml %}
+!SWITCH
+what: 1
+cases:
+  1: "One"
+  2: "Two"
+  3: "Three"
+
+else:
+  "Other number"
+{% endhighlight %}
 
 ---
 
@@ -119,48 +160,6 @@ Example of `!WHEN` use for exact match, range match and set match:
 
 - else:
     "Unknown"
-{% endhighlight %}
-
---- 
-
-## `!SWITCH`: Search and map branching  {#EXPR-SWITCH}
-
-Type: _Mapping_.
-
-`!SWITCH` expression evaluates an expression, matching the expression's value to a case clause, and executes expression associated with that case.
-
-`!SWITCH` is simplier but less versatile than `!WHEN`.
-
-### Synopsis
-
-{% highlight yaml %}
-!SWITCH
-what: <expression>
-cases:
-  <value>: <expression>
-  <value>: <expression>
-  ...
-
-else:
-  <expression>
-{% endhighlight %}
-
-
-
-### Example
-
-Example of `!SWITCH`:
-
-{% highlight yaml %}
-!SWITCH
-what: 1
-cases:
-  1: "One"
-  2: "Two"
-  3: "Three"
-
-else:
-  "Other number"
 {% endhighlight %}
 
 ---
