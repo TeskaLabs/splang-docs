@@ -38,7 +38,7 @@ toc:
 
   - title: Language internals
     items:
-    - {title: Design, url: /language/design}
+    - {title: Language design, url: /language/design}
     - {title: Type system, url: /language/type-system}
     - {title: Memory management, url: /language/memory}
     - {title: Performance, url: /language/performance}
