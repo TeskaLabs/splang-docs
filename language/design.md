@@ -3,7 +3,7 @@ layout: default
 title: SP-Lang Documentation
 ---
 
-# SP-Lang design
+# SP-Lang language design
 
 
 ## Properties
