@@ -27,7 +27,7 @@ toc:
     - {title: Dictionary, url: /expression/dict}
     - {title: Tuple, url: /expression/tuple}
     - {title: Record, url: /expression/record}
-    - {title: Function, url: /expression/function} 
+    - {title: Function, url: /expression/function}
     - {title: String, url: /expression/string}
     - {title: Regex, url: /expression/regex}
     - {title: Lookup, url: /expression/lookup}
@@ -44,4 +44,4 @@ toc:
     - {title: Performance, url: /language/performance}
     - {title: String, url: /language/string}
     - {title: Date/Time, url: /language/date-time}
-    - {title: Set & Dict, url: /language/set-dict}
+    - {title: Container types, url: /language/container-types}
