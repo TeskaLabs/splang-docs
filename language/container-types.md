@@ -3,7 +3,7 @@ layout: default
 title: SP-Lang Documentation
 ---
 
-# Details of structural types
+# Details of container types
 
 ## List
 
