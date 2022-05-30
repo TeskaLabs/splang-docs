@@ -83,10 +83,7 @@ _Warning: 256bit sizes are not fully supported yet._
 
 ## Boolean
 
-`ui1`, alias `bool`
-
-_Note: `si1` exists and it is technically also (kind of) boolean but `ui1` is preferred._
-
+A Boolean is a type that has one of two possible values denoted `True` and `False`.
 
 
 ## Floating-Point
