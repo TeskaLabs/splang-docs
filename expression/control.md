@@ -136,7 +136,6 @@ with:
   <value>: <expression>
   <value>: <expression>
   ...
-
 else:
   <expression>
 {% endhighlight %}
