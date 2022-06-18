@@ -48,60 +48,6 @@ else:
   It is NOT two.
 {% endhighlight %}
 
---- 
-
-## `!SWITCH`: Multiple cases branching  {#EXPR-SWITCH}
-
-Type: _Mapping_.
-
-`!SWITCH` is simplier but less versatile than `!WHEN`.
-
-### Synopsis
-
-{% highlight yaml %}
-!SWITCH
-what: <what-expression>
-cases:
-  <value>: <expression>
-  <value>: <expression>
-  ...
-
-else:
-  <expression>
-{% endhighlight %}
-
-`!SWITCH` expression evaluates the `what-expression`, matching the expression's value to a case clause, and executes `expression` associated with that case.
-
-    
-
-### Example
-
-Example of `!SWITCH`:
-
-{% highlight yaml %}
-!SWITCH
-what: 1
-cases:
-  1: "One"
-  2: "Two"
-  3: "Three"
-else:
-  "Other number"
-{% endhighlight %}
-
-    
-Use of `!SWITCH` to structure the code:
-
-{% highlight yaml %}
-!SWITCH
-what: !ARG code
-cases:
-  1: !INCLUDE code-1.yaml
-  2: !INCLUDE code-2.yaml
-else:
-  !INCLUDE code-else.yaml
-{% endhighlight %}
-
 ---
 
 ## `!WHEN`: Powerful branching  {#EXPR-WHEN}
@@ -174,6 +120,58 @@ Example of `!WHEN` use for exact match, range match and set match:
     "Unknown"
 {% endhighlight %}
 
+--- 
+
+## `!MATCH`: Pattern matching {#EXPR-MATCH}
+
+Type: _Mapping_.
+
+
+### Synopsis
+
+{% highlight yaml %}
+!MATCH
+what: <what-expression>
+with:
+  <value>: <expression>
+  <value>: <expression>
+  ...
+
+else:
+  <expression>
+{% endhighlight %}
+
+`!MATCH` expression evaluates the `what-expression`, matching the expression's value to a case clause, and executes `expression` associated with that case.
+
+    
+### Example
+
+Example of `!MATCH`:
+
+{% highlight yaml %}
+!MATCH
+what: 1
+with:
+  1: "One"
+  2: "Two"
+  3: "Three"
+else:
+  "Other number"
+{% endhighlight %}
+
+    
+Use of `!MATCH` to structure the code:
+
+{% highlight yaml %}
+!MATCH
+what: !ARG code
+with:
+  1: !INCLUDE code-1.yaml
+  2: !INCLUDE code-2.yaml
+else:
+  !INCLUDE code-else.yaml
+{% endhighlight %}
+  
 ---
 
 ## `!FIRST`: Execute till first non-error expression  {#EXPR-WHEN}
