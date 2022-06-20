@@ -39,19 +39,42 @@ Type: _Mapping_.
 ```yaml
 !IP.INSUBNET
 what: <ip>
-subnet: <string>
+subnet: <subnet>
 ```
 
-Test if `what` IP address belongs to a `subnet`, returns `true` if yes otherwise `false`.
+```yaml
+!IP.INSUBNET
+what: <ip>
+subnet:
+  - <string>
+  - <string>
+  - <string>
+```
 
+Test if `what` IP address belongs to a `subnet` or subnets , returns `true` if yes otherwise `false`.
 
-### Example
+### Example with a single subnet
 
 ```yaml
 !IP.INSUBNET
 what: 192.168.1.1
 subnet: 192.168.0.0/16
 ```
+
+
+### Example with multiple subnets
+
+```yaml
+!IP.INSUBNET
+what: 1.2.3.4
+subnet:
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 192.168.0.0/16
+```
+
+The test that check if IP address is from IPv4 private address space.
+
 
 ---
 
