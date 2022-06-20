@@ -33,6 +33,7 @@ toc:
     - {title: Lookup, url: /expression/lookup}
     - {title: IP Address, url: /expression/ip}
     - {title: Date/Time, url: /expression/datetime}
+    - {title: JSON, url: /expression/json}
     - {title: Utility, url: /expression/utility}
     - {title: Directives, url: /expression/directives}
 
