@@ -76,6 +76,15 @@ subnet:
 The test that check if IP address is from IPv4 private address space.
 
 
+More compact form:
+
+```yaml
+!IP.INSUBNET
+what: 1.2.3.4
+subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+```
+
+
 ---
 
 ## Parse of the IP address
