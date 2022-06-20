@@ -76,16 +76,22 @@ Type: _Mapping_.
 
 ```yaml
 !GET
-what: <key of the requested item>
+what: <key>
 from: <dict>
+default: <value>
 ```
+
+Get the item from the `dict` (dictionary) identified by the `key`.
+
+If the `key` is not found, return `default` or error if `default` is not provided.
+`default` is optional.
 
 ### Examples
 
 ```yaml
 !GET
 what: 3
-where:
+from:
   !DICT
   with:
     1: "One"
@@ -94,7 +100,6 @@ where:
 ```
 
 Returns `Three`.
-
 
 --- 
 
