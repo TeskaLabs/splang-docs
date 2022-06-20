@@ -73,7 +73,7 @@ subnet:
   - 192.168.0.0/16
 ```
 
-The test that check if IP address is from IPv4 private address space.
+The test that check if IP address is from IPv4 private address space as defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918).
 
 
 More compact form:
