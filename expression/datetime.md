@@ -227,7 +227,7 @@ The `timezone` if optional, if not provided UTC timezone is used.
 * `hour`, `H`: Hour
 * `minute`, `M`: Minute
 * `second`, `S`: Second
-* `microsecond`, `u`: Microsecond
+* `microsecond`, `f`: Microsecond
 
 * `weekday`, `w`: Day of the week
 
