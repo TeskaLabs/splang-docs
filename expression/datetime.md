@@ -28,7 +28,7 @@ Get a current date and time.
 
 ---
 
-## `!DATETIME`: ... {#EXPR-DATETIME}
+## `!DATETIME`: Construct the date/time {#EXPR-DATETIME}
 
 Type: _Mapping_.
 
@@ -102,7 +102,7 @@ timezone: "+05:00"
 
 ---
 
-## `!DATETIME.FORMAT`: ... {#EXPR-DATETIME-FORMAT}
+## `!DATETIME.FORMAT`: Format a date/time {#EXPR-DATETIME-FORMAT}
 
 Type: _Mapping_.
 
@@ -167,14 +167,85 @@ Prints the current local time as eg. `2022-12-31 12:34:56` using the timezone "E
 
 ---
 
-## `!DATETIME.PARSE`: ... {#EXPR-DATETIME-PARSE}
+## `!DATETIME.PARSE`: Parse a date/time {#EXPR-DATETIME-PARSE}
 
 Type: _Mapping_.
 
+Parse a date and time from a string.
+
+
+### Synopsis
+
+```yaml
+!DATETIME.PARSE
+what: <string>
+format: <format>
+timezone: <timezone>
+```
+
+Parse `what` string input using `format` string.
+The `timezone` information is optional, if provided, then it specifies local timezone of the `what` string.
+
+See "Format" chapter above for more information about `format`.
+
+
+### Example
+
+```yaml
+!DATETIME.PARSE
+what: "2021-06-29T16:51:43-08"
+format: "%y-%m-%dT%H:%M:%S%z"
+```
 
 ---
 
-## `!GET`: ...
+## `!GET`: Get a date/time component {#EXPR-DATETIME-GET}
 
 Type: _Mapping_.
 
+Extract the date/time component such as hour, minute, day etc. from `datetime`.
+
+
+### Synopsis
+
+```yaml
+!GET
+what: <string>
+from: <datetime>
+timezone: <timezone>
+```
+
+Extract the `what` component from `datetime`.
+The `timezone` if optional, if not provided UTC timezone is used.
+
+### Components
+
+* `year`, `y`: Year
+* `month`, `m`: Month
+* `day`, `d`: Day
+
+* `hour`, `H`: Hour
+* `minute`, `M`: Minute
+* `second`, `S`: Second
+* `microsecond`, `u`: Microsecond
+
+* `weekday`, `w`: Day of the week
+
+### Examples
+
+```yaml
+!GET
+what: H
+from: !NOW
+timezone: "Europe/Prague"
+```
+Get "hours" component of the current timestamp, using the "Europe/Prague" timezone.
+
+
+```yaml
+!GET
+what: year
+from: !NOW
+```
+
+Get a current year.
