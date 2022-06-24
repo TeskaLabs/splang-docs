@@ -243,9 +243,7 @@ Get "hours" component of the current timestamp, using the "Europe/Prague" timezo
 
 
 ```yaml
-!GET
-what: year
-from: !NOW
+!GET { what: year, from: !NOW }
 ```
 
 Get a current year.
