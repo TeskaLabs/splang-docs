@@ -41,6 +41,7 @@ toc:
     items:
     - {title: Language design, url: /language/design}
     - {title: Type system, url: /language/type-system}
+    - {title: Schema, url: /language/schema}
     - {title: Memory management, url: /language/memory}
     - {title: Performance, url: /language/performance}
     - {title: String, url: /language/string}
