@@ -141,16 +141,20 @@ Returns `FOOBAR`.
 
 Type: _Mapping_
 
-Cut the `what` string by a `delimiter` and return the piece identified by `field` index (starts with 0).
+Cut the string by a delimiter and return the piece identified by `field` index (starts with 0).
 
 ### Synopsis
 
 {% highlight yaml %}
 !CUT
-what: <...>
-delimiter: <...>
-field: 0
+what: <string>
+delimiter: <string>
+field: <int>
 {% endhighlight %}
+
+The argument `value` string will be split using a `delimiter` argument.
+The argument `field` specifies a number of the splited strings to return, starting with 0.
+If the negative `field` is provided, then field is taken from the end of the string, for example -2 means the second last substring.
 
 
 ### Example
@@ -168,15 +172,19 @@ field: 0
 
 Type: _Mapping_
 
-Splits a string into a list based on the separator.
+Splits a string into a list of strings.
 
 ### Synopsis
 
 {% highlight yaml %}
 !SPLIT
-value: <...>
-separator: <...>
+value: <string>
+delimiter: <string>
+maxsplit: <number>
 {% endhighlight %}
+
+The argument `value` string will be split using a `delimiter` argument.
+An optional `maxsplit` arguments specifies how many splits to do.
 
 
 ### Example
@@ -184,9 +192,8 @@ separator: <...>
 {% highlight yaml %}
 !SPLIT
 value: "hello,world"
-separator: ","
+delimiter: ","
 {% endhighlight %}
-
 
 ---
 
@@ -201,7 +208,7 @@ Type: _Mapping_
 items:
   - <...>
   - <...>
-delimiter: '-'
+delimiter: <string>
 miss: ''
 {% endhighlight %}
 
