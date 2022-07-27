@@ -101,10 +101,10 @@ splang.FunctionDeclaration(
 	name="main",
 	returns="bool",
 	arguments={
-		'myArgument': 'json<MYSCHEMA>'
+		'myArgument': 'json<INPLACESCHEMA>'
 	},
 	schemas=[
-		('MYSCHEMA', {
+		('INPLACESCHEMA', {
 			"field1": "str",
 			"field2": "si32",
 			"field3": "ui64",
@@ -112,3 +112,5 @@ splang.FunctionDeclaration(
 	]
 )
 ```
+
+It is done by using `tuple`, the first item is a schema name, the second is a dictionary with fields.
