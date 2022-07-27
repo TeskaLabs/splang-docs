@@ -96,7 +96,6 @@ fields:
 SP-Lang allows to specify schema directly in the `FunctionDeclaration` Python code:
 
 ```python
-
 splang.FunctionDeclaration(
 	name="main",
 	returns="bool",
