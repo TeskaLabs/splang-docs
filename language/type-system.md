@@ -271,9 +271,10 @@ In the case of dynamic regex pattern, the regex compilation happens during the e
 
 ## JSON
 
-`json`
+`json<SCHEMA>`
 
-Contains record-like JSON object.
+JSON object, result of the JSON parsing.
+It is schema-based type.
 
 
 # Function Type
@@ -292,18 +293,19 @@ Contains record-like JSON object.
 Pythonic types are object types that provides interfacing with the Python.
 
 
+## Python Dictionary
+
+`pydict<SCHEMA>`
+
+A [Python dictionary](https://docs.python.org/3/c-api/dict.html).
+It is a schema-based type.
+
+
 ## Python Object
 
 `pyobj`
 
 A generic [Python object](https://docs.python.org/3/c-api/object.html).
-
-
-## Python Dictionary
-
-`pydict`
-
-A [Python dictionary](https://docs.python.org/3/c-api/dict.html).
 
 
 ## Python List
@@ -317,7 +319,6 @@ A [Python list](https://docs.python.org/3/c-api/list.html).
 ## Python Tuple
 
 `pytuple`
-
 
 
 # Casting
@@ -338,3 +339,11 @@ or an equivalent shortcut:
 
 Note: Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
 
+
+# Schema-based types
+
+_Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
+Schema is basically a directory that maps fields to their types and so on.
+
+SP-Lang Schema-based type specifies the schema by a _schema name_: `json<SCHEMANAME>`.
+The _schema name_ is used to locate the schema definition eg. in the library.
