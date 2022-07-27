@@ -344,6 +344,7 @@ Note: Cast is also a great helper for type inference, it means that it could be 
 
 _Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
 Schema is basically a directory that maps fields to their types and so on.
+For more information, continue to a chapter about SP-Lang [schemas](schema).
 
 SP-Lang Schema-based type specifies the schema by a _schema name_: `json<SCHEMANAME>`.
 The _schema name_ is used to locate the schema definition eg. in the library.
