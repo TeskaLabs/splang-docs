@@ -7,6 +7,8 @@ title: SP-Lang Documentation
 
 This is the official documentation for SP-Lang. SP-Lang stands for _Stream Processing Language_.
 
+_SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_programming) that uses the [YAML](https://en.wikipedia.org/wiki/YAML) syntax.
+
 
 ## Purpose of the language
 
@@ -37,6 +39,16 @@ And the same example in the visual SP-Lang:
 
 Your first steps with SP-Lang start [here](tutorial).
 
+## Important features
+  
+ * [Functional](https://en.wikipedia.org/wiki/Functional_programming)
+ * [Declarative](https://en.wikipedia.org/wiki/Declarative_programming)
+ * [Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
+ * [Type inference](https://en.wikipedia.org/wiki/Type_inference)
+ * Interpreted in Python
+ * Compiled by [LLVM](https://llvm.org/)
+ * Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
+  
 
 ## Made with ❤️ by TeskaLabs
 
