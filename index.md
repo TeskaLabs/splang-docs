@@ -9,6 +9,8 @@ This is the official documentation for SP-Lang. SP-Lang stands for _Stream Proce
 
 _SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_programming) that uses the [YAML](https://en.wikipedia.org/wiki/YAML) syntax.
 
+<img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" />
+
 
 ## Purpose of the language
 
