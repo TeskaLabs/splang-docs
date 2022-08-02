@@ -178,12 +178,12 @@ Splits a string into a list of strings.
 
 {% highlight yaml %}
 !SPLIT
-value: <string>
+what: <string>
 delimiter: <string>
 maxsplit: <number>
 {% endhighlight %}
 
-The argument `value` string will be split using a `delimiter` argument.
+The argument `what` string will be split using a `delimiter` argument.
 An optional `maxsplit` arguments specifies how many splits to do.
 
 
@@ -191,7 +191,7 @@ An optional `maxsplit` arguments specifies how many splits to do.
 
 {% highlight yaml %}
 !SPLIT
-value: "hello,world"
+what: "hello,world"
 delimiter: ","
 {% endhighlight %}
 
