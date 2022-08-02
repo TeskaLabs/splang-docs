@@ -31,17 +31,14 @@ This allows the compiler to heavily optimize by deferring work until needed, pre
 SP-Lang favors pure functions without side effects.
 This results in logic, which is easier to understand and gives the compiler the most freedom to optimize.
 
-### Employed techniques
-
- * Static Single Assignment
- * Reduction thru syntax tree
-
-
 ## Stateless
 
 There is no state to modify, and therefore are no variables, just constants.
 You pass data through various expressions to build the final result.
 
+### More info
+   * [Static Single Assignment](https://en.wikipedia.org/wiki/Static_single-assignment_form)
+   * [Persistent Data Structures](https://en.wikipedia.org/wiki/Persistent_data_structure)
 
 ## Strongly typed
 
