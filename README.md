@@ -1,5 +1,7 @@
 # SP-Lang documentation
 
+![SP-lang logo](./splang-logo.jpg)
+
 ## Description
 
 Welcome to SP-Lang documentation!
