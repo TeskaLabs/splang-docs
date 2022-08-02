@@ -153,7 +153,7 @@ field: <int>
 {% endhighlight %}
 
 The argument `value` string will be split using a `delimiter` argument.
-The argument `field` specifies a number of the splited strings to return, starting with 0.
+The argument `field` specifies a number of the splited strings to return, starting with 0.  
 If the negative `field` is provided, then field is taken from the end of the string, for example -2 means the second last substring.
 
 
@@ -161,11 +161,24 @@ If the negative `field` is provided, then field is taken from the end of the str
 
 {% highlight yaml %}
 !CUT
-what: "Foo,Bar"
+what: "Apple,Orange,Melon,Citrus,Pear"
 delimiter: ","
-field: 0
+field: 2
 {% endhighlight %}
 
+Will return value "Melon".
+
+
+{% highlight yaml %}
+!CUT
+what: "Apple,Orange,Melon,Citrus,Pear"
+delimiter: ","
+field: -2
+{% endhighlight %}
+
+Will return value "Citrus".
+
+  
 ---
 
 ## `!SPLIT`: Split a string into the list {#EXPR-SPLIT}
