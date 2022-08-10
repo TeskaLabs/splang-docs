@@ -210,7 +210,7 @@ Signature: `(T1, T2, T3, ...)`
 
 It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#structure-type) in LLVM IR.
 
-_Note:_ A tuple with no members is an [unit](https://en.wikipedia.org/wiki/Unit_type).
+_Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
 
 
 ## Record
