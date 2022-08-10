@@ -230,7 +230,8 @@ A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure use
 `any`
 
 "Any" type can represent any other type.
-It shouldn't be used as a primary data type because it has an overhead but it is rather useful for typing of the dictionary that combines types (e.g. `{str:any}`) and other situations where type is not certain in the compile type.
+
+_Hint:_ It shouldn't be used as a primary data type because it has an overhead but it is rather useful for typing of the dictionary that combines types (e.g. `{str:any}`) and other situations where type is not certain in the compile type.
 
 
 
