@@ -170,27 +170,6 @@ The generic type starts with capital `T`.
 Also if the container type contains generic type, the _container type_ or _structural type_ itself is considered generic.
 
 
-# Structural types
-
-A structural type is a kind of composite type, i.e., a type formed by combining other types.
-
-
-## Tuple
-
-
-Signature: `(T1, T2, T3, ...)`
-
-It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#structure-type) in LLVM IR.
-
-
-## Record
-
-Signature: `(name1: T1, name2: T2, name3: T3, ...)`
-
-
-It is is equivalent to a C `struct`.
-
-
 # Container types
 
 
@@ -219,6 +198,42 @@ The list must contain a zero, one or many items of *the same type*.
  * `Tv` refers to a type of the value
 
 
+# Product types
+
+A [product type](https://en.wikipedia.org/wiki/Product_type) is a compounded type, formed by combining other types into a _structure_.
+
+
+## Tuple
+
+
+Signature: `(T1, T2, T3, ...)`
+
+It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#structure-type) in LLVM IR.
+
+_Note:_ A tuple with no members is an [unit](https://en.wikipedia.org/wiki/Unit_type).
+
+
+## Record
+
+Signature: `(name1: T1, name2: T2, name3: T3, ...)`
+
+
+It is is equivalent to a C `struct`.
+
+
+# Sum type
+
+A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure used to hold a value that could take on several different types.
+
+## Any
+
+`any`
+
+"Any" type can represent any other type.
+It shouldn't be used as a primary data type because it has an overhead but it is rather useful for typing of the dictionary that combines types (e.g. `{str:any}`) and other situations where type is not certain in the compile type.
+
+
+
 # Object types
 
 ## String
@@ -228,14 +243,6 @@ The list must contain a zero, one or many items of *the same type*.
 Must be in UTF-8 encoding.
 
 _Note: `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent._
-
-
-## Any
-
-`any`
-
-"Any" type can represent any other type.
-It shouldn't be used as a primary data type because it has an overhead but it is rather useful for typing of the dictionary that combines types (e.g. `{str:any}`) and other situations where type is not certain in the compile type.
 
 
 ## None
