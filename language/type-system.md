@@ -356,3 +356,12 @@ For more information, continue to a chapter about SP-Lang [schemas](schema).
 
 SP-Lang Schema-based type specifies the schema by a _schema name_: `json<SCHEMANAME>`.
 The _schema name_ is used to locate the schema definition eg. in the library.
+
+List of schema-based types:
+ * `pydict<...>`
+ * `json<...>`
+
+## Build-in schemas
+
+ * `ANY`: This schema declares any member to be of type `any`.
+ * `VOID`: This schema has no member, use in-place type definition to specify types of fields.
