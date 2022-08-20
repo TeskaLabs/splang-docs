@@ -14,10 +14,11 @@ _SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_pr
 
 ## Purpose of the language
 
-SP-Lang is aimed at people who don’t program, with a comparable simplicity to, e.g. spreadsheet macros.
+SP-Lang is aimed at people who don’t program, with a comparable simplicity to, e.g. spreadsheet macros or SQL.
 SP-Lang tries to do as much heavy lifting transparently for the user as possible.
+SP-Lang is a low-code language.
 
-It is a simple language for various [streaming](https://en.wikipedia.org/wiki/Event_stream_processing) tasks such as parsing of logs or other events, data filtering, enrichment, correlations and so on.
+It is a simple language for various [data stream processing](https://en.wikipedia.org/wiki/Event_stream_processing) tasks such as parsing of logs or other events, data filtering, enrichment, correlations and so on.
 
 SP-Lang delivers very high performance because it is compiled to <a href="https://en.wikipedia.org/wiki/Machine_code">the machine code<a>.
 This, together with extensive optimizations, gives the performance in the same category as C, Go or Rust; respective the highest possible performance.
