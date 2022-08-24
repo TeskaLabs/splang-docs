@@ -182,12 +182,16 @@ Also if the container type contains generic type, the _container type_ or _struc
 
 The list must contain a zero, one or many items of *the same type*.
 
+The type constructor is `!LIST` expression.
+
 
 ## Set
 
 `{Ti}`
 
  * `Ti` refers to a type of the item in the set
+
+The type constructor is `!SET` expression.
 
 
 ## Dictionary
@@ -196,6 +200,8 @@ The list must contain a zero, one or many items of *the same type*.
 
  * `Tk` refers to a type of the key
  * `Tv` refers to a type of the value
+
+The type constructor is `!DICT` expression.
 
 
 # Product types
@@ -208,6 +214,8 @@ A [product type](https://en.wikipedia.org/wiki/Product_type) is a compounded typ
 
 Signature: `(T1, T2, T3, ...)`
 
+The type constructor is `!TUPLE` expression.
+
 It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#structure-type) in LLVM IR.
 
 _Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
@@ -217,6 +225,7 @@ _Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikip
 
 Signature: `(name1: T1, name2: T2, name3: T3, ...)`
 
+The type constructor is `!RECORD` expression.
 
 It is is equivalent to a C `struct`.
 
