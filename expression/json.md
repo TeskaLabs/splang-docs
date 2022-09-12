@@ -21,27 +21,44 @@ Type: _Mapping_.
 
 ```yaml
 !GET
-what: <jsonpath>
+what: <item>
 type: <type>
 from: <json>
 default: <value>
 ```
 
-Get the item from the `json`  using JSONPath `jsonpath`.
-You may specify the item type by `type`.
-
-If the `jsonpath` is not found, return `default` or error if `default` is not provided.
+Get the item specified by the `what` from the `from` JSON object.
+If the item is not found, return `default` or error if `default` is not provided.
 `default` is optional.
 
-### Example
+You may optionally specify the item type by `type`.
+
+`what` parameter can be:
+
+* a dotted notation of the item, e.g. `foo` or `foo.bar` 
+* a simple [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901), e.g. `/foo` or `/foo/bar`
+
+The schema will be applied to infer the type of the item.
+
+### Example with dotted convention
 
 ```yaml
 !GET
-what: /string3
+what: foo.bar
+from: !ARG jsonmessage
+```
+
+
+### Example with JSON Pointer
+
+```yaml
+!GET
+what: /foo/bar
 type: str
-from: !ARG json
+from: !ARG jsonmessage
 default: "?"
 ```
+
 
 --- 
 
