@@ -71,10 +71,14 @@ Type: _Mapping_.
 ```yaml
 !JSON.PARSE
 what: <str>
+schema: <schema>
 ```
 
 Parse JSON string.
 The result can be used with e.g. `!GET` operator.
+
+Optional argument `schema` specifies the schema to be applied.
+The default schema is build-in `ANY`.
 
 
 ### Example
