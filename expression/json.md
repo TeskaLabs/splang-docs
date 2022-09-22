@@ -33,14 +33,7 @@ If the item is not found, return `default` or error if `default` is not provided
 
 You may optionally specify the item type by `type`.
 
-`what` parameter can be:
-
-* a dotted notation of the item, e.g. `foo` or `foo.bar` 
-* a simple [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901), e.g. `/foo` or `/foo/bar`
-
-The schema will be applied to infer the type of the item.
-
-### Example with dotted convention
+### Example
 
 ```yaml
 !GET
@@ -49,7 +42,19 @@ from: !ARG jsonmessage
 ```
 
 
-### Example with JSON Pointer
+### JSON Pointer
+
+If you want to access the item in the nested JSON, you need to use a [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) (e.g. `/foo/bar` o`/foo/bar`) as a `what` for that.
+
+The schema will be applied to infer the type of the item but for more complex access, the `type` argument is recommended.
+
+```json
+{
+  "foo": {
+    "bar": "Example"
+  }
+}
+```
 
 ```yaml
 !GET
@@ -58,7 +63,6 @@ type: str
 from: !ARG jsonmessage
 default: "?"
 ```
-
 
 --- 
 
