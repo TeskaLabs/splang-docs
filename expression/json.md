@@ -35,6 +35,16 @@ You may optionally specify the item type by `type`.
 
 ### Example
 
+JSON (aka `!ARG jsonmessage`):
+
+```json
+{
+  "foo.bar": "Example"
+}
+```
+
+Get the field `foo.bar` from a JSON above:
+
 ```yaml
 !GET
 what: foo.bar
