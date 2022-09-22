@@ -48,7 +48,7 @@ If you want to access the item in the nested JSON, you need to use a [JSON Point
 
 The schema will be applied to infer the type of the item but for more complex access, the `type` argument is recommended.
 
-`!ARG jsonmessage`:
+Nested JSON (aka `!ARG jsonmessage`):
 
 ```json
 {
@@ -57,6 +57,8 @@ The schema will be applied to infer the type of the item but for more complex ac
   }
 }
 ```
+
+Example of extraction of the string from the nested JSON:
 
 ```yaml
 !GET
