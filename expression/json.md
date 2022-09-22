@@ -48,6 +48,8 @@ If you want to access the item in the nested JSON, you need to use a [JSON Point
 
 The schema will be applied to infer the type of the item but for more complex access, the `type` argument is recommended.
 
+`!ARG jsonmessage`:
+
 ```json
 {
   "foo": {
@@ -61,7 +63,6 @@ The schema will be applied to infer the type of the item but for more complex ac
 what: /foo/bar
 type: str
 from: !ARG jsonmessage
-default: "?"
 ```
 
 --- 
