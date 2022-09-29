@@ -82,7 +82,7 @@ Type: _Sequence_
 {% endhighlight %}
 
 
-### Handling division by zero
+### Division by zero
 
 Division by zero produces the error, which can cascade thru the expression.
 
