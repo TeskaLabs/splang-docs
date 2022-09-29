@@ -81,6 +81,23 @@ Type: _Sequence_
 - 1.5
 {% endhighlight %}
 
+
+### Handling division by zero
+
+Division by zero produces the error, which can cascade thru the expression.
+
+`!FIRST` expression can be used to handle this situation.
+The first item in `!FIRST` is a `!DIV` that can produce division by zero error.
+The second item is a value that will be returned when such an error occurs.
+
+{% highlight yaml %}
+!FIRST
+- !DIV
+  - !ARG input
+  - 0.0
+- 5.0
+{% endhighlight %}
+
 ---
 
 
