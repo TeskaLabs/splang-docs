@@ -86,12 +86,12 @@ Type: _Sequence_
 
 Division by zero produces the error, which can cascade thru the expression.
 
-`!FIRST` expression can be used to handle this situation.
-The first item in `!FIRST` is a `!DIV` that can produce division by zero error.
+`!TRY` expression can be used to handle this situation.
+The first item in `!TRY` is a `!DIV` that can produce division by zero error.
 The second item is a value that will be returned when such an error occurs.
 
 {% highlight yaml %}
-!FIRST
+!TRY
 - !DIV
   - !ARG input
   - 0.0
