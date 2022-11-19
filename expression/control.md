@@ -173,7 +173,7 @@ else:
   
 ---
 
-## `!FIRST`: Execute till first non-error expression  {#EXPR-WHEN}
+## `!TRY`: Execute till first non-error expression  {#EXPR-TRY}
 
 
 Type: _Sequence_
@@ -182,14 +182,15 @@ Type: _Sequence_
 
 {% highlight yaml %}
 
-!FIRST
+!TRY
 - <expression>
 - <expression>
 - <expression>
 ...
 {% endhighlight %}
 
-Iterate thru expression (top down), if the expression return non-null (`None`) result, stop iteration and return that value. Otherwise continue to the next expression.
+Iterate thru expression (top down), if the expression return non-null (`None`) result, stop iteration and return that value.
+Otherwise continue to the next expression.
 
 Returns `None` (error) when end of the list is reached.
 
