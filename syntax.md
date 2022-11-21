@@ -12,6 +12,15 @@ title: SP-Lang Documentation
 
 SP-Lang syntax is using [YAML 1.2](https://yaml.org/spec/1.2)
 
+## Comments
+
+An comment is marked by a `#` indicator. 
+
+```yaml
+# This file contains no
+# SP-Lang, only comments.
+```
+
 
 ## Numbers
 
@@ -121,7 +130,6 @@ A _flow_ form example:
 More at: [YAML specs, 10.2. Mapping Styles](https://yaml.org/spec/1.1/#id932806)
 
 
-
 ### Sequence expression
 
 Example:
@@ -165,15 +173,25 @@ More at: [YAML specs, Chapter 9. Scalar Styles](https://yaml.org/spec/1.1/#id903
 _Note: Scalar expressions are not much used._
 
 
-## Comments
+## Anchors and Aliases
 
-An comment is marked by a `#` indicator. 
+SP-Lang leverages YAML [anchors and aliases](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases).
+It means that you may refer to the result of the other expression by "anchor".
+The anchor is a string starting with "&".
+The result of the expression annotated by the anchor can then be reused by the "alias", which is a string starting with "*", sharing the anchor's name.
+One anchor can be referenced by many aliases.
+
+Example:
 
 ```yaml
-# This file contains no
-# SP-Lang, only comments.
+!ADD
+- 1
+- &subcount !MUL
+  - 2
+  - 3
+- *subcount
+- *subcount
 ```
-
 
 ## Structure of the SP-Lang file
 
