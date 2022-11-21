@@ -175,7 +175,7 @@ _Note: Scalar expressions are not much used._
 
 ## Anchors and Aliases
 
-SP-Lang leverages YAML [anchors and aliases](https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases).
+SP-Lang leverages YAML [anchors](https://yaml.org/spec/1.1/#id899912) and [aliases]([https://yaml.org/spec/1.2.2/#3222-anchors-and-aliases](https://yaml.org/spec/1.1/#id902561)).
 It means that you may refer to the result of the other expression by "anchor".
 The anchor is a string starting with "&".
 The result of the expression annotated by the anchor can then be reused by the "alias", which is a string starting with "*", sharing the anchor's name.
