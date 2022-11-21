@@ -198,6 +198,9 @@ Otherwise continue to the next expression.
 Returns `None` (error) when end of the list is reached.
 
 
+Note: The obsoleted name of this expression was `!FIRST`.
+It was obsoleted in November 2022.
+    
 ---
 
 ## `!MAP`: Transform items in the sequence {#EXPR-MAP}
