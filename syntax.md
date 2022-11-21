@@ -193,6 +193,9 @@ Example:
 - *subcount
 ```
 
+Equals to `1+(2*3)+(2*3)+(2*3)` respective `19`.
+
+
 ## Structure of the SP-Lang file
 
 SP-Lang uses three dashes (`---`) to separate expressions from document content.
