@@ -142,6 +142,9 @@ else:
 
 `!MATCH` expression evaluates the `what-expression`, matching the expression's value to a case clause, and executes `expression` associated with that case.
 
+The `else` branch of the `!MATCH` is optional.
+The expression fails with error when no matching `<value>` is found and `else` branch is missing.
+
     
 ### Example
 
