@@ -8,15 +8,43 @@ title: SP-Lang documentation
 * This will become a table of contents (this text will be scrapped).
 {:toc}
 
-SP-Lang directives are expanded during compilation.
-They are not expressions.
+NOTE: SP-Lang directives are expanded during compilation. They are not expressions.
 
 --- 
 
-## `!INCLUDE`: ...  {#EXPR-INCLUDE}
+## `!INCLUDE`: Insert the contents of another file {#EXPR-INCLUDE}
+
+Type: Scalar.
+
+The `!INCLUDE` directive is used to paste a content of given file into current file.
+If included file is not found, SP-Lang renders error.
 
 
---- 
+### Synopsis
 
-## `!CONFIG`: ...  {#EXPR-CONFIG}
+{% highlight yaml %}
+!INCLUDE <filename>
+{% endhighlight %}
 
+The `filename` is a name of the file in the library to be included.
+
+It could be:
+
+* an absolute path, starting with `/` from the root of the library,
+* an relative path to the location of the file containing `!INCLUDE` statement
+
+### Example
+
+{% highlight yaml %}
+!INCLUDE other_file.yaml
+{% endhighlight %}
+
+{% highlight yaml %}
+!MATCH
+what: !GET {...}
+with:
+  'group1': !INCLUDE inc_group1.yaml
+  'group2': !INCLUDE inc_group2.yaml
+{% endhighlight %}
+
+In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.
