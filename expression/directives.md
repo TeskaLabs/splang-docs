@@ -41,6 +41,9 @@ It could be:
 !INCLUDE other_file.yaml
 {% endhighlight %}
 
+This is a simple inclusion of the `other_file.yaml`.
+  
+
 {% highlight yaml %}
 !MATCH
 what: !GET {...}
