@@ -32,6 +32,8 @@ It could be:
 
 * an absolute path, starting with `/` from the root of the library,
 * an relative path to the location of the file containing `!INCLUDE` statement
+  
+`.yaml` extension is optional and will be added to the `filename` if missing.
 
 ### Example
 
@@ -43,8 +45,8 @@ It could be:
 !MATCH
 what: !GET {...}
 with:
-  'group1': !INCLUDE inc_group1.yaml
-  'group2': !INCLUDE inc_group2.yaml
+  'group1': !INCLUDE inc_group1
+  'group2': !INCLUDE inc_group2
 {% endhighlight %}
 
 In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.
