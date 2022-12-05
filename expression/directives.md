@@ -12,9 +12,9 @@ NOTE: SP-Lang directives are expanded during compilation. They are not expressio
 
 --- 
 
-## `!INCLUDE`: Insert the contents of another file {#EXPR-INCLUDE}
+## `!INCLUDE`: Insert the content of another file {#EXPR-INCLUDE}
 
-Type: Scalar.
+Type: Scalar, Directive.
 
 The `!INCLUDE` directive is used to paste a content of given file into current file.
 If included file is not found, SP-Lang renders error.
