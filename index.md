@@ -3,7 +3,7 @@ layout: default
 title: SP-Lang Documentation
 ---
 
-# SP-Lang
+# SP-Lang Documentation
 
 Welcome to the documentation for SP-Lang. SP-Lang stands for _Stream Processing Language_.
 SP-Lang is designed to be intuitive and easy to use language, even for people who don't have experience with programming.
