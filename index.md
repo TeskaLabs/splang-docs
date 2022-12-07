@@ -6,7 +6,7 @@ title: SP-Lang Documentation
 # SP-Lang
 
 Welcome to the documentation for SP-Lang. SP-Lang stands for _Stream Processing Language_.
-SP-Lang is designed to be intuitive and easy to use, even for people who don't have experience with programming.
+SP-Lang is designed to be intuitive and easy to use language, even for people who don't have experience with programming.
 We strive to make it as simple to use as spreadsheet macros or SQL, allowing you to perform powerful data processing tasks with minimal effort.
 
 The key goal of SP-Lang is that it does a lot of the heavy lifting for you, so you can focus on what you want to accomplish rather than worrying about the details of how to implement it.
