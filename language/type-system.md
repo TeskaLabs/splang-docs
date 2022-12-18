@@ -255,16 +255,6 @@ Must be in UTF-8 encoding.
 _Note: `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent._
 
 
-## None
-
-`none`
-
-Represent a `None` type.
-
-_Note: None type is a special in a way, that this represents a failure in the SP-Lang, so basically any function can indicate failure._
-
-
-
 ## Bytes
 
 Planned.
