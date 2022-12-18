@@ -238,10 +238,10 @@ A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure use
 
 `any`
 
-"Any" type can represent any other type.
+The `any` type is a special type that represents a value that can have any type.
 
-_Hint:_ The `any` type shouldn't be used as a preferred type because it has an overhead.
-Still, it is rather helpful for typing the dictionary that combines types (e.g. `{str:any}`) and other situations where the type cannot be specified in the compile type.
+The `any` type shouldn't be used as a preferred type because it has an overhead.
+Still, it is rather helpful for typing the dictionary that combines types (e.g. `{str:any}`) and other situations where the type of the value is not known in the compile type.
 
 The value contained in `any` type is always located in the memory (e.g., pool); for this reason, this type is slower than others, which store value preferably in CPU registers.
 
