@@ -39,7 +39,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>4</td>
 		<td></td>
 		<td></td>
-		<td>0-15</td>
+		<td>0 … 15</td>
 		<td>OK (0)/Error (8)/Reserved</td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #f1ccb1;">
