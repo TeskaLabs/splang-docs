@@ -40,7 +40,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td></td>
 		<td></td>
 		<td></td>
-		<td>Reserved / Unused</td>
+		<td>OK (0)/Error (8)/Reserved</td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #f1ccb1;">
 		<td>46-57</td>
@@ -208,6 +208,14 @@ The `hour` and `minute` information is used to adjust date/time from local to UT
 _Note: currently, only one time change per month is supported, which seems to be fully sufficient for all info in IANA time zone database._
 
 Empty/unused next cells are zeroed.
+
+
+# Errors
+
+If `datetime` bit 63 is set, then the date/time value represents an error.
+Likely the expression that produced this value failed in some way.
+
+The error code is stored in lower 32bits.
 
 
 # Usefull links
