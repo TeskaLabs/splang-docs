@@ -57,7 +57,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>4</td>
 		<td>0x0F</td>
 		<td><code>ui8</code></td>
-		<td>1-12</td>
+		<td>1 … 12</td>
 		<td>Indexed from 1</td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #fcf2cf;">
@@ -66,7 +66,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>5</td>
 		<td>0x1F</td>
 		<td><code>ui8</code></td>
-		<td>1-31</td>
+		<td>1 … 31</td>
 		<td>Indexed from 1</td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #c1d5ed;">
@@ -75,7 +75,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>5</td>
 		<td>0x1F</td>
 		<td><code>ui8</code></td>
-		<td>0-24</td>
+		<td>0 … 24</td>
 		<td></td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #dfebf7;">
@@ -84,7 +84,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>6</td>
 		<td>0x3F</td>
 		<td><code>ui8</code></td>
-		<td>0-59</td>
+		<td>0 … 59</td>
 		<td></td>
 	</tr>
 	<tr style="border-top: 1px solid gray; background-color: #cbe0b9;">
@@ -93,7 +93,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>6</td>
 		<td>0x3F</td>
 		<td><code>ui8</code></td>
-		<td>0-60</td>
+		<td>0 … 60</td>
 		<td>60 is for leap second</td>
 	</tr>
 	<tr style="border-top: 1px solid gray; border-bottom: 1px solid gray; background-color: #e3eedd;">
@@ -102,7 +102,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 		<td>20</td>
 		<td></td>
 		<td><code>ui32</code></td>
-		<td>0-1000000</td>
+		<td>0 … 1000000</td>
 		<td></td>
 	</tr>
 </tbody>
