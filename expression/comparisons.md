@@ -150,8 +150,8 @@ Check for a presence of the value `5` in the list `where`. Returns "true".
 
 {% highlight yaml %}
 !IN
-  what: "Willy"
-  where: "John Willy Boo"
+what: "Willy"
+where: "John Willy Boo"
 {% endhighlight %}
 
 Check for a presence of the substring "Willy" in the `where` value. Returns "true".
