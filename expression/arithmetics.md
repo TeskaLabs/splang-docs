@@ -25,7 +25,6 @@ You can add following types:
  * Tuples
  * Records
 
-
 ### Example
 
 {% highlight yaml %}
@@ -49,6 +48,7 @@ Type: _Sequence_
 !SUB
 - 3
 - 1
+- -5
 {% endhighlight %}
 
 ---
@@ -64,10 +64,10 @@ Type: _Sequence_
 !MUL
 - 1.5
 - 5.5
+- 3.2
 {% endhighlight %}
 
 ---
-
 
 ## `!DIV`: Division {#EXPR-DIV}
 
@@ -98,8 +98,26 @@ The second item is a value that will be returned when such an error occurs.
 - 5.0
 {% endhighlight %}
 
+
 ---
 
+## `!MOD`: Reminder {#EXPR-MOD}
+
+Type: _Sequence_
+
+### Overview
+
+Calculate the signed remainder of a division (aka modulo operation).
+
+### Example
+
+{% highlight yaml %}
+!MOD
+- 21
+- 1.5
+{% endhighlight %}
+
+---
 
 ## `!POW`: Power {#EXPR-POW}
 
