@@ -119,13 +119,13 @@ Calculate the signed remainder of a division (aka modulo operation).
 
 ---
 
-## `!POW`: Power {#EXPR-POW}
+## `!POW`: Exponentiation {#EXPR-POW}
 
 Type: _Sequence_
 
 ### Overview
 
-Power or exponent.
+Calculate the exponent or power.
 
 ### Example
 
