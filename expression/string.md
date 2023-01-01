@@ -29,8 +29,8 @@ Evaluate to "true" if it finds a substring `what` in the string `where` and fals
 
 {% highlight yaml %}
 !IN
-  what: "Willy"
-  where: "John Willy Boo"
+what: "Willy"
+where: "John Willy Boo"
 {% endhighlight %}
 
 Check for a presence of the substring "Willy" in the `where` value. Returns "true".
@@ -42,11 +42,11 @@ There is a special variant on `!IN` operator for checking if any of strings prov
 
 {% highlight yaml %}
 !IN
-  what:
-    - "John"
-    - "Boo"
-    - "ly"
-  where: "John Willy Boo"
+what:
+  - "John"
+  - "Boo"
+  - "ly"
+where: "John Willy Boo"
 {% endhighlight %}
 
 This is very efficient way of checking if at least one substring is present in the `where` string.
