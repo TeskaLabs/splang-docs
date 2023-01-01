@@ -10,7 +10,7 @@ title: SP-Lang documentation
 
 ---
 
-## `!IN`: Contains a substring in a string {#EXPR-IN}
+## `!IN`: Test if the string contains a substring {#EXPR-IN}
 
 Type: _Mapping_.
 
