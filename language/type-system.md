@@ -83,7 +83,7 @@ _Warning: 256bit sizes are not fully supported yet._
 
 ## Boolean
 
-A Boolean is a type that has one of two possible values denoted `True` and `False`.
+A Boolean (`bool`) is a type that has one of two possible values denoted `True` and `False`.
 
 
 ## Floating-Point
