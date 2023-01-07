@@ -12,7 +12,7 @@ _Hint: Use [Regexr](https://regexr.com) to develop and test regular expressions.
 
 --- 
 
-## `!REGEX`: Regular expression match  {#EXPR-REGEX}
+## `!REGEX`: Regular expression search  {#EXPR-REGEX}
 
 Type: _Mapping_.
 
@@ -26,7 +26,7 @@ hit: <hit>
 miss: <miss>
 {% endhighlight %}
 
-Scan through `what` string looking for the first location where regular expression `regex` produces a match.
+Scan through `what` string looking for any location where regular expression `regex` produces a match.
 If there is a match, then returns `hit`, otherwise `miss` is returned.
   
 The expression `hit` is optional, default value is `true`.
