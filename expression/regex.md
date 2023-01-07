@@ -22,17 +22,40 @@ Type: _Mapping_.
 !REGEX
 what: <string>
 regex: <regex>
+hit: <hit>
+miss: <miss>
 {% endhighlight %}
 
-Provides an access to an argument `name`.
+Scan through `what` string looking for the first location where regular expression `regex` produces a match.
+If there is a match, then returns `hit`, otherwise `miss` is returned.
+  
+The expression `hit` is optional, default value is `true`.
+  
+The expression `miss` is optional, default value is `false`.
 
 
 ### Example
 
 {% highlight yaml %}
+!IF
+test:
+  !REGEX
+  what: "Hello world!"
+  regex: "world"
+then:
+  "Yes :-)"
+else:
+  "No ;-("
+{% endhighlight %}
+
+The above example can be also written as:
+  
+{% highlight yaml %}
 !REGEX
 what: "Hello world!"
 regex: "world"
+hit: "Yes :-)"
+miss: "No ;-("
 {% endhighlight %}
 
 --- 
