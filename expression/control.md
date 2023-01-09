@@ -203,60 +203,65 @@ It was obsoleted in November 2022.
     
 ---
 
-## `!MAP`: Transform items in the sequence {#EXPR-MAP}
+## `!MAP`: Apply the expression on each element in a sequence {#EXPR-MAP}
 
 Type: _Mapping_.
-
-The `apply` expression is applied to all items of a  `on` sequence.
 
 ### Synopsis
 
 ```yaml
 !MAP
+what: <sequence>
 apply: <expression>
-on: <sequence>
 ```
 
-`apply` expression is repeatitively called with local argument `a` containing the respective value from `on`.
+The `apply` expression is applied on each element in the `what` sequence with the argument `x` containing the respective item value.
+The result is a new list with transformed elements.
 
 ### Example
 
 ```yaml
 !MAP
-apply: !ADD [!ARG a, 1]
-on: [1, 2, 3, 4]
+what: [1, 2, 3, 4, 5, 6, 7]
+apply:
+  !ADD [!ARG x, 10]
 ```
 
-Result is `[2, 3, 4, 5]`.
-
-
+Result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
-## `!REDUCE`: Reduce the sequence into a single value {#EXPR-REDUCE}
+## `!REDUCE`: Reduce the sequence into a value {#EXPR-REDUCE}
 
 Type: _Mapping_.
+    
 
-Iterate through the values in `on` sequence, apply `apply` expression and produce a singular output value.
 
 ### Synopsis
 
 ```yaml
 !REDUCE
+what: <expression>
 apply: <expression>
-on: <sequence>
+initval: <expression>
+direction: left
 ```
-
-`apply` expression is called with local arguments `a` and `b`.
+    
+The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument 'b' containing the respective item value.
+    
+The `initval` expression provides the initial value for the `a` argument.
+    
+The `direction` value specifies a direction in which is the `what` sequence iterated; `left` (default value) means from left to right (from a list beginning to the end), `right` implies from right to left (from the list end to the begin).
 
 
 ### Example
 
 ```yaml
 !REDUCE
-apply: !ADD [!ARG a, !ARG b]
-on: [1, 2, 3, 4]
+what: [1, 2, 3, 4, 5, 6, 7]
+initval: -10
+apply:
+  !ADD [!ARG a, !ARG b]
 ```
 
-Calculates a sum of the `on` sequence, result is `10`.
-
+Calculates a sum of the sequence with an initial value -1, result is `18`: `-10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
