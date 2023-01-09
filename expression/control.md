@@ -244,14 +244,14 @@ Type: _Mapping_.
 what: <expression>
 apply: <expression>
 initval: <expression>
-direction: left
+fold: <left|right>
 ```
     
 The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument 'b' containing the respective item value.
     
 The `initval` expression provides the initial value for the `a` argument.
     
-The `direction` value specifies a direction in which is the `what` sequence iterated; `left` (default value) means from left to right (from a list beginning to the end), `right` implies from right to left (from the list end to the begin).
+An optional `fold` value specified a "left folding" (`left`, default) or a "right folding" (`right`).
 
 
 ### Example
