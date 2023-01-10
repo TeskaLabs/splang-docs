@@ -231,7 +231,7 @@ Result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
-## `!REDUCE`: Reduce the sequence into a value {#EXPR-REDUCE}
+## `!REDUCE`: Reduce the elements of an list into a single value {#EXPR-REDUCE}
 
 Type: _Mapping_.
     
