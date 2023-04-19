@@ -7,14 +7,14 @@ theme:
 
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: blue
+      accent: yellow
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -26,3 +26,19 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/TeskaLabs
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/teskalabs
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/teskalabs
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:info@teskalabs.com
+      name: info@teskalabs.com
