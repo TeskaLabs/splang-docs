@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: Welcome!
 ---
 
 # SP-Lang Documentation
@@ -18,7 +17,7 @@ We hope that this documentation will provide you with all the information you ne
 
 _SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_programming) that uses the [YAML](https://en.wikipedia.org/wiki/YAML) syntax.
 
-SP-Lang delivers very high performance because it is compiled to <a href="https://en.wikipedia.org/wiki/Machine_code">the machine code<a>.
+SP-Lang delivers very high performance because it is compiled to [the machine code](https://en.wikipedia.org/wiki/Machine_code).
 This, together with extensive optimizations, gives the performance in the same category as C, Go or Rust; respective the highest possible performance.
 
 For that reason, SP-Lang is a natural candidate for a cost-effective processing of the massive data streams in the cloud or on‑premise applications.
