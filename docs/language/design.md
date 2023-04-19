@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: SP-Lang language design
 ---
 
 # SP-Lang language design

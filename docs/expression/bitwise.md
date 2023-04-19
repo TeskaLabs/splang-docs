@@ -1,8 +1,5 @@
 ---
-layout: default
-title: SP-Lang documentation
-header: Bitwise expressions
-sidebar: splang
+title: Bitwise expressions
 ---
 
 # Bitwise expressions

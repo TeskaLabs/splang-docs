@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang documentation
+title: Logic expressions
 ---
 
 # Logic expressions

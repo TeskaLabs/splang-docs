@@ -1,5 +1,5 @@
 ---
-title: Syntax
+title: SP-Lang Syntax
 ---
 
 # SP-Lang Syntax

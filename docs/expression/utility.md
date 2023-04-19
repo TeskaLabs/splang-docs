@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang documentation
+title: Utility expressions
 ---
 
 # Utility expressions

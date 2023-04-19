@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: SP-Lang Performance
 ---
 
 # SP-Lang Performance
