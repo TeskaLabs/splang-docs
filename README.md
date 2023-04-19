@@ -6,8 +6,4 @@
 
 Welcome to SP-Lang documentation!
 
-You can find and edit documentation content in markdown files.
-
-This is a submodule of `teskalabs-docs` repository.
-Site's layout and docs index page can be edited in `teskalabs-docs` repository.
-
+You can find and edit documentation content in markdown files in `./docs` folder.
