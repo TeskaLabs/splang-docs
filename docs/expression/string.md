@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang documentation
+title: String expressions
 ---
 
 # String expressions

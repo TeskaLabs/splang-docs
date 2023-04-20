@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: Memory Management
 ---
 
 # Memory Management

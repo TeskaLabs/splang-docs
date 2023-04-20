@@ -1,5 +1,5 @@
 ---
-title: Tutorial
+title: SP-Lang Tutorial
 ---
 
 # SP-Lang Tutorial

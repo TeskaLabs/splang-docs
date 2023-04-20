@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: Visual programming in SP-Lang
 ---
 
 # Visual programming in SP-Lang

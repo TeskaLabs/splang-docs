@@ -1,5 +1,5 @@
 ---
-title: Welcome!
+title: SP-Lang Documentation
 ---
 
 # SP-Lang Documentation

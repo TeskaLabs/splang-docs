@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang Documentation
+title: Details of container types
 ---
 
 # Details of container types

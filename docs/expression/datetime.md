@@ -1,6 +1,5 @@
 ---
-layout: default
-title: SP-Lang documentation
+title: Date/time expressions
 ---
 
 # Date/time expressions
