@@ -133,3 +133,21 @@ Calculate the exponent or power.
 - 2
 - 8
 {% endhighlight %}
+
+---
+
+## `!ABS`: Absolute value
+
+Type: _Mapping_
+
+### Overview
+
+Calculate the absolute value of input `x`, which is the non-negative value of  `x` without regard to its sign.
+
+### Example
+
+{% highlight yaml %}
+!ABS
+what: 8
+{% endhighlight %}
+
