@@ -19,6 +19,8 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+  logo: images/teskalabs-logo.svg
+
 extra_css:
   - stylesheets/extra.css
 
@@ -29,7 +31,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-
 
 extra:
   social:
