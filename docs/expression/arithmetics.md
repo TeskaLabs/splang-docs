@@ -148,6 +148,7 @@ Calculate the absolute value of input `x`, which is the non-negative value of  `
 
 {% highlight yaml %}
 !ABS
-what: 8
+what: -8.5
 {% endhighlight %}
 
+The result is a value `8.5`.
