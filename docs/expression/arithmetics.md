@@ -140,7 +140,12 @@ Calculate the exponent or power.
 
 Type: _Mapping_
 
-### Overview
+### Synopsis
+
+```yaml
+!ABS
+what: <x>
+```
 
 Calculate the absolute value of input `x`, which is the non-negative value of  `x` without regard to its sign.
 
