@@ -9,7 +9,7 @@ title: Lookup expressions
 
 ---
 
-## `!LOOKUP`: xxx {#EXPR-LOOKUP}
+## `!LOOKUP`: xxx 
 
 Type: _Mapping_.
 

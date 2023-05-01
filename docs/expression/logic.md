@@ -9,18 +9,18 @@ title: Logic expressions
 
 ---
 
-## `!AND`: Conjunction {#EXPR-AND}
+## `!AND`: Conjunction 
 
 Type: _Sequence_
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !AND
 - <expression 1>
 - <expression 2>
 - ...
-{% endhighlight %}
+```
 
 ### Boolean `!AND`
 
@@ -28,7 +28,7 @@ Boolean conjunction `!AND` is an boolean functional operation on sequence of log
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !AND
 - !EQ
   - !ARG vendor
@@ -36,7 +36,7 @@ Boolean conjunction `!AND` is an boolean functional operation on sequence of log
 - !EQ 
   - !ARG product
   - LogMan.io
-{% endhighlight %}
+```
 
 
 ### Bitwise  `!AND`
@@ -45,28 +45,28 @@ When `!AND` is applied on integers (instead on boolean) types, it provides a bit
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !AND
 - !ARG PRI
 - 7
-{% endhighlight %}
+```
 
 In this example, the argument `PRI` is masked with 7 (in binary `00000111`).
 
 ---
 
-## `!OR`: Disjunction {#EXPR-OR}
+## `!OR`: Disjunction 
 
 Type: _Sequence_
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !OR
 - <expression 1>
 - <expression 2>
 - ...
-{% endhighlight %}
+```
 
 
 ### Boolean `!OR`
@@ -80,16 +80,16 @@ When `!OR` is applied on integers (instead on boolean) types, it provides a bitw
 
 ---
 
-## `!NOT`: Negation {#EXPR-NOT}
+## `!NOT`: Negation 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !NOT
 what: <expression>
-{% endhighlight %}
+```
 
 ### Boolean `!NOT`
 

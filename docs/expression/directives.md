@@ -11,7 +11,7 @@ NOTE: SP-Lang directives are expanded during compilation. They are not expressio
 
 --- 
 
-## `!INCLUDE`: Insert the content of another file {#EXPR-INCLUDE}
+## `!INCLUDE`: Insert the content of another file 
 
 Type: Scalar, Directive.
 
@@ -21,9 +21,9 @@ If included file is not found, SP-Lang renders error.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !INCLUDE <filename>
-{% endhighlight %}
+```
 
 The `filename` is a name of the file in the library to be included.
 
@@ -36,19 +36,19 @@ It could be:
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !INCLUDE other_file.yaml
-{% endhighlight %}
+```
 
 This is a simple inclusion of the `other_file.yaml`.
   
 
-{% highlight yaml %}
+```yaml
 !MATCH
 what: !GET {...}
 with:
   'group1': !INCLUDE inc_group1
   'group2': !INCLUDE inc_group2
-{% endhighlight %}
+```
 
 In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.

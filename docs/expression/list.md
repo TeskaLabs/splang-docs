@@ -17,17 +17,17 @@ _Note: The list is sometimes also called an array (inaccurately)._
 
 --- 
 
-## `!LIST`: List of items {#EXPR-LIST}
+## `!LIST`: List of items 
 
 Type:  _Implicit sequence_, _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !LIST
 - ...
 - ...
-{% endhighlight %}
+```
 
 _Hint: Use `!COUNT` to determine number of items in the list._
 
@@ -36,37 +36,37 @@ _Hint: Use `!COUNT` to determine number of items in the list._
 
 There are several ways, how a list can be specified in SP-Lang:
 
-{% highlight yaml %}
+```yaml
 !LIST
 - "One"
 - "Two"
 - "Three"
 - "Four"
 - "Five"
-{% endhighlight %}
+```
 
 
 Implicit list using [YAML block sequences](https://yaml.org/spec/1.2.2/#821-block-sequences):
 
-{% highlight yaml %}
+```yaml
 - "One"
 - "Two"
 - "Three"
 - "Four"
 - "Five"
-{% endhighlight %}
+```
 
 
 Implicit list using [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
-{% highlight yaml %}
+```yaml
 ["One", "Two", "Three", "Four", "Five"]
-{% endhighlight %}
+```
 
 
 The mapping form:
 
-{% highlight yaml %}
+```yaml
 !LIST
 with:
   - "One"
@@ -74,22 +74,22 @@ with:
   - "Three"
   - "Four"
   - "Five"
-{% endhighlight %}
+```
 
 --- 
 
-## `!GET`: Get the item from the list {#EXPR-LIST-GET}
+## `!GET`: Get the item from the list 
 
 Type: _Mapping_.
 
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !GET
 what: <index of the item in the list>
 from: <list>
-{% endhighlight %}
+```
 
 `index` is an integer (number).
 
@@ -101,7 +101,7 @@ If the `index` is out of bound of the list, the statement returns with error.
 
 ### Examples
 
-{% highlight yaml %}
+```yaml
 !GET
 what: 3
 from:
@@ -112,12 +112,12 @@ from:
   - 50
   - 80
   - 120
-{% endhighlight %}
+```
 
 Returns `50`.
 
 
-{% highlight yaml %}
+```yaml
 !GET
 what: -1
 from:
@@ -128,7 +128,7 @@ from:
   - 50
   - 80
   - 120
-{% endhighlight %}
+```
 
 Returns the last item in the list, which is `120`.
 

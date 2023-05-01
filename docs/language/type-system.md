@@ -329,17 +329,17 @@ A [Python list](https://docs.python.org/3/c-api/list.html).
 
 Use `!CAST` expression for change of the type of a value.
 
-{% highlight yaml %}
+```yaml
 !CAST
 what: 1234
 type: fp32
-{% endhighlight %}
+```
 
 or an equivalent shortcut:
 
-{% highlight yaml %}
+```yaml
 !!fp32 1234
-{% endhighlight %}
+```
 
 Note: Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
 
