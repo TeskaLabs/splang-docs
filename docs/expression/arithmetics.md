@@ -151,9 +151,9 @@ Calculate the absolute value of input `x`, which is the non-negative value of  `
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !ABS
 what: -8.5
-{% endhighlight %}
+```
 
 The result is a value `8.5`.
