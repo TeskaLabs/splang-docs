@@ -18,7 +18,7 @@ Hint: You may know this structure under alernative names "associative array" or 
 
 --- 
 
-## `!DICT`: Dictionary {#EXPR-DICT}
+## `!DICT`: Dictionary 
 
 Type:  _Mapping_
 
@@ -92,7 +92,7 @@ In the above example, the type of the dictionary is `{str:any}`, the type of key
 
 --- 
 
-## `!GET`: Get the value from a dictionary {#EXPR-DICT-GET}
+## `!GET`: Get the value from a dictionary 
 
 Type: _Mapping_.
 
@@ -128,7 +128,7 @@ Returns `Three`.
 
 --- 
 
-## `!IN`: Membership test {#EXPR-DICT-IN}
+## `!IN`: Membership test 
 
 Type: _Mapping_.
 

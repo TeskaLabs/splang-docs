@@ -13,19 +13,19 @@ A tuple is a collection of items, possibly of different types.
 
 --- 
 
-## `!TUPLE`: A collection of items {#EXPR-TUPLE}
+## `!TUPLE`: A collection of items 
 
 Type:  _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !TUPLE
 with:
   - ...
   - ...
   ...
-{% endhighlight %}
+```
 
 There is no limit of the number of items in the tuple.
 The order of the items is preserved.
@@ -33,58 +33,58 @@ The order of the items is preserved.
 
 ### Examples
 
-{% highlight yaml %}
+```yaml
 !TUPLE
 with:
   - John Doe
   - 37
   - 175.4
-{% endhighlight %}
+```
 
 
 Use of the `!!tuple` notation:
 
-{% highlight yaml %}
+```yaml
 !!tuple
 - 1
 - a
 - 1.2
-{% endhighlight %}
+```
 
 
 Even more concise version of the `!!tuple` using flow syntax:
 
-{% highlight yaml %}
+```yaml
 !!tuple ['John Doe', 37, 175.4]
-{% endhighlight %}
+```
 
 
 Enforce specific type of the item:
 
-{% highlight yaml %}
+```yaml
 !TUPLE
 with:
   - John Doe
   - !!ui8 37
   - 175.4
-{% endhighlight %}
+```
 
 Item #1 will have a type `ui8`.
 
 
 --- 
 
-## `!GET`: Get the item from a tuple {#EXPR-TUPLE-GET}
+## `!GET`: Get the item from a tuple 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !GET
 what: <index of the item>
 from: <tuple>
-{% endhighlight %}
+```
 
 `what` is an integer (number), it represent the _index_ in a tuple.
 `what` can be negative, in that case, it specifies an item from the end of the list.
@@ -94,7 +94,7 @@ If the `what` is out of bound of the list, the statement returns with error.
 
 ### Examples
 
-{% highlight yaml %}
+```yaml
 !GET
 what: 1
 from:
@@ -103,14 +103,14 @@ from:
     - John Doe
     - 32
     - 127.5
-{% endhighlight %}
+```
 
 Returns `32`.
 
 
 Using the _negative index_ of items:
 
-{% highlight yaml %}
+```yaml
 !GET
 what: -1
 from:
@@ -119,6 +119,6 @@ from:
     - John Doe
     - 32
     - 127.5
-{% endhighlight %}
+```
 
 Returns `127.5`.

@@ -13,7 +13,7 @@ IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](htt
 
 --- 
 
-## `!IP.FORMAT`: Convert an IP address into a string  {#EXPR-IP-FORMAT}
+## `!IP.FORMAT`: Convert an IP address into a string  
 
 Type: _Mapping_.
 
@@ -29,7 +29,7 @@ Convert the internal representation of the IP address into a string.
 
 --- 
 
-## `!IP.INSUBNET`: Check if IP address falls into a subnet {#EXPR-IP-INSUBNET}
+## `!IP.INSUBNET`: Check if IP address falls into a subnet 
 
 Type: _Mapping_.
 

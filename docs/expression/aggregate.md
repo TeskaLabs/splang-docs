@@ -9,7 +9,7 @@ title: Aggregate expressions
 
 ---
 
-## `!AVG`: Average {#EXPR-AVG}
+## `!AVG`: Average 
 
 Type: _Sequence_
 
@@ -19,18 +19,18 @@ Calculate the average / arithmetic mean.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !AVG
 - 1
 - 2
 - 3
-{% endhighlight %}
+```
 
 Calculation of the average `(1+2+3)/3`,  the result is `2`.
 
 ---
 
-## `!MAX`: Maximum {#EXPR-MAX}
+## `!MAX`: Maximum 
 
 Type: _Sequence_
 
@@ -39,19 +39,19 @@ Returns a maximum value from the seqence.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MAX
 - 1.5
 - 2.6
 - 3.05
 - 4.45
 - 5.1
-{% endhighlight %}
+```
 
 
 ---
 
-## `!MIN`: Minimum {#EXPR-MIN}
+## `!MIN`: Minimum 
 
 Type: _Sequence_
 
@@ -59,24 +59,24 @@ Returns a minimum value from the seqence.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MIN
 - 0.5
 - 2.6
 - 3.05
 - 4.45
 - 5.1
-{% endhighlight %}
+```
 
 ---
 
-## `!COUNT`: Count number of elements {#EXPR-COUNT}
+## `!COUNT`: Count number of elements 
 
 Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !COUNT
 - Frodo Baggins
 - Sam Gamgee
@@ -87,13 +87,13 @@ Type: _Sequence_
 - Boromir of Gondor
 - Merry Brandybuck
 - Pippin Took
-{% endhighlight %}
+```
 
 Returns `9`.
 
 ---
 
-## `!MEDIAN`: The middle value {#EXPR-MEDIAN}
+## `!MEDIAN`: The middle value 
 
 Type: _Sequence_
 
@@ -102,18 +102,18 @@ Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MEDIAN
 - 1
 - 4
 - -1
 - 9
 - 101
-{% endhighlight %}
+```
 
 ---
 
-## `!MODE`: Value that appears most often {#EXPR-MODE}
+## `!MODE`: Value that appears most often 
 
 Type: _Sequence_
 
@@ -122,7 +122,7 @@ Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MODE
 - -10
 - -10
@@ -133,11 +133,11 @@ Type: _Sequence_
 - 3
 - 4
 - 5
-{% endhighlight %}
+```
 
 ---
 
-## `!RANGE`: The difference between the largest and smallest value {#EXPR-RANGE}
+## `!RANGE`: The difference between the largest and smallest value 
 
 Type: _Sequence_
 
@@ -147,11 +147,11 @@ Calculates the difference between the largest and smallest values.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !RANGE
 - 1
 - 3
 - 4
 - 20
 - -1
-{% endhighlight %}
+```

@@ -10,7 +10,7 @@ title: Functions expressions
 
 --- 
 
-## `!ARGUMENT`, `!ARG`: Get a function argument  {#EXPR-ARG}
+## `!ARGUMENT`, `!ARG`: Get a function argument  
 
 Type: _Mapping_.
 
@@ -31,7 +31,7 @@ Provides an access to an argument `name`.
 
 --- 
 
-## `!FUNCTION`, `!FN`: Define a function {#EXPR-FUNCTION}
+## `!FUNCTION`, `!FN`: Define a function 
 
 
 Type: _Mapping_.
@@ -85,7 +85,7 @@ do:
 
 --- 
 
-## `!SELF`: Apply a current function  {#EXPR-SET}
+## `!SELF`: Apply a current function  
 
 Type: _Mapping_.
 

@@ -9,28 +9,28 @@ title: String expressions
 
 ---
 
-## `!IN`: Test if the string contains a substring {#EXPR-IN}
+## `!IN`: Test if the string contains a substring 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !IN
 what: <...>
 where: <...>
-{% endhighlight %}
+```
 
 The `!IN` expression is used to check if a string `what` exists in a string `where` or not.
 Evaluate to "true" if it finds a substring `what` in the string `where` and false otherwise.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !IN
 what: "Willy"
 where: "John Willy Boo"
-{% endhighlight %}
+```
 
 Check for a presence of the substring "Willy" in the `where` value. Returns "true".
 
@@ -39,14 +39,14 @@ Check for a presence of the substring "Willy" in the `where` value. Returns "tru
 
 There is a special variant on `!IN` operator for checking if any of strings provided in `what` value (a list in this case) is in the string. It is efficient, optimized implementation of the multi-string matcher.
 
-{% highlight yaml %}
+```yaml
 !IN
 what:
   - "John"
   - "Boo"
   - "ly"
 where: "John Willy Boo"
-{% endhighlight %}
+```
 
 This is very efficient way of checking if at least one substring is present in the `where` string.
 It provides [Incremental String Matching](http://se.ethz.ch/~meyer/publications/string/string_matching.pdf) algorithm for fast pattern matching in strings.
@@ -54,7 +54,7 @@ It makes it an ideal tool for complex filtering as a standalone bit or an optimi
 
 Example of `!REGEX` optimization by multi-string `!IN`:
 
-{% highlight yaml %}
+```yaml
 !AND
 - !IN
   where: !ARG message
@@ -69,7 +69,7 @@ Example of `!REGEX` optimization by multi-string `!IN`:
 - !REGEX
   what: !ARG message
   regex: '(msgbox|showmod(?:al|eless)dialog|showhelp|prompt|write)|(test[0-9])|([a-z]@mail\.com)'
-{% endhighlight %}
+```
 
 This approach is recommended from applications in streams, where you need to filter an extensive amount of the data with assumption that only a smaller portion of the data matches the patters.
 An application of the `!REGEX` expression directly will slow processing down significantly, because it is complex regular expression.
@@ -85,7 +85,7 @@ For that reason, the `!IN` must be a perfect superset of the `!REGEX`, it means:
 
 ---
 
-## `!STARTSWITH`: Test if the string starts with a prefix {#EXPR-STARTSWITH}
+## `!STARTSWITH`: Test if the string starts with a prefix 
 
 Type: _Mapping_
 
@@ -93,24 +93,24 @@ Returns `true` if `what` string begins with `prefix`.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !STARTSWITH
 what: <...>
 prefix: <...>
-{% endhighlight %}
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !STARTSWITH
 what: "FooBar"
 prefix: "Foo"
-{% endhighlight %}
+```
 
 ---
 
-## `!ENDSWITH`: Test if the string ends with a postfix {#EXPR-ENDSWITH}
+## `!ENDSWITH`: Test if the string ends with a postfix 
 
 Type: _Mapping_
 
@@ -118,24 +118,24 @@ Returns `true` if `what` string ends with `postfix`.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !ENDSWITH
 what: <...>
 postfix: <...>
-{% endhighlight %}
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !ENDSWITH
 what: "autoexec.bat"
 postfix: ".bat"
-{% endhighlight %}
+```
 
 ---
 
-## `!SUBSTRING`: Extract part of the string {#EXPR-SUBSTRING}
+## `!SUBSTRING`: Extract part of the string 
 
 Type: _Mapping_
 
@@ -143,76 +143,76 @@ Return part of the string `what`, in between `from` and `to` index.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SUBSTRING
 what: <...>
 from: <...>
 to: <...>
-{% endhighlight %}
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !SUBSTRING
 what: "FooBar"
 from: 1
 to: 3
-{% endhighlight %}
+```
 
 Returns `oo`.
 
 ---
 
-## `!LOWER`: Transform string to lower-case {#EXPR-LOWER}
+## `!LOWER`: Transform string to lower-case 
 
 Type: _Mapping_
 
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !LOWER
 what: <...>
-{% endhighlight %}
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !LOWER
 what: "FooBar"
-{% endhighlight %}
+```
 
 Returns `foobar`.
 
 
 ---
 
-## `!UPPER`: Transform string to upper-case {#EXPR-UPPER}
+## `!UPPER`: Transform string to upper-case 
 
 Type: _Mapping_
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !UPPER
 what: <...>
-{% endhighlight %}
+```
 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !UPPER
 what: "FooBar"
-{% endhighlight %}
+```
 
 Returns `FOOBAR`.
 
 ---
 
-## `!CUT`: Cut portion of the string {#EXPR-CUT}
+## `!CUT`: Cut portion of the string 
 
 Type: _Mapping_
 
@@ -220,12 +220,12 @@ Cut the string by a delimiter and return the piece identified by `field` index (
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !CUT
 what: <string>
 delimiter: <string>
 field: <int>
-{% endhighlight %}
+```
 
 The argument `value` string will be split using a `delimiter` argument.
 The argument `field` specifies a number of the splited strings to return, starting with 0.  
@@ -234,29 +234,29 @@ If the negative `field` is provided, then field is taken from the end of the str
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !CUT
 what: "Apple,Orange,Melon,Citrus,Pear"
 delimiter: ","
 field: 2
-{% endhighlight %}
+```
 
 Will return value "Melon".
 
 
-{% highlight yaml %}
+```yaml
 !CUT
 what: "Apple,Orange,Melon,Citrus,Pear"
 delimiter: ","
 field: -2
-{% endhighlight %}
+```
 
 Will return value "Citrus".
 
   
 ---
 
-## `!SPLIT`: Split a string into the list {#EXPR-SPLIT}
+## `!SPLIT`: Split a string into the list 
 
 Type: _Mapping_
 
@@ -264,12 +264,12 @@ Splits a string into a list of strings.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SPLIT
 what: <string>
 delimiter: <string>
 maxsplit: <number>
-{% endhighlight %}
+```
 
 The argument `what` string will be split using a `delimiter` argument.
 An optional `maxsplit` arguments specifies how many splits to do.
@@ -277,28 +277,28 @@ An optional `maxsplit` arguments specifies how many splits to do.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !SPLIT
 what: "hello,world"
 delimiter: ","
-{% endhighlight %}
+```
 
 ---
 
-## `!JOIN`: Join a list of strings {#EXPR-JOIN}
+## `!JOIN`: Join a list of strings 
 
 Type: _Mapping_
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !JOIN
 items:
   - <...>
   - <...>
 delimiter: <string>
 miss: ''
-{% endhighlight %}
+```
 
 Default `delimiter` is space (" ").
 
@@ -307,10 +307,10 @@ If `miss` is `None` and  any of `items` is `None`, the result of the whole join 
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !JOIN
 items:
   - "Foo"
   - "Bar"
 delimiter: ','
-{% endhighlight %}
+```
