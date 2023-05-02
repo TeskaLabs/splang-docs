@@ -15,7 +15,7 @@ Broken time means that year, month, day, hour, minute, second and microsecond ar
 
 The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format, Intel/AMD 64bit native.
 
-<img src="date-time-bit-layout.jpg" alt="Schema of the data/time bit layout" />
+<img src="../date-time-bit-layout.jpg" alt="Schema of the data/time bit layout" />
 
 <table style="width: 100%;">
 <colgroup>
@@ -161,7 +161,7 @@ Unspecified bytes are set to `0` and reserved for a future use.
 
 The _parser table_ is a lookup table used for conversion from the local date/time into UTC.
 
-<img src="date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
+<img src="../date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
 
 The table is organised into rows/years and columns/months.
 The cell is 4 bytes wide, the row is then 64 bytes long.

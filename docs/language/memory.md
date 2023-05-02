@@ -6,7 +6,7 @@ title: Memory Management
 
 Memory management in SP-Lang is based on [memory arenas](https://en.wikipedia.org/wiki/Region-based_memory_management) concept.
 
-<img src = "memory-arena.svg" alt="Memory arena schema"/>
+<img src="../memory-arena.svg" alt="Memory arena schema"/>
 
 _Diagram: Memory arena layout_
 
