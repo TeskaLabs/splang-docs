@@ -4,8 +4,6 @@ title: SP-Lang Performance
 
 # SP-Lang Performance
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 # Introduction
 

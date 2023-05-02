@@ -4,8 +4,6 @@ title: Bitwise expressions
 
 # Bitwise expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The bit shifts treat a value as a series of bits, the binary digits of the value are moved, or shifted, to the left or right.
 

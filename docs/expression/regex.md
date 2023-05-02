@@ -4,8 +4,6 @@ title: Regex expressions
 
 # Regex expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 _Hint: Use [Regexr](https://regexr.com) to develop and test regular expressions._
 

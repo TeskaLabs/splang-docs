@@ -5,8 +5,6 @@ title: Set expression
 # Set expression
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The set store unique items, without any particular order.
 Items in the set must be of the same type.

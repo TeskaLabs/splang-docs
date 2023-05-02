@@ -4,8 +4,6 @@ title: IP Address expressions
 
 # IP Address expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 IP addresses are represented internally as a number, 128bit unsigned integer.
 Such a type can contain both IPv6 and IPv4.

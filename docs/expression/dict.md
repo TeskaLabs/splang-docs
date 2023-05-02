@@ -5,8 +5,6 @@ title: Dictionary expression
 # Dictionary expression
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The dict (aka dictionary) store a collection of (key, value) pairs, such that each possible key appears at most once in the collection.
 Keys in the dictionary must be of the same type as well as values.

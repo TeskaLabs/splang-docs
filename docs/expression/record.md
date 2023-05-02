@@ -5,8 +5,6 @@ title: Record expressions
 # Record expressions
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The record is one of basic data structures provided by SP-Lang.
 A record is a collection of items, possibly of different types.

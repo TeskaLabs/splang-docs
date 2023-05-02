@@ -4,8 +4,6 @@ title: JSON
 
 # JSON
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 SP-Lang offers a [high-speed access](https://simdjson.org) to JSON data objects.
 

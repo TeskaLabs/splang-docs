@@ -4,8 +4,6 @@ title: SP-Lang Syntax
 
 # SP-Lang Syntax
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 ---
 

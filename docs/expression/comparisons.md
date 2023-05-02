@@ -4,8 +4,6 @@ title: Comparisons expressions
 
 # Comparisons expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 Test expression evaluates inputs and returns boolean value `true` or `false` based on the result of the test.
 

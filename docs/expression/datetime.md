@@ -4,8 +4,6 @@ title: Date/time expressions
 
 # Date/time expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 Date and time is expressed in SP-Lang by a `datetime`.
 It has a microsecond resolution and a range from year 8190 B.C. to a year 8191.

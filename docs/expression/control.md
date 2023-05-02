@@ -4,8 +4,6 @@ title: Control expressions
 
 # Control expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 SP-Lang provides a variety of control flow statements. 
 

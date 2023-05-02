@@ -5,8 +5,6 @@ title: Tuple expressions
 # Tuple expressions
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The tuple is one of basic data structures provided by SP-Lang.
 A tuple is a collection of items, possibly of different types.

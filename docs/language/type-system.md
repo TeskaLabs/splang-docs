@@ -6,8 +6,6 @@ title: SP-Lang Type system
 
 This is detailed description of the type system used in SP-Lang.
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 # Scalar types
 

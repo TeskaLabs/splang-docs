@@ -5,8 +5,6 @@ title: List expressions
 # List expressions
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The list is one of basic data structures provided by SP-Lang.
 The list contains a finite number of ordered item, where the same item may occur more than once.
