@@ -17,8 +17,6 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 
 <img src="../date-time-bit-layout.jpg" alt="Schema of the data/time bit layout" />
 
-<div>
-
 <table style="width: 100%; font-size: 0.6em">
 <colgroup>
 </colgroup>
@@ -108,8 +106,6 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 	</tr>
 </tbody>
 </table>
-
-</div>
 
 _Note: Recommended/minimal byte-aligned type for a given component._
 
