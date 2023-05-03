@@ -7,9 +7,9 @@ title: SP-Lang Type system
 This is detailed description of the type system used in SP-Lang.
 
 
-# Scalar types
+## Scalar types
 
-## Integers
+### Integers
 
 |Type|Name|Type|Name|Bits|Bytes|
 |:----|:----|:----|:----|:----|:----|
@@ -29,12 +29,12 @@ _Warning: 256bit sizes are not fully supported yet._
 
 
 
-## Boolean
+### Boolean
 
 A Boolean (`bool`) is a type that has one of two possible values denoted `True` and `False`.
 
 
-## Floating-Point
+### Floating-Point
 
 |Type|Name|Bytes|
 |:----|:----|:----|
@@ -48,12 +48,12 @@ Warning: Alias `float` translates to `fp64` which translates to LLVM `double` (d
 _Warning: `fp16` and `fp128` are not fully supported._
 
 
-# Complex scalar types
+## Complex scalar types
 
 Complex scalar types are designed for values that provides some internal structure (so technically they are records or tuples) but they can fit into a scalar type (e.g. for performance or optimisation purposes).
 
 
-## Date/Time
+### Date/Time
 
 `datetime`
 
@@ -65,7 +65,7 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
 * 64bit unsigned integer, aka `ui64`
 
 
-### Broken time components
+#### Broken time components
 
 * `y` / `year`
 * `m` / `month`
@@ -76,7 +76,7 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
 * `u` / `microsecond`
 
 
-## IP Address
+### IP Address
 
 `ip`
 
@@ -85,7 +85,7 @@ Underlying scalar type: `ui128`
 IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
 
 
-# Generic types
+## Generic types
 
 Generic types are used in the early stage of the SP-Lang parsing, optimization and compilation.
 The complementary type is "Specific type".
@@ -96,10 +96,10 @@ The generic type starts with capital `T`.
 Also if the container type contains generic type, the _container type_ or _structural type_ itself is considered generic.
 
 
-# Container types
+## Container types
 
 
-## List
+### List
 
 `[Ti]`
 
@@ -111,7 +111,7 @@ The list must contain a zero, one or many items of *the same type*.
 The type constructor is `!LIST` expression.
 
 
-## Set
+### Set
 
 `{Ti}`
 
@@ -120,7 +120,7 @@ The type constructor is `!LIST` expression.
 The type constructor is `!SET` expression.
 
 
-## Dictionary
+### Dictionary
 
 `{Tk:Tv}`
 
@@ -130,12 +130,12 @@ The type constructor is `!SET` expression.
 The type constructor is `!DICT` expression.
 
 
-# Product types
+## Product types
 
 A [product type](https://en.wikipedia.org/wiki/Product_type) is a compounded type, formed by combining other types into a _structure_.
 
 
-## Tuple
+### Tuple
 
 
 Signature: `(T1, T2, T3, ...)`
@@ -147,7 +147,7 @@ It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#struct
 _Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
 
 
-## Record
+### Record
 
 Signature: `(name1: T1, name2: T2, name3: T3, ...)`
 
@@ -156,11 +156,11 @@ The type constructor is `!RECORD` expression.
 It is is equivalent to a C `struct`.
 
 
-# Sum type
+## Sum type
 
 A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure used to hold a value that could take on several different types.
 
-## Any
+### Any
 
 `any`
 
@@ -175,9 +175,9 @@ The `any` is a recursive type; it can contain itself because it contains all oth
 For this reason, it is impossible to calculate the generic or even maximum size of the `any` variable.
 
 
-# Object types
+## Object types
 
-## String
+### String
 
 `str`
 
@@ -186,18 +186,18 @@ Must be in UTF-8 encoding.
 _Note: `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent._
 
 
-## Bytes
+### Bytes
 
 Planned.
 
 
-## Enum
+### Enum
 
 Planned.
 
 
 
-## Regex
+### Regex
 
 `regex`
 
@@ -207,7 +207,7 @@ If the regex pattern is constant, then it is compiled during the respective expr
 In the case of dynamic regex pattern, the regex compilation happens during the expression evaluation.
 
 
-## JSON
+### JSON
 
 `json<SCHEMA>`
 
@@ -215,9 +215,9 @@ JSON object, result of the JSON parsing.
 It is schema-based type.
 
 
-# Function Type
+## Function Type
 
-## Function
+### Function
 
 
 `(arg1:T1,arg2:T2,arg3:T3)->Tr`
@@ -226,12 +226,12 @@ It is schema-based type.
 * `Tr` specifies the output type of the function
 
 
-# Pythonic types
+## Pythonic types
 
 Pythonic types are object types that provides interfacing with the Python.
 
 
-## Python Dictionary
+### Python Dictionary
 
 `pydict<SCHEMA>`
 
@@ -239,14 +239,14 @@ A [Python dictionary](https://docs.python.org/3/c-api/dict.html).
 It is a schema-based type.
 
 
-## Python Object
+### Python Object
 
 `pyobj`
 
 A generic [Python object](https://docs.python.org/3/c-api/object.html).
 
 
-## Python List
+### Python List
 
 `pylist`
 
@@ -254,12 +254,12 @@ A [Python list](https://docs.python.org/3/c-api/list.html).
 
 
 
-## Python Tuple
+### Python Tuple
 
 `pytuple`
 
 
-# Casting
+## Casting
 
 Use `!CAST` expression for change of the type of a value.
 
@@ -278,7 +278,7 @@ or an equivalent shortcut:
 Note: Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
 
 
-# Schema-based types
+## Schema-based types
 
 _Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
 Schema is basically a directory that maps fields to their types and so on.
@@ -291,7 +291,7 @@ List of schema-based types:
  * `pydict<...>`
  * `json<...>`
 
-## Build-in schemas
+### Build-in schemas
 
  * `ANY`: This schema declares any member to be of type `any`.
  * `VOID`: This schema has no member, use in-place type definition to specify types of fields.

@@ -5,7 +5,7 @@ title: SP-Lang Performance
 # SP-Lang Performance
 
 
-# Introduction
+## Introduction
 
 SP-Lang is designed to deliver a very high performance.
 
@@ -19,7 +19,7 @@ EPS is measured for a single CPU core.
 Performance tests are automated using CI/CD framework and therefore completely reproducible.
 
 
-# Multi-string matching
+## Multi-string matching
 
 This expression locates elements of a finite set of strings within an input text.
 It is suited for eg. classification of the malicious URLs (provided by a blocklist) in the output of the firewall.
@@ -40,7 +40,7 @@ The list is provided by the [blackweb](https://github.com/maravento/blackweb) pr
 * Single CPU Core on `HW-I7-15`: 807685 EPS
 
 
-# JSON parsing
+## JSON parsing
 
 ```yaml
 !JSON.PARSE
@@ -56,7 +56,7 @@ _Note: Fast JSON parsing is powered by [cysimdjson](https://github.com/TeskaLabs
 * Single CPU Core on `HW-I7-15`: 562862 EPS
 
 
-# IETF Syslog parsing
+## IETF Syslog parsing
 
 This is the IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/rfc5424) parser implemented in SP-Lang:
 
@@ -117,14 +117,14 @@ This is the IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/rfc5
 
 
 
-# Reference Hardware
+## Reference Hardware
 
-## HW-M1-20
+### HW-M1-20
 
 * Machine: MacBook Air (M1, 2020)
 * CPU: [Apple M1](https://en.wikipedia.org/wiki/Apple_M1), Launched at 2020
 
-## HW-I7-15
+### HW-I7-15
 
 * Machine: MacBook Pro (15-inch, 2016)
 * CPU: 2.6 GHz Quad-Core Intel Core i7, [I7-6700HQ](https://ark.intel.com/content/www/us/en/ark/products/88967/intel-core-i76700hq-processor-6m-cache-up-to-3-50-ghz.html), Launched at 2015
