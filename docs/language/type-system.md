@@ -11,63 +11,14 @@ This is detailed description of the type system used in SP-Lang.
 
 ## Integers
 
-
-<table class="table">
-<colgroup>
-	<col />
-	<col />
-</colgroup>
-
-<colgroup>
-	<col class="bg-gray"/>
-	<col class="bg-gray"/>
-</colgroup>
-
-<colgroup>
-	<col />
-	<col />
-</colgroup>
-
-<thead>
-  <tr class="bg-gray">
-    <th>Type</th><th>Name</th>
-    <th>Type</th><th>Name</th>
-    <th>Bits</th><th>Bytes</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>si8</code></td><td>Signed 8bit integer</td>
-    <td><code>ui8</code></td><td>Unsigned 8bit integer</td>
-    <td>8</td><td>1</td>
-  </tr>
-  <tr>
-    <td><code>si16</code></td><td>Signed 16bit integer</td>
-    <td><code>ui16</code></td><td>Unsigned 16bit integer</td>
-    <td>16</td><td>2</td>
-  </tr>
-  <tr>
-    <td><code>si32</code></td><td>Signed 32bit integer</td>
-    <td><code>ui32</code></td><td>Unsigned 32bit integer</td>
-    <td>32</td><td>4</td>
-  </tr>
-  <tr>
-    <td><code>si64</code></td><td>Signed 64bit integer</td>
-    <td><code>ui64</code></td><td>Unsigned 64bit integer</td>
-    <td>64</td><td>16</td>
-  </tr>
-  <tr>
-    <td><code>si128</code></td><td>Signed 128bit integer</td>
-    <td><code>ui128</code></td><td>Unsigned 128bit integer</td>
-    <td>128</td><td>32</td>
-  </tr>
-  <tr>
-    <td><code>si256</code></td><td>Signed 256bit integer</td>
-    <td><code>ui256</code></td><td>Unsigned 256bit integer</td>
-    <td>256</td><td>64</td>
-  </tr>
-</tbody>
-</table>
+|Type|Name|Type|Name|Bits|Bytes|
+|:----|:----|:----|:----|:----|:----|
+|`si8`|Signed 8bit integer|`ui8`|Unsigned 8bit integer|8|1|
+|`si16`|Signed 16bit integer|`ui16`|Unsigned 16bit integer|16|2|
+|`si32`|Signed 32bit integer|`ui32`|Unsigned 32bit integer|32|4|
+|`si64`|Signed 64bit integer|`ui64`|Unsigned 64bit integer|64|16|
+|`si128`|Signed 128bit integer|`ui128`|Unsigned 128bit integer|128|32|
+|`si256`|Signed 256bit integer|`ui256`|Unsigned 256bit integer|256|64|
 
 A preferred (default) integer type is `si64` (signed 64bit integer), followed by `ui64` (unsigned 64bit integer).
 This is because SP-Lang is designed primarily for 64bit CPUs.
@@ -85,27 +36,12 @@ A Boolean (`bool`) is a type that has one of two possible values denoted `True` 
 
 ## Floating-Point
 
-<table class="table" style="width: 30em;">
-<thead>
-  <tr class="bg-gray">
-    <th>Type</th><th>Name</th><th>Bytes</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>fp16</code></td><td>16bit Float</td><td>2</td>
-  </tr>
-  <tr>
-    <td><code>fp32</code></td><td>32bit Float</td><td>4</td>
-  </tr>
-  <tr>
-    <td><code>fp64</code></td><td>64bit Float</td><td>8</td>
-  </tr>
-  <tr>
-    <td><code>fp128</code></td><td>128bit Float</td><td>16</td>
-  </tr>
-</tbody>
-</table>
+|Type|Name|Bytes|
+|:----|:----|:----|
+|`fp16`|16bit Float|2|
+|`fp32`|32bit Float|4|
+|`fp64`|64bit Float|8|
+|`fp128`|128bit Float|16|
 
 Warning: Alias `float` translates to `fp64` which translates to LLVM `double` (different from alias `float`).
 
