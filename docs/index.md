@@ -48,16 +48,15 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
     <img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
 
-Your first steps with SP-Lang start [here](tutorial).
+**Your first steps with SP-Lang start in the [tutorial](tutorial).**
 
-## Features
-  
- * [Functional](https://en.wikipedia.org/wiki/Functional_programming)
- * [Declarative](https://en.wikipedia.org/wiki/Declarative_programming)
- * [Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
- * [Type inference](https://en.wikipedia.org/wiki/Type_inference)
- * Interpreted in Python
- * Compiled by [LLVM](https://llvm.org/)
- * Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
-  
+## Features of the SP-Lang
 
+* [📜 Declarative language](https://en.wikipedia.org/wiki/Declarative_programming)  
+* [🔗 Functional language](https://en.wikipedia.org/wiki/Functional_programming)
+* [🔐 Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
+* [💡 Type inference](https://en.wikipedia.org/wiki/Type_inference)
+* 🐍 Interpreted in Python
+* 🚀 Compiled by [LLVM](https://llvm.org/)
+* Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
+  
