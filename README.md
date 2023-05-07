@@ -1,9 +1,10 @@
 # SP-Lang documentation
 
+The documentation is available at https://docs.teskalabs.com/sp-lang/.
+
 ![SP-lang logo](./docs/splang-logo.jpg)
 
-## Description
 
-Welcome to SP-Lang documentation!
+## Edit the documentation
 
-You can find and edit documentation content in markdown files in `./docs` folder.
+This documentation is built using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
