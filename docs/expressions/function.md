@@ -10,7 +10,7 @@ title: Functions
 
 ## `!ARGUMENT`, `!ARG`: Get a function argument  
 
-Type: _Mapping_.
+Type: _Scalar_.
 
 ### Synopsis
 
@@ -24,7 +24,9 @@ Type: _Mapping_.
 
 Provides an access to an argument `name`.
 
-`!ARG` is an concise version of `!ARGUMENT`.
+!!! tip
+
+    `!ARG` is an concise version of `!ARGUMENT`.
 
 
 --- 
@@ -32,14 +34,17 @@ Provides an access to an argument `name`.
 ## `!FUNCTION`, `!FN`: Define a function 
 
 
-Type: _Mapping_.
-
-
 The `!FUNCTION` expression defines a new function.
 It is typically used as a top-level expression.
 
-SP-Lang expressions are by default placed in the implicit function definition.
-It means that in a majority of cases, `!FUNCTION` can be skipped, and only `do` section is provided
+Type: _Mapping_.
+
+
+!!! info
+
+    SP-Lang expressions are _implicitly_ placed function definition.
+    It means that in a majority of cases, `!FUNCTION` can be skipped, and only `do` section is provided
+
 
 ### Synopsis
 
@@ -56,10 +61,9 @@ do:
   <expression>
 ```
 
-```yaml
-!FN
-...
-```
+!!! tip
+
+    `!FN` is an concise version of `!FUNCTION`.
 
 
 ### Example
@@ -80,14 +84,18 @@ do:
   - !ARGUMENT d
 ```
 
+This expression defines a function that takes four arguments (`a`, `b`, `c`, and `d`) with respective data types (`si64`, `si32`, `si32`, and `si32`) and returns a result of type `fp64`.
+The function multiplies the four input arguments (`a`, `b`, `c`, and `d`) and returns the product as a floating-point number (`fp64`).
 
 --- 
 
 ## `!SELF`: Apply a current function  
 
+The `!SELF` provides an ability to recursivelly apply "self" aka a current function.
+
 Type: _Mapping_.
 
-The `!SELF` provides an ability to recursivelly apply "self" aka a current function.
+### Synopsis
 
 ```yaml
 !SELF
@@ -96,15 +104,15 @@ arg2: <value>
 ...
 ```
 
-_Note: Self expression is a [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator)._
+!!! note
+
+    `!SELF` expression is the [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator).
 
 
 ### Example
 
-Factorial calculation in a SP-Lang:
 
 ```yaml
----
 !FUNCTION
 arguments: {x: int}
 returns: int
@@ -114,3 +122,8 @@ do:
   then: !MUL [!SELF {x: !SUB [!ARG x, 1]}, !ARG x]
   else: 1
 ```
+
+This expression defines a recursive function that takes a single integer argument `x` and returns an integer result.
+The function calculates the factorial of the input argument `x` using an if-else statement.
+If the input value `x` is greater than 1, the function multiplies `x` by the factorial of (`x` - 1), computed by calling itself recursively.
+If the input value `x` is 1 or less, the function returns 1.
