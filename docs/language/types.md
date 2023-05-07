@@ -25,8 +25,9 @@ This is because SP-Lang is designed primarily for 64bit CPUs.
 
 `int` is the alias for `si64`.
 
-_Warning: 256bit sizes are not fully supported yet._
+!!! warning
 
+    256bit sizes are not fully supported yet.
 
 
 ### Boolean
@@ -43,9 +44,16 @@ A Boolean (`bool`) is a type that has one of two possible values denoted `True` 
 |`fp64`|64bit Float|8|
 |`fp128`|128bit Float|16|
 
-Warning: Alias `float` translates to `fp64` which translates to LLVM `double` (different from alias `float`).
 
-_Warning: `fp16` and `fp128` are not fully supported._
+!!! warning
+
+    `fp16` and `fp128` are not fully supported.
+
+
+!!! warning
+
+    Alias `float` translates to `fp64` which translates to LLVM `double` (different from alias `float`).
+
 
 
 ## Complex scalar types
@@ -88,7 +96,7 @@ IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](htt
 ## Generic types
 
 Generic types are used in the early stage of the SP-Lang parsing, optimization and compilation.
-The complementary type is "Specific type".
+The complementary type is _Specific type_.
 The SP-Lang resolves generic types into specific types by the mechanism called _type inference_.
 If generic type cannot be resolved into specific, the compilation will fail and you need to provide more information for a type inference.
 
@@ -132,18 +140,17 @@ The type constructor is `!DICT` expression.
 
 ### Bag
 
-!!! warning "Work in progress"
 
-    Not implemented yet.
-
-`[Tk:Tv]`
+`[(Tk,Tv)]`
 
  * `Tk` refers to a type of the key
  * `Tv` refers to a type of the value
 
 A bag (or multimap) is a container that allows duplicate keys, unlike a dictionary, which only allows unique keys.
 
-The type constructor is `!BAG` expression.
+!!! tip
+
+    The bag is essentially a list of 2-tuples (couples).
 
 
 ## Product types
@@ -160,7 +167,9 @@ The type constructor is `!TUPLE` expression.
 
 It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#structure-type) in LLVM IR.
 
-_Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
+!!! tip
+
+    A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
 
 
 ### Record
@@ -199,7 +208,9 @@ For this reason, it is impossible to calculate the generic or even maximum size 
 
 Must be in UTF-8 encoding.
 
-_Note: `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent._
+!!! note
+
+    `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent.
 
 
 ### Bytes
@@ -295,7 +306,9 @@ or an equivalent shortcut:
 !!fp32 1234
 ```
 
-Note: Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
+!!! note
+
+    Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
 
 
 ## Schema-based types
