@@ -4,25 +4,39 @@ title: Logic expressions
 
 # Logic expressions
 
+Logic expressions are commonly used to create more restrictive and precise conditions, such as filtering event, or triggering specific actions based on a set of criteria.
+Logic expressions operates with truth values `true` and `false`.
+
+!!! info "Logic expressions are representations of boolean algebra"
+
+    For more informations, continue to [boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) page at Wikipedia.
+
 
 ---
 
 ## `!AND`: Conjunction 
 
+The logical `!AND` expression is  used to combine two or more conditions that must all be true for the entire expression to be true.
+It is used to create more restrictive and precise conditions.
+
 Type: _Sequence_
 
 ### Synopsis
 
-```yaml
+```
 !AND
-- <expression 1>
-- <expression 2>
+- <condition 1>
+- <condition 2>
 - ...
 ```
 
-### Boolean `!AND`
+In a logical `!AND` expression, conditions (`condition 1`, `condition 2`, ...) can be any expressions that evaluate to a boolean value (true or false).
+The conditions are evaluated from top to bottom, and the evaluation process stops as soon as a false condition is found, following the concept of short-circuit evaluation.
 
-Boolean conjunction `!AND` is an boolean functional operation on sequence of logical values, that produces a boolean value of "true" if and only if all of its values are true.
+!!! info "Logical conjunction"
+
+    For more informations, continue to [Logical conjunction](https://en.wikipedia.org/wiki/Logical_conjunction) page at Wikipedia.
+
 
 ### Example
 
@@ -38,6 +52,9 @@ Boolean conjunction `!AND` is an boolean functional operation on sequence of log
   - !ARG version
   - v23.10
 ```
+
+In this example, if all of the conditions evaluate to true, the entire logical `!AND` expression will be true.
+If any of the conditions are false, the logical `!AND` expression will be false.
 
 
 ### Bitwise  `!AND`
@@ -58,16 +75,27 @@ In this example, the argument `PRI` is masked with 7 (in binary `00000111`).
 
 ## `!OR`: Disjunction 
 
+The logical `!OR` expression is used to combine two or more conditions where at least one of the conditions must be true for the entire expression to be true.
+It is used to create more flexible and inclusive conditions.
+
 Type: _Sequence_
 
 ### Synopsis
 
-```yaml
+```
 !OR
-- <expression 1>
-- <expression 2>
+- <condition 1>
+- <condition 2>
 - ...
 ```
+
+Conditions (`condition 1`, `condition 2`, ...) can be any expressions that evaluate to a boolean value (`true` or `false`).
+The conditions are evaluated from top to bottom, and the evaluation process stops as soon as a true condition is found, following the concept of short-circuit evaluation.
+
+!!! info "Logical disjunction"
+
+    For more informations, continue to [Logical disjunction](https://en.wikipedia.org/wiki/Logical_disjunction) page at Wikipedia.
+
 
 ### Example
 
@@ -91,10 +119,6 @@ In this example, the expression is true when any of the following conditions is 
 3. The `message` field matches the string "malware detected"
 
 
-### Boolean `!OR`
-
-Boolean disjunction is a boolean functional operation which returns the boolean value "true" unless all of its arguments are "false".
-
 ### Bitwise `!OR`
 
 When `!OR` is applied on integers (instead on boolean) types, it provides a bitwise OR.
@@ -104,18 +128,21 @@ When `!OR` is applied on integers (instead on boolean) types, it provides a bitw
 
 ## `!NOT`: Negation 
 
+The logical `!NOT` expression is used to invert the truth value of a single condition.
+It is used to exclude specific conditions when certain conditions are not met.
+
 Type: _Mapping_.
+
 
 ### Synopsis
 
-```yaml
+```
 !NOT
 what: <expression>
 ```
 
-### Boolean `!NOT`
+For more informations, continue [here](https://en.wikipedia.org/wiki/Negation).
 
-Boolean negation is an operation on one boolean value that produces a boolean value of "true" when its operand is "false", and a value of "false" when its operand is "true".
 
 ### Bitwise `!NOT`
 
