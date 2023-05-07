@@ -1,5 +1,5 @@
 ---
-title: Date/time expressions
+title: Date/time
 ---
 
 # Date/time expressions

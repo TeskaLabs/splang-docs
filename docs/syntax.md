@@ -1,13 +1,15 @@
 ---
-title: SP-Lang Syntax
+title: Syntax
 ---
 
 # SP-Lang Syntax
 
 
----
+!!! info
 
-SP-Lang syntax is using [YAML 1.2](https://yaml.org/spec/1.2)
+    SP-Lang syntax is using [YAML 1.2](https://yaml.org/spec/1.2)
+
+
 
 ## Comments
 
@@ -123,8 +125,9 @@ A _flow_ form example:
 !ENDSWITH {what: FooBar, postfix: Bar}
 ```
 
+!!! abstract "YAML specification"
 
-More at: [YAML specs, 10.2. Mapping Styles](https://yaml.org/spec/1.1/#id932806)
+    See chapter [10.2. Mapping Styles](https://yaml.org/spec/1.1/#id932806)
 
 
 ### Sequence expression
@@ -144,6 +147,11 @@ A _flow_ form example:
 !ADD [1, 2, 3]  
 ```
 
+!!! abstract "YAML specification"
+
+    See chapter [10.1. Sequence Styles](https://yaml.org/spec/1.1/#id931088)
+
+
 Sequence expression could be defined using `with` argument as well:
 
 ```yaml
@@ -151,10 +159,10 @@ Sequence expression could be defined using `with` argument as well:
 with: [1, 2, 3]
 ```
 
-_Note: This is actually a mapping form of the sequence expression._
+!!! tip
 
+    This is actually a mapping form of the sequence expression.
 
-More at: [YAML specs, 10.1. Sequence Styles](https://yaml.org/spec/1.1/#id931088)
 
 
 ### Scalar expressions
@@ -165,9 +173,10 @@ Example:
 !ITEM EVENT potatoes
 ```
 
-More at: [YAML specs, Chapter 9. Scalar Styles](https://yaml.org/spec/1.1/#id903915)
+!!! abstract "YAML specification"
 
-_Note: Scalar expressions are not much used._
+    See chapter [9. Scalar Styles](https://yaml.org/spec/1.1/#id903915)
+
 
 
 ## Anchors and Aliases
@@ -199,15 +208,26 @@ SP-Lang uses three dashes (`---`) to separate expressions from document content.
 This also serves to signal the start of a SP-Lang.
 Three dots ( “...”) indicate the end of a file without starting a new one, for use in communication channels.
 
-```yaml
-# Let's do some basic math
+The file extension of SP-Lang is `.yaml`.
+
+Example of the SP-Lang file:
+
+
+```yaml title="multiplication.yaml"
 ---
+# Let's do some basic math
 !MUL
 - 1
 - 2
 - 3
 ```
 
-_Hint: Your SP-Lang expression always starts with `---` line._
 
-_Note: One file can contain more expressions using YAML separator (`---`)._
+!!! note
+
+    SP-Lang file always starts with `---` line.
+
+
+!!! info
+
+    One file can contain more expressions using YAML separator (`---`).

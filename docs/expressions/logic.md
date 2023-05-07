@@ -1,5 +1,5 @@
 ---
-title: Logic expressions
+title: Logic
 ---
 
 # Logic expressions

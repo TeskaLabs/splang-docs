@@ -1,5 +1,5 @@
 ---
-title: Lookup expressions
+title: Lookup
 ---
 
 # Lookup expressions

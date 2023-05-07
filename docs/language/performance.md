@@ -1,5 +1,5 @@
 ---
-title: SP-Lang Performance
+title: Performance
 ---
 
 # SP-Lang Performance

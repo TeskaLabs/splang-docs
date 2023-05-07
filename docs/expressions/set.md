@@ -1,9 +1,8 @@
 ---
-title: Set expression
+title: Set
 ---
 
 # Set expression
-
 
 
 The set store unique items, without any particular order.

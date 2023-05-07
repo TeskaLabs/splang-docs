@@ -1,5 +1,5 @@
 ---
-title: SP-Lang language design
+title: Language design
 ---
 
 # SP-Lang language design

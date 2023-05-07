@@ -1,5 +1,5 @@
 ---
-title: Arithmetics expressions
+title: Arithmetics
 ---
 
 # Arithmetics expressions

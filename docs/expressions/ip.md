@@ -1,5 +1,5 @@
 ---
-title: IP Address expressions
+title: IP Address
 ---
 
 # IP Address expressions

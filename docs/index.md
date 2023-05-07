@@ -1,5 +1,5 @@
 ---
-title: SP-Lang Documentation
+title: Welcome!
 ---
 
 # SP-Lang Documentation
@@ -13,7 +13,13 @@ This low-code approach means that you can get up and running quickly, without ha
 
 We hope that this documentation will provide you with all the information you need to get started with our language and start taking advantage of its powerful stream processing capabilities. Thank you for choosing our language, and we look forward to seeing what you can accomplish with it!
 
-<img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" />
+!!! quote "Made with ❤️ by TeskaLabs"
+
+    SP-Lang is the technology built at [TeskaLabs](https://www.teskalabs.com).  
+
+<!-- <img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" /> -->
+
+## Introduction
 
 _SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_programming) that uses the [YAML](https://en.wikipedia.org/wiki/YAML) syntax.
 
@@ -23,23 +29,28 @@ This, together with extensive optimizations, gives the performance in the same c
 For that reason, SP-Lang is a natural candidate for a cost-effective processing of the massive data streams in the cloud or on‑premise applications.
 
 
-## Hello world!
 
-This is the simple example of "Hello world" expression in SP-Lang:
+!!! example "Hello world! in SP-Lang"
+
+    This is the simple example of "Hello world" expression in SP-Lang:
+
+    ```yaml
+    !ADD
+    - Hello
+    - " "
+    - world
+    - "!"
+    ```
 
 
-```yaml
-!ADD [Hello, " ", world, "!"]
-```
+    And the same example in the visual SP-Lang:
 
-And the same example in the visual SP-Lang:
-
-<img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
+    <img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
 
 Your first steps with SP-Lang start [here](tutorial).
 
-## Important features
+## Features
   
  * [Functional](https://en.wikipedia.org/wiki/Functional_programming)
  * [Declarative](https://en.wikipedia.org/wiki/Declarative_programming)
@@ -50,6 +61,3 @@ Your first steps with SP-Lang start [here](tutorial).
  * Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
   
 
-## Made with ❤️ by TeskaLabs
-
-SP-Lang is the technology built at [TeskaLabs](https://www.teskalabs.com).  

@@ -1,5 +1,5 @@
 ---
-title: Control expressions
+title: Control
 ---
 
 # Control expressions

@@ -1,5 +1,5 @@
 ---
-title: String expressions
+title: String
 ---
 
 # String expressions

@@ -1,5 +1,5 @@
 ---
-title: Bitwise expressions
+title: Bitwise
 ---
 
 # Bitwise expressions
@@ -7,11 +7,67 @@ title: Bitwise expressions
 
 The bit shifts treat a value as a series of bits, the binary digits of the value are moved, or shifted, to the left or right.
 
-_Hint: Left shifts could be used as fast multiplication by 2, 4, 8 and so on._
 
-_Hint: Right shifts could be used as fast division by 2, 4, 8 and so on._
+There are also bitwise `!AND`, `!OR` and `!NOT` expression, at [Logic](../logic) chapter.
 
-There are also bitwise `!AND`, `!OR` and `!NOT` expression, for details, continue to "Logic" chapter.
+---
+
+## `!SHL`: Left logical shift 
+
+Type: _Mapping_.
+
+### Synopsis
+
+```yaml
+!SHL
+what: <...>
+by: <...>
+```
+
+!!! tip
+
+	Left shifts could be used as fast multiplication by 2, 4, 8 and so on.
+
+
+### Example
+
+```yaml
+!SHL
+what: 60
+by: 2
+```
+
+The result is: `240 = (60*2^2)`, `2^2 = 4`.
+
+---
+
+## `!SHR`: Right logical shift  
+
+Type: _Mapping_.
+
+### Synopsis
+
+```yaml
+!SHR
+what: <...>
+by: <...>
+```
+
+!!! tip
+
+	Right shifts could be used as fast division by 2, 4, 8 and so on.
+
+
+### Example
+
+```yaml
+!SHR
+what: 2048
+by: 4
+```
+
+The result is: `128 = (2048/2^4)`, `2^4 = 16`.
+
 
 --- 
 
@@ -46,36 +102,6 @@ Type: _Mapping_.
 
 ```yaml
 !SAR
-what: <...>
-by: <...>
-```
-
-
----
-
-## `!SHL`: Left logical shift 
-
-Type: _Mapping_.
-
-### Synopsis
-
-```yaml
-!SHL
-what: <...>
-by: <...>
-```
-
-
----
-
-## `!SHR`: Right logical shift  
-
-Type: _Mapping_.
-
-### Synopsis
-
-```yaml
-!SHR
 what: <...>
 by: <...>
 ```

@@ -1,5 +1,5 @@
 ---
-title: Aggregate expressions
+title: Aggregate
 ---
 
 # Aggregate expressions

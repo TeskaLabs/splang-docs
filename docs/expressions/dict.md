@@ -1,9 +1,8 @@
 ---
-title: Dictionary expression
+title: Dictionary
 ---
 
 # Dictionary expression
-
 
 
 The dict (aka dictionary) store a collection of (key, value) pairs, such that each possible key appears at most once in the collection.

@@ -1,5 +1,5 @@
 ---
-title: Record expressions
+title: Record
 ---
 
 # Record expressions

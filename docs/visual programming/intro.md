@@ -1,5 +1,5 @@
 ---
-title: Visual programming in SP-Lang
+title: Introduction
 ---
 
 # Visual programming in SP-Lang

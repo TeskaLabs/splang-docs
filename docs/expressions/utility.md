@@ -1,5 +1,5 @@
 ---
-title: Utility expressions
+title: Utility
 ---
 
 # Utility expressions

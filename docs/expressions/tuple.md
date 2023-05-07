@@ -1,9 +1,8 @@
 ---
-title: Tuple expressions
+title: Tuple
 ---
 
 # Tuple expressions
-
 
 
 The tuple is one of basic data structures provided by SP-Lang.

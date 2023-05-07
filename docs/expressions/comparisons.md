@@ -1,5 +1,5 @@
 ---
-title: Comparisons expressions
+title: Comparisons
 ---
 
 # Comparisons expressions

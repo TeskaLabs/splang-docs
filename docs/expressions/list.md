@@ -1,9 +1,8 @@
 ---
-title: List expressions
+title: List
 ---
 
 # List expressions
-
 
 
 The list is one of basic data structures provided by SP-Lang.

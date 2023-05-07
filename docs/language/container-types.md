@@ -1,5 +1,5 @@
 ---
-title: Details of container types
+title: Container types
 ---
 
 # Details of container types

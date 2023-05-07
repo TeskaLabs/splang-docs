@@ -1,11 +1,13 @@
 ---
-title: Regex expressions
+title: Regex
 ---
 
 # Regex expressions
 
 
-_Hint: Use [Regexr](https://regexr.com) to develop and test regular expressions._
+!!! tip
+
+  Use [Regexr](https://regexr.com) to develop and test regular expressions.
 
 --- 
 

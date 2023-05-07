@@ -1,5 +1,5 @@
 ---
-title: Functions expressions
+title: Functions
 ---
 
 # Functions expressions
