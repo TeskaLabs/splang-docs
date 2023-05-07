@@ -1,8 +1,8 @@
 ---
-title: Type system
+title: Types
 ---
 
-# SP-Lang Type system
+# SP-Lang types
 
 This is detailed description of the type system used in SP-Lang.
 
@@ -128,6 +128,22 @@ The type constructor is `!SET` expression.
  * `Tv` refers to a type of the value
 
 The type constructor is `!DICT` expression.
+
+
+### Bag
+
+!!! warning "Work in progress"
+
+    Not implemented yet.
+
+`[Tk:Tv]`
+
+ * `Tk` refers to a type of the key
+ * `Tv` refers to a type of the value
+
+A bag (or multimap) is a container that allows duplicate keys, unlike a dictionary, which only allows unique keys.
+
+The type constructor is `!BAG` expression.
 
 
 ## Product types

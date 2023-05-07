@@ -63,7 +63,7 @@ Consise dictionary using `!!dict` and YAML flow style:
 ### Type specification
 
 The type of dictionary is denoted as `{Tk:Tv}`, where `Tk` is a type of the key and `Tv` is a type of value.
-For more info about the dictionary type, continue to the relevant chapter in a [type system](../language/type-system#dictionary).
+For more info about the dictionary type, continue to the relevant chapter in a [type system](../language/types#dictionary).
 
 The dictionaty will try to infere its type based on the items added.
 The type of the first item will likely provide the key type `Tk` and the value type `Tv`.
