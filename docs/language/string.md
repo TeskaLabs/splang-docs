@@ -4,8 +4,8 @@ title: Strings
 
 # Strings
 
-Strings in SP-Lang uses UTF-8 encoding.
-Their type is `str`.
+Strings in SP-Lang uses [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding.
+The string type representation is `str`.
 
 
 ## String representation
@@ -16,9 +16,9 @@ String is represented by a [P-String](https://en.wikipedia.org/wiki/String_%28co
  * Pointer to the start of a _string data_.
 
 
-## String is also an array of bytes
+!!! tip "String is also an array of bytes"
 
-Value of `str` is binary compatible with `[ui8]`; a list of `ui8`.
+    Value of `str` is binary compatible with `[ui8]`, a list of `ui8`.
 
 
 ## Compatilitity with Null-terminated strings
