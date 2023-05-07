@@ -59,7 +59,7 @@ If any of the conditions are false, the logical `!AND` expression will be false.
 
 ### Bitwise  `!AND`
 
-When `!AND` is applied on integers (instead on boolean) types, it provides a bitwise AND.
+When `!AND` is applied on integer types, instead on booleans, it provides a bitwise AND.
 
 ### Example
 
@@ -121,8 +121,26 @@ In this example, the expression is true when any of the following conditions is 
 
 ### Bitwise `!OR`
 
-When `!OR` is applied on integers (instead on boolean) types, it provides a bitwise OR.
+When `!OR` is applied on integer types, instead on booleans, it provides a bitwise OR.
 
+### Example
+
+```yaml
+!OR
+- 1  # Read access (binary 001, decimal 1)
+- 4  # Execute access (binary 100, decimal 4)
+```
+
+In this example, the expression is evaluated to 5.
+
+This is because, in a bitwise `!OR` operation, each corresponding bit in the binary representation of the two numbers is combined using the `!OR` expression:
+
+```
+001 (read_access)
+100 (execute_access)
+---
+101 (combined_permissions)
+```
 
 ---
 
