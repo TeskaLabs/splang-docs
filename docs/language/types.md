@@ -2,14 +2,29 @@
 title: Types
 ---
 
-# SP-Lang types
+# SP-Lang data types
 
-This is detailed description of the type system used in SP-Lang.
+In the SP-Lang, [type system](https://en.wikipedia.org/wiki/Type_system) plays a critical role in ensuring the correctness and efficiency of expression execution.
+SP-Lang employs type inference.
+It means that the _type system_ operates behind the scenes, delivering high performance without burdening the user with its complexities.
+This approach allows for a seamless and user-friendly experience, where advanced users can access the type system for more fine-grained control and optimization.
+
+
+!!! info
+
+    A type system is a set of rules that define how data types are classified, combined, and manipulated in a language.
+    It helps catch potential errors early on, improving code reliability, and ensures that operations are performed only on compatible data types.
 
 
 ## Scalar types
 
+Scalar types are the basic building blocks of a language, which represent single values.
+They are essential for working with different kinds of data and performing various operations.
+
 ### Integers
+
+Integers are whole numbers, like -5, 0, or 42, that can be used for counting or simple arithmetic operations.
+Integers could be signed or unsigned.
 
 |Type|Name|Type|Name|Bits|Bytes|
 |:----|:----|:----|:----|:----|:----|
@@ -37,12 +52,14 @@ A Boolean (`bool`) is a type that has one of two possible values denoted `True` 
 
 ### Floating-Point
 
+Floating-point numbers are decimal numbers, such as 3.14 or -0.5, that are useful for calculations involving fractions or more precise values.
+
 |Type|Name|Bytes|
 |:----|:----|:----|
-|`fp16`|16bit Float|2|
-|`fp32`|32bit Float|4|
-|`fp64`|64bit Float|8|
-|`fp128`|128bit Float|16|
+|`fp16`|16bit float|2|
+|`fp32`|32bit float|4|
+|`fp64`|64bit float|8|
+|`fp128`|128bit float|16|
 
 
 !!! warning
@@ -83,14 +100,20 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
     * `S` / `second`
     * `u` / `microsecond`
 
+More detailed description of date/time is [here](../date-time).
+
 
 ### IP Address
+
+This data type contains IPv4 or IPv6 address.
 
 `ip`
 
 Underlying scalar type: `ui128`
 
-IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
+!!! abstract "RFC 4291"
+
+    IPv4 are mapped into IPv6 space as prescribed in [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
 
 
 ## Generic types
@@ -146,7 +169,7 @@ The type constructor is `!DICT` expression.
  * `Tk` refers to a type of the key
  * `Tv` refers to a type of the value
 
-A bag (or multimap) is a container that allows duplicate keys, unlike a dictionary, which only allows unique keys.
+A bag (aka multimap) is a container that allows duplicate keys, unlike a dictionary, which only allows unique keys.
 
 !!! tip
 
@@ -191,10 +214,13 @@ A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure use
 
 The `any` type is a special type that represents a value that can have any type.
 
-The `any` type shouldn't be used as a preferred type because it has an overhead.
-Still, it is rather helpful for typing the dictionary that combines types (e.g. `{str:any}`) and other situations where the type of the value is not known in the compile type.
 
-The value contained in `any` type is always located in the memory (e.g., pool); for this reason, this type is slower than others, which store value preferably in CPU registers.
+!!! warning
+
+    The `any` type shouldn't be used as a preferred type because it has an overhead.
+    Still, it is rather helpful for typing the dictionary that combines types (e.g. `{str:any}`) and other situations where the type of the value is not known in the compile type.
+
+    The value contained in `any` type is always located in the memory (e.g., memory pool); for this reason, this type is slower than others, which store value preferably in CPU registers.
 
 The `any` is a recursive type; it can contain itself because it contains all other types in the type universe.
 For this reason, it is impossible to calculate the generic or even maximum size of the `any` variable.
