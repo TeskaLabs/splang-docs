@@ -8,3 +8,4 @@ The documentation is available at https://docs.teskalabs.com/sp-lang/.
 ## Editing
 
 This documentation is built using [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+The content is stored at `./docs` folder of this repository.
