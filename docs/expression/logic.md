@@ -136,11 +136,13 @@ In this example, the expression is evaluated to 5.
 This is because, in a bitwise `!OR` operation, each corresponding bit in the binary representation of the two numbers is combined using the `!OR` expression:
 
 ```
-001 (read_access)
-100 (execute_access)
+001 (read access)
+100 (execute access)
 ---
-101 (combined_permissions)
+101 (combined permissions)
 ```
+
+The expression calculates the permissions with the resulting value (binary 101, decimal 5) from the bitwise OR operation, combining both read and execute access.
 
 ---
 
