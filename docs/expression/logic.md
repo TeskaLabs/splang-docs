@@ -141,11 +141,15 @@ Type: _Mapping_.
 what: <expression>
 ```
 
-For more informations, continue [here](https://en.wikipedia.org/wiki/Negation).
+!!! info "Negation"
+
+    For more informations, continue to [Negation](https://en.wikipedia.org/wiki/Negation) page at Wikipedia.
 
 
 ### Bitwise `!NOT`
 
 When integer is provided, then `!NOT` returns value with bits of `what` flipped.
 
-_Hint: If you want to test that integer is not zero, use `!NE` test expression._
+!!! tip
+
+    If you want to test that integer is not zero, use `!NE` test expression.
