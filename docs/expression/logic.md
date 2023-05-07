@@ -31,9 +31,12 @@ Boolean conjunction `!AND` is an boolean functional operation on sequence of log
 - !EQ
   - !ARG vendor
   - TeskaLabs
-- !EQ 
+- !EQ
   - !ARG product
   - LogMan.io
+- !EQ
+  - !ARG version
+  - v23.10
 ```
 
 
@@ -65,6 +68,27 @@ Type: _Sequence_
 - <expression 2>
 - ...
 ```
+
+### Example
+
+```yaml
+!OR
+- !EQ
+  - !ARG description
+  - unauthorized access
+- !EQ
+  - !ARG reason
+  - brute force
+- !EQ
+  - !ARG message
+  - malware detected
+```
+
+In this example, the expression is true when any of the following conditions is met:
+
+1. The `description` field matches the string "unauthorized access"
+2. The `reason` field matches the string "brute force"
+3. The `message` field matches the string "malware detected"
 
 
 ### Boolean `!OR`
