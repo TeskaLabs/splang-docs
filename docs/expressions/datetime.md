@@ -9,6 +9,10 @@ Date and time is expressed in SP-Lang by a `datetime`.
 It has a microsecond resolution and a range from year 8190 B.C. to a year 8191.
 It is in the UTC timezone.
 
+!!! info
+
+	For more information about `datatime` type, continue [here](../../language/date-time).
+
 ---
 
 ## `!NOW`: A current date and time 
