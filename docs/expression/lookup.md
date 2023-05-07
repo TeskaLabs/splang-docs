@@ -4,12 +4,10 @@ title: Lookup expressions
 
 # Lookup expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 ---
 
-## `!LOOKUP`: xxx {#EXPR-LOOKUP}
+## `!LOOKUP`: xxx 
 
 Type: _Mapping_.
 

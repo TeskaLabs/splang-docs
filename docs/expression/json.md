@@ -4,14 +4,12 @@ title: JSON
 
 # JSON
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 SP-Lang offers a [high-speed access](https://simdjson.org) to JSON data objects.
 
 --- 
 
-## `!GET`: Get the value from a JSON {#EXPR-JSON-GET}
+## `!GET`: Get the value from a JSON 
 
 Type: _Mapping_.
 
@@ -78,7 +76,7 @@ from: !ARG jsonmessage
 
 --- 
 
-## `!JSON.PARSE`: Parse JSON {#EXPR-JSON-PARSE}
+## `!JSON.PARSE`: Parse JSON 
 
 Type: _Mapping_.
 

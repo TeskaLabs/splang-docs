@@ -4,8 +4,6 @@ title: Bitwise expressions
 
 # Bitwise expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The bit shifts treat a value as a series of bits, the binary digits of the value are moved, or shifted, to the left or right.
 
@@ -17,97 +15,97 @@ There are also bitwise `!AND`, `!OR` and `!NOT` expression, for details, continu
 
 --- 
 
-## `!SAL`: Left arithmetic shift {#EXPR-SAL}
+## `!SAL`: Left arithmetic shift 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SAL
 what: <...>
 by: <...>
-{% endhighlight %}
+```
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !SAL
 what: 60
 by: 2
-{% endhighlight %}
+```
 
 
 ---
 
-## `!SAR`: Right arithmetic shift {#EXPR-SAR}
+## `!SAR`: Right arithmetic shift 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SAR
 what: <...>
 by: <...>
-{% endhighlight %}
+```
 
 
 ---
 
-## `!SHL`: Left logical shift {#EXPR-SHL}
+## `!SHL`: Left logical shift 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SHL
 what: <...>
 by: <...>
-{% endhighlight %}
+```
 
 
 ---
 
-## `!SHR`: Right logical shift  {#EXPR-SHR}
+## `!SHR`: Right logical shift  
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !SHR
 what: <...>
 by: <...>
-{% endhighlight %}
+```
 
 
 ---
 
-## `!ROL`: Left rotation (circular) shift {#EXPR-ROL}
+## `!ROL`: Left rotation (circular) shift 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !ROL
 what: <...>
 by: <...>
-{% endhighlight %}
+```
 
 
 ---
 
-## `!ROR`: Right rotation (circular) shift {#EXPR-ROR}
+## `!ROR`: Right rotation (circular) shift 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !ROR
 what: <...>
 by: <...>
-{% endhighlight %}
+```

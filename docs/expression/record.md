@@ -5,8 +5,6 @@ title: Record expressions
 # Record expressions
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The record is one of basic data structures provided by SP-Lang.
 A record is a collection of items, possibly of different types.
@@ -16,19 +14,19 @@ _Note: The record is built on top of `!TUPLE`._
 
 --- 
 
-## `!RECORD`: A collection of named items {#EXPR-RECORD}
+## `!RECORD`: A collection of named items 
 
 Type:  _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !RECORD
 with:
   item1: <item 1>
   item2: <item 2>
   ...
-{% endhighlight %}
+```
 
 `item1` and `item2` are labels of respective items in the record.
 
@@ -37,55 +35,55 @@ The order of the items is preserved.
 
 ### Examples
 
-{% highlight yaml %}
+```yaml
 !RECORD
 with:
   name: John Doe
   age: 37
   height: 175.4
-{% endhighlight %}
+```
 
 
 Use of the YAML flow form:
 
-{% highlight yaml %}
+```yaml
 !RECORD {with: {name: John Doe, age: 37, height: 175.4} }
-{% endhighlight %}
+```
 
 
 Use of the `!!record` tag:
 
-{% highlight yaml %}
+```yaml
 !!record {name: John Doe, age: 37, height: 175.4}
-{% endhighlight %}
+```
 
 
 Enforce specific type of the item:
 
-{% highlight yaml %}
+```yaml
 !RECORD
 with:
   name: John Doe
   age: !!ui8 37
   height: 175.4
-{% endhighlight %}
+```
 
 Field `age` will have a type `ui8`.
 
 
 --- 
 
-## `!GET`: Get the item from a record {#EXPR-RECORD-GET}
+## `!GET`: Get the item from a record 
 
 Type: _Mapping_.
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !GET
 what: <name or index of the item>
 from: <record>
-{% endhighlight %}
+```
 
 If `what` is a string, then it is a name of the field in the record.
 
@@ -99,7 +97,7 @@ If the `what` is out of bound of the list, the statement returns with error.
 
 Using names of items:
 
-{% highlight yaml %}
+```yaml
 !GET
 what: name
 from:
@@ -108,14 +106,14 @@ from:
     name: John Doe
     age: 32
     height: 127.5
-{% endhighlight %}
+```
 
 Returns `John Doe`.
 
 
 Using the _index_ of items:
 
-{% highlight yaml %}
+```yaml
 !GET
 what: 1
 from:
@@ -124,14 +122,14 @@ from:
     name: John Doe
     age: 32
     height: 127.5
-{% endhighlight %}
+```
 
 Returns `32`, a value of `age` item.
 
 
 Using the _negative index_ of items:
 
-{% highlight yaml %}
+```yaml
 !GET
 what: -1
 from:
@@ -140,6 +138,6 @@ from:
     name: John Doe
     age: 32
     height: 127.5
-{% endhighlight %}
+```
 
 Returns `127.5`, a value of `height` item.

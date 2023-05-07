@@ -4,12 +4,10 @@ title: Arithmetics expressions
 
 # Arithmetics expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 ---
 
-## `!ADD`: Addition {#EXPR-ADD}
+## `!ADD`: Addition 
 
 Type: _Sequence_
 
@@ -26,59 +24,59 @@ You can add following types:
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !ADD
 - 4
 - -5
 - 6
-{% endhighlight %}
+```
 
 Calculates `4+(-5)+6`, so the result is `5`.
 
 ---
 
-## `!SUB`: Substraction {#EXPR-SUB}
+## `!SUB`: Substraction 
 
 Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !SUB
 - 3
 - 1
 - -5
-{% endhighlight %}
+```
 
 ---
 
 
-## `!MUL`: Multiplication {#EXPR-MUL}
+## `!MUL`: Multiplication 
 
 Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MUL
 - 1.5
 - 5.5
 - 3.2
-{% endhighlight %}
+```
 
 ---
 
-## `!DIV`: Division {#EXPR-DIV}
+## `!DIV`: Division 
 
 Type: _Sequence_
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !DIV
 - 21
 - 1.5
-{% endhighlight %}
+```
 
 
 ### Division by zero
@@ -89,18 +87,18 @@ Division by zero produces the error, which can cascade thru the expression.
 The first item in `!TRY` is a `!DIV` that can produce division by zero error.
 The second item is a value that will be returned when such an error occurs.
 
-{% highlight yaml %}
+```yaml
 !TRY
 - !DIV
   - !ARG input
   - 0.0
 - 5.0
-{% endhighlight %}
+```
 
 
 ---
 
-## `!MOD`: Reminder {#EXPR-MOD}
+## `!MOD`: Reminder 
 
 Type: _Sequence_
 
@@ -110,15 +108,15 @@ Calculate the signed remainder of a division (aka modulo operation).
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !MOD
 - 21
 - 1.5
-{% endhighlight %}
+```
 
 ---
 
-## `!POW`: Exponentiation {#EXPR-POW}
+## `!POW`: Exponentiation 
 
 Type: _Sequence_
 
@@ -128,11 +126,11 @@ Calculate the exponent or power.
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !POW
 - 2
 - 8
-{% endhighlight %}
+```
 
 ---
 
@@ -151,9 +149,9 @@ Calculate the absolute value of input `x`, which is the non-negative value of  `
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !ABS
 what: -8.5
-{% endhighlight %}
+```
 
 The result is a value `8.5`.

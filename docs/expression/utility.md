@@ -4,12 +4,10 @@ title: Utility expressions
 
 # Utility expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 ---
 
-## `!CAST`: Convert type of the argument into another {#EXPR-CAST}
+## `!CAST`: Convert type of the argument into another 
 
 Type: _Mapping_.
 
@@ -43,7 +41,7 @@ This is an explicit casting of the string into a floating-point number.
 
 ---
 
-## `!HASH`: Calculate a digest {#EXPR-HASH}
+## `!HASH`: Calculate a digest 
 
 Type: _Mapping_.
 
@@ -82,7 +80,7 @@ seed: 5
 
 ---
 
-## `!DEBUG`: Debug the expression {#EXPR-DEBUG}
+## `!DEBUG`: Debug the expression 
 
 Type: _Mapping_.
 

@@ -4,8 +4,6 @@ title: Date/time expressions
 
 # Date/time expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 Date and time is expressed in SP-Lang by a `datetime`.
 It has a microsecond resolution and a range from year 8190 B.C. to a year 8191.
@@ -13,7 +11,7 @@ It is in the UTC timezone.
 
 ---
 
-## `!NOW`: A current date and time {#EXPR-NOW}
+## `!NOW`: A current date and time 
 
 Type: _Mapping_.
 
@@ -27,7 +25,7 @@ Get a current date and time.
 
 ---
 
-## `!DATETIME`: Construct the date/time {#EXPR-DATETIME}
+## `!DATETIME`: Construct the date/time 
 
 Type: _Mapping_.
 
@@ -101,7 +99,7 @@ timezone: "+05:00"
 
 ---
 
-## `!DATETIME.FORMAT`: Format a date/time {#EXPR-DATETIME-FORMAT}
+## `!DATETIME.FORMAT`: Format a date/time 
 
 Type: _Mapping_.
 
@@ -166,7 +164,7 @@ Prints the current local time as eg. `2022-12-31 12:34:56` using the timezone "E
 
 ---
 
-## `!DATETIME.PARSE`: Parse a date/time {#EXPR-DATETIME-PARSE}
+## `!DATETIME.PARSE`: Parse a date/time 
 
 Type: _Mapping_.
 
@@ -198,7 +196,7 @@ format: "%y-%m-%dT%H:%M:%S%z"
 
 ---
 
-## `!GET`: Get a date/time component {#EXPR-DATETIME-GET}
+## `!GET`: Get a date/time component 
 
 Type: _Mapping_.
 

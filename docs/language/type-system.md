@@ -6,70 +6,19 @@ title: SP-Lang Type system
 
 This is detailed description of the type system used in SP-Lang.
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
-# Scalar types
+## Scalar types
 
-## Integers
+### Integers
 
-
-<table class="table">
-<colgroup>
-	<col />
-	<col />
-</colgroup>
-
-<colgroup>
-	<col class="bg-gray"/>
-	<col class="bg-gray"/>
-</colgroup>
-
-<colgroup>
-	<col />
-	<col />
-</colgroup>
-
-<thead>
-  <tr class="bg-gray">
-    <th>Type</th><th>Name</th>
-    <th>Type</th><th>Name</th>
-    <th>Bits</th><th>Bytes</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>si8</code></td><td>Signed 8bit integer</td>
-    <td><code>ui8</code></td><td>Unsigned 8bit integer</td>
-    <td>8</td><td>1</td>
-  </tr>
-  <tr>
-    <td><code>si16</code></td><td>Signed 16bit integer</td>
-    <td><code>ui16</code></td><td>Unsigned 16bit integer</td>
-    <td>16</td><td>2</td>
-  </tr>
-  <tr>
-    <td><code>si32</code></td><td>Signed 32bit integer</td>
-    <td><code>ui32</code></td><td>Unsigned 32bit integer</td>
-    <td>32</td><td>4</td>
-  </tr>
-  <tr>
-    <td><code>si64</code></td><td>Signed 64bit integer</td>
-    <td><code>ui64</code></td><td>Unsigned 64bit integer</td>
-    <td>64</td><td>16</td>
-  </tr>
-  <tr>
-    <td><code>si128</code></td><td>Signed 128bit integer</td>
-    <td><code>ui128</code></td><td>Unsigned 128bit integer</td>
-    <td>128</td><td>32</td>
-  </tr>
-  <tr>
-    <td><code>si256</code></td><td>Signed 256bit integer</td>
-    <td><code>ui256</code></td><td>Unsigned 256bit integer</td>
-    <td>256</td><td>64</td>
-  </tr>
-</tbody>
-</table>
+|Type|Name|Type|Name|Bits|Bytes|
+|:----|:----|:----|:----|:----|:----|
+|`si8`|Signed 8bit integer|`ui8`|Unsigned 8bit integer|8|1|
+|`si16`|Signed 16bit integer|`ui16`|Unsigned 16bit integer|16|2|
+|`si32`|Signed 32bit integer|`ui32`|Unsigned 32bit integer|32|4|
+|`si64`|Signed 64bit integer|`ui64`|Unsigned 64bit integer|64|16|
+|`si128`|Signed 128bit integer|`ui128`|Unsigned 128bit integer|128|32|
+|`si256`|Signed 256bit integer|`ui256`|Unsigned 256bit integer|256|64|
 
 A preferred (default) integer type is `si64` (signed 64bit integer), followed by `ui64` (unsigned 64bit integer).
 This is because SP-Lang is designed primarily for 64bit CPUs.
@@ -80,46 +29,31 @@ _Warning: 256bit sizes are not fully supported yet._
 
 
 
-## Boolean
+### Boolean
 
 A Boolean (`bool`) is a type that has one of two possible values denoted `True` and `False`.
 
 
-## Floating-Point
+### Floating-Point
 
-<table class="table" style="width: 30em;">
-<thead>
-  <tr class="bg-gray">
-    <th>Type</th><th>Name</th><th>Bytes</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>fp16</code></td><td>16bit Float</td><td>2</td>
-  </tr>
-  <tr>
-    <td><code>fp32</code></td><td>32bit Float</td><td>4</td>
-  </tr>
-  <tr>
-    <td><code>fp64</code></td><td>64bit Float</td><td>8</td>
-  </tr>
-  <tr>
-    <td><code>fp128</code></td><td>128bit Float</td><td>16</td>
-  </tr>
-</tbody>
-</table>
+|Type|Name|Bytes|
+|:----|:----|:----|
+|`fp16`|16bit Float|2|
+|`fp32`|32bit Float|4|
+|`fp64`|64bit Float|8|
+|`fp128`|128bit Float|16|
 
 Warning: Alias `float` translates to `fp64` which translates to LLVM `double` (different from alias `float`).
 
 _Warning: `fp16` and `fp128` are not fully supported._
 
 
-# Complex scalar types
+## Complex scalar types
 
 Complex scalar types are designed for values that provides some internal structure (so technically they are records or tuples) but they can fit into a scalar type (e.g. for performance or optimisation purposes).
 
 
-## Date/Time
+### Date/Time
 
 `datetime`
 
@@ -131,7 +65,7 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
 * 64bit unsigned integer, aka `ui64`
 
 
-### Broken time components
+#### Broken time components
 
 * `y` / `year`
 * `m` / `month`
@@ -142,7 +76,7 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
 * `u` / `microsecond`
 
 
-## IP Address
+### IP Address
 
 `ip`
 
@@ -151,7 +85,7 @@ Underlying scalar type: `ui128`
 IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
 
 
-# Generic types
+## Generic types
 
 Generic types are used in the early stage of the SP-Lang parsing, optimization and compilation.
 The complementary type is "Specific type".
@@ -162,10 +96,10 @@ The generic type starts with capital `T`.
 Also if the container type contains generic type, the _container type_ or _structural type_ itself is considered generic.
 
 
-# Container types
+## Container types
 
 
-## List
+### List
 
 `[Ti]`
 
@@ -177,7 +111,7 @@ The list must contain a zero, one or many items of *the same type*.
 The type constructor is `!LIST` expression.
 
 
-## Set
+### Set
 
 `{Ti}`
 
@@ -186,7 +120,7 @@ The type constructor is `!LIST` expression.
 The type constructor is `!SET` expression.
 
 
-## Dictionary
+### Dictionary
 
 `{Tk:Tv}`
 
@@ -196,12 +130,12 @@ The type constructor is `!SET` expression.
 The type constructor is `!DICT` expression.
 
 
-# Product types
+## Product types
 
 A [product type](https://en.wikipedia.org/wiki/Product_type) is a compounded type, formed by combining other types into a _structure_.
 
 
-## Tuple
+### Tuple
 
 
 Signature: `(T1, T2, T3, ...)`
@@ -213,7 +147,7 @@ It is equivalent to a [structure type](https://llvm.org/docs/LangRef.html#struct
 _Note:_ A tuple with no members respectively `()` is the [unit](https://en.wikipedia.org/wiki/Unit_type).
 
 
-## Record
+### Record
 
 Signature: `(name1: T1, name2: T2, name3: T3, ...)`
 
@@ -222,11 +156,11 @@ The type constructor is `!RECORD` expression.
 It is is equivalent to a C `struct`.
 
 
-# Sum type
+## Sum type
 
 A [Sum type](https://en.wikipedia.org/wiki/Tagged_union) is a data structure used to hold a value that could take on several different types.
 
-## Any
+### Any
 
 `any`
 
@@ -241,9 +175,9 @@ The `any` is a recursive type; it can contain itself because it contains all oth
 For this reason, it is impossible to calculate the generic or even maximum size of the `any` variable.
 
 
-# Object types
+## Object types
 
-## String
+### String
 
 `str`
 
@@ -252,18 +186,18 @@ Must be in UTF-8 encoding.
 _Note: `str` could be casted to `[ui8]` (list of `ui8`) in 'toll-free' manner; it is the binary equivalent._
 
 
-## Bytes
+### Bytes
 
 Planned.
 
 
-## Enum
+### Enum
 
 Planned.
 
 
 
-## Regex
+### Regex
 
 `regex`
 
@@ -273,7 +207,7 @@ If the regex pattern is constant, then it is compiled during the respective expr
 In the case of dynamic regex pattern, the regex compilation happens during the expression evaluation.
 
 
-## JSON
+### JSON
 
 `json<SCHEMA>`
 
@@ -281,9 +215,9 @@ JSON object, result of the JSON parsing.
 It is schema-based type.
 
 
-# Function Type
+## Function Type
 
-## Function
+### Function
 
 
 `(arg1:T1,arg2:T2,arg3:T3)->Tr`
@@ -292,12 +226,12 @@ It is schema-based type.
 * `Tr` specifies the output type of the function
 
 
-# Pythonic types
+## Pythonic types
 
 Pythonic types are object types that provides interfacing with the Python.
 
 
-## Python Dictionary
+### Python Dictionary
 
 `pydict<SCHEMA>`
 
@@ -305,14 +239,14 @@ A [Python dictionary](https://docs.python.org/3/c-api/dict.html).
 It is a schema-based type.
 
 
-## Python Object
+### Python Object
 
 `pyobj`
 
 A generic [Python object](https://docs.python.org/3/c-api/object.html).
 
 
-## Python List
+### Python List
 
 `pylist`
 
@@ -320,31 +254,31 @@ A [Python list](https://docs.python.org/3/c-api/list.html).
 
 
 
-## Python Tuple
+### Python Tuple
 
 `pytuple`
 
 
-# Casting
+## Casting
 
 Use `!CAST` expression for change of the type of a value.
 
-{% highlight yaml %}
+```yaml
 !CAST
 what: 1234
 type: fp32
-{% endhighlight %}
+```
 
 or an equivalent shortcut:
 
-{% highlight yaml %}
+```yaml
 !!fp32 1234
-{% endhighlight %}
+```
 
 Note: Cast is also a great helper for type inference, it means that it could be used to indicate the the type explicitly, if needed.
 
 
-# Schema-based types
+## Schema-based types
 
 _Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
 Schema is basically a directory that maps fields to their types and so on.
@@ -357,7 +291,7 @@ List of schema-based types:
  * `pydict<...>`
  * `json<...>`
 
-## Build-in schemas
+### Build-in schemas
 
  * `ANY`: This schema declares any member to be of type `any`.
  * `VOID`: This schema has no member, use in-place type definition to specify types of fields.

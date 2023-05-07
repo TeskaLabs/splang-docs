@@ -15,9 +15,9 @@ Broken time means that year, month, day, hour, minute, second and microsecond ar
 
 The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format, Intel/AMD 64bit native.
 
-<img src="date-time-bit-layout.jpg" alt="Schema of the data/time bit layout" />
+<img src="../date-time-bit-layout.jpg" alt="Schema of the data/time bit layout" />
 
-<table style="width: 100%;">
+<table style="width: 100%; font-size: 0.6em">
 <colgroup>
 </colgroup>
 <thead>
@@ -110,7 +110,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 _Note: Recommended/minimal byte-aligned type for a given component._
 
 
-# Timezone details
+## Timezone details
 
 Timezone information originates from [pytz](http://pytz.sourceforge.net) respectively from the [IANA Time Zone Database](https://www.iana.org/time-zones).
 
@@ -137,14 +137,14 @@ Example of the `tzinfo` folder:
 
 The file is [memory-mapped](https://en.wikipedia.org/wiki/Memory-mapped_file) into the SP-Lang process memory space, aligned on 64byte boundary, so that it can be directly used as a lookup.
 
-## Common structures
+### Common structures
 
   * `ym`: Year & month, `ym = (year << 4) + month`
   * `dhm`: Day, hour & minute, `dhm = (day << 11) + (hour << 6) + minute`
 
 Both structures are bit-wise parts of the `datetime` scalar value and can be extracted from `datetime` using `AND` and `SHR`.**
 
-## Timezone file header
+### Timezone file header
 
 Header length in 64 bytes.
 Unspecified bytes are set to `0` and reserved for a future use.
@@ -157,11 +157,11 @@ Unspecified bytes are set to `0` and reserved for a future use.
   * Position `12...15`: The position of the "parser table" in the file, multiplied by 64, typically `1` b/c the parser table is stored directly after a header
 
 
-## Timezone parser table
+### Timezone parser table
 
 The _parser table_ is a lookup table used for conversion from the local date/time into UTC.
 
-<img src="date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
+<img src="../date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
 
 The table is organised into rows/years and columns/months.
 The cell is 4 bytes wide, the row is then 64 bytes long.
@@ -169,7 +169,7 @@ The cell is 4 bytes wide, the row is then 64 bytes long.
 First 12 cells are "primary parser cells" (in light blue color), the number reflect the number of the month (1...12).
 The remaining 4 cells are "parser next cells", the number `nX` is the index.
 
-## Primary parser cell
+### Primary parser cell
 
 The position of the cell for a given date/time is calculated as `pos = (ym - min_ym) << 5` which means that year and month is used for a cell localization, minus the minimal year&month value for a table.
 
@@ -187,7 +187,7 @@ If `dhm` for a input date/time is mathematically lower than `dhm` from the prima
 If `dhm` is greater, then the `next` contains a number of the "parser next cell"; present at the end of the relevant parser table row.
 
 
-## Parser next cell
+### Parser next cell
 
 The "parser next cell" contain a "continuation" of the information for a month where the time change is observed.
 The "continuation" means the offset from UTC that happens when local time passed time change boundary.
@@ -209,7 +209,7 @@ _Note: currently, only one time change per month is supported, which seems to be
 Empty/unused next cells are zeroed.
 
 
-# Errors
+## Errors
 
 If `datetime` bit 63 is set, then the date/time value represents an error.
 Likely the expression that produced this value failed in some way.
@@ -217,7 +217,7 @@ Likely the expression that produced this value failed in some way.
 The error code is stored in lower 32bits.
 
 
-# Usefull links
+## Usefull links
 
 * [UNIX Timestamp](https://www.unixtimestamp.com)
 * [UTC to/from local time convertor](https://www.worldtimebuddy.com)

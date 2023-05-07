@@ -5,8 +5,6 @@ title: Set expression
 # Set expression
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The set store unique items, without any particular order.
 Items in the set must be of the same type.
@@ -16,7 +14,7 @@ A set is best suited for a testing value for membership rather than retrieving a
 
 --- 
 
-## `!SET`: Set of items {#EXPR-SET}
+## `!SET`: Set of items 
 
 Type:  _Implicit sequence_, _Mapping_.
 
@@ -77,7 +75,7 @@ with:
 
 --- 
 
-## `!IN`: Membership test {#EXPR-SET-IN}
+## `!IN`: Membership test 
 
 Type: _Mapping_.
 

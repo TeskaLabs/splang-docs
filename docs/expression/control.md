@@ -4,14 +4,12 @@ title: Control expressions
 
 # Control expressions
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 SP-Lang provides a variety of control flow statements. 
 
 --- 
 
-## `!IF`: Simple conditional branching  {#EXPR-IF}
+## `!IF`: Simple conditional branching  
 
 Type: _Mapping_.
 
@@ -20,12 +18,12 @@ The `!IF` expression is a decision-making expression that guides the evaluation 
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !IF
 test: <expression>
 then: <expression>
 else: <expression>
-{% endhighlight %}
+```
 
 
 `test` should provide boolean value, based on this value `then` (for `true`) or `else` (for `false`) branch is evaluated.
@@ -35,7 +33,7 @@ else: <expression>
 
 ### Example
 
-{% highlight yaml %}
+```yaml
 !IF
 test:
   !EQ
@@ -45,11 +43,11 @@ then:
   It is two.
 else:
   It is NOT two.
-{% endhighlight %}
+```
 
 ---
 
-## `!WHEN`: Powerful branching  {#EXPR-WHEN}
+## `!WHEN`: Powerful branching  
 
 Type: _Sequence_.
 
@@ -59,7 +57,7 @@ Cases can match many different patterns, including interval matches, tuples, and
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !WHEN
 - test: <expression>
   then: <expression>
@@ -73,7 +71,7 @@ Cases can match many different patterns, including interval matches, tuples, and
 - ...
 
 - else: <expression>
-{% endhighlight %}
+```
 
 
 If `else` is not provided, then `WHEN` returns `False`.
@@ -83,7 +81,7 @@ If `else` is not provided, then `WHEN` returns `False`.
 
 Example of `!WHEN` use for exact match, range match and set match:
 
-{% highlight yaml %}
+```yaml
 !WHEN
 
 # Exact value match
@@ -117,18 +115,18 @@ Example of `!WHEN` use for exact match, range match and set match:
 
 - else:
     "Unknown"
-{% endhighlight %}
+```
 
 --- 
 
-## `!MATCH`: Pattern matching {#EXPR-MATCH}
+## `!MATCH`: Pattern matching 
 
 Type: _Mapping_.
 
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 !MATCH
 what: <what-expression>
 with:
@@ -137,7 +135,7 @@ with:
   ...
 else:
   <expression>
-{% endhighlight %}
+```
 
 `!MATCH` expression evaluates the `what-expression`, matching the expression's value to a case clause, and executes `expression` associated with that case.
 
@@ -149,7 +147,7 @@ The expression fails with error when no matching `<value>` is found and `else` b
 
 Example of `!MATCH`:
 
-{% highlight yaml %}
+```yaml
 !MATCH
 what: 1
 with:
@@ -158,12 +156,12 @@ with:
   3: "Three"
 else:
   "Other number"
-{% endhighlight %}
+```
 
     
 Use of `!MATCH` to structure the code:
 
-{% highlight yaml %}
+```yaml
 !MATCH
 what: !ARG code
 with:
@@ -171,25 +169,25 @@ with:
   2: !INCLUDE code-2.yaml
 else:
   !INCLUDE code-else.yaml
-{% endhighlight %}
+```
   
 ---
 
-## `!TRY`: Execute till first non-error expression  {#EXPR-TRY}
+## `!TRY`: Execute till first non-error expression  
 
 
 Type: _Sequence_
 
 ### Synopsis
 
-{% highlight yaml %}
+```yaml
 
 !TRY
 - <expression>
 - <expression>
 - <expression>
 ...
-{% endhighlight %}
+```
 
 Iterate thru expression (top down), if the expression return non-null (`None`) result, stop iteration and return that value.
 Otherwise continue to the next expression.
@@ -202,7 +200,7 @@ It was obsoleted in November 2022.
     
 ---
 
-## `!MAP`: Apply the expression on each element in a sequence {#EXPR-MAP}
+## `!MAP`: Apply the expression on each element in a sequence 
 
 Type: _Mapping_.
 
@@ -230,7 +228,7 @@ Result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
-## `!REDUCE`: Reduce the elements of an list into a single value {#EXPR-REDUCE}
+## `!REDUCE`: Reduce the elements of an list into a single value 
 
 Type: _Mapping_.
     

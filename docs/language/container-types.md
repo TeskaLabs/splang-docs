@@ -8,28 +8,28 @@ title: Details of container types
 
 The *list* represents a finite number of ordered items, where the same item may occur more than once.
 
-<img src = "container-types-list.svg" alt="List schema"/>
+<img src="../container-types-list.svg" alt="List schema"/>
 
 
 ## Set
 
 The *set* is a composition of the *Internal list* and the hash table.
 
-<img src = "container-types-set.svg" alt="Set schema"/>
+<img src="../container-types-set.svg" alt="Set schema"/>
 
 
 ## Dict
 
 The *dict* (aka dictionary) is a composition of the set (itself a hash table and a list) of keys (called *Key set* with *Key list* ) and a list of values (called *Value list*).
 
-<img src = "container-types-dict.svg" alt="Dict schema"/>
+<img src="../container-types-dict.svg" alt="Dict schema"/>
 
 
 ## Hash table
 
 *Set* and *Dict* types uses a [hash table](https://en.wikipedia.org/wiki/Hash_table).
 
-<img src = "container-types-hashtable.svg" alt="Hash table"/>
+<img src="../container-types-hashtable.svg" alt="Hash table"/>
 
 The *hash table* is designed so that it maps the 64bit hash of the key directly into an index of the item.
 The [perfect hash](https://en.wikipedia.org/wiki/Perfect_hash_function) strategy is applied so no collision resolution is implemented for a constructed hash table.

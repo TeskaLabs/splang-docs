@@ -5,8 +5,6 @@ title: Dictionary expression
 # Dictionary expression
 
 
-* This will become a table of contents (this text will be scrapped).
-{:toc}
 
 The dict (aka dictionary) store a collection of (key, value) pairs, such that each possible key appears at most once in the collection.
 Keys in the dictionary must be of the same type as well as values.
@@ -18,7 +16,7 @@ Hint: You may know this structure under alernative names "associative array" or 
 
 --- 
 
-## `!DICT`: Dictionary {#EXPR-DICT}
+## `!DICT`: Dictionary 
 
 Type:  _Mapping_
 
@@ -92,7 +90,7 @@ In the above example, the type of the dictionary is `{str:any}`, the type of key
 
 --- 
 
-## `!GET`: Get the value from a dictionary {#EXPR-DICT-GET}
+## `!GET`: Get the value from a dictionary 
 
 Type: _Mapping_.
 
@@ -128,7 +126,7 @@ Returns `Three`.
 
 --- 
 
-## `!IN`: Membership test {#EXPR-DICT-IN}
+## `!IN`: Membership test 
 
 Type: _Mapping_.
 
