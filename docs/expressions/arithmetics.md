@@ -31,7 +31,7 @@ You can add following types:
 - 6
 ```
 
-Calculates `4+(-5)+6`, so the result is `5`.
+Calculates `4+(-5)+6`, the result is `5`.
 
 ---
 

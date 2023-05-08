@@ -9,6 +9,8 @@ title: String
 
 ## `!IN`: Test if the string contains a substring 
 
+The `!IN` expression is used to check if a string `what` exists in a string `where` or not.
+
 Type: _Mapping_.
 
 ### Synopsis
@@ -19,8 +21,8 @@ what: <...>
 where: <...>
 ```
 
-The `!IN` expression is used to check if a string `what` exists in a string `where` or not.
-Evaluate to "true" if it finds a substring `what` in the string `where` and false otherwise.
+Evaluate to `true` if it finds a substring `what` in the string `where` and false otherwise.
+
 
 ### Example
 
@@ -30,7 +32,7 @@ what: "Willy"
 where: "John Willy Boo"
 ```
 
-Check for a presence of the substring "Willy" in the `where` value. Returns "true".
+Check for a presence of the substring "Willy" in the `where` value. Returns `true`.
 
 
 ### Multi-string variant
@@ -85,9 +87,9 @@ For that reason, the `!IN` must be a perfect superset of the `!REGEX`, it means:
 
 ## `!STARTSWITH`: Test if the string starts with a prefix 
 
-Type: _Mapping_
-
 Returns `true` if `what` string begins with `prefix`.
+
+Type: _Mapping_
 
 ### Synopsis
 
@@ -106,13 +108,31 @@ what: "FooBar"
 prefix: "Foo"
 ```
 
+### Multi-string variant
+
+!!! warning "Work in progress"
+
+    Not implemented yet.
+
+
+```yaml
+!STARTSWITH
+what: <...>
+prefix: [<prefix1>, <prefix2>, ...]
+```
+
+In multi-string variant, a list of strings is defined.
+The expression evaluates to `true` if at least one prefix string matches the start of the `what` string.
+
+
 ---
 
 ## `!ENDSWITH`: Test if the string ends with a postfix 
 
+Returns `true` if `what` string ends with `postfix`.
+
 Type: _Mapping_
 
-Returns `true` if `what` string ends with `postfix`.
 
 ### Synopsis
 
@@ -131,13 +151,31 @@ what: "autoexec.bat"
 postfix: ".bat"
 ```
 
+### Multi-string variant
+
+!!! warning "Work in progress"
+
+    Not implemented yet.
+
+
+```yaml
+!ENDSWITH
+what: <...>
+postfix: [<postfix1>, <postfix2>, ...]
+```
+
+In multi-string variant, a list of strings is defined.
+The expression evaluates to `true` if at least one postfix string matches the end of the `what` string.
+
+
 ---
 
 ## `!SUBSTRING`: Extract part of the string 
 
+Return part of the string `what`, in between `from` and `to` index.
+
 Type: _Mapping_
 
-Return part of the string `what`, in between `from` and `to` index.
 
 ### Synopsis
 
@@ -147,6 +185,10 @@ what: <...>
 from: <...>
 to: <...>
 ```
+
+!!! info
+
+    The first character of the string is located on position `from=0`.
 
 
 ### Example
@@ -212,9 +254,9 @@ Returns `FOOBAR`.
 
 ## `!CUT`: Cut portion of the string 
 
-Type: _Mapping_
-
 Cut the string by a delimiter and return the piece identified by `field` index (starts with 0).
+
+Type: _Mapping_
 
 ### Synopsis
 
@@ -256,9 +298,9 @@ Will return value "Citrus".
 
 ## `!SPLIT`: Split a string into the list 
 
-Type: _Mapping_
-
 Splits a string into a list of strings.
+
+Type: _Mapping_
 
 ### Synopsis
 
@@ -280,6 +322,8 @@ An optional `maxsplit` arguments specifies how many splits to do.
 what: "hello,world"
 delimiter: ","
 ```
+
+The result is a list: `["hello", "world"]`.
 
 ---
 

@@ -4,36 +4,39 @@ title: Aggregate
 
 # Aggregate expressions
 
+An aggregate expression is a type of function that performs calculations on a set of values and returns a single value as a result.
+These expressions are commonly used to summarize or condense data.
 
 ---
 
 ## `!AVG`: Average 
 
-Type: _Sequence_
-
 Calculate the average / arithmetic mean.
 
-[More information](https://en.wikipedia.org/wiki/Arithmetic_mean) (Wikipedia)
+Type: _Sequence_
+
+!!! info
+
+	Read more about [Arithmetic mean](https://en.wikipedia.org/wiki/Arithmetic_mean) on Wikipedia.
 
 ### Example
 
 ```yaml
 !AVG
-- 1
+- 6
 - 2
-- 3
+- 4
 ```
 
-Calculation of the average `(1+2+3)/3`,  the result is `2`.
+Calculation of the average `(6+2+4)/3`,  the result is `3`.
 
 ---
 
 ## `!MAX`: Maximum 
 
-Type: _Sequence_
-
 Returns a maximum value from the seqence.
 
+Type: _Sequence_
 
 ### Example
 
@@ -41,34 +44,39 @@ Returns a maximum value from the seqence.
 !MAX
 - 1.5
 - 2.6
+- 5.1
 - 3.05
 - 4.45
-- 5.1
 ```
 
+The result of this expression is `5.1`.
 
 ---
 
 ## `!MIN`: Minimum 
 
-Type: _Sequence_
-
 Returns a minimum value from the seqence.
+
+Type: _Sequence_
 
 ### Example
 
 ```yaml
 !MIN
-- 0.5
 - 2.6
 - 3.05
 - 4.45
+- 0.5
 - 5.1
 ```
 
+The result of this expression is `0.5`.
+
 ---
 
-## `!COUNT`: Count number of elements 
+## `!COUNT`: Count number of items 
+
+Counts the number of items in a container.
 
 Type: _Sequence_
 
@@ -93,9 +101,15 @@ Returns `9`.
 
 ## `!MEDIAN`: The middle value 
 
+The median is the middle value in a list of numbers; half of the values are greater than the median, and half are less than the median.
+If the list has an even number of elements, the median is the average of the two middle values.
+
 Type: _Sequence_
 
-[More information](https://en.wikipedia.org/wiki/Median) (Wikipedia)
+
+!!! info
+
+	Read more about [median](https://en.wikipedia.org/wiki/Median) on Wikipedia.
 
 
 ### Example
@@ -113,9 +127,14 @@ Type: _Sequence_
 
 ## `!MODE`: Value that appears most often 
 
+The mode is the value or values that occur most frequently in a list.
+It can be used to represent the central tendency of a data set.
+
 Type: _Sequence_
 
-[More information](https://en.wikipedia.org/wiki/Mode_%28statistics%29) (Wikipedia)
+!!! info
+
+	Read more about [mode](https://en.wikipedia.org/wiki/Mode_%28statistics%29) on Wikipedia.
 
 
 ### Example
@@ -137,11 +156,13 @@ Type: _Sequence_
 
 ## `!RANGE`: The difference between the largest and smallest value 
 
-Type: _Sequence_
-
 Calculates the difference between the largest and smallest values.
 
-[More information](https://en.wikipedia.org/wiki/Range_%28statistics%29) (Wikipedia)
+Type: _Sequence_
+
+!!! info
+
+	Read more about [range](https://en.wikipedia.org/wiki/Range_%28statistics%29) on Wikipedia.
 
 ### Example
 

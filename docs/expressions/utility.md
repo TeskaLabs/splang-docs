@@ -27,7 +27,7 @@ This feature is called *implicit casting*.
 In case of explicit need for a type conversion, use `!CAST` expression.
 It is very powerful method that do a lot of heavylifting.
 
-For more details about types, see Type System chapter.
+For more details, see chapter about [types](../../language/types).
 
 ### Example
 
@@ -61,12 +61,12 @@ Calculate the hash for an `what` value.
 `type` specifies a hashing function, the default value is `XXH64`.
 
 
-### Supported hashing functions
+#### Supported hashing functions
 
 * `XXH64`: xxHash, 64bit, non-cryptografic, extremely fast hash algorithm
 * `XXH3`: xxHash, 64bit, non-cryptografic, futher optimized for small inputs
 
-More information about xxHash are here: http://www.xxhash.com/
+More information about xxHash are at [xxhash.com](http://www.xxhash.com/)
 
 
 ### Example
@@ -82,6 +82,7 @@ seed: 5
 
 ## `!DEBUG`: Debug the expression 
 
+Print the content of the input and pass the value unchanged on the output.
+
 Type: _Mapping_.
 
-Print the content of the input and pass the value unchanged on the output.
