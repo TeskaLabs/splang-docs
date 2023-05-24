@@ -1,3 +1,4 @@
 *.bkp
 .DS_store
 output
+.idea/
