@@ -107,7 +107,7 @@ You can also use a _flow form_ for the same expression:
 !ENDSWITH {what: "FooBar", postfix: "Bar"}
 ```
 
-## Combining expressions
+## Compose expressions
 
 You can combine expressions together to create more powerful solution to your problem.
 You simply "plug" output of one expression into an input of other expression.
