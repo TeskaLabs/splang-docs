@@ -11,7 +11,6 @@ title: Arithmetics
 
 Type: _Sequence_
 
-### Overview
 
 You can add following types:
 
@@ -22,16 +21,16 @@ You can add following types:
  * Tuples
  * Records
 
-### Example
+!!! example
 
-```yaml
-!ADD
-- 4
-- -5
-- 6
-```
+    ```yaml
+    !ADD
+    - 4
+    - -5
+    - 6
+    ```
 
-Calculates `4+(-5)+6`, the result is `5`.
+  Calculates `4+(-5)+6`, the result is `5`.
 
 ---
 
@@ -39,14 +38,14 @@ Calculates `4+(-5)+6`, the result is `5`.
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!SUB
-- 3
-- 1
-- -5
-```
+    ```yaml
+    !SUB
+    - 3
+    - 1
+    - -5
+    ```
 
 ---
 
@@ -55,14 +54,14 @@ Type: _Sequence_
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!MUL
-- 1.5
-- 5.5
-- 3.2
-```
+    ```yaml
+    !MUL
+    - 1.5
+    - 5.5
+    - 3.2
+    ```
 
 ---
 
@@ -70,13 +69,13 @@ Type: _Sequence_
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!DIV
-- 21
-- 1.5
-```
+    ```yaml
+    !DIV
+    - 21
+    - 1.5
+    ```
 
 
 ### Division by zero
@@ -102,17 +101,16 @@ The second item is a value that will be returned when such an error occurs.
 
 Type: _Sequence_
 
-### Overview
 
 Calculate the signed remainder of a division (aka modulo operation).
 
-### Example
+!!! example
 
-```yaml
-!MOD
-- 21
-- 1.5
-```
+    ```yaml
+    !MOD
+    - 21
+    - 1.5
+    ```
 
 ---
 
@@ -120,25 +118,22 @@ Calculate the signed remainder of a division (aka modulo operation).
 
 Type: _Sequence_
 
-### Overview
 
 Calculate the exponent or power.
 
-### Example
+!!! example
 
-```yaml
-!POW
-- 2
-- 8
-```
+    ```yaml
+    !POW
+    - 2
+    - 8
+    ```
 
 ---
 
 ## `!ABS`: Absolute value
 
 Type: _Mapping_
-
-### Synopsis
 
 ```yaml
 !ABS
@@ -147,11 +142,11 @@ what: <x>
 
 Calculate the absolute value of input `x`, which is the non-negative value of  `x` without regard to its sign.
 
-### Example
+!!! example
 
-```yaml
-!ABS
-what: -8.5
-```
+    ```yaml
+    !ABS
+    what: -8.5
+    ```
 
-The result is a value `8.5`.
+    The result is a value `8.5`.

@@ -16,8 +16,6 @@ Type: _Mapping_.
 
 The `!IF` expression is a decision-making expression that guides the evaluation to make decisions based on specified test.
 
-### Synopsis
-
 ```yaml
 !IF
 test: <expression>
@@ -31,19 +29,19 @@ else: <expression>
 `then` and `else` have to return the same type, which will be also the type of the `!IF` return value.
 
 
-### Example
+!!! example
 
-```yaml
-!IF
-test:
-  !EQ
-  - !ARG input
-  - 2
-then:
-  It is two.
-else:
-  It is NOT two.
-```
+    ```yaml
+    !IF
+    test:
+      !EQ
+      - !ARG input
+      - 2
+    then:
+      It is two.
+    else:
+      It is NOT two.
+    ```
 
 ---
 
@@ -54,8 +52,6 @@ Type: _Sequence_.
 `!WHEN` expression is considerably more powerful than `!IF` expression.
 Cases can match many different patterns, including interval matches, tuples, and so on. 
 
-
-### Synopsis
 
 ```yaml
 !WHEN
@@ -77,45 +73,45 @@ Cases can match many different patterns, including interval matches, tuples, and
 If `else` is not provided, then `WHEN` returns `False`.
 
 
-### Example
+!!! example
 
-Example of `!WHEN` use for exact match, range match and set match:
+    Example of `!WHEN` use for exact match, range match and set match:
 
-```yaml
-!WHEN
+    ```yaml
+    !WHEN
 
-# Exact value match
-- test:
-    !EQ
-    - !ARG key
-    - 34
-  then:
-    "Thirty four"
+    # Exact value match
+    - test:
+        !EQ
+        - !ARG key
+        - 34
+      then:
+        "Thirty four"
 
-# Range match
-- test:
-    !LT
-    - 40
-    - !ARG key
-    - 50
-  then:
-    "fourty to fifty (exclusive)"
+    # Range match
+    - test:
+        !LT
+        - 40
+        - !ARG key
+        - 50
+      then:
+        "fourty to fifty (exclusive)"
 
-# In-set match
-- test:
-    !IN
-    what: !ARG key
-    where:
-      - 75
-      - 77
-      - 79
-  then:
-    "seventy five, seven, nine"
+    # In-set match
+    - test:
+        !IN
+        what: !ARG key
+        where:
+          - 75
+          - 77
+          - 79
+      then:
+        "seventy five, seven, nine"
 
 
-- else:
-    "Unknown"
-```
+    - else:
+        "Unknown"
+    ```
 
 --- 
 
@@ -123,8 +119,6 @@ Example of `!WHEN` use for exact match, range match and set match:
 
 Type: _Mapping_.
 
-
-### Synopsis
 
 ```yaml
 !MATCH
@@ -142,34 +136,32 @@ else:
 The `else` branch of the `!MATCH` is optional.
 The expression fails with error when no matching `<value>` is found and `else` branch is missing.
 
-    
-### Example
 
-Example of `!MATCH`:
+!!! example
 
-```yaml
-!MATCH
-what: 1
-with:
-  1: "One"
-  2: "Two"
-  3: "Three"
-else:
-  "Other number"
-```
+    ```yaml
+    !MATCH
+    what: 1
+    with:
+      1: "One"
+      2: "Two"
+      3: "Three"
+    else:
+      "Other number"
+    ```
 
-    
-Use of `!MATCH` to structure the code:
 
-```yaml
-!MATCH
-what: !ARG code
-with:
-  1: !INCLUDE code-1.yaml
-  2: !INCLUDE code-2.yaml
-else:
-  !INCLUDE code-else.yaml
-```
+!!! hint "Use of `!MATCH` to structure the code"
+
+    ```yaml
+    !MATCH
+    what: !ARG code
+    with:
+      1: !INCLUDE code-1.yaml
+      2: !INCLUDE code-2.yaml
+    else:
+      !INCLUDE code-else.yaml
+    ```
   
 ---
 
@@ -177,8 +169,6 @@ else:
 
 
 Type: _Sequence_
-
-### Synopsis
 
 ```yaml
 
@@ -204,8 +194,6 @@ It was obsoleted in November 2022.
 
 Type: _Mapping_.
 
-### Synopsis
-
 ```yaml
 !MAP
 what: <sequence>
@@ -215,26 +203,23 @@ apply: <expression>
 The `apply` expression is applied on each element in the `what` sequence with the argument `x` containing the respective item value.
 The result is a new list with transformed elements.
 
-### Example
+!!! example
 
-```yaml
-!MAP
-what: [1, 2, 3, 4, 5, 6, 7]
-apply:
-  !ADD [!ARG x, 10]
-```
+    ```yaml
+    !MAP
+    what: [1, 2, 3, 4, 5, 6, 7]
+    apply:
+      !ADD [!ARG x, 10]
+    ```
 
-Result is `[11, 12, 13, 14, 15, 16, 17]`.
+    Result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
 ## `!REDUCE`: Reduce the elements of an list into a single value 
 
 Type: _Mapping_.
-    
 
-
-### Synopsis
 
 ```yaml
 !REDUCE
@@ -243,22 +228,23 @@ apply: <expression>
 initval: <expression>
 fold: <left|right>
 ```
-    
+
 The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument 'b' containing the respective item value.
-    
+
 The `initval` expression provides the initial value for the `a` argument.
-    
+
 An optional `fold` value specified a "left folding" (`left`, default) or a "right folding" (`right`).
 
 
-### Example
+!!! example
 
-```yaml
-!REDUCE
-what: [1, 2, 3, 4, 5, 6, 7]
-initval: -10
-apply:
-  !ADD [!ARG a, !ARG b]
-```
+    ```yaml
+    !REDUCE
+    what: [1, 2, 3, 4, 5, 6, 7]
+    initval: -10
+    apply:
+      !ADD [!ARG a, !ARG b]
+    ```
 
-Calculates a sum of the sequence with an initial value -1, result is `18`: `-10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
+    Calculates a sum of the sequence with an initial value -1.  
+    Result is `18` = `-10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.

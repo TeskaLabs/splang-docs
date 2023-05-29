@@ -5,7 +5,7 @@ title: Date/time
 # Date/time expressions
 
 
-Date and time is expressed in SP-Lang by a `datetime`.
+Date and time is expressed in SP-Lang by a `datetime` type.
 It has a microsecond resolution and a range from year 8190 B.C. to a year 8191.
 It is in the UTC timezone.
 
@@ -21,8 +21,6 @@ Type: _Mapping_.
 
 Get a current date and time.
 
-### Synopsis
-
 ```yaml
 !NOW
 ```
@@ -35,8 +33,6 @@ Type: _Mapping_.
 
 Constructs the `datetime` from components such as year, month, day and so on.
 
-
-### Synopsis
 
 ```yaml
 !DATETIME
@@ -60,46 +56,46 @@ timezone: <timezone>
 * `timezone` is [IANA Time Zone Database](https://www.iana.org/time-zones) name of the timezone. It is optional and a default timezone is UTC.
 
 
-### Example for UTC date/time
+!!! example "Example: UTC date/time"
 
-```yaml
-!DATETIME
-year: 2021
-month: 10
-day: 13
-hour: 12
-minute: 34
-second: 56
-microsecond: 987654
-```
+	```yaml
+	!DATETIME
+	year: 2021
+	month: 10
+	day: 13
+	hour: 12
+	minute: 34
+	second: 56
+	microsecond: 987654
+	```
 
-### Example for default values
+!!! example "Example: default values"
 
-```yaml
-!DATETIME
-year: 2021
-month: 10
-day: 13
-```
+	```yaml
+	!DATETIME
+	year: 2021
+	month: 10
+	day: 13
+	```
 
 
-### Examples with timezones
+!!! example "Example: timezones"
 
-```yaml
-!DATETIME
-year: 2021
-month: 10
-day: 13
-timezone: Europe/Prague
-```
+	```yaml
+	!DATETIME
+	year: 2021
+	month: 10
+	day: 13
+	timezone: Europe/Prague
+	```
 
-```yaml
-!DATETIME
-year: 2021
-month: 10
-day: 13
-timezone: "+05:00"
-```
+	```yaml
+	!DATETIME
+	year: 2021
+	month: 10
+	day: 13
+	timezone: "+05:00"
+	```
 
 ---
 
@@ -109,8 +105,6 @@ Type: _Mapping_.
 
 Format a date and time information based on the `datetime`.
 
-
-### Synopsis
 
 ```yaml
 !DATETIME.FORMAT
@@ -155,15 +149,16 @@ The `timezone` is optional information, if provided, the time will be printed in
 * `%%`: A literal '%' character.
 
 
-### Example
+!!! example
 
-```yaml
-!DATETIME.FORMAT
-with: !NOW
-format: "%Y-%m-%d %H:%M:%S"
-timezone: "Europe/Prague"
-```
-Prints the current local time as eg. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
+	```yaml
+	!DATETIME.FORMAT
+	with: !NOW
+	format: "%Y-%m-%d %H:%M:%S"
+	timezone: "Europe/Prague"
+	```
+
+	Prints the current local time as eg. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
 
 
 ---
@@ -174,8 +169,6 @@ Type: _Mapping_.
 
 Parse a date and time from a string.
 
-
-### Synopsis
 
 ```yaml
 !DATETIME.PARSE
@@ -190,13 +183,13 @@ The `timezone` information is optional, if provided, then it specifies local tim
 See "Format" chapter above for more information about `format`.
 
 
-### Example
+!!! example
 
-```yaml
-!DATETIME.PARSE
-what: "2021-06-29T16:51:43-08"
-format: "%y-%m-%dT%H:%M:%S%z"
-```
+	```yaml
+	!DATETIME.PARSE
+	what: "2021-06-29T16:51:43-08"
+	format: "%y-%m-%dT%H:%M:%S%z"
+	```
 
 ---
 
@@ -206,8 +199,6 @@ Type: _Mapping_.
 
 Extract the date/time component such as hour, minute, day etc. from `datetime`.
 
-
-### Synopsis
 
 ```yaml
 !GET
@@ -232,19 +223,21 @@ The `timezone` if optional, if not provided UTC timezone is used.
 
 * `weekday`, `w`: Day of the week
 
-### Examples
+!!! example
 
-```yaml
-!GET
-what: H
-from: !NOW
-timezone: "Europe/Prague"
-```
-Get "hours" component of the current timestamp, using the "Europe/Prague" timezone.
+	```yaml
+	!GET
+	what: H
+	from: !NOW
+	timezone: "Europe/Prague"
+	```
+
+	Get "hours" component of the current timestamp, using the "Europe/Prague" timezone.
 
 
-```yaml
-!GET { what: year, from: !NOW }
-```
+!!! example "Example: Get a current year"
 
-Get a current year.
+	```yaml
+	!GET { what: year, from: !NOW }
+	```
+

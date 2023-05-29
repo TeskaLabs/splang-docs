@@ -19,16 +19,16 @@ Type: _Sequence_
 
 	Read more about [Arithmetic mean](https://en.wikipedia.org/wiki/Arithmetic_mean) on Wikipedia.
 
-### Example
+!!! example
 
-```yaml
-!AVG
-- 6
-- 2
-- 4
-```
+	```yaml
+	!AVG
+	- 6
+	- 2
+	- 4
+	```
 
-Calculation of the average `(6+2+4)/3`,  the result is `3`.
+	Calculation of the average `(6+2+4)/3`,  the result is `3`.
 
 ---
 
@@ -38,18 +38,18 @@ Returns a maximum value from the seqence.
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!MAX
-- 1.5
-- 2.6
-- 5.1
-- 3.05
-- 4.45
-```
+	```yaml
+	!MAX
+	- 1.5
+	- 2.6
+	- 5.1
+	- 3.05
+	- 4.45
+	```
 
-The result of this expression is `5.1`.
+	The result of this expression is `5.1`.
 
 ---
 
@@ -59,18 +59,18 @@ Returns a minimum value from the seqence.
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!MIN
-- 2.6
-- 3.05
-- 4.45
-- 0.5
-- 5.1
-```
+	```yaml
+	!MIN
+	- 2.6
+	- 3.05
+	- 4.45
+	- 0.5
+	- 5.1
+	```
 
-The result of this expression is `0.5`.
+	The result of this expression is `0.5`.
 
 ---
 
@@ -80,22 +80,22 @@ Counts the number of items in a container.
 
 Type: _Sequence_
 
-### Example
+!!! example
 
-```yaml
-!COUNT
-- Frodo Baggins
-- Sam Gamgee
-- Gandalf
-- Legolas
-- Gimli
-- Aragorn
-- Boromir of Gondor
-- Merry Brandybuck
-- Pippin Took
-```
+	```yaml
+	!COUNT
+	- Frodo Baggins
+	- Sam Gamgee
+	- Gandalf
+	- Legolas
+	- Gimli
+	- Aragorn
+	- Boromir of Gondor
+	- Merry Brandybuck
+	- Pippin Took
+	```
 
-Returns `9`.
+	Returns `9`.
 
 ---
 
@@ -112,16 +112,16 @@ Type: _Sequence_
 	Read more about [median](https://en.wikipedia.org/wiki/Median) on Wikipedia.
 
 
-### Example
+!!! example
 
-```yaml
-!MEDIAN
-- 1
-- 4
-- -1
-- 9
-- 101
-```
+	```yaml
+	!MEDIAN
+	- 1
+	- 4
+	- -1
+	- 9
+	- 101
+	```
 
 ---
 
@@ -137,20 +137,20 @@ Type: _Sequence_
 	Read more about [mode](https://en.wikipedia.org/wiki/Mode_%28statistics%29) on Wikipedia.
 
 
-### Example
+!!! example
 
-```yaml
-!MODE
-- -10
-- -10
-- -20
-- -20
-- 1
-- 2
-- 3
-- 4
-- 5
-```
+	```yaml
+	!MODE
+	- -10
+	- -10
+	- -20
+	- -20
+	- 1
+	- 2
+	- 3
+	- 4
+	- 5
+	```
 
 ---
 
@@ -164,13 +164,13 @@ Type: _Sequence_
 
 	Read more about [range](https://en.wikipedia.org/wiki/Range_%28statistics%29) on Wikipedia.
 
-### Example
+!!! example
 
-```yaml
-!RANGE
-- 1
-- 3
-- 4
-- 20
-- -1
-```
+	```yaml
+	!RANGE
+	- 1
+	- 3
+	- 4
+	- 20
+	- -1
+	```

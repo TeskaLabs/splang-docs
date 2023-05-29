@@ -19,8 +19,6 @@ Hint: You may know this structure under alernative names "associative array" or 
 
 Type:  _Mapping_
 
-### Synopsis
-
 ```yaml
 !DICT
 with:
@@ -30,35 +28,37 @@ with:
   ...
 ```
 
-_Hint: Use `!COUNT` to determine number of items in the dictionary._
+!!! hint
+
+    Use `!COUNT` to determine number of items in the dictionary.
 
 
-### Examples
+!!! example
 
-There are several ways, how a dictionary can be specified in SP-Lang:
+    There are several ways, how a dictionary can be specified in SP-Lang:
 
-```yaml
-!DICT
-with:
-  key1: "One"
-  key2: "Two"
-  key3: "Three"
-```
+    ```yaml
+    !DICT
+    with:
+      key1: "One"
+      key2: "Two"
+      key3: "Three"
+    ```
 
-Implicit dictionary:
+    Implicit dictionary:
 
-```yaml
----
-key1: "One"
-key2: "Two"
-key3: "Three"
-```
+    ```yaml
+    ---
+    key1: "One"
+    key2: "Two"
+    key3: "Three"
+    ```
 
-Consise dictionary using `!!dict` and YAML flow style:
+    Consise dictionary using `!!dict` and YAML flow style:
 
-```yaml
-!!dict {key1: "One", key2: "Two", key3: "Three"}
-```
+    ```yaml
+    !!dict {key1: "One", key2: "Two", key3: "Three"}
+    ```
 
 ### Type specification
 
@@ -94,8 +94,6 @@ In the above example, the type of the dictionary is `{str:any}`, the type of key
 Type: _Mapping_.
 
 
-### Synopsis
-
 ```yaml
 !GET
 what: <key>
@@ -108,28 +106,27 @@ Get the item from the `dict` (dictionary) identified by the `key`.
 If the `key` is not found, return `default` or error if `default` is not provided.
 `default` is optional.
 
-### Examples
 
-```yaml
-!GET
-what: 3
-from:
-  !DICT
-  with:
-    1: "One"
-    2: "Two"
-    3: "Three"
-```
+!!! example
 
-Returns `Three`.
+    ```yaml
+    !GET
+    what: 3
+    from:
+      !DICT
+      with:
+        1: "One"
+        2: "Two"
+        3: "Three"
+    ```
+
+    Returns `Three`.
 
 --- 
 
 ## `!IN`: Membership test 
 
 Type: _Mapping_.
-
-### Synopsis
 
 ```yaml
 !IN
@@ -141,15 +138,15 @@ Check if `key` is present in the `dict`.
 
 Note: The expression `!IN` is described in the "Tests" chapter.
 
-### Example
+!!! example
 
-```yaml
-!IN
-what: 3
-where:
-  !DICT
-  with:
-    1: "One"
-    2: "Two"
-    3: "Three"
-```
+    ```yaml
+    !IN
+    what: 3
+    where:
+      !DICT
+      with:
+        1: "One"
+        2: "Two"
+        3: "Three"
+    ```

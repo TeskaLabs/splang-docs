@@ -54,7 +54,10 @@ The result is `13`.
 
 All SP-Lang expressions starts with `!`.
 
-_Hint: "Expression" is just an alternative term to "function"._ 
+!!! hint
+
+	"Expression" is just an alternative term to "function"._ 
+
 
 `!ADD` is the _expression_ for arithmetic *addition* that can sum provided numbers.
 

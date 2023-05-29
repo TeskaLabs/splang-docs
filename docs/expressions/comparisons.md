@@ -11,18 +11,16 @@ Test expression evaluates inputs and returns boolean value `true` or `false` bas
 
 ## `!EQ`: Equal 
 
-Type: _Sequence_.
 
+!!! example
 
-### Example
+    ```yaml
+    !EQ
+    - !ARG count
+    - 3
+    ```
 
-```yaml
-!EQ
-- !ARG count
-- 3
-```
-
-This compares `count` argument with `3`.
+    This compares `count` argument with `3`.
 
 
 ---
@@ -34,13 +32,13 @@ Type: _Sequence_.
 This is negative counterpart to `!EQ`.
 
 
-### Example
+!!! example
 
-```yaml
-!NE
-- !ARG name
-- Frodo
-```
+    ```yaml
+    !NE
+    - !ARG name
+    - Frodo
+    ```
 
 
 ---
@@ -49,15 +47,15 @@ This is negative counterpart to `!EQ`.
 
 Type: _Sequence_.
 
-### Example
+!!! example
 
-```yaml
-!LT
-- !ARG count
-- 5
-```
+    ```yaml
+    !LT
+    - !ARG count
+    - 5
+    ```
 
-Example of a `count < 5` test.
+    Example of a `count < 5` test.
 
 
 ---
@@ -67,16 +65,16 @@ Example of a `count < 5` test.
 Type: _Sequence_.
 
 
-### Example
+!!! example
 
-```yaml
-!LE
-- 2
-- !ARG count
-- 5
-```
+    ```yaml
+    !LE
+    - 2
+    - !ARG count
+    - 5
+    ```
 
-Example of a range `2 <= count <= 5` test.
+    Example of a range `2 <= count <= 5` test.
 
 
 ---
@@ -85,13 +83,13 @@ Example of a range `2 <= count <= 5` test.
 
 Type: _Sequence_.
 
-### Example
+!!! example
 
-```yaml
-!GT [!ARG count, 5]
-```
+    ```yaml
+    !GT [!ARG count, 5]
+    ```
 
-Example of a `count > 5` test using a compacted YAML form.
+    Example of a `count > 5` test using a compacted YAML form.
 
 
 ---
@@ -100,15 +98,15 @@ Example of a `count > 5` test using a compacted YAML form.
 
 Type: _Sequence_.
 
-### Example
+!!! example
 
-```yaml
-!GT
-- !ARG count
-- 5
-```
+    ```yaml
+    !GT
+    - !ARG count
+    - 5
+    ```
 
-Example of a `count >= 5` test.
+    Example of a `count >= 5` test.
 
 
 ---
@@ -116,8 +114,6 @@ Example of a `count >= 5` test.
 ## `!IN`: Membership test 
 
 Type: _Mapping_.
-
-### Synopsis
 
 ```yaml
 !IN
@@ -129,26 +125,28 @@ The `!IN` expression is used to check if a value `what` exists in a value `where
 Value `where` is a string, container (list, set, dictionary), structural type etc.
 Evaluate to "true" if it finds a value `what` in the specified value `where` and false otherwise.
 
-### Examples
+!!! example
 
-```yaml
-!IN
-what: 5
-where:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-```
+    ```yaml
+    !IN
+    what: 5
+    where:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    ```
 
-Check for a presence of the value `5` in the list `where`. Returns "true".
+    Check for a presence of the value `5` in the list `where`. Returns "true".
 
 
-```yaml
-!IN
-what: "Willy"
-where: "John Willy Boo"
-```
+!!! example
 
-Check for a presence of the substring "Willy" in the `where` value. Returns "true".
+    ```yaml
+    !IN
+    what: "Willy"
+    where: "John Willy Boo"
+    ```
+
+    Check for a presence of the substring "Willy" in the `where` value. Returns "true".

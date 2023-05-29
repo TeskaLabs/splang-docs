@@ -16,8 +16,6 @@ There are also bitwise `!AND`, `!OR` and `!NOT` expression, at [Logic](../logic)
 
 Type: _Mapping_.
 
-### Synopsis
-
 ```yaml
 !SHL
 what: <...>
@@ -29,23 +27,21 @@ by: <...>
 	Left shifts could be used as fast multiplication by 2, 4, 8 and so on.
 
 
-### Example
+!!! example
 
-```yaml
-!SHL
-what: 60
-by: 2
-```
+	```yaml
+	!SHL
+	what: 60
+	by: 2
+	```
 
-The result is: `240 = (60*2^2)`, `2^2 = 4`.
+	The result is: `240 = (60*2^2)`, `2^2 = 4`.
 
 ---
 
 ## `!SHR`: Right logical shift  
 
 Type: _Mapping_.
-
-### Synopsis
 
 ```yaml
 !SHR
@@ -58,15 +54,15 @@ by: <...>
 	Right shifts could be used as fast division by 2, 4, 8 and so on.
 
 
-### Example
+!!! example
 
-```yaml
-!SHR
-what: 2048
-by: 4
-```
+	```yaml
+	!SHR
+	what: 2048
+	by: 4
+	```
 
-The result is: `128 = (2048/2^4)`, `2^4 = 16`.
+	The result is: `128 = (2048/2^4)`, `2^4 = 16`.
 
 
 --- 
@@ -75,21 +71,19 @@ The result is: `128 = (2048/2^4)`, `2^4 = 16`.
 
 Type: _Mapping_.
 
-### Synopsis
-
 ```yaml
 !SAL
 what: <...>
 by: <...>
 ```
 
-### Example
+!!! example
 
-```yaml
-!SAL
-what: 60
-by: 2
-```
+	```yaml
+	!SAL
+	what: 60
+	by: 2
+	```
 
 
 ---
@@ -97,8 +91,6 @@ by: 2
 ## `!SAR`: Right arithmetic shift 
 
 Type: _Mapping_.
-
-### Synopsis
 
 ```yaml
 !SAR
@@ -113,8 +105,6 @@ by: <...>
 
 Type: _Mapping_.
 
-### Synopsis
-
 ```yaml
 !ROL
 what: <...>
@@ -127,8 +117,6 @@ by: <...>
 ## `!ROR`: Right rotation (circular) shift 
 
 Type: _Mapping_.
-
-### Synopsis
 
 ```yaml
 !ROR
