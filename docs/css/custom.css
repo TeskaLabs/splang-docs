@@ -1,0 +1,12 @@
+details[open] summary::after {
+  content: "▼";
+}
+
+details summary::after {
+  content: "►";
+  float: right;
+}
+
+details[open] summary::-webkit-details-marker {
+  display: none;
+}

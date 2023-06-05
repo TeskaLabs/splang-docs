@@ -13,7 +13,7 @@ This low-code approach means that you can get up and running quickly, without ha
 
 We hope that this documentation will provide you with all the information you need to get started with our language and start taking advantage of its powerful stream processing capabilities. Thank you for choosing our language, and we look forward to seeing what you can accomplish with it!
 
-!!! quote "Made with ❤️ by TeskaLabs"
+!!! quote "Made with :octicons-heart-fill-24:{ .heart } by TeskaLabs"
 
     SP-Lang is the technology built at [TeskaLabs](https://www.teskalabs.com).  
 
