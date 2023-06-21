@@ -10,7 +10,9 @@ The record is one of basic data structures provided by SP-Lang.
 A record is a collection of items, possibly of different types.
 Items of a record are named (in a contrast to a tuple) by a label.
 
-_Note: The record is built on top of `!TUPLE`._
+!!! note
+
+    The record is built on top of `!TUPLE`.
 
 --- 
 

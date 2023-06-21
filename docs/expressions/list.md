@@ -9,7 +9,9 @@ The list is one of basic data structures provided by SP-Lang.
 The list contains a finite number of ordered item, where the same item may occur more than once.
 Items in the list must be of the same type.
 
-_Note: The list is sometimes also called an array (inaccurately)._
+!!! note
+
+    The list is sometimes also called inaccurately _an array_.
 
 
 --- 

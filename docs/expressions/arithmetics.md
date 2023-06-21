@@ -119,7 +119,7 @@ Calculate the signed remainder of a division (aka modulo operation).
 Type: _Sequence_
 
 
-Calculate the exponent or power.
+Calculate the exponent.
 
 !!! example
 

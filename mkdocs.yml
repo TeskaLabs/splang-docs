@@ -19,6 +19,10 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+  features:
+    - navigation.footer
+    - navigation.indexes
+
   logo: images/teskalabs-logo.svg
 
 extra_css:

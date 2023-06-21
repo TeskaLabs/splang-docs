@@ -7,7 +7,7 @@ title: Regex
 
 !!! tip
 
-  Use [Regexr](https://regexr.com) to develop and test regular expressions.
+    Use [Regexr](https://regexr.com) to develop and test regular expressions.
 
 --- 
 

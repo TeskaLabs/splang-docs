@@ -5,7 +5,9 @@ title: Directives
 # Directives
 
 
-NOTE: SP-Lang directives are expanded during compilation. They are not expressions.
+!!! note
+
+    SP-Lang directives are expanded during compilation. They are not expressions.
 
 --- 
 
