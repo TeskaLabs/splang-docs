@@ -60,10 +60,10 @@ extra:
 
   alternate:
     - name: English
-      link: /
+      link: /sp-lang/
       lang: en
     - name: Czech
-      link: /cs/
+      link: /sp-lang/cs/
       lang: cs
 
 plugins:

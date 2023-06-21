@@ -27,7 +27,6 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-  - css/custom.css
 
 markdown_extensions:
   - attr_list
@@ -60,12 +59,13 @@ extra:
 
   alternate:
     - name: English
-      link: /
+      link: /sp-lang/
       lang: en
     - name: Czech
-      link: /cs/
+      link: /sp-lang/cs/
       lang: cs
 
 plugins:
   - search
+  - awesome-pages
   - print-site
