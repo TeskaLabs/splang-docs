@@ -57,3 +57,7 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:info@teskalabs.com
       name: info@teskalabs.com
+
+plugins:
+  - search
+  - print-site
