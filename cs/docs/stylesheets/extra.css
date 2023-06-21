@@ -1,0 +1,30 @@
+details[open] summary::after {
+  content: "▼";
+}
+
+details summary::after {
+  content: "►";
+  float: right;
+}
+
+details[open] summary::-webkit-details-marker {
+  display: none;
+}
+
+@keyframes heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+
+.heart {
+  animation: heart 1000ms infinite;
+  color: #CD3211;
+}
+
+.md-typeset {
+    font-size: 0.7rem;
+}

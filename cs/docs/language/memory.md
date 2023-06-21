@@ -1,0 +1,23 @@
+---
+git_commit_hash: b55fa3f
+title: Správa paměti
+---
+
+# Správa paměti
+
+Správa paměti v SP-Langu je založena na konceptu [memory arenas](https://en.wikipedia.org/wiki/Region-based_memory_management).
+
+<img src="../memory-arena.svg" alt="Memory arena schema"/>
+
+_Diagram: Rozložení paměťových arén_
+
+Paměťová aréna je předem alokovaný větší kus paměti, který je k dispozici pro daný životní cyklus (tj. jeden cyklus zpracování události).
+Když nějaký kód související se zpracováním událostí potřebuje paměť, požádá o kousek z paměťové arény.
+Tento kousek je poskytnut rychle, protože je vždy odebrán ze začátku volného místa v aréně (tzv. offset).
+Rozdělení proběhne najednou, pro celou arénu; říká se tomu "reset" paměťové arény.
+To znamená, že koncept paměťové arény je velmi efektivní, nezavádí fragmentaci paměti a dobře se kombinuje se statickým konceptem jediného přiřazení SP-Langu.
+
+Paměťová aréna také podporuje seznam destruktorů, který umožňuje integraci s tradičními např. `malloc` alokacemi pro technologie třetích stran, které nejsou kompatibilní s paměťovou arénou (např. knihovna PCRE2).
+Destruktory se provádějí při resetu arény.
+
+Paměťová aréna může být rozšířena o další paměťový chunk, pokud je aktuální chunk vyčerpán.
