@@ -58,6 +58,14 @@ extra:
       link: mailto:info@teskalabs.com
       name: info@teskalabs.com
 
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Czech
+      link: /cs/
+      lang: cs
+
 plugins:
   - search
   - print-site
