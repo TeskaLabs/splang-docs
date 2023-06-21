@@ -54,7 +54,7 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
 * [📜 Declarative language](https://en.wikipedia.org/wiki/Declarative_programming)
 * [🔗 Functional language](https://en.wikipedia.org/wiki/Functional_programming)
 * [🔐 Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
-* [💡 Type inference](https://cs.wikipedia.org/wiki/Typová_inference)
+* [💡 Type inference](https://en.wikipedia.org/wiki/Type_inference)
 * 🐍 Interpreted in Python
 * 🚀 Compiled by [LLVM](https://llvm.org/)
 * Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
