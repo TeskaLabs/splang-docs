@@ -122,7 +122,7 @@ Timezone information originates from [pytz](http://pytz.sourceforge.net) respect
 
 !!! note
 
-		The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC._
+	The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC._
 
 The timezone data is represented by a filesystem directory structure commonly located at `/usr/share/splang` or at location specified by `SPLANG_SHARE_DIR` environment variable.
 The actual timezone data are stored at `tzinfo` subfolder.
@@ -212,7 +212,9 @@ Because currently we only support the single time change in the month, this fiel
 
 The `hour` and `minute` information is used to adjust date/time from local to UTC.
 
-_Note: currently, only one time change per month is supported, which seems to be fully sufficient for all info in IANA time zone database._
+!!! note
+
+	Currently, only one time change per month is supported, which seems to be fully sufficient for all info in IANA time zone database.
 
 Empty/unused next cells are zeroed.
 
