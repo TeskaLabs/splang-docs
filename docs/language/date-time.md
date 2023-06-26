@@ -171,8 +171,8 @@ The _parser table_ is a lookup table used for conversion from the local date/tim
 
 <img src="../date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
 
-The table is organised into rows/years and columns/months.
-The cell is 4 bytes wide, the row is then 64 bytes long.
+The table is organised into rows/years and columns/months.  
+The cell is 4 bytes (32bits) wide, the row is then 64 bytes long.
 
 First 12 cells are "primary parser cells" (in light blue color), the number reflect the number of the month (1...12).
 The remaining 4 cells are "parser next cells", the number `nX` is the index.
@@ -182,6 +182,7 @@ The remaining 4 cells are "parser next cells", the number `nX` is the index.
 The position of the cell for a given date/time is calculated as `pos = (ym - min_ym) << 5` which means that year and month is used for a cell localization, minus the minimal year&month value for a table.
 
 Structure of the cell:
+
   * `16` bits: range, 16bits, `dhm`
   * `3` bits: `next`
   * `7` bits: hour offset from UTC
