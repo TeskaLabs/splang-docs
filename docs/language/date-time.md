@@ -12,8 +12,8 @@ Broken time means that year, month, day, hour, minute, second and microsecond ar
 
 !!! tip "Usefull tools"
 
-		* [UNIX Timestamp](https://www.unixtimestamp.com)
-		* [UTC to/from local time convertor](https://www.worldtimebuddy.com)
+	* [UNIX Timestamp](https://www.unixtimestamp.com)
+	* [UTC to/from local time convertor](https://www.worldtimebuddy.com)
 
 
 ## Bit layout
@@ -113,7 +113,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 
 !!! note
 
-	*) Type is	recommended/minimal byte-aligned type for a respective component.
+	*) Type is recommended/minimal byte-aligned type for a respective component.
 
 
 ## Timezone details
@@ -122,7 +122,7 @@ Timezone information originates from [pytz](http://pytz.sourceforge.net) respect
 
 !!! note
 
-	The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC._
+	The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC.
 
 The timezone data is represented by a filesystem directory structure commonly located at `/usr/share/splang` or at location specified by `SPLANG_SHARE_DIR` environment variable.
 The actual timezone data are stored at `tzinfo` subfolder.
@@ -202,6 +202,7 @@ The "parser next cell" contain a "continuation" of the information for a month w
 The "continuation" means the offset from UTC that happens when local time passed time change boundary.
 
 Structure of the cell:
+
   * `16` bits: range, 16bits, `dhm`
   * `3` bits: not used, set to 0
   * `7` bits: hour offset from UTC
