@@ -108,7 +108,7 @@ Typ: _Sequence_.
 
 ---
 
-## `!IN`: Test členství 
+## `!IN`: Test výskytu
 
 Typ: _Mapping_.
 
@@ -118,7 +118,7 @@ what: <...>
 where: <...>
 ```
 
-Výraz `!IN` se používá ke kontrole, zda hodnota `what` existuje v hodnotě `where`, nebo ne.
+Výraz `!IN` se používá ke kontrole, zda hodnota se `what` vyskytuje v hodnotě `where`, nebo ne.
 Jako hodnotu `where` lze uvést řetězec, kontejner (seznam, množina, slovník), strukturní typ atd.
 Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, a na `false` v opačném případě.
 
@@ -135,7 +135,7 @@ Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, 
 	  - 5
 	```
 	
-	Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrátí "true".
+	Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrátí `true`.
 
 
 !!! example "Příklad"
@@ -146,5 +146,5 @@ Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, 
 	where: "John Willy Boo"
 	```
 	
-	Zkontroluje přítomnost podřetězce `Willy` v hodnotě `John Willy Boo`. Vrací hodnotu "true".
+	Zkontroluje přítomnost podřetězce `Willy` v hodnotě `John Willy Boo`. Vrátí `true`.
 
