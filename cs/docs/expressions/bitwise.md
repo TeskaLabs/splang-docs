@@ -26,7 +26,7 @@ by: <...>
 
 	Levý posun lze použít jako rychlé násobení čísly 2, 4, 8 atd.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!SHL
@@ -55,7 +55,7 @@ by: <...>
 	Pravý posun lze použít jako rychlé dělení čísly 2, 4, 8 atd.
 
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!SHR
@@ -77,7 +77,7 @@ what: <...>
 by: <...>
 ```
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!SAL

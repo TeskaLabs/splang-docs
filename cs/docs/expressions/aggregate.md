@@ -21,7 +21,7 @@ Typ: _Sequence_
 	Více informací o [aritmetickém průměru](https://cs.wikipedia.org/wiki/Aritmetick%C3%BD_pr%C5%AFm%C4%9Br) na Wikipedii.
 	
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	
@@ -41,7 +41,7 @@ Vrací maximální hodnotu z posloupnosti.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MAX
@@ -63,7 +63,7 @@ Vrací minimální hodnotu z posloupnosti.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MIN
@@ -85,7 +85,7 @@ Spočítá počet položek v seznamu.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!COUNT
@@ -118,7 +118,7 @@ Typ: _Sequence_
 	Více informací o [medián](https://cs.wikipedia.org/wiki/Medi%C3%A1n) na Wikipedii.
 	
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MEDIAN
@@ -145,7 +145,7 @@ Typ: _Sequence_
 	Více informací o [mode](https://cs.wikipedia.org/wiki/Modus) na Wikipedii.
 
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MODE
@@ -173,7 +173,7 @@ Typ: _Sequence_
 	Více informací o [range](https://cs.wikipedia.org/wiki/Varia%C4%8Dn%C3%AD_rozp%C4%9Bt%C3%AD) na Wikipedii.
 	
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!RANGE

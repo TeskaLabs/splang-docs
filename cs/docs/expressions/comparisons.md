@@ -11,7 +11,7 @@ Testovací výraz vyhodnotí vstupy a na základě výsledku testu vrátí logic
 
 ## `!EQ`: Rovná se 
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!EQ
@@ -30,7 +30,7 @@ Typ: _Sequence_.
 
 Jedná se o zápornou obdobu `!EQ`.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!NE
@@ -46,7 +46,7 @@ Jedná se o zápornou obdobu `!EQ`.
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!LT
@@ -64,7 +64,7 @@ Typ: _Sequence_.
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!LE
@@ -82,7 +82,7 @@ Typ: _Sequence_.
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!GT [!ARG count, 5]
@@ -96,7 +96,7 @@ Typ: _Sequence_.
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!GT
@@ -122,7 +122,7 @@ Výraz `!IN` se používá ke kontrole, zda hodnota `what` existuje v hodnotě `
 Jako hodnotu `where` lze uvést řetězec, kontejner (seznam, množina, slovník), strukturní typ atd.
 Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, a na `false` v opačném případě.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!IN
@@ -138,7 +138,7 @@ Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, 
 	Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrátí "true".
 
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!IN

@@ -23,7 +23,7 @@ Výraz je definovaný pro následující typy:
  * Records (záznamy)
 
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!ADD
@@ -40,7 +40,7 @@ Výraz je definovaný pro následující typy:
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!SUB
@@ -58,7 +58,7 @@ Typ: _Sequence_
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
     ```yaml
     !MUL
@@ -75,7 +75,7 @@ Typ: _Sequence_
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!DIV
@@ -114,7 +114,7 @@ Vypočítá znaménkový zbytek dělení (neboli výsledek operace modulo).
 
 	Více informací o operaci [modulo](https://cs.wikipedia.org/wiki/Zbytek_po_d%C4%9Blen%C3%AD) na Wikipedii.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MOD
@@ -124,7 +124,7 @@ Vypočítá znaménkový zbytek dělení (neboli výsledek operace modulo).
 
 	Vypočítá `21 mod 4`, výsledkem je `1`.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!MOD
@@ -142,7 +142,7 @@ Typ: _Sequence_
 
 Výpočet exponentu.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!POW
@@ -166,7 +166,7 @@ what: <x>
 
 Vypočítá absolutní hodnotu vstupu `x`, což je nezáporná hodnota `x` bez ohledu na její znaménko.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!ABS

@@ -30,7 +30,7 @@ Na základě hodnoty `test` se vyhodnotí větev:
 
 Oba případy `then` a `else` musejí vracet stejný typ, který bude zároveň typem návratové hodnoty `!IF`.
 
-!!! example
+!!! example "Příklad"
 
 	```yaml
 	!IF
@@ -73,7 +73,7 @@ Jednotlivé případy mohou odpovídat mnoha různým vzorům, včetně interval
 Pokud není zadáno `else`, pak `WHEN` vrací `False`.
 
 
-!!! example
+!!! example "Příklad"
 
 	Příklad použití `!WHEN` pro přesnou shodu, shodu rozsahu a nastavenou shodu:
 	```yaml
@@ -135,7 +135,7 @@ Větev `else` výrazu `!MATCH` je nepovinná.
 Výraz selže s chybou, pokud není nalezena žádná odpovídající `<value>` a větev `else` chybí.
 
 
-!!! example
+!!! example  "Příklad"
 
 	```yaml
 	!MATCH
@@ -198,13 +198,13 @@ apply: <expression>
 Výraz `apply` se aplikuje na každý prvek v posloupnosti `what` s argumentem `x` obsahujícím příslušnou hodnotu prvku.
 Výsledkem je nový seznam s transformovanými prvky.
 
-!!! example
+!!! example "Příklad"
 
 	
 	
 	```yaml
 	
-	!MAPA
+	!MAP
 	co: [1, 2, 3, 4, 5, 6, 7]
 	použít:
 	  !ADD [!ARG x, 10]
@@ -235,7 +235,7 @@ Výraz `initval` poskytuje počáteční hodnotu pro argument `a`.
 Nepovinná hodnota `fold` určuje "levé skládání" (`left`, výchozí) nebo "pravé skládání" (`right`).
 
 
-!!! example
+!!! example "Příklad"
 
 	
 	
