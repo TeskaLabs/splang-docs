@@ -79,7 +79,7 @@ Typ: _Sequence_
 
 ---
 
-## `!COUNT`: Počet poležek
+## `!COUNT`: Počet položek
 
 Spočítá počet položek v seznamu.
 
