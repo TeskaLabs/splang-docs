@@ -17,8 +17,6 @@ Doufáme, že vám tato dokumentace poskytne všechny informace, které potřebu
 
 !!! quote "Vyrobeno s :octicons-heart-fill-24:{ .heart } v TeskaLabs"
 
-	
-	
 	SP-Lang je technologie vytvářená ve společnosti [TeskaLabs](https://www.teskalabs.com).  
 	
 
@@ -47,7 +45,6 @@ Z tohoto důvodu je SP-Lang přirozeným kandidátem na nákladově efektivní z
 
 
 !!! example "Stejný příklad ve vizuální podobě SP-Langu"
-
 
 	<img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
