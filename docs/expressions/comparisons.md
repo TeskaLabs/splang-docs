@@ -150,4 +150,4 @@ Evaluate to `true` if it finds a value `what` in the specified value `where` and
     where: "John Willy Boo"
     ```
 
-    Check for a presence of the substring "Willy" in the `John Willy Boo` value. Returns "true".
+    Check for a presence of the substring "Willy" in the `John Willy Boo` value. Returns `true`.
