@@ -1,12 +1,12 @@
 ---
 git_commit_hash: b55fa3f
-title: Kontrolní
+title: Řídicí
 ---
 
-# Kontrolní výrazy
+# Řídicí výrazy
 
 
-SP-Lang nabízí celou řadu řídicích výrazů. 
+SP-Lang nabízí celou řadu řídicích výrazů.
 
 --- 
 
@@ -38,7 +38,7 @@ Oba případy `then` a `else` musejí vracet stejný typ, který bude zároveň 
 	  !EQ
 	  - !ARG input
 	  - 2
-	pak:
+	then:
 	  It is two.
 	else:
 	  It is NOT two.
@@ -191,7 +191,7 @@ Typ: _Mapování_.
 ```yaml
 
 !MAP
-co: <sequence>
+what: <sequence>
 apply: <expression>
 ```
 

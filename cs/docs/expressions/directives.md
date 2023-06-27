@@ -3,14 +3,10 @@ git_commit_hash: b55fa3f
 title: Direktivy
 ---
 
-# Směrnice
-
+# Direktivy
 
 !!! note
 
-	
-	
-	
 	Směrnice SP-Lang jsou při kompilaci rozšířeny. Nejsou to výrazy.
 	
 
