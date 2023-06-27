@@ -200,8 +200,6 @@ Výsledkem je nový seznam s transformovanými prvky.
 
 !!! example "Příklad"
 
-	
-	
 	```yaml
 	
 	!MAP
