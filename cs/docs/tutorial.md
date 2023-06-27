@@ -1,14 +1,14 @@
 ---
 git_commit_hash: b55fa3f
-title: Výukový program
+title: Tutoriál
 ---
 
-# Výukový program SP-Lang
+# Tutoriál k SP-Langu
 
 
 ## Úvod
 
-Vítejte ve výukovém programu SP-Lang.
+Vítejte u tutoriálu k SP-Langu.
 SP-Lang, zkratka pro _Stream Processing Language_, je doménově specifický jazyk (DSL).
 Je založen na YAML, člověkem čitelném jazyku pro serializaci dat.
 Cílem tohoto tutoriálu je představit základní prvky jazyka SP-Lang. 
@@ -20,13 +20,13 @@ Začneme jednoduchým příkladem:
 ```yaml
 
 ---
-Ahoj světe!
+Hello world!
 ```
 
 V jazyce SP-Lang signalizují trojité pomlčky (`---`) začátek kódu.
 
 `Hello world!` zde je hodnota, kterou chcete vrátit.
-V tomto případě je to náš přátelský pozdrav "Hello world!".
+V tomto případě je to náš přátelský pozdrav "Hello world!" ("Ahoj světe!").
 
 
 ## SP-Lang je založen na YAMLu
@@ -36,25 +36,21 @@ YAML klade důraz na jednoduchost a čitelnost, což z něj činí skvělý zák
 
 !!! important
 
-	
-	
-	
-	Jazyk YAML se ve velké míře spoléhá na odsazení, které je v jeho syntaxi významné.
+	Jazyk YAML ve velké míře stojí na odsazování, které je významné v jeho syntaxi.
 	Jako osvědčený postup doporučujeme používat pro odsazení dvě mezery.
 	Upozorňujeme, že v jazyce YAML nejsou podporovány znaky TAB.
-	
-	
+
 
 ## Komentáře
 
-Jak postupujete při psaní kódu, je užitečné zanechávat komentáře.
+Při psaní kódu je užitečné zanechávat komentáře.
 Usnadníte tak ostatním (a svému budoucímu já) pochopit, co váš kód dělá.
 
 ```yaml
 
 # Toto je komentář.
 ---
-Ahoj světe!
+Hello world!
 ```
 
 Komentáře v SP-Langu začínají znakem `#`.
@@ -63,7 +59,7 @@ SP-Lang ignoruje vše, co následuje za `#` na stejném řádku, což je užite�
 
 ## Výrazy SP-Lang
 
-Výrazy v jazyce SP-Lang jsou příkazy, které provádějí operace. Podívejme se na aritmetický příklad:
+Výrazy (Expressions) v jazyce SP-Lang jsou příkazy, které provádějí operace. Podívejme se na příklad s aritmetickými výrazy:
 
 Tento kód sečte dvě čísla, konkrétně vypočítá `5+8`.
 
@@ -82,12 +78,8 @@ Výrazy v jazyce SP-Lang začínají vykřičníkem (`!`).
 
 !!! tip
 
-	
-	
-	
 	Výraz "Expression" je alternativní výraz pro funkci.
-	
-	
+
 
 V tomto příkladu je `!ADD` výraz pro aritmetické sčítání, které sečte zadaná čísla.
 
@@ -106,7 +98,7 @@ To znamená, že může sčítat více vstupních hodnot:
 Tento seznam vstupních hodnot je vytvořen pomocí pomlčky `-` na začátku řádku obsahujícího hodnotu.
 Každý řádek představuje jednotlivou položku seznamu.
 
-Výrazy můžete psát také stručněji pomocí formuláře flow, který lze libovolně kombinovat s výchozím stylem kódu SP-Lang:
+Výrazy můžete psát také stručněji pomocí "flow formy", kterou lze libovolně kombinovat s výchozím stylem kódu SP-Lang:
 ```yaml
 
 ---
@@ -114,9 +106,9 @@ Výrazy můžete psát také stručněji pomocí formuláře flow, který lze li
 ```
 
 
-## Mapování výrazů
+## Mapovací výrazy
 
-Dalším typem výrazu je _mapovací výraz_.
+Dalším typem výrazu je _mapovací výraz_ (_mapping expression_).
 Namísto seznamu vstupů používají mapovací výrazy jména vstupů, která lze nalézt v dokumentaci výrazu.
 ```yaml
 
@@ -126,19 +118,19 @@ what: "FooBar"
 postfix: "Bar"
 ```
 
-Výraz `!ENDSWITH` kontroluje, zda hodnota vstupu `what` končí hodnotou vstupu `postfix`. Pokud ano, vrátí `pravdu`, pokud ne, vrátí `nepravdu`.
+Výraz `!ENDSWITH` kontroluje, zda hodnota zadaná na vstupu `what` končí hodnotou zadanou na vstupu `postfix`. Pokud ano, vrátí `true`, pokud ne, vrátí `false`.
 
-Formulář flow lze použít také s mapovacími výrazy:
+I na mapovací výrazy lze použít flow formu:
 ```yaml
 
 ---
 !ENDSWITH {what: "FooBar", postfix: "Bar"}
 ```
 
-## Kompozice výrazů
+## Skládání výrazů
 
 SP-Lang umožňuje kombinovat výrazy a vytvářet tak složitější a výkonnější řešení.
-Výstup jednoho výrazu můžete "zapojit" do vstupu jiného výrazu.
+Výstup jednoho výrazu můžete vzít za základ pro vstup do jiného výrazu.
 ```yaml
 
 ---
@@ -154,26 +146,27 @@ Tento příklad je ekvivalentní aritmetické operaci `5 * (6 + 2 + 3) * 9 * (10
 
 ## Argumenty
 
-Argumenty jsou způsob, jakým jsou data předávána do jazyka SP-Lang.
-V závislosti na kontextu volání může mít výraz nula, jeden nebo více argumentů.
+Argumenty jsou způsob, jakým do jazyka SP-Lang předáváme data.
+V závislosti na kontextu volání může mít výraz žádný, jeden nebo více argumentů.
 Každý argument má jedinečné jméno.
 
 K hodnotě argumentu můžete přistupovat pomocí výrazu `!ARG`.
 
-V následujícím příkladu je předepsaným argumentem výrazu `jméno`:
+V následujícím příkladu je argumentem výraz `name`:
+
 ```yaml
 
 ---
 !ADD ["Hi ", !ARG name, "!"]
 ```
 
-To by vzalo hodnotu jména a vložilo ji do řetězce, čímž by se vytvořil osobní pozdrav.
+Tento výraz bere hodnotu `name` a vloží ji do řetězce, čímž se vytvoří pozdrav.
 
 
 ## Závěr
 
-V tomto tutoriálu jsme se seznámili se základy jazyka SP-Lang, včetně toho, jak psát jednoduché výrazy, skládat výrazy a používat argumenty.
-S těmito základy jste připraveni začít zkoumat složitější definice zásad v jazyce SP-Lang.
+V tomto tutoriálu jsme se seznámili se základy jazyka SP-Lang, včetně toho, jak psát jednoduché výrazy, složené výrazy a jak používat argumenty.
+S těmito základy jste připraveni začít prozkoumávat složitější definice v jazyce SP-Lang.
 Při dalším pokračování nezapomeňte hojně využívat dokumentaci, abyste porozuměli různým výrazům a jejich požadovaným vstupům.
 
-Šťastné kódování!
+Mnoho zdaru při programování!
