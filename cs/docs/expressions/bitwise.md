@@ -8,7 +8,7 @@ title: Bitové
 Bitové posuny ("bit shifts") zachází s hodnotou jako se sérií bitů, umožňuje přesunout nebo posunout binární číslice doleva nebo doprava.
 
 
-Existují také bitové výrazy `!AND`, `!OR` a `!NOT`, v kapitole [Logické výrazy](../logic).
+Existují také bitové výrazy `!AND`, `!OR` a `!NOT`, viz kapitolu [Logické výrazy](../logic).
 
 ---
 
@@ -101,7 +101,7 @@ by: <...>
 
 ---
 
-## `!ROL`: (kruhový) posun doleva 
+## `!ROL`: Kruhový posun doleva 
 
 Typ: _Mapping_.
 ```yaml
@@ -114,7 +114,7 @@ by: <...>
 
 ---
 
-## `!ROR`: Pravý rotační (kruhový) posun 
+## `!ROR`: Kruhový posun doprava
 
 Typ: _Mapping_.
 ```yaml
