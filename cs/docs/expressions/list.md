@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Seznam
+title: Seznamy
 ---
 
 # Seznam výrazů

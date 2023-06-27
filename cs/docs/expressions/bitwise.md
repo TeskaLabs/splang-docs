@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Bitově
+title: Bitové
 ---
 
 # Bitové výrazy

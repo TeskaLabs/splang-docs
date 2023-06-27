@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: IP adresa
+title: IP adresy
 ---
 
 # Vyjádření IP adresy
