@@ -3,23 +3,23 @@ git_commit_hash: b55fa3f
 title: Vítejte!
 ---
 
-# Dokumentace SP-Lang
+# Dokumentace SP-Langu
 
-Vítejte v dokumentaci k SP-Lang. SP-Lang je zkratka pro _Stream Processing Language_.
+Vítejte u dokumentace SP-Langu. SP-Lang je zkratka pro _Stream Processing Language_.
 SP-Lang je navržen jako intuitivní a snadno použitelný jazyk i pro lidi, kteří nemají zkušenosti s programováním.
 Snažíme se, aby jeho používání bylo stejně jednoduché jako používání maker v tabulkovém procesoru nebo jazyka SQL, což vám umožní provádět výkonné úlohy zpracování dat s minimálním úsilím.
 
 Hlavním cílem jazyka SP-Lang je, aby za vás udělal mnoho těžké práce, takže se můžete soustředit na to, čeho chcete dosáhnout, a ne se starat o detaily, jak to realizovat.
-Tento nízkokódový přístup znamená, že můžete rychle začít pracovat, aniž byste se museli učit spoustu složitých programovacích konceptů.
+Tento nízkoúrovňový přístup vám umožní rychle začít pracovat, aniž byste se museli učit spoustu složitých programovacích konceptů.
 
 Doufáme, že vám tato dokumentace poskytne všechny informace, které potřebujete k tomu, abyste mohli začít pracovat s naším jazykem a začít využívat jeho výkonné možnosti proudového zpracování. Děkujeme, že jste si vybrali náš jazyk, a těšíme se na to, co s ním dokážete!
 
 
-!!! quote "Made with :octicons-heart-fill-24:{ .heart } by TeskaLabs"
+!!! quote "Vyrobeno s :octicons-heart-fill-24:{ .heart } v TeskaLabs"
 
 	
 	
-	SP-Lang je technologie vytvořená ve společnosti [TeskaLabs](https://www.teskalabs.com).  
+	SP-Lang je technologie vytvářená ve společnosti [TeskaLabs](https://www.teskalabs.com).  
 	
 
 <!-- <img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" /> -->
@@ -30,7 +30,7 @@ Doufáme, že vám tato dokumentace poskytne všechny informace, které potřebu
 _SP-Lang_ je [funkcionální jazyk](https://cs.wikipedia.org/wiki/Funkcionální_programování), který používá syntaxi [YAML](https://cs.wikipedia.org/wiki/YAML).
 
 SP-Lang poskytuje velmi vysoký výkon, protože je zkompilován do [strojového kódu](https://cs.wikipedia.org/wiki/Strojový_kód).
-To mu spolu s rozsáhlými optimalizacemi dává výkon ve stejné kategorii jako C, Go nebo Rust; respektive nejvyšší možný výkon.
+To mu spolu s rozsáhlými optimalizacemi dává výkon srovnatelný s jazyky jako jsou C, Go nebo Rust; tedy nejvýše dosažitelný.
 
 Z tohoto důvodu je SP-Lang přirozeným kandidátem na nákladově efektivní zpracování masivních datových toků v cloudu nebo v on-premise aplikacích.
 
@@ -51,7 +51,7 @@ Z tohoto důvodu je SP-Lang přirozeným kandidátem na nákladově efektivní z
 
 	<img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
-**Vaše první kroky s jazykem SP-Lang začnou v [tutoriálu](výukovém programu).**
+**Pro první seznámení s jazykem SP-Lang vyzkoušejte náš [tutoriál](./tutorial.md).**
 
 ## Vlastnosti jazyka SP-Lang
 
