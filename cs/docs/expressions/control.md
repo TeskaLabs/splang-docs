@@ -12,62 +12,57 @@ SP-Lang nabízí celou řadu řídicích výrazů.
 
 ## `!IF`: Jednoduché podmíněné větvení  
 
-Typ: _Mapování_.
-
+Typ: _Mapping_.
 
 Výraz `!IF` je rozhodovací výraz, který vede vyhodnocení k rozhodování na základě zadaného testu.
-```yaml
 
+```yaml
 !IF
 test: <expression>
-pak: <expression>
+then: <expression>
 else: <expression>
 ```
 
+Na základě hodnoty `test` se vyhodnotí větev:
 
-Na základě této hodnoty se vyhodnotí větev `then` (pro `true`) nebo `else` (pro `false`).
+- `then` v případě `test !EQ true`
+- `else` v případě `test !EQ false`
 
-`then` a `else` musí vracet stejný typ, který bude zároveň typem návratové hodnoty `!IF`.
-
-
+Oba případy `then` a `else` musejí vracet stejný typ, který bude zároveň typem návratové hodnoty `!IF`.
 
 !!! example
 
-	
-	
 	```yaml
 	!IF
 	test:
 	  !EQ
-	  - !ARG vstup
+	  - !ARG input
 	  - 2
 	pak:
-	  To jsou dva.
+	  It is two.
 	else:
-	  NENÍ to dva.
+	  It is NOT two.
 	```
-	
 
 ---
 
-## `!KDYŽ`: Výkonné větvení  
+## `!WHEN`: Výkonné větvení
 
 Typ: _Sequence_.
 
-Výraz `!KDYŽ` je podstatně silnější než výraz `!IF`.
-Případy mohou odpovídat mnoha různým vzorům, včetně intervalových shod, tuplů atd. 
+Výraz `!WHEN` je podstatně silnější než výraz `!IF`.
+Jednotlivé případy mohou odpovídat mnoha různým vzorům, včetně intervalových shod, tuples atd. 
 
 ```yaml
-
 !WHEN
 - test: <expression>
-  pak: <expression>
+  then: <expression>
 
 - test: <expression>
-  pak: <expression>
+  then: <expression>
 
 - test: <expression>
-  pak: <expression>
+  then: <expression>
 
 - ...
 
@@ -80,10 +75,7 @@ Pokud není zadáno `else`, pak `WHEN` vrací `False`.
 
 !!! example
 
-	
-	
-	
-	Příklad použití `!KDYŽ` pro přesnou shodu, shodu rozsahu a nastavenou shodu:
+	Příklad použití `!WHEN` pro přesnou shodu, shodu rozsahu a nastavenou shodu:
 	```yaml
 	
 	!KDYŽ
@@ -91,53 +83,50 @@ Pokud není zadáno `else`, pak `WHEN` vrací `False`.
 	# Přesná shoda hodnot
 	- test:
 	    !EQ
-	    - !ARG klíč
+	    - !ARG key
 	    - 34
 	  pak:
-	    "Třicet čtyři"
+	    "třicet čtyři"
 	
 	# Shoda rozsahu
 	- test:
 	    !LT
 	    - 40
-	    - !ARG klíč
+	    - !ARG key
 	    - 50
-	  pak:
-	    "čtyřicet až padesát (výhradně)"
+	  then:
+	    "čtyřicet až padesát (bez krajních hodnot)"
 	
 	# In-set match
 	- test:
 	    !IN
-	    co: !ARG klíč
-	    kde:
+	    co: !ARG key
+	    where:
 	      - 75
 	      - 77
 	      - 79
 	  then:
 	    "sedmdesát pět, sedm, devět"
 	
-	
 	- else:
-	    "Neznámý"
+	    "neznámý"
 	```
-	
 
 --- 
 
-## `!MATCH`: Porovnávání vzorů 
+## `!MATCH`: Porovnávání vzorů
 
 Typ: _Mapping_.
 
 ```yaml
-
 !MATCH
-co: <what-expression>
-s:
- <value>: <expression>
+what: <what-expression>
+with:
+  <value>: <expression>
   <value>: <expression>
   ...
 else:
- <expression>
+  <expression>
 ```
 
 Výraz `!MATCH` vyhodnotí výraz `what-expression`, přiřadí hodnotu výrazu k klauzuli case a provede výraz `expression` spojený s tímto případem.
@@ -146,49 +135,38 @@ Větev `else` výrazu `!MATCH` je nepovinná.
 Výraz selže s chybou, pokud není nalezena žádná odpovídající `<value>` a větev `else` chybí.
 
 
-
 !!! example
 
-	
-	
 	```yaml
 	!MATCH
-	co: 1
-	s:
-	  1: "One"
-	  2: "Two"
-	  3: "Three"
+	what: !ARG value
+	with:
+	  1: "jedna"
+	  2: "dva"
+	  3: "tři"
 	else:
-	  "Jiné číslo"
+	  "jiné číslo"
 	```
-	
-	
-
 
 !!! hint "Použití `!MATCH` pro strukturování kódu"
 
-	
-	
 	```yaml
 	!MATCH
-	co: !ARG kód
-	s:
+	what: !ARG kód
+	with:
 	  1: !INCLUDE code-1.yaml
 	  2: !INCLUDE code-2.yaml
 	else:
 	  !INCLUDE code-else.yaml
 	```
 
-  
 ---
 
-## `!TRY`: Provést do prvního bezchybného výrazu  
-
+## `!TRY`: Provádění operací dž do prvního chybného výrazu  
 
 Typ: _Sequence_
+
 ```yaml
-
-
 !TRY
 - <expression>
 - <expression>
@@ -196,7 +174,7 @@ Typ: _Sequence_
 ...
 ```
 
-Iterujte výrazem (shora dolů), pokud výraz vrátí nenulový výsledek (`None`), zastavte iteraci a vraťte tuto hodnotu.
+Iteruje jednotlivými výrazy (odshora dolů), pokud výraz vrátí nenulový výsledek (`None`), zastavte iteraci a vraťte tuto hodnotu.
 V opačném případě pokračujte na další výraz.
 
 Při dosažení konce seznamu vrátí `None` (chyba).

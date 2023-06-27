@@ -13,7 +13,6 @@ SP-Lang provides a variety of control flow statements.
 
 Type: _Mapping_.
 
-
 The `!IF` expression is a decision-making expression that guides the evaluation to make decisions based on specified test.
 
 ```yaml
@@ -23,10 +22,12 @@ then: <expression>
 else: <expression>
 ```
 
+Based on the value of `test`, the branch is evaluated:
 
-`test` should provide boolean value, based on this value `then` (for `true`) or `else` (for `false`) branch is evaluated.
+- `then` in case of `test !EQ true`
+- `else` in case of `test !EQ false`
 
-`then` and `else` have to return the same type, which will be also the type of the `!IF` return value.
+Both `then` and `else` have to return the same type, which will be also the type of the `!IF` return value.
 
 
 !!! example
@@ -86,7 +87,7 @@ If `else` is not provided, then `WHEN` returns `False`.
         - !ARG key
         - 34
       then:
-        "Thirty four"
+        "thirty four"
 
     # Range match
     - test:
@@ -108,9 +109,8 @@ If `else` is not provided, then `WHEN` returns `False`.
       then:
         "seventy five, seven, nine"
 
-
     - else:
-        "Unknown"
+        "unknown"
     ```
 
 --- 
@@ -141,13 +141,13 @@ The expression fails with error when no matching `<value>` is found and `else` b
 
     ```yaml
     !MATCH
-    what: 1
+    what: !ARG value
     with:
-      1: "One"
-      2: "Two"
-      3: "Three"
+      1: "one"
+      2: "two"
+      3: "three"
     else:
-      "Other number"
+      "other number"
     ```
 
 
@@ -165,13 +165,11 @@ The expression fails with error when no matching `<value>` is found and `else` b
   
 ---
 
-## `!TRY`: Execute till first non-error expression  
-
+## `!TRY`: Execute till first error expression  
 
 Type: _Sequence_
 
 ```yaml
-
 !TRY
 - <expression>
 - <expression>
