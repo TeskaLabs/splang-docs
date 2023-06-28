@@ -165,7 +165,7 @@ The expression fails with error when no matching `<value>` is found and `else` b
   
 ---
 
-## `!TRY`: Execute till first error expression  
+## `!TRY`: Execute till first non-error expression  
 
 Type: _Sequence_
 
@@ -210,7 +210,7 @@ The result is a new list with transformed elements.
       !ADD [!ARG x, 10]
     ```
 
-    Result is `[11, 12, 13, 14, 15, 16, 17]`.
+    The result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
@@ -227,7 +227,7 @@ initval: <expression>
 fold: <left|right>
 ```
 
-The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument 'b' containing the respective item value.
+The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument `b` containing the respective item value.
 
 The `initval` expression provides the initial value for the `a` argument.
 
@@ -244,5 +244,5 @@ An optional `fold` value specified a "left folding" (`left`, default) or a "righ
       !ADD [!ARG a, !ARG b]
     ```
 
-    Calculates a sum of the sequence with an initial value -1.  
-    Result is `18` = `-10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
+    Calculates a sum of the sequence with an initial value `-10`.  
+    Result is `18 = -10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
