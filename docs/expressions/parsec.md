@@ -929,7 +929,7 @@ what: !PARSE.KV
 
 ## `!PARSE.KVLIST`: Parse list of key-value pairs
 
-Iterating through list elements `!PARSE.KVLIST` expression collects key-value pairs to list of tuples. Non-key elements are parsed, but not collected.
+Iterating through list of elements `!PARSE.KVLIST` expression collects key-value pairs to list of tuples. Non-key elements are parsed, but not collected.
 Nested `!PARSE.KVLIST` expressions are joined to the parent one.
 
 Type: _Combinator_
@@ -979,3 +979,72 @@ _Input string:_ `<141>May  9 10:00:00 VUW-DC-F5-P2R1.source-net.com notice tmm1[
 ```
 
 _Output:_ `[(log.syslog.priority, 141), (@timestamp, 140994182325993472), (host.hostname, VUW-DC-F5-P2R1.source-net.com), (log.level, notice), (log.syslog.appname, tmm1), (process.pid, 22731), (message, 01490500:5: /Common/Citrix_Receiver..)]`
+
+
+---
+
+## `!PARSE.TUPLE`: Parse list of values to tuple
+
+Iterating through list of elements `!PARSE.TUPLE` expression collects values to tuple.
+
+Type: _Combinator_
+
+
+### Synopsis
+
+```yaml
+!PARSE.TUPLE
+- <...>
+- <...>
+- <...>
+
+```
+
+## Example
+_Input string:_ `Hello world!`
+
+```yaml
+!PARSE.TUPLE
+- 'Hello'
+- !PARSE.SPACE
+- 'world'
+- '!'
+```
+
+_Output:_ `('Hello', ' ', 'world', '!')`
+
+
+
+---
+
+## `!PARSE.RECORD`: Parse list of values to record structure
+
+Iterating through list of elements `!PARSE.RECORD` expression collects values to record structure.
+
+Type: _Combinator_
+
+
+### Synopsis
+
+```yaml
+!PARSE.RECORD
+- <...>
+- element1: <...>
+- element2: <...>
+- <...>
+
+```
+
+## Example
+_Input string:_ `<165>1 `
+
+```yaml
+!PARSE.RECORD
+- !PARSE.EXACTLY {what: '<'}
+- severity: !PARSE.DIGITS
+- !PARSE.EXACTLY {what: '>'}
+- version: !PARSE.DIGITS
+- !PARSE.EXACTLY {what: ' '}
+```
+
+_Output:_ `{'output.severity': 165, 'output.version': 1}`
