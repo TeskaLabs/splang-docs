@@ -327,6 +327,27 @@ The result is a list: `["hello", "world"]`.
 
 ---
 
+## `!RSPLIT`: Right split a string into the list
+
+Splits a string from the right (end of the string) into a list of strings.
+
+Type: _Mapping_
+
+### Synopsis
+
+```yaml
+!RSPLIT
+what: <string>
+delimiter: <string>
+maxsplit: <number>
+```
+
+The argument `what` string will be split using a `delimiter` argument.
+An optional `maxsplit` arguments specifies how many splits to do.
+
+
+---
+
 ## `!JOIN`: Join a list of strings 
 
 Type: _Mapping_
