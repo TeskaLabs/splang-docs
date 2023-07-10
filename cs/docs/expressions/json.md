@@ -10,12 +10,13 @@ SP-Lang nabízí [vysokorychlostní přístup](https://simdjson.org) k datovým 
 
 --- 
 
-## `!GET`: Získat hodnotu z JSON 
+## `!GET`: Získá hodnotu z JSON 
 
 Typ: _Mapping_.
 
 
-### Synopse
+### Synopsis
+
 ```yaml
 
 !GET
@@ -31,57 +32,61 @@ Pokud položka není nalezena, vrátí `default` nebo chybu, pokud není zadáno
 
 Volitelně můžete zadat typ položky pomocí `type`.
 
-### Příklad
+!!! example "Příklad"
 
-JSON (také známý jako `!ARG jsonmessage`):
-```json
+	JSON (`!ARG jsonmessage`):
 
-{
-  "foo.bar": "Příklad"
-}
-```
+	```json
+	{
+	"foo.bar": "Příklad"
+	}
+	```
 
-Získání pole `foo.bar` z výše uvedeného JSON:
-```yaml
+	Pro získání pole `foo.bar` z výše uvedeného JSON:
 
-!GET
-co: foo.bar
-from: !ARG jsonmessage
-```
+	```yaml
+
+	!GET
+	what: foo.bar
+	from: !ARG jsonmessage
+	```
 
 
 ### JSON Pointer
 
-Pokud chcete přistupovat k položce ve vnořeném JSON, musíte použít [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) (např. `/foo/bar` o`/foo/bar`) jako `what` pro tento účel.
+Pro přístup k položce ve vnořeném JSONu je třeba použít [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) (např. `/foo/bar` o`/foo/bar`) jako `what`.
 
-Pro odvození typu položky se použije schéma, ale pro složitější přístup se doporučuje použít argument `type`.
+Pro odvození typu položky se použije schéma, ale pro složitější přístup doporučujeme použít argument `type`.
 
-Vnořený JSON (aka `!ARG jsonmessage`):
-```json
+!!! example "Příklad"
 
-{
-  "foo": {
-    "bar": "Příklad"
-  }
-}
-```
+	Vnořený JSON (`!ARG jsonmessage`):
 
-Příklad extrakce řetězce z vnořeného JSON:
-```yaml
+	```json
+	{
+	"foo": {
+		"bar": "Příklad"
+	}
+	}
+	```
 
-!GET
-co: /foo/bar
-typ: str
-from: !ARG jsonmessage
-```
+	Příklad extrakce řetězce z vnořeného JSON:
+
+	```yaml
+	!GET
+	what: /foo/bar
+	type: str
+	from: !ARG jsonmessage
+	```
 
 --- 
 
-## `!JSON.PARSE`: Parse JSON 
+## `!JSON.PARSE`: Parsuje JSON 
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
+
 ```yaml
 
 !JSON.PARSE
@@ -89,20 +94,21 @@ what: <str>
 schéma: <schema>
 ```
 
-Parsovat JSON řetězec.
+Parsuje JSON řetězec.
 Výsledek lze použít např. pomocí operátoru `!GET`.
 
 Nepovinný argument `schema` určuje schéma, které se má použít.
 Výchozím schématem je vestavěné schéma `ANY`.
 
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!JSON.PARSE
-what: |
-  {
-    "string1": "Hello World!",
-    "string2": "Goodbay ..."
-  }
-```
+	```yaml
+
+	!JSON.PARSE
+	what: |
+	{
+		"string1": "Hello World!",
+		"string2": "Goodby ..."
+	}
+	```
