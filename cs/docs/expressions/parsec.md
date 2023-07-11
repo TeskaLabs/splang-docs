@@ -3,94 +3,93 @@ git_commit_hash: b55fa3f
 title: Parsec
 ---
 
-# Výrazy PARSEC
+# Výrazy pro PARSEC
 
 
-Skupina výrazů PARSEC představuje koncept [Parser combinator](https://en.wikipedia.org/wiki/Parser_combinator).
+Skupina výrazů PARSEC reprezentuje koncept [Parser combinator](https://en.wikipedia.org/wiki/Parser_combinator).
 
-Poskytují způsob, jak kombinovat základní parsery za účelem konstrukce složitějších parserů pro konkrétní pravidla.
+Poskytuje způsob, jak kombinovat základní parsery za účelem konstrukce složitějších parserů na základě určitých pravidel.
 V tomto kontextu je parser funkce, která přijímá řetězec jako vstup a vytváří strukturovaný výstup, který indikuje úspěšné parsování nebo poskytuje chybové hlášení, pokud proces parsování selže.
 
 Parsovací výrazy se dělí do dvou skupin: parsery a kombinátory.
 
-*Parsery* lze považovat za základní jednotky nebo stavební bloky. Jsou zodpovědné za rozpoznávání a zpracování konkrétních vzorů nebo prvků ve vstupním řetězci.
+_Parsery_ lze považovat za základní jednotky nebo stavební bloky. Jsou zodpovědné za rozpoznávání a zpracování konkrétních vzorů nebo prvků ve vstupním řetězci.
 
-*Kombinátory* jsou naproti tomu operátory nebo funkce, které umožňují kombinaci a skládání parserů.
+_Kombinátory_ jsou naproti tomu operátory nebo funkce, které umožňují kombinaci a skládání parserů.
 
-Každý výraz začíná předponou `!PARSE.`.
+Každý výraz pro parsování začíná předponou `!PARSE.`.
 
 
 ---
 
-## `!PARSE.DIGIT`: Parsovat jednu číslici
+## `!PARSE.DIGIT`: Parsuje jednu číslici
 
 Typ: _Parser_.
 
-### Synopse
-```yaml
+### Synopsis
 
+```yaml
 !PARSE.DIGIT
 ```
 
 
-### Příklad
-_Input string:_ `2`
-```yaml
+!!! example
 
-!PARSE.DIGIT
-```
+	_Vstupní řetězec:_ `2`
+
+	```yaml
+	!PARSE.DIGIT
+	```
 
 ---
 
-## `!PARSE.DIGITS`: Parsování posloupnosti číslic
+## `!PARSE.DIGITS`: Parsuje více číslic
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 
 ```yaml
-
 !PARSE.DIGITS
 min: <...>
 max: <...>
-přesně: <...>
+exactly: <...>
 ```
-Pole `min`, `max` a `přesně` jsou nepovinná.
 
-!!! warning
+Pole `min`, `max` a `exactly` jsou nepovinná.
 
-	
-	
-	
+!!! warning "Varování"
+
 	Pole `Exactly` nelze použít společně s poli `min` nebo `max`. A samozřejmě hodnota `max` nesmí být menší než hodnota `min`.
-	
-	
-	
 
-### Příklad
-_Input string:_ `123`
-```yaml
+!!! example "Příklad"
 
-!PARSE.DIGITS
-max: 4
-```
+	_Vstupní řetězec:_ `123`
+
+	```yaml
+	!PARSE.DIGITS
+	max: 4
+	```
 <details>
 
  <summary>Další příklady</summary>
 
-Rozeberte co nejvíce číslic:```yaml
+Parsování co nejvíce číslic:
 
+```yaml
 !PARSE.DIGITS
 ```
 
-Parsovat přesně 3 číslice:```yaml
+Parsování přesně tří číslic:
 
+```yaml
 !PARSE.DIGITS
-přesně: 3
+exactly: 3
 ```
 
-Parsovat alespoň 2 číslice, ale ne více než 4:```yaml
+Parsování alespoň dvou číslic, ale ne více než čtyř:
 
+```yaml
 !PARSE.DIGITS
 min: 2
 max: 4
@@ -101,81 +100,79 @@ max: 4
 
 ---
 
-## `!PARSE.LETTER`: Parsovat jedno písmeno
+## `!PARSE.LETTER`: Parsuje jedno písmeno
 Latinská písmena od A do Z, malá i velká písmena.
 
 Typ: _Parser_.
 
-### Synopse
-```yaml
+### Synopsis
 
+```yaml
 !PARSE.LETTER
 ```
 
-### Příklad
-_Input string:_ `A`
-```yaml
+!!! example "Příklad"
 
-!PARSE.LETTER
-```
+	_Vstupní řetězec:_ `A`
+
+	```yaml
+	!PARSE.LETTER
+	```
 
 
 ---
 
-## `!PARSE.CHAR`: Parsování jednoho znaku
+## `!PARSE.CHAR`: Parsuje jeden znak
 Jakýkoli typ znaku.
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
+
 ```yaml
-
 !PARSE.CHAR
 ```
 
-### Příklad
-_Input string:_ `@````yaml
+!!! example "Příklad"
 
-!PARSE.CHAR
-```
+	_Vstupní řetězec:_ `@`
+
+	```yaml
+	!PARSE.CHAR
+	```
 
 
 ---
 
-## `!PARSE.CHARS`: Parsovat posloupnost znaků
+## `!PARSE.CHARS`: Parsuje posloupnost znaků
 
 Typ: _Parser_.
 
-### Synopse
-```yaml
+### Synopsis
 
+```yaml
 !PARSE.CHARS
 min: <...>
 max: <...>
-přesně: <...>
+exactly: <...>
 ```
 Pole `min`, `max` a `přesně` jsou nepovinná.
 
-!!! warning
+!!! warning "Varování"
 
-	
-	
-	
 	Pole `Exactly` nelze použít společně s poli `min` nebo `max`. A samozřejmě hodnota `max` nesmí být menší než hodnota `min`.
-	
 
-### Příklad
-_Vstupní řetězec:_ `jméno@123_`
-```yaml
 
-!PARSE.CHARS
-max: 8
-```
+!!! example "Příklad"
+
+	_Vstupní řetězec:_ `jméno@123_`
+	```yaml
+
+	!PARSE.CHARS
+	max: 8
+	```
 !!! tip
 
-	
-	
-	
 	Pro analýzu až do konce řetězce použijte `!PARSE.CHARS` bez polí.
 	
 	
@@ -183,19 +180,22 @@ max: 8
 
  <summary>Další příklady</summary>
 
-Analyzujte co nejvíce znaků:```yaml
+Parsuje co nejvíce znaků:
 
+```yaml
 !PARSE.CHARS
 ```
 
-Parsovat přesně 3 znaky:```yaml
+Parsuje přesně 3 znaky:
 
+```yaml
 !PARSE.CHARS
-přesně: 3
+exactly: 3
 ```
 
-Parsujte alespoň 2 znaky, ale ne více než 4:```yaml
+Parsuje alespoň 2 znaky, ale ne více než 4:
 
+```yaml
 !PARSE.CHARS
 min: 2
 max: 4
@@ -206,11 +206,11 @@ max: 4
 
 ---
 
-## `!PARSE.SPACE`: Parsování jednoho znaku mezery
+## `!PARSE.SPACE`: Parsuje jednu mezeru
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.SPACE
@@ -219,43 +219,45 @@ Typ: _Parser_.
 
 ---
 
-## `!PARSE.SPACES`: Parsovat posloupnost znaků mezery
+## `!PARSE.SPACES`: Parsuje více mezer
 
 Parsování co největšího počtu znaků mezery:
 
 Typ: _Parser_.
 
-### Synopse
-```yaml
+### Synopsis
 
+```yaml
 !PARSE.SPACES
 ```
 
 
 ---
 
-## `!PARSE.ONEOF`: Parsování jednoho znaku z množiny znaků
+## `!PARSE.ONEOF`: Parsuje jeden znak z množiny znaků
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
+
 ```yaml
-
 !PARSE.ONEOF
-co: <...>
+what: <...>
 ```
-nebo kratší verze:```yaml
+nebo kratší verze:
 
+```yaml
 !PARSE.ONEOF <...>
 ```
 
-## Příklad
-_Input string:_ `Wow`==!==
-```yaml
+!!! example
 
-!PARSE.ONEOF
-co: "!?"
-```
+	_Vstupní řetězec:_ `Wow`==!==
+	```yaml
+
+	!PARSE.ONEOF
+	what: "!?"
+	```
 
 
 ---
@@ -264,11 +266,11 @@ co: "!?"
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.NONEOF
-co: <...>
+what: <...>
 ```
 nebo kratší verze:```yaml
 
@@ -276,11 +278,11 @@ nebo kratší verze:```yaml
 ```
 
 ## Příklad
-_Input string:_ `Wow`==!==
+_Vstupní řetězec:_ `Wow`==!==
 ```yaml
 
 !PARSE.NONEOF
-co: ",;:[]()"
+what: ",;:[]()"
 ```
 
 
@@ -290,11 +292,11 @@ co: ",;:[]()"
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.UNTIL
-co: <...>
+what: <...>
 stop: &lt;před/po&gt;
 eof: &lt;pravda/nepravda&gt;
 ```
@@ -304,10 +306,10 @@ nebo kratší verze:```yaml
 ```
 
 - `stop` - určuje, zda se má znak stop analyzovat nebo ne.
-            Možné hodnoty: `před` nebo `po`(výchozí).
+			Možné hodnoty: `před` nebo `po`(výchozí).
 
 - `eof` - udává, zda máme analyzovat až do konce řetězce, pokud není nalezen symbol `what`.
-            Možné hodnoty: `true` nebo `false`(výchozí).
+			Možné hodnoty: `true` nebo `false`(výchozí).
 
 
 !!! info
@@ -315,7 +317,7 @@ nebo kratší verze:```yaml
 	
 	
 	
-	    Pole `what` musí být jednoznakové. Lze však použít i některé bílé znaky, např. `tab`.
+		Pole `what` musí být jednoznakové. Lze však použít i některé bílé znaky, např. `tab`.
 	
 
 ## Příklad
@@ -332,7 +334,7 @@ what: ":"
 Parsujte až do symbolu <code>:</code> a zastavte se před ním:```yaml
 
 !PARSE.UNTIL
-co: ":"
+what: ":"
 stop: "před"
 ```
 
@@ -344,14 +346,14 @@ Parsování až do symbolu mezery a zastavení za ním:```yaml
 Parse until <code>,</code> symbol nebo parse until the end of the string if it's not found:```yaml
 
 !PARSE.UNTIL
-co: ","
+what: ","
 eof: true
 ```
 
 Parse until symbol <code>tab</code>:```yaml
 
 !PARSE.UNTIL
-co: 'tab'
+what: 'tab'
 ```
 </details>
 
@@ -362,11 +364,11 @@ co: 'tab'
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.EXACTLY
-co: <...>
+what: <...>
 ```
 nebo kratší verze:```yaml
 
@@ -374,11 +376,11 @@ nebo kratší verze:```yaml
 ```
 
 ## Příklad
-_Input string:_ `Hello world!`
+_Vstupní řetězec:_ `Hello world!`
 ```yaml
 
 !PARSE.EXACTLY
-co: "Hello"
+what: "Hello"
 ```
 
 
@@ -388,11 +390,11 @@ co: "Hello"
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.BETWEEN
-co: <...>
+what: <...>
 start: <...>
 stop: <...>
 únik: <...>
@@ -410,7 +412,7 @@ nebo kratší verze:```yaml
 
 
 ## Příklad
-_Input string:_ `[10/May/2023:08:15:54 +0000]`
+_Vstupní řetězec:_ `[10/May/2023:08:15:54 +0000]`
 ```yaml
 
 !PARSE.BETWEEN
@@ -450,21 +452,21 @@ escape: '\'
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.REGEX
-co: <...>
+what: <...>
 ```
 
 ## Příklad
-_Input string:_ `FTVW23_L-C: `
+_Vstupní řetězec:_ `FTVW23_L-C: `
 
 _Output string:_ `FTVW23_L-C`
 ```yaml
 
 !PARSE.REGEX
-co: '[a-zA-Z0-9_\-0]+'
+what: '[a-zA-Z0-9_\-0]+'
 ```
 
 
@@ -474,11 +476,11 @@ co: '[a-zA-Z0-9_\-0]+'
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.MONTH
-co: <...>
+what: <...>
 ```
 nebo kratší verze:```yaml
 
@@ -486,7 +488,7 @@ nebo kratší verze:```yaml
 ```
 
 - `what` - udává formát názvu měsíce.
-            Možné hodnoty: `číslo`, `krátký`, `úplný`.
+			Možné hodnoty: `číslo`, `krátký`, `úplný`.
 
 !!! tip
 
@@ -497,7 +499,7 @@ nebo kratší verze:```yaml
 	
 
 ## Příklad
-_Input string:_ `10/`==May==`/2023:08:15:54``
+_Vstupní řetězec:_ `10/`==May==`/2023:08:15:54``
 ```yaml
 
 !PARSE.MONTH
@@ -517,7 +519,7 @@ Parsování měsíce v plném formátu:<br>
 <i>Vstupní řetězec:</i><code><mark>2003-OCTOBER-11</mark></code>```yaml
 
 !PARSE.MONTH
-co: 'full'
+what: 'full'
 ```
 </details>
 
@@ -528,7 +530,7 @@ co: 'full'
 
 Typ: _Parser_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.FRAC
@@ -537,9 +539,9 @@ max: <...>
 ```
 
 - `base` - udává základ zlomku.
-            Možné hodnoty: `milli`, `micro`, `nano`.
+			Možné hodnoty: `milli`, `micro`, `nano`.
 - `max` - udává maximální počet číslic v závislosti na hodnotě `base`.
-            Možné hodnoty: `3`, `6`, `9`.
+			Možné hodnoty: `3`, `6`, `9`.
 
 !!! tip
 
@@ -566,7 +568,7 @@ max: 6
 Typ: _Parser_.
 
 
-### Synopse
+### Synopsis
 ```yaml
 
 !PARSE.DATETIME
@@ -586,8 +588,8 @@ Typ: _Parser_.
 - Zadání pole mikrosekund jako `mikrosekundy?`, umožní analyzovat mikrosekundy nebo ne, záleží na jejich přítomnosti ve vstupním řetězci.
 - Pole `časová zóna` je nepovinné. Pokud není zadáno, použije se výchozí hodnota `UTC`.
   - `Časové pásmo` lze zadat ve dvou různých formátech.
-    1. `Z`, `+08:00` - analyzuje se ze vstupního řetězce.
-    2. `Evropa/Praha` - zadáno jako konstantní hodnota.
+	1. `Z`, `+08:00` - analyzuje se ze vstupního řetězce.
+	2. `Evropa/Praha` - zadáno jako konstantní hodnota.
 
 
 ### Zkratky
@@ -602,7 +604,7 @@ K dispozici jsou tvary zkratek (v obou nižších/vyšších variantách):
 ```
 
 ## Příklad
-_Input string:_ `2022-10-13T12:34:56.987654`
+_Vstupní řetězec:_ `2022-10-13T12:34:56.987654`
 ```yaml
 
 !PARSE.DATETIME
@@ -618,8 +620,8 @@ _Input string:_ `2022-10-13T12:34:56.987654`
 - ':'
 - sekunda: !PARSE.DIGITS
 - mikrosekunda: !PARSE.FRAC
-                base: "micro"
-                max: 6
+				base: "micro"
+				max: 6
 - časové pásmo: "Europe/Prague"
 ```
 <details>
@@ -640,8 +642,8 @@ Parsování data bez roku, s krátkým tvarem měsíce a volitelnými mikrosekun
 - !PARSE.EXACTLY { what: ':' }
 - second: !PARSE.DIGITS # Sekundy
 - microsecond?: !PARSE.FRAC # Mikrosekundy
-                base: "micro"
-                max: 6
+				base: "micro"
+				max: 6
 ```
 
 Parse datetime s časovou zónou:<br>

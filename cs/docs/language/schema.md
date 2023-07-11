@@ -53,7 +53,7 @@ from: !ARG input
 ```yaml
 
 !GET
-co: FieldOne
+what: FieldOne
 from: !ARG input
 ```
 

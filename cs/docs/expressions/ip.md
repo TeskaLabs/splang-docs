@@ -32,7 +32,7 @@ Převádí vnitřní reprezentaci IP adresy na řetězec.
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 
 ```yaml
 !IP.INSUBNET

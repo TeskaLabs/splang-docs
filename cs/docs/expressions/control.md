@@ -100,7 +100,7 @@ Pokud není zadáno `else`, pak `WHEN` vrací `False`.
     # In-set match
     - test:
         !IN
-        co: !ARG key
+        what: !ARG key
         where:
           - 75
           - 77

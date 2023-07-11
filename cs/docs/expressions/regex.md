@@ -20,11 +20,11 @@ title: Regex
 
 Typ: Typ: _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !REGEX
-co: <string>
+what: <string>
 regex: <regex>
 trefa: <hit>
 REGEX: chybí: <miss>
@@ -56,7 +56,7 @@ Výše uvedený příklad lze zapsat také jako:
  ```yaml
 
 !REGEX
-co: "Hello world!"
+what: "Hello world!"
 regex: "world"
 hit: "Ano :-)"
 miss: "Ne ;-("
@@ -68,11 +68,11 @@ miss: "Ne ;-("
 
 Typ: Typ: _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !REGEX.REPLACE
-co: <string>
+what: <string>
 regex: <regex>
 by: <string>
 ```
@@ -84,7 +84,7 @@ Nahradit regulární výraz `regex` odpovídající hodnotě `what` hodnotou `by
 ```yaml
 
 !REGEX.REPLACE
-co: "Hello world!"
+what: "Hello world!"
 regex: "world"
 by: "Mars"
 ```
@@ -97,11 +97,11 @@ Vrací: `Hello Mars!`
 
 Typ: Typ: _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !REGEX.SPLIT
-co: <string>
+what: <string>
 regex: <regex>
 max: <integer>
 ```
@@ -115,7 +115,7 @@ Nepovinný argument `max` určuje maximální počet rozdělení.
 ```yaml
 
 !REGEX.SPLIT
-co: "07/14/2007 12:34:56"
+what: "07/14/2007 12:34:56"
 regex: "[/ :]"
 ```
 
@@ -127,11 +127,11 @@ Vrací: `['07', '14', '2007', '12', '34', '56']`
 
 Typ: Typ: _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !REGEX.FINDALL
-co: <string>
+what: <string>
 regex: <regex>
 ```
 
@@ -141,7 +141,7 @@ Najít všechny shody `regex` v řetězci `what`.
 ```yaml
 
 !REGEX.FINDALL
-co: "Frodo, Sam, Gandalf, Legolas, Gimli, Aragorn, Boromir, Smíšek, Pipin"
+what: "Frodo, Sam, Gandalf, Legolas, Gimli, Aragorn, Boromir, Smíšek, Pipin"
 regex: \w+
 ```
 

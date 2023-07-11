@@ -25,11 +25,11 @@ Položky záznamu jsou pojmenovány (na rozdíl od tuplu) pomocí štítku.
 
 Typ:  _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !RECORD
-s:
+with:
   item1: <item 1>
   item2: <item 2>
   ...
@@ -44,7 +44,7 @@ Pořadí položek je zachováno.
 ```yaml
 
 !RECORD
-s:
+with:
   jméno: John Doe
   věk: 37 let
   výška: 175,4
@@ -54,7 +54,7 @@ s:
 Použití formuláře toku YAML:
 ```yaml
 
-!RECORD {s: {jméno: John Doe, věk: 37 let, výška: 175,4} }
+!RECORD {with: {jméno: John Doe, věk: 37 let, výška: 175,4} }
 ```
 
 
@@ -69,7 +69,7 @@ Vynucení konkrétního typu položky:
 ```yaml
 
 !RECORD
-s:
+with:
   jméno: John Doe
   věk: !!ui8 37
   výška: 175,4
@@ -84,11 +84,11 @@ Pole `age` bude mít typ `ui8`.
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !GET
-co: <name or index of the item>
+what: <name or index of the item>
 z: <record>
 ```
 
@@ -109,7 +109,7 @@ Použití názvů položek:
 what: name
 from:
   !RECORD
-  s:
+  with:
     jméno: John Doe
     věk: 32 let
     výška: 127,5
@@ -122,10 +122,10 @@ Pomocí _indexu_ položek:
 ```yaml
 
 !GET
-co: 1
+what: 1
 od:
   !RECORD
-  s:
+  with:
     jméno: John Doe
     věk: 32 let
     výška: 127,5
@@ -138,7 +138,7 @@ Používá _záporný index_ položek:
 ```yaml
 
 !GET
-co: -1
+what: -1
 od:
   !RECORD
   with:

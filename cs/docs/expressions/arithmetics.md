@@ -170,7 +170,7 @@ Vypočítá absolutní hodnotu vstupu `x`, což je nezáporná hodnota `x` bez o
 
 	```yaml
 	!ABS
-	co: -8,5
+	what: -8,5
 	```
 	
 	Výsledkem je hodnota `8.5`.

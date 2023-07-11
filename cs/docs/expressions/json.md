@@ -20,7 +20,7 @@ Typ: _Mapping_.
 ```yaml
 
 !GET
-co: <item>
+what: <item>
 typ: <type>
 od: <json>
 výchozí: <value>

@@ -15,11 +15,11 @@ Tuple je kolekce položek, případně různých typů.
 
 Typ:  _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !TUPLE
-s:
+with:
   - ...
   - ...
   ...
@@ -33,7 +33,7 @@ Pořadí položek je zachováno.
 ```yaml
 
 !TUPLE
-s:
+with:
   - John Doe
   - 37
   - 175.4
@@ -61,7 +61,7 @@ Vynucení specifického typu položky:
 ```yaml
 
 !TUPLE
-s:
+with:
   - John Doe
   - !!ui8 37
   - 175.4
@@ -76,11 +76,11 @@ Položka č. 1 bude mít typ `ui8`.
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !GET
-co: <index of the item>
+what: <index of the item>
 z: <tuple>
 ```
 
@@ -97,7 +97,7 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 what: 1
 from:
   !TUPLE
-  s:
+  with:
     - Doe:: John Doe
     - 32
     - 127.5
@@ -110,7 +110,7 @@ Použití _záporného indexu_ položek:
 ```yaml
 
 !GET
-co: -1
+what: -1
 od:
   !TUPLE
   with:

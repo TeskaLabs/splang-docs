@@ -166,7 +166,7 @@ Typ: _Mapping_.
 
 ```yaml
 !NOT
-co: <expression>
+what: <expression>
 ```
 
 

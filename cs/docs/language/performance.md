@@ -28,7 +28,7 @@ Hodí se např. pro klasifikaci škodlivých adres URL (poskytnutých blokovým 
 
 !IN
   kde: !ARG url
-  co:
+  what:
   - ".000a.biz"
   - ".001edizioni.com"
  < 64 domains in total >

@@ -18,7 +18,7 @@ Množina je nejvhodnější pro testování hodnoty příslušnosti spíše než
 
 Typ:  _Implicitní posloupnost_, _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !SET
@@ -64,7 +64,7 @@ Formulář pro mapování:
 ```yaml
 
 !SET
-s:
+with:
   - "One"
   - "Two"
   - "Three"
@@ -79,11 +79,11 @@ s:
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !IN
-co: <item>
+what: <item>
 kde: <set>
 ```
 
@@ -95,7 +95,7 @@ Výraz `!IN` je popsán v kapitole "Testy".
 ```yaml
 
 !IN
-co: 3
+what: 3
 kde:
   !SET
   with:

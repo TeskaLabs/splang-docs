@@ -12,11 +12,11 @@ title: Pomocné
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !CAST
-co: <input>
+what: <input>
 typ: <type>
 ```
 
@@ -34,7 +34,7 @@ Další podrobnosti najdete v kapitole o [typech](../../language/types).
 ```yaml
 
 !CAST
-co: "10.3"
+what: "10.3"
 type: fp64
 ```
 
@@ -46,11 +46,11 @@ Jedná se o explicitní převod řetězce na číslo s pohyblivou řádovou čá
 
 Typ: _Mapping_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !HASH
-co: <input>
+what: <input>
 seed: <integer>
 typ: <type of hash>
 ```
@@ -74,7 +74,7 @@ Více informací o xxHash naleznete na adrese [xxhash.com](http://www.xxhash.com
 ```yaml
 
 !HASH
-co: "Hello world!"
+what: "Hello world!"
 seed: 5
 ```
 

@@ -14,11 +14,11 @@ Výraz `!IN` slouží ke kontrole, zda řetězec `what` existuje v řetězci `wh
 
 Typ: Typ: _Mapování_.
 
-### Synopse
+### Synopsis
 ```yaml
 
 !IN
-co: <...>
+what: <...>
 kde: <...>
 ```
 
@@ -29,7 +29,7 @@ V opačném případě se vyhodnotí jako `true`, pokud najde podřetězec `what
 ```yaml
 
 !IN
-co: "Willy"
+what: "Willy"
 kde: "John Willy Boo"
 ```
 
@@ -59,7 +59,7 @@ Příklad optimalizace `!REGEX` pomocí víceřetězcového `!IN`:
 !AND
 - !IN
   kde: !ARG zpráva
-  co:
+  what:
   - "msgbox"
   - "showmod"
   - "showhelp"
@@ -68,7 +68,7 @@ Příklad optimalizace `!REGEX` pomocí víceřetězcového `!IN`:
   - "test"
   - "mail.com"
 - !REGEX
-  co: !ARG zpráva
+  what: !ARG zpráva
   regex: "(msgbox|showmod(?:al|eless)dialog|showhelp|prompt|write)|(test[0-9])|([a-z]@mail\.com)
 ```
 
@@ -92,11 +92,11 @@ Vrací hodnotu `true`, pokud řetězec `what` začíná předponou `prefix`.
 
 Typ: _Mapování_
 
-### Synopse
+### Synopsis
 ```yaml
 
 !STARTSWITH
-co: <...>
+what: <...>
 prefix: <...>
 ```
 
@@ -105,7 +105,7 @@ prefix: <...>
 ```yaml
 
 !STARTSWITH
-co: "FooBar"
+what: "FooBar"
 prefix: "Foo"
 ```
 
@@ -122,7 +122,7 @@ prefix: "Foo"
 ```yaml
 
 !STARTSWITH
-co: <...>
+what: <...>
 prefix: ]: [<prefix1>, <prefix2>, ...]
 ```
 
@@ -139,11 +139,11 @@ Vrací hodnotu `true`, pokud řetězec `what` končí znakem `postfix`.
 Typ: _Mapování_
 
 
-### Synopse
+### Synopsis
 ```yaml
 
 !ENDSWITH
-co: <...>
+what: <...>
 postfix: <...>
 ```
 
@@ -152,7 +152,7 @@ postfix: <...>
 ```yaml
 
 !ENDSWITH
-co: "autoexec.bat"
+what: "autoexec.bat"
 postfix: "bat"
 ```
 
@@ -169,7 +169,7 @@ postfix: "bat"
 ```yaml
 
 !ENDSWITH
-co: <...>
+what: <...>
 postfix: [<postfix1>, <postfix2>, ...]
 ```
 
@@ -186,11 +186,11 @@ Vrátí část řetězce `what` mezi indexy `from` a `to`.
 Typ: Typ: _Mapování_
 
 
-### Synopse
+### Synopsis
 ```yaml
 
 !SUBSTRING
-co: <...>
+what: <...>
 od: <...>
 do: <...>
 ```
@@ -222,11 +222,11 @@ Vrací `oo`.
 Typ: _Mapování_
 
 
-### Synopse
+### Synopsis
 ```yaml
 
 !LOWER
-co: <...>
+what: <...>
 ```
 
 
@@ -234,7 +234,7 @@ co: <...>
 ```yaml
 
 !LOWER
-co: "FooBar"
+what: "FooBar"
 ```
 
 Vrací `foobar`.
@@ -246,11 +246,11 @@ Vrací `foobar`.
 
 Typ: _Mapování_
 
-### Synopse
+### Synopsis
 ```yaml
 
 !UPPER
-co: <...>
+what: <...>
 ```
 
 
@@ -258,7 +258,7 @@ co: <...>
 ```yaml
 
 !UPPER
-co: "FooBar"
+what: "FooBar"
 ```
 
 Vrací `FOOBAR`.
@@ -271,11 +271,11 @@ Rozřízne řetězec oddělovačem a vrátí část identifikovanou indexem `pol
 
 Typ: _Mapování_
 
-### Synopse
+### Synopsis
 ```yaml
 
 !CUT
-co: <string>
+what: <string>
 oddělovač: <string>
 pole: <int>
 ```
@@ -289,7 +289,7 @@ Pokud je uveden záporný údaj `pole`, pak se pole bere od konce řetězce, nap
 ```yaml
 
 !CUT
-co: "Jablko,Pomeranč,Meloun,Citrus,Hruška"
+what: "Jablko,Pomeranč,Meloun,Citrus,Hruška"
 oddělovač: ","
 pole: 2
 ```
@@ -299,7 +299,7 @@ Vrátí hodnotu "Melon".
 ```yaml
 
 !CUT
-co: "Apple,Orange,Melon,Citrus,Pear"
+what: "Apple,Orange,Melon,Citrus,Pear"
 oddělovač: ","
 pole: -2
 ```
@@ -315,11 +315,11 @@ Rozdělí řetězec na seznam řetězců.
 
 Typ: _Mapování_
 
-### Synopse
+### Synopsis
 ```yaml
 
 !SPLIT
-co: <string>
+what: <string>
 oddělovač: <string>
 maxsplit: <number>
 ```
@@ -344,7 +344,7 @@ Výsledkem je seznam: `["hello", "world"]`.
 
 Typ: _Mapování_
 
-### Synopse
+### Synopsis
 ```yaml
 
 !JOIN
