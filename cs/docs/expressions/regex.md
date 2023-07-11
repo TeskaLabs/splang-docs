@@ -8,26 +8,23 @@ title: Regex
 
 !!! tip
 
-	
-	
-	
-	Pomocí [Regexr](https://regexr.com) můžete vytvářet a testovat regulární výrazy.
-	
+    Pomocí [Regexr](https://regexr.com) můžete vytvářet a testovat regulární výrazy.
+
 
 --- 
 
 ## `!REGEX`: Vyhledávání pomocí regulárních výrazů  
 
-Typ: Typ: _Mapování_.
+Typ: _Mapping_.
 
 Synopsis:
-```yaml
 
+```yaml
 !REGEX
 what: <string>
 regex: <regex>
-trefa: <hit>
-REGEX: chybí: <miss>
+hit: <hit>
+miss: <miss>
 ```
 
 Projde řetězec `what` a hledá libovolné místo, kde regulární výraz `regex` dává shodu.
@@ -38,39 +35,39 @@ Výraz `hit` je nepovinný, výchozí hodnota je `true`.
 Výraz `miss` je nepovinný, výchozí hodnota je `false`.
 
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!IF
-test:
-  !REGEX
-  what: "Hello world!"
-  regex: "world"
-then:
-  "Ano :-)"
-else:
-  "Ne ;-("
+    ```yaml
+    !IF
+    test:
+      !REGEX
+      what: "Hello world!"
+      regex: "world"
+    then:
+      "Yes :-)"
+    else:
+      "No ;-("
 ```
 
-Výše uvedený příklad lze zapsat také jako:
- ```yaml
+!!! example "Jiná forma:"
 
-!REGEX
-what: "Hello world!"
-regex: "world"
-hit: "Ano :-)"
-miss: "Ne ;-("
-```
+    ```yaml
+    !REGEX
+    what: "Hello world!"
+    regex: "world"
+    hit: "Ano :-)"
+    miss: "Ne ;-("
+    ```
 
 --- 
 
-## `!REGEX.REPLACE`: Regulární výraz nahradit  
+## `!REGEX.REPLACE`: Nahrazení regulárním výrazem
 
-Typ: Typ: _Mapování_.
+Typ: _Mapping_.
 
 Synopsis:
-```yaml
 
+```yaml
 !REGEX.REPLACE
 what: <string>
 regex: <regex>
@@ -80,26 +77,27 @@ by: <string>
 Nahradit regulární výraz `regex` odpovídající hodnotě `what` hodnotou `by`.
 
 
-### Příklad
-```yaml
+!!! example
 
-!REGEX.REPLACE
-what: "Hello world!"
-regex: "world"
-by: "Mars"
-```
+    ```yaml
 
-Vrací: `Hello Mars!`
+    !REGEX.REPLACE
+    what: "Hello world!"
+    regex: "world"
+    by: "Mars"
+    ```
+
+    Vrací: `Hello Mars!`
 
 --- 
 
 ## `!REGEX.SPLIT`: Rozdělí řetězec pomocí regulárního výrazu  
 
-Typ: Typ: _Mapování_.
+Typ: _Mapping_.
 
 Synopsis:
-```yaml
 
+```yaml
 !REGEX.SPLIT
 what: <string>
 regex: <regex>
@@ -111,45 +109,46 @@ Dělí řetězec `what` regulárním výrazem `regex`.
 Nepovinný argument `max` určuje maximální počet rozdělení.
 
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!REGEX.SPLIT
-what: "07/14/2007 12:34:56"
-regex: "[/ :]"
-```
+    ```yaml
+    !REGEX.SPLIT
+    what: "07/14/2007 12:34:56"
+    regex: "[/ :]"
+    ```
 
-Vrací: `['07', '14', '2007', '12', '34', '56']`
+    Vrací: `['07', '14', '2007', '12', '34', '56']`
 
 --- 
 
 ## `!REGEX.FINDALL`: Najde všechny výskyty podle regulárního výrazu  
 
-Typ: Typ: _Mapování_.
+Typ: _Mapping_.
 
 Synopsis:
-```yaml
 
+```yaml
 !REGEX.FINDALL
 what: <string>
 regex: <regex>
 ```
 
-Najít všechny shody `regex` v řetězci `what`.
+Najde všechny shody `regex` v řetězci `what`.
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!REGEX.FINDALL
-what: "Frodo, Sam, Gandalf, Legolas, Gimli, Aragorn, Boromir, Smíšek, Pipin"
-regex: \w+
-```
+    ```yaml
+    !REGEX.FINDALL
+    what: "Frodo, Sam, Gandalf, Legolas, Gimli, Aragorn, Boromir, Smíšek, Pipin"
+    regex: \w+
+    ```
 
-Vrací: `['Frodo', 'Sam', 'Gandalf', 'Legolas', 'Gimli', 'Aragorn', 'Boromir', 'Merry', 'Pippin']`
+    Vrací: `['Frodo', 'Sam', 'Gandalf', 'Legolas', 'Gimli', 'Aragorn', 'Boromir', 'Smíšek', 'Pipin']`
 
 ---
 
 ## `!REGEX.PARSE`: Parsování pomocí regulárního výrazu 
 
-Typ: _Mapování_.
+Type: _Mapping_.
 
+Viz kapitolu [`!PARSE.REGEX`](../parsec/#parseregex-parsuje-posloupnost-znaku-ktera-odpovida-regularnimu-vyrazu)
