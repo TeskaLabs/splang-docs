@@ -11,7 +11,7 @@ title: Utility
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !CAST
@@ -45,7 +45,7 @@ This is an explicit casting of the string into a floating-point number.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !HASH

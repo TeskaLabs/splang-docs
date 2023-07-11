@@ -11,7 +11,7 @@ title: Funkce
 
 Typ: _Scalar_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !ARGUMENT name
@@ -43,7 +43,7 @@ Typ: _Mapping_.
 	Výrazy SP-Lang jsou _implicitně_ umístěné definice funkcí.
 	To znamená, že ve většině případů lze `!FUNCTION` přeskočit a je uvedena pouze sekce `do`.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !FUNCTION
@@ -92,7 +92,7 @@ Příkaz `!SELF` umožňuje rekurzivně použít "self" alias aktuální funkci.
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SELF

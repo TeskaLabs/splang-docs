@@ -19,7 +19,7 @@ The `!INCLUDE` directive is used to paste a content of given file into current f
 If included file is not found, SP-Lang renders error.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !INCLUDE <filename>

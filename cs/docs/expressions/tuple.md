@@ -15,7 +15,7 @@ Tuple je kolekce položek, případně různých typů.
 
 Typ:  _Mapping_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !TUPLE
@@ -76,7 +76,7 @@ Položka č. 1 bude mít typ `ui8`.
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !GET

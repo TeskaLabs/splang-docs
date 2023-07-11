@@ -26,7 +26,7 @@ Každý výraz pro parsování začíná předponou `!PARSE.`.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DIGIT
@@ -47,7 +47,7 @@ Typ: _Parser_.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DIGITS
@@ -105,7 +105,7 @@ Latinská písmena od A do Z, malá i velká písmena.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.LETTER
@@ -127,7 +127,7 @@ Jakýkoli typ znaku.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHAR
@@ -148,7 +148,7 @@ Typ: _Parser_.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHARS
@@ -211,7 +211,7 @@ max: 4
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !PARSE.SPACE
@@ -226,7 +226,7 @@ Parsování co největšího počtu znaků mezery:
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SPACES
@@ -239,7 +239,7 @@ Typ: _Parser_.
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.ONEOF
@@ -267,7 +267,7 @@ nebo kratší verze:
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.NONEOF
@@ -294,7 +294,7 @@ nebo kratší verze:
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.UNTIL
@@ -370,7 +370,7 @@ what: 'tab'
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.EXACTLY
@@ -399,7 +399,7 @@ nebo kratší verze:
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.BETWEEN
@@ -466,7 +466,7 @@ escape: '\'
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.REGEX
@@ -491,7 +491,7 @@ what: <...>
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.MONTH
@@ -547,7 +547,7 @@ what: 'full'
 
 Typ: _Parser_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !PARSE.FRAC
@@ -582,7 +582,7 @@ max: <...>
 Typ: _Parser_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DATETIME

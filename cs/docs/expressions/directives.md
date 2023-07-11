@@ -20,7 +20,7 @@ Direktiva `!INCLUDE` slouží k vložení obsahu daného souboru do aktuálního
 Pokud není vkládaný soubor nalezen, SP-Lang zobrazí chybu.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !INCLUDE <filename>

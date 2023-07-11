@@ -25,7 +25,7 @@ Every expression starts with `!PARSE.` prefix.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DIGIT
@@ -46,7 +46,7 @@ Type: _Parser_.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 
 ```yaml
@@ -101,7 +101,7 @@ Latin letters from A to Z, both uppercase and lowercase.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.LETTER
@@ -123,7 +123,7 @@ Any type of character.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHAR
@@ -144,7 +144,7 @@ Type: _Parser_.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHARS
@@ -202,7 +202,7 @@ max: 4
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SPACE
@@ -217,7 +217,7 @@ Parse as many space symbols as possible:
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SPACES
@@ -230,7 +230,7 @@ Type: _Parser_.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.ONEOF
@@ -257,7 +257,7 @@ or shorter version:
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.NONEOF
@@ -284,7 +284,7 @@ or shorter version:
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.UNTIL
@@ -353,7 +353,7 @@ what: 'tab'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.EXACTLY
@@ -380,7 +380,7 @@ or shorter version:
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.BETWEEN
@@ -443,7 +443,7 @@ escape: '\'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.REGEX
@@ -468,7 +468,7 @@ what: <...>
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.MONTH
@@ -520,7 +520,7 @@ what: 'full'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.FRAC
@@ -555,7 +555,7 @@ max: <...>
 Type: _Parser_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DATETIME
@@ -690,7 +690,7 @@ Parse datetime with nanoseconds:<br>
 
 Type: _Combinator_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.REPEAT
@@ -740,7 +740,7 @@ max: 4
 
 Type: _Combinator_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SEPARATED
@@ -806,7 +806,7 @@ Type: _Combinator_.
 
 `!PARSE.TRIE` expression chooses one of the specified prefixes and parse the rest of the input string using the corresponding parser.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.TRIE
@@ -846,7 +846,7 @@ Type: _Combinator_
 `!PARSE.OPTIONAL` expression tries to parse the input string using the specified parser. If the parser fails, starting position rolls back to the initial one.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.OPTIONAL
@@ -883,7 +883,7 @@ _Input strings:_
 Type: _Combinator_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.KV
@@ -948,7 +948,7 @@ Nested `!PARSE.KVLIST` expressions are joined to the parent one.
 Type: _Combinator_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.KVLIST
@@ -1003,7 +1003,7 @@ Iterating through list of elements `!PARSE.TUPLE` expression collects values to 
 Type: _Combinator_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.TUPLE
@@ -1037,7 +1037,7 @@ Iterating through list of elements `!PARSE.RECORD` expression collects values to
 Type: _Combinator_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.RECORD

@@ -14,7 +14,7 @@ Výraz `!IN` slouží ke kontrole, zda řetězec `what` existuje v řetězci `wh
 
 Typ: Typ: _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !IN
@@ -92,7 +92,7 @@ Vrací hodnotu `true`, pokud řetězec `what` začíná předponou `prefix`.
 
 Typ: _Mapování_
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !STARTSWITH
@@ -139,7 +139,7 @@ Vrací hodnotu `true`, pokud řetězec `what` končí znakem `postfix`.
 Typ: _Mapování_
 
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !ENDSWITH
@@ -186,7 +186,7 @@ Vrátí část řetězce `what` mezi indexy `from` a `to`.
 Typ: Typ: _Mapování_
 
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !SUBSTRING
@@ -222,7 +222,7 @@ Vrací `oo`.
 Typ: _Mapování_
 
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !LOWER
@@ -246,7 +246,7 @@ Vrací `foobar`.
 
 Typ: _Mapování_
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !UPPER
@@ -271,7 +271,7 @@ Rozřízne řetězec oddělovačem a vrátí část identifikovanou indexem `pol
 
 Typ: _Mapování_
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !CUT
@@ -315,7 +315,7 @@ Rozdělí řetězec na seznam řetězců.
 
 Typ: _Mapování_
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !SPLIT
@@ -344,7 +344,7 @@ Výsledkem je seznam: `["hello", "world"]`.
 
 Typ: _Mapování_
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !JOIN

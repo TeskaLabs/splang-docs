@@ -18,7 +18,7 @@ Množina je nejvhodnější pro testování hodnoty příslušnosti spíše než
 
 Typ:  _Implicitní posloupnost_, _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !SET
@@ -79,7 +79,7 @@ with:
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !IN

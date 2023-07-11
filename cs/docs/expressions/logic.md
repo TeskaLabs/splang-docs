@@ -24,7 +24,7 @@ Používá se k vytváření přísnějších a přesnějších podmínek.
 
 Typ: _Sequence_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !AND
@@ -86,7 +86,7 @@ Používá se k vytváření flexibilnějších a komplexnějších podmínek.
 
 Typ: _Sequence_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !OR
@@ -162,7 +162,7 @@ Používá se k vyloučení určitých podmínek, pokud nejsou splněny jiné po
 Typ: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !NOT

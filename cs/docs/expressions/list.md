@@ -21,7 +21,7 @@ Položky v seznamu musí být stejného typu.
 
 Typ:  _Implicit sequence_, _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 
@@ -91,7 +91,7 @@ Existuje několik způsobů, jak lze v jazyce SP-Lang zadat seznam:
 Typ: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 

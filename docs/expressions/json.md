@@ -14,7 +14,7 @@ SP-Lang offers a [high-speed access](https://simdjson.org) to JSON data objects.
 Type: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !GET
@@ -82,7 +82,7 @@ The schema will be applied to infer the type of the item but for more complex ac
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !JSON.PARSE

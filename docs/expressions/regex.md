@@ -15,7 +15,7 @@ title: Regex
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !REGEX
@@ -63,7 +63,7 @@ miss: "No ;-("
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !REGEX.REPLACE
@@ -92,7 +92,7 @@ Returns: `Hello Mars!`
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !REGEX.SPLIT
@@ -122,7 +122,7 @@ Returns: `['07', '14', '2007', '12', '34', '56']`
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !REGEX.FINDALL

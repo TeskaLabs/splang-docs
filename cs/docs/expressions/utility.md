@@ -12,7 +12,7 @@ title: Pomocné
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !CAST
@@ -46,7 +46,7 @@ Jedná se o explicitní převod řetězce na číslo s pohyblivou řádovou čá
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !HASH

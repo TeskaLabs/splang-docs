@@ -13,7 +13,7 @@ The `!IN` expression is used to check if a string `what` exists in a string `whe
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IN
@@ -91,7 +91,7 @@ Returns `true` if `what` string begins with `prefix`.
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !STARTSWITH
@@ -134,7 +134,7 @@ Returns `true` if `what` string ends with `postfix`.
 Type: _Mapping_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !ENDSWITH
@@ -177,7 +177,7 @@ Return part of the string `what`, in between `from` and `to` index.
 Type: _Mapping_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SUBSTRING
@@ -209,7 +209,7 @@ Returns `oo`.
 Type: _Mapping_
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !LOWER
@@ -233,7 +233,7 @@ Returns `foobar`.
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !UPPER
@@ -258,7 +258,7 @@ Cut the string by a delimiter and return the piece identified by `field` index (
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !CUT
@@ -302,7 +302,7 @@ Splits a string into a list of strings.
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SPLIT
@@ -333,7 +333,7 @@ Splits a string from the right (end of the string) into a list of strings.
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !RSPLIT
@@ -352,7 +352,7 @@ An optional `maxsplit` arguments specifies how many splits to do.
 
 Type: _Mapping_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !JOIN

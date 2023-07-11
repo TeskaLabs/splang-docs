@@ -15,7 +15,7 @@ IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](htt
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.FORMAT
@@ -31,7 +31,7 @@ Convert the internal representation of the IP address into a string.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.INSUBNET

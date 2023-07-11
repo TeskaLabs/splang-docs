@@ -20,7 +20,7 @@ Items in the list must be of the same type.
 
 Type:  _Implicit sequence_, _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !LIST
@@ -88,7 +88,7 @@ There are several ways, how a list can be specified in SP-Lang:
 Type: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !GET

@@ -15,7 +15,7 @@ SP-Lang nabízí [vysokorychlostní přístup](https://simdjson.org) k datovým 
 Typ: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 
@@ -85,7 +85,7 @@ Pro odvození typu položky se použije schéma, ale pro složitější přístu
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 

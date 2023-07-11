@@ -16,7 +16,7 @@ IPv4 jsou mapovány do prostoru IPv6 pomocí [RFC 4291 "IPv4-Mapped IPv6 Address
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.FORMAT
@@ -32,7 +32,7 @@ Převádí vnitřní reprezentaci IP adresy na řetězec.
 
 Typ: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.INSUBNET

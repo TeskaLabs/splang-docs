@@ -17,7 +17,7 @@ A set is best suited for a testing value for membership rather than retrieving a
 
 Type:  _Implicit sequence_, _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SET
@@ -78,7 +78,7 @@ with:
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IN

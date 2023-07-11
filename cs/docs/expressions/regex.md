@@ -20,7 +20,7 @@ title: Regex
 
 Typ: Typ: _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !REGEX
@@ -68,7 +68,7 @@ miss: "Ne ;-("
 
 Typ: Typ: _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !REGEX.REPLACE
@@ -97,7 +97,7 @@ Vrací: `Hello Mars!`
 
 Typ: Typ: _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !REGEX.SPLIT
@@ -127,7 +127,7 @@ Vrací: `['07', '14', '2007', '12', '34', '56']`
 
 Typ: Typ: _Mapování_.
 
-### Synopsis
+Synopsis:
 ```yaml
 
 !REGEX.FINDALL

@@ -14,7 +14,7 @@ A tuple is a collection of items, possibly of different types.
 
 Type:  _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !TUPLE
@@ -75,7 +75,7 @@ Item #1 will have a type `ui8`.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !GET

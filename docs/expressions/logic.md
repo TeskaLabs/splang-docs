@@ -21,7 +21,7 @@ It is used to create more restrictive and precise conditions.
 
 Type: _Sequence_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !AND
@@ -80,7 +80,7 @@ It is used to create more flexible and inclusive conditions.
 
 Type: _Sequence_
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !OR
@@ -153,7 +153,7 @@ It is used to exclude specific conditions when certain conditions are not met.
 Type: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !NOT

@@ -12,7 +12,7 @@ title: Functions
 
 Type: _Scalar_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !ARGUMENT name
@@ -46,7 +46,7 @@ Type: _Mapping_.
     It means that in a majority of cases, `!FUNCTION` can be skipped, and only `do` section is provided
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !FUNCTION
@@ -95,7 +95,7 @@ The `!SELF` provides an ability to recursively apply "self" aka a current functi
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SELF
