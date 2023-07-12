@@ -24,15 +24,15 @@ where: <...>
 Evaluate to `true` if it finds a substring `what` in the string `where` and false otherwise.
 
 
-### Example
+!!! example
 
-```yaml
-!IN
-what: "Willy"
-where: "John Willy Boo"
-```
+    ```yaml
+    !IN
+    what: "Willy"
+    where: "John Willy Boo"
+    ```
 
-Check for a presence of the substring "Willy" in the `where` value. Returns `true`.
+    Check for a presence of the substring "Willy" in the `where` value. Returns `true`.
 
 
 ### Multi-string variant
@@ -52,24 +52,24 @@ This is very efficient way of checking if at least one substring is present in t
 It provides [Incremental String Matching](http://se.ethz.ch/~meyer/publications/string/string_matching.pdf) algorithm for fast pattern matching in strings.
 It makes it an ideal tool for complex filtering as a standalone bit or an optimization technique.
 
-Example of `!REGEX` optimization by multi-string `!IN`:
+!!! example "Example of `!REGEX` optimization by multi-string `!IN`:"
 
-```yaml
-!AND
-- !IN
-  where: !ARG message
-  what:
-  - "msgbox"
-  - "showmod"
-  - "showhelp"
-  - "prompt"
-  - "write"
-  - "test"
-  - "mail.com"
-- !REGEX
-  what: !ARG message
-  regex: '(msgbox|showmod(?:al|eless)dialog|showhelp|prompt|write)|(test[0-9])|([a-z]@mail\.com)'
-```
+    ```yaml
+        !AND
+        - !IN
+          where: !ARG message
+          what:
+          - "msgbox"
+          - "showmod"
+          - "showhelp"
+          - "prompt"
+          - "write"
+          - "test"
+          - "mail.com"
+        - !REGEX
+          what: !ARG message
+          regex: "(msgbox|showmod(?:al|eless)dialog|showhelp|prompt|write)|(test[0-9])|([a-z]@mail\.com)
+    ```
 
 This approach is recommended from applications in streams, where you need to filter an extensive amount of the data with assumption that only a smaller portion of the data matches the patters.
 An application of the `!REGEX` expression directly will slow processing down significantly, because it is complex regular expression.
@@ -100,13 +100,13 @@ prefix: <...>
 ```
 
 
-### Example
+!!! example
 
-```yaml
-!STARTSWITH
-what: "FooBar"
-prefix: "Foo"
-```
+    ```yaml
+    !STARTSWITH
+    what: "FooBar"
+    prefix: "Foo"
+    ```
 
 ### Multi-string variant
 
@@ -133,7 +133,6 @@ Returns `true` if `what` string ends with `postfix`.
 
 Type: _Mapping_
 
-
 Synopsis:
 
 ```yaml
@@ -143,13 +142,13 @@ postfix: <...>
 ```
 
 
-### Example
+!!! example
 
-```yaml
-!ENDSWITH
-what: "autoexec.bat"
-postfix: ".bat"
-```
+    ```yaml
+    !ENDSWITH
+    what: "autoexec.bat"
+    postfix: ".bat"
+    ```
 
 ### Multi-string variant
 
@@ -191,16 +190,16 @@ to: <...>
     The first character of the string is located on position `from=0`.
 
 
-### Example
+!!! example
 
-```yaml
-!SUBSTRING
-what: "FooBar"
-from: 1
-to: 3
-```
+    ```yaml
+    !SUBSTRING
+    what: "FooBar"
+    from: 1
+    to: 3
+    ```
 
-Returns `oo`.
+    Returns `oo`.
 
 ---
 
@@ -217,14 +216,14 @@ what: <...>
 ```
 
 
-### Example
+!!! example
 
-```yaml
-!LOWER
-what: "FooBar"
-```
+    ```yaml
+    !LOWER
+    what: "FooBar"
+    ```
 
-Returns `foobar`.
+    Returns `foobar`.
 
 
 ---
@@ -241,14 +240,14 @@ what: <...>
 ```
 
 
-### Example
+!!! example
 
-```yaml
-!UPPER
-what: "FooBar"
-```
+    ```yaml
+    !UPPER
+    what: "FooBar"
+    ```
 
-Returns `FOOBAR`.
+    Returns `FOOBAR`.
 
 ---
 
@@ -272,26 +271,27 @@ The argument `field` specifies a number of the splited strings to return, starti
 If the negative `field` is provided, then field is taken from the end of the string, for example -2 means the second last substring.
 
 
-### Example
+!!! example
 
-```yaml
-!CUT
-what: "Apple,Orange,Melon,Citrus,Pear"
-delimiter: ","
-field: 2
-```
+    ```yaml
+    !CUT
+    what: "Apple,Orange,Melon,Citrus,Pear"
+    delimiter: ","
+    field: 2
+    ```
 
-Will return value "Melon".
+    Will return value "Melon".
 
+!!! example
 
-```yaml
-!CUT
-what: "Apple,Orange,Melon,Citrus,Pear"
-delimiter: ","
-field: -2
-```
+    ```yaml
+    !CUT
+    what: "Apple,Orange,Melon,Citrus,Pear"
+    delimiter: ","
+    field: -2
+    ```
 
-Will return value "Citrus".
+    Will return value "Citrus".
 
   
 ---
@@ -315,15 +315,15 @@ The argument `what` string will be split using a `delimiter` argument.
 An optional `maxsplit` arguments specifies how many splits to do.
 
 
-### Example
+!!! example
 
-```yaml
-!SPLIT
-what: "hello,world"
-delimiter: ","
-```
+    ```yaml
+    !SPLIT
+    what: "hello,world"
+    delimiter: ","
+    ```
 
-The result is a list: `["hello", "world"]`.
+    The result is a list: `["hello", "world"]`.
 
 ---
 
@@ -368,12 +368,12 @@ Default `delimiter` is space (" ").
 If the item is `None`, then the value of `miss` parameter is used, by default it is empty string.
 If `miss` is `None` and  any of `items` is `None`, the result of the whole join is `None`.
 
-### Example
+!!! example
 
-```yaml
-!JOIN
-items:
-  - "Foo"
-  - "Bar"
-delimiter: ','
-```
+    ```yaml
+    !JOIN
+    items:
+      - "Foo"
+      - "Bar"
+    delimiter: ','
+    ```
