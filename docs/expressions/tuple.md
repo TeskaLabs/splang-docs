@@ -28,45 +28,48 @@ There is no limit of the number of items in the tuple.
 The order of the items is preserved.
 
 
-### Examples
+!!! example
 
-```yaml
-!TUPLE
-with:
-  - John Doe
-  - 37
-  - 175.4
-```
+    ```yaml
+    !TUPLE
+    with:
+      - John Doe
+      - 37
+      - 175.4
+    ```
 
+!!! example
 
-Use of the `!!tuple` notation:
+    Use of the `!!tuple` notation:
 
-```yaml
-!!tuple
-- 1
-- a
-- 1.2
-```
+    ```yaml
+    !!tuple
+    - 1
+    - a
+    - 1.2
+    ```
 
+!!! example
 
-Even more concise version of the `!!tuple` using flow syntax:
+    Even more concise version of the `!!tuple` using flow syntax:
 
-```yaml
-!!tuple ['John Doe', 37, 175.4]
-```
+    ```yaml
+    !!tuple ['John Doe', 37, 175.4]
+    ```
 
+!!! example
 
-Enforce specific type of the item:
+    Enforce specific type of the item:
 
-```yaml
-!TUPLE
-with:
-  - John Doe
-  - !!ui8 37
-  - 175.4
-```
+    ```yaml
+    !TUPLE
+    with:
+      - John Doe
+      - !!ui8 37
+      - 175.4
+    ```
 
-Item #1 will have a type `ui8`.
+    Item #1 will have a type `ui8`.
 
 
 --- 
@@ -89,7 +92,7 @@ Items are indexed from the 0, it means that the first item in the list has an in
 If the `what` is out of bound of the list, the statement returns with error.
 
 
-### Examples
+!!! example
 
 ```yaml
 !GET
@@ -102,20 +105,22 @@ from:
     - 127.5
 ```
 
-Returns `32`.
+    Returns `32`.
 
 
-Using the _negative index_ of items:
+!!! example
 
-```yaml
-!GET
-what: -1
-from:
-  !TUPLE
-  with:
-    - John Doe
-    - 32
-    - 127.5
-```
+    Using the _negative index_ of items:
 
-Returns `127.5`.
+    ```yaml
+    !GET
+    what: -1
+    from:
+      !TUPLE
+      with:
+        - John Doe
+        - 32
+        - 127.5
+    ```
+
+    Returns `127,5`.
