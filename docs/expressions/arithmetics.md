@@ -11,7 +11,6 @@ title: Arithmetics
 
 Type: _Sequence_
 
-
 You can add following types:
 
  * Numbers (Integers and floats)
@@ -30,7 +29,7 @@ You can add following types:
     - 6
     ```
 
-  Calculates `4+(-5)+6`, the result is `5`.
+    Calculates `4+(-5)+6`, the result is `5`.
 
 ---
 
@@ -47,6 +46,8 @@ Type: _Sequence_
     - -5
     ```
 
+    Calculates `3-1-(-5)`, the result is `7`.
+
 ---
 
 
@@ -58,10 +59,12 @@ Type: _Sequence_
 
     ```yaml
     !MUL
-    - 1.5
-    - 5.5
-    - 3.2
+    - 7
+    - 11
+    - 13
     ```
+
+    Calculates `7*11*13`, the result is `1001` (which happens to be the [Scheherazade constant](https://en.wikipedia.org/wiki/Scheherazade)).
 
 ---
 
@@ -76,6 +79,8 @@ Type: _Sequence_
     - 21
     - 1.5
     ```
+
+    Calculates `21/5`, the result is `14.0`.
 
 
 ### Division by zero
@@ -94,23 +99,37 @@ The second item is a value that will be returned when such an error occurs.
 - 5.0
 ```
 
-
 ---
 
-## `!MOD`: Reminder 
+## `!MOD`: Remainder 
 
 Type: _Sequence_
 
-
 Calculate the signed remainder of a division (aka modulo operation).
+
+!!! info
+
+	Read more about [modulo](https://en.wikipedia.org/wiki/Remainder) on Wikipedia.
 
 !!! example
 
     ```yaml
     !MOD
     - 21
-    - 1.5
+    - 4
     ```
+
+    Calculates `21 mod 4`, the result is `1`.
+
+!!! example
+
+	```yaml
+	!MOD
+	- -10
+	- 3
+	```
+
+	Calculates `-10 mod 3`, the result is `2`.
 
 ---
 
@@ -119,7 +138,7 @@ Calculate the signed remainder of a division (aka modulo operation).
 Type: _Sequence_
 
 
-Calculate the exponent or power.
+Calculate the exponent.
 
 !!! example
 
@@ -128,6 +147,8 @@ Calculate the exponent or power.
     - 2
     - 8
     ```
+
+    Calculates `2^8`, the result is `16`.
 
 ---
 

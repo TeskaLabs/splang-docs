@@ -11,7 +11,7 @@ title: Utility
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !CAST
@@ -25,19 +25,19 @@ SP-Lang automatically converts types of arguments so that the user doesn't need 
 This feature is called *implicit casting*.
 
 In case of explicit need for a type conversion, use `!CAST` expression.
-It is very powerful method that do a lot of heavylifting.
+It is very powerful method that do a lot of heavy-lifting.
 
 For more details, see chapter about [types](../../language/types).
 
-### Example
+!!! example
 
-```yaml
-!CAST
-what: "10.3"
-type: fp64
-```
+	```yaml
+	!CAST
+	what: "10.3"
+	type: fp64
+	```
 
-This is an explicit casting of the string into a floating-point number.
+	This is an explicit casting of the string into a floating-point number.
 
 ---
 
@@ -45,7 +45,7 @@ This is an explicit casting of the string into a floating-point number.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !HASH
@@ -61,7 +61,7 @@ Calculate the hash for an `what` value.
 `type` specifies a hashing function, the default value is `XXH64`.
 
 
-#### Supported hashing functions
+### Supported hashing functions
 
 * `XXH64`: xxHash, 64bit, non-cryptografic, extremely fast hash algorithm
 * `XXH3`: xxHash, 64bit, non-cryptografic, futher optimized for small inputs
@@ -69,13 +69,13 @@ Calculate the hash for an `what` value.
 More information about xxHash are at [xxhash.com](http://www.xxhash.com/)
 
 
-### Example
+!!! example "Příklad"
 
-```yaml
-!HASH
-what: "Hello world!"
-seed: 5
-```
+	```yaml
+	!HASH
+	what: "Hello world!"
+	seed: 5
+	```
 
 
 ---

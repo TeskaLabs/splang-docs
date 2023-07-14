@@ -31,11 +31,11 @@ by: <...>
 
 	```yaml
 	!SHL
-	what: 60
+	what: 9
 	by: 2
 	```
 
-	The result is: `240 = (60*2^2)`, `2^2 = 4`.
+	`9` is represented by the binary value `1001`. The left logical shift moves the bits to the left by 2. The result is `100100`, which is `36` in the base-ten system. This is the same result as `9 * (2^2)`.
 
 ---
 
@@ -58,11 +58,11 @@ by: <...>
 
 	```yaml
 	!SHR
-	what: 2048
-	by: 4
+	what: 16
+	by: 3
 	```
 
-	The result is: `128 = (2048/2^4)`, `2^4 = 16`.
+	`16` is represented by `10000`. The logical shift moves the bits to the right by `3`. The result is `10`, which is `2` in base-ten system. This is the same result as `16 / (2^3)`.
 
 
 --- 

@@ -14,7 +14,7 @@ SP-Lang offers a [high-speed access](https://simdjson.org) to JSON data objects.
 Type: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !GET
@@ -30,23 +30,23 @@ If the item is not found, return `default` or error if `default` is not provided
 
 You may optionally specify the item type by `type`.
 
-### Example
+!!! example
 
-JSON (aka `!ARG jsonmessage`):
+	JSON (aka `!ARG jsonmessage`):
 
-```json
-{
-  "foo.bar": "Example"
-}
-```
+	```json
+	{
+	"foo.bar": "Example"
+	}
+	```
 
-Get the field `foo.bar` from a JSON above:
+	Get the field `foo.bar` from a JSON above:
 
-```yaml
-!GET
-what: foo.bar
-from: !ARG jsonmessage
-```
+	```yaml
+	!GET
+	what: foo.bar
+	from: !ARG jsonmessage
+	```
 
 
 ### JSON Pointer
@@ -55,24 +55,26 @@ If you want to access the item in the nested JSON, you need to use a [JSON Point
 
 The schema will be applied to infer the type of the item but for more complex access, the `type` argument is recommended.
 
-Nested JSON (aka `!ARG jsonmessage`):
+!!! example
 
-```json
-{
-  "foo": {
-    "bar": "Example"
-  }
-}
-```
+	Nested JSON (aka `!ARG jsonmessage`):
 
-Example of extraction of the string from the nested JSON:
+	```json
+	{
+	"foo": {
+		"bar": "Example"
+	}
+	}
+	```
 
-```yaml
-!GET
-what: /foo/bar
-type: str
-from: !ARG jsonmessage
-```
+	Example of extraction of the string from the nested JSON:
+
+	```yaml
+	!GET
+	what: /foo/bar
+	type: str
+	from: !ARG jsonmessage
+	```
 
 --- 
 
@@ -80,7 +82,7 @@ from: !ARG jsonmessage
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !JSON.PARSE
@@ -95,13 +97,13 @@ Optional argument `schema` specifies the schema to be applied.
 The default schema is build-in `ANY`.
 
 
-### Example
+!!! example
 
-```yaml
-!JSON.PARSE
-what: |
-  {
-    "string1": "Hello World!",
-    "string2": "Goodbay ..."
-  }
-```
+	```yaml
+	!JSON.PARSE
+	what: |
+	{
+		"string1": "Hello World!",
+		"string2": "Goodby ..."
+	}
+	```

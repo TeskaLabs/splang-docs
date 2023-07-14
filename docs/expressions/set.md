@@ -17,7 +17,7 @@ A set is best suited for a testing value for membership rather than retrieving a
 
 Type:  _Implicit sequence_, _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !SET
@@ -25,51 +25,54 @@ Type:  _Implicit sequence_, _Mapping_.
 - ...
 ```
 
-_Hint: Use `!COUNT` to determine number of items in the set._
+!!! hint
 
-
-### Examples
+    Use `!COUNT` to determine number of items in the set.
 
 There are several ways, how a set can be specified in SP-Lang:
 
-```yaml
-!SET
-- "One"
-- "Two"
-- "Three"
-- "Four"
-- "Five"
-```
+!!! example
 
+    ```yaml
+    !SET
+    - "One"
+    - "Two"
+    - "Three"
+    - "Four"
+    - "Five"
+    ```
 
-[YAML unordered set](https://yaml.org/spec/1.2.2/#example-unordered-sets):
+!!! example
 
-```yaml
-!!set
-? Yellow pork
-? Pink grass
-? White snow
-```
+    [YAML unordered set](https://yaml.org/spec/1.2.2/#example-unordered-sets):
 
+    ```yaml
+    !!set
+    ? Yellow pork
+    ? Pink grass
+    ? White snow
+    ```
 
-Consise set using [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
+!!! example
 
-```yaml
-!SET ["One", "Two", "Three", "Four", "Five"]
-```
+    Concise set using [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
+    ```yaml
+    !SET ["One", "Two", "Three", "Four", "Five"]
+    ```
 
-The mapping form:
+!!! example
+    The mapping form:
 
-```yaml
-!SET
-with:
-  - "One"
-  - "Two"
-  - "Three"
-  - "Four"
-  - "Five"
-```
+    ```yaml
+    !SET
+    with:
+    - "One"
+    - "Two"
+    - "Three"
+    - "Four"
+    - "Five"
+    ```
 
 
 --- 
@@ -78,7 +81,7 @@ with:
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IN
@@ -88,18 +91,18 @@ where: <set>
 
 Check if `item` is present in the `set`.
 
-The expression `!IN` is described in the "Tests" chapter.
+The expression `!IN` is described in the [Comparisons](../comparisons/#in-membership-test) chapter.
 
-### Example
+!!! example
 
-```yaml
-!IN
-what: 3
-where:
-  !SET
-  with:
-    - 1
-    - 2
-    - 5
-    - 8 
-```
+    ```yaml
+    !IN
+    what: 3
+    where:
+      !SET
+      with:
+        - 1
+        - 2
+        - 5
+        - 8 
+    ```

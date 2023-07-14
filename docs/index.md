@@ -19,6 +19,7 @@ We hope that this documentation will provide you with all the information you ne
 
 <!-- <img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" /> -->
 
+
 ## Introduction
 
 _SP-Lang_ is a [functional language](https://en.wikipedia.org/wiki/Functional_programming) that uses the [YAML](https://en.wikipedia.org/wiki/YAML) syntax.
@@ -32,8 +33,6 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
 
 !!! example "Hello world! in SP-Lang"
 
-    This is the simple example of "Hello world" expression in SP-Lang:
-
     ```yaml
     !ADD
     - Hello
@@ -43,7 +42,7 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
     ```
 
 
-    And the same example in the visual SP-Lang:
+!!! example "The same example in the visual form of SP-Lang"
 
     <img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
@@ -52,11 +51,10 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
 
 ## Features of the SP-Lang
 
-* [📜 Declarative language](https://en.wikipedia.org/wiki/Declarative_programming)  
+* [📜 Declarative language](https://en.wikipedia.org/wiki/Declarative_programming)
 * [🔗 Functional language](https://en.wikipedia.org/wiki/Functional_programming)
 * [🔐 Strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
 * [💡 Type inference](https://en.wikipedia.org/wiki/Type_inference)
 * 🐍 Interpreted in Python
 * 🚀 Compiled by [LLVM](https://llvm.org/)
 * Syntax is based on [YAML](https://en.wikipedia.org/wiki/YAML)
-  

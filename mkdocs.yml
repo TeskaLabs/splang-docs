@@ -19,11 +19,14 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+  features:
+    - navigation.footer
+    - navigation.indexes
+
   logo: images/teskalabs-logo.svg
 
 extra_css:
   - stylesheets/extra.css
-  - css/custom.css
 
 markdown_extensions:
   - attr_list
@@ -41,6 +44,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight: {}
+
+  - toc:
+      permalink: "¤"
 
 extra:
   social:
@@ -53,3 +60,18 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:info@teskalabs.com
       name: info@teskalabs.com
+
+  alternate:
+    - name: English
+      link: /sp-lang/
+      lang: en
+    - name: Česky
+      link: /sp-lang/cs/
+      lang: cs
+
+plugins:
+  - glightbox
+  - search
+  - awesome-pages
+  - print-site:
+      add_to_navigation: true

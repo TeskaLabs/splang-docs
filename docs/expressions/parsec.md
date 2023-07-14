@@ -12,9 +12,9 @@ In this context, a parser is a function that takes string as input and produces 
 
 Parsec expressions are divided into two groups: parsers and combinators.
 
-*Parsers* can be seen as the fundamental units or building blocks. They are responsible for recognizing and processing specific patterns or elements within the input string.
+_Parsers_ can be seen as the fundamental units or building blocks. They are responsible for recognizing and processing specific patterns or elements within the input string.
 
-*Combinators*, on the other hand, are operators or functions that allow the combination and composition of parsers.
+_Combinators_, on the other hand, are operators or functions that allow the combination and composition of parsers.
 
 Every expression starts with `!PARSE.` prefix.
 
@@ -25,19 +25,20 @@ Every expression starts with `!PARSE.` prefix.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DIGIT
 ```
 
 
-### Example
-_Input string:_ `2`
+!!! example
 
-```yaml
-!PARSE.DIGIT
-```
+	_Input string:_ `2`
+
+	```yaml
+	!PARSE.DIGIT
+	```
 
 ---
 
@@ -45,7 +46,7 @@ _Input string:_ `2`
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 
 ```yaml
@@ -60,15 +61,14 @@ Fields `min`, `max` and `exactly` are optional.
 
 	`Exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
 
+!!! example
 
+	_Input string:_ `123`
 
-### Example
-_Input string:_ `123`
-
-```yaml
-!PARSE.DIGITS
-max: 4
-```
+	```yaml
+	!PARSE.DIGITS
+	max: 4
+	```
 
 <details>
   <summary>More examples</summary>
@@ -101,18 +101,19 @@ Latin letters from A to Z, both uppercase and lowercase.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.LETTER
 ```
 
-### Example
-_Input string:_ `A`
+!!! example
 
-```yaml
-!PARSE.LETTER
-```
+	_Input string:_ `A`
+
+	```yaml
+	!PARSE.LETTER
+	```
 
 
 ---
@@ -122,17 +123,19 @@ Any type of character.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHAR
 ```
 
-### Example
-_Input string:_ `@`
-```yaml
-!PARSE.CHAR
-```
+!!! example
+
+	_Input string:_ `@`
+
+	```yaml
+	!PARSE.CHAR
+	```
 
 
 ---
@@ -141,7 +144,7 @@ _Input string:_ `@`
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.CHARS
@@ -155,16 +158,18 @@ Fields `min`, `max` and `exactly` are optional.
 
 	`Exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
 
-### Example
-_Input string:_ `name@123_`
+!!! example
 
-```yaml
-!PARSE.CHARS
-max: 8
-```
+	_Input string:_ `name@123_`
+
+	```yaml
+	!PARSE.CHARS
+	max: 8
+	```
+
 !!! tip
 
-    Use `!PARSE.CHARS` without fields to parse till the end of the string.
+	Use `!PARSE.CHARS` without fields to parse till the end of the string.
 
 
 <details>
@@ -197,7 +202,7 @@ max: 4
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SPACE
@@ -212,7 +217,7 @@ Parse as many space symbols as possible:
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.SPACES
@@ -225,7 +230,7 @@ Type: _Parser_.
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.ONEOF
@@ -236,13 +241,14 @@ or shorter version:
 !PARSE.ONEOF <...>
 ```
 
-## Example
-_Input string:_ `Wow`==!==
+!!! example
 
-```yaml
-!PARSE.ONEOF
-what: "!?."
-```
+	_Input string:_ `Wow!`
+
+	```yaml
+	!PARSE.ONEOF
+	what: "!?."
+	```
 
 
 ---
@@ -251,7 +257,7 @@ what: "!?."
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.NONEOF
@@ -262,13 +268,14 @@ or shorter version:
 !PARSE.NONEOF <...>
 ```
 
-## Example
-_Input string:_ `Wow`==!==
+!!! example
 
-```yaml
-!PARSE.NONEOF
-what: ",;:[]()"
-```
+	_Input string:_ `Wow!`
+
+	```yaml
+	!PARSE.NONEOF
+	what: ",;:[]()"
+	```
 
 
 ---
@@ -277,7 +284,7 @@ what: ",;:[]()"
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.UNTIL
@@ -291,23 +298,24 @@ or shorter version:
 ```
 
 - `stop` - indicates whether the stop character should be parsed or not.
-            Possible values: `before` or `after`(default).
+			Possible values: `before` or `after`(default).
 
 - `eof` - indicates if we should parse till the end of the string if `what` symbol is not found.
-            Possible values: `true` or `false`(default).
+			Possible values: `true` or `false`(default).
 
 
 !!! info
 
-        Field `what` must be a single character. But some whitespace characters can also be used  ex: `tab`
+		Field `what` must be a single character. But some whitespace characters can also be used such as `tab`.
 
-## Example
-_Input string:_ `60290:11`
+!!! example
 
-```yaml
-!PARSE.UNTIL
-what: ":"
-```
+	_Input string:_ `60290:11`
+
+	```yaml
+	!PARSE.UNTIL
+	what: ":"
+	```
 
 <details>
   <summary>More examples</summary>
@@ -345,7 +353,7 @@ what: 'tab'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.EXACTLY
@@ -356,13 +364,14 @@ or shorter version:
 !PARSE.EXACTLY <...>
 ```
 
-## Example
-_Input string:_ `Hello world!`
+!!! example
 
-```yaml
-!PARSE.EXACTLY
-what: "Hello"
-```
+	_Input string:_ `Hello world!`
+
+	```yaml
+	!PARSE.EXACTLY
+	what: "Hello"
+	```
 
 
 ---
@@ -371,7 +380,7 @@ what: "Hello"
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.BETWEEN
@@ -392,14 +401,15 @@ or shorter version:
 - `escape` - indicates escape character.
 
 
-## Example
-_Input string:_ `[10/May/2023:08:15:54 +0000]`
+!!! example
 
-```yaml
-!PARSE.BETWEEN
-start: '['
-stop: ']'
-```
+	_Input string:_ `[10/May/2023:08:15:54 +0000]`
+
+	```yaml
+	!PARSE.BETWEEN
+	start: '['
+	stop: ']'
+	```
 
 <details>
   <summary>More examples</summary>
@@ -433,22 +443,23 @@ escape: '\'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.REGEX
 what: <...>
 ```
 
-## Example
-_Input string:_ `FTVW23_L-C: Message..`
+!!! example
 
-_Output string:_ `FTVW23_L-C`
+	_Input string:_ `FTVW23_L-C: Message...`
 
-```yaml
-!PARSE.REGEX
-what: '[a-zA-Z0-9_\-0]+'
-```
+	_Output:_ `FTVW23_L-C`
+
+	```yaml
+	!PARSE.REGEX
+	what: '[a-zA-Z0-9_\-0]+'
+	```
 
 
 ---
@@ -457,7 +468,7 @@ what: '[a-zA-Z0-9_\-0]+'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.MONTH
@@ -468,32 +479,34 @@ or shorter version:
 !PARSE.MONTH <...>
 ```
 
-- `what` - indicates a format of the month name.
-            Possible values: `number`, `short`, `full`.
+- `what` - indicates a format of the month name. Possible values: `number`, `short`, `full`.
 
 !!! tip
-    Use `!PARSE.MONTH` to parse month name as part of `!PARSE.DATETIME`.
+	Use `!PARSE.MONTH` to parse month name as part of `!PARSE.DATETIME`.
 
 
-## Example
-_Input string:_ `10/`==May==`/2023:08:15:54`
+!!! example
 
-```yaml
-!PARSE.MONTH
-what: 'short'
-```
+	_Input string:_ `10/`==May==`/2023:08:15:54`
+
+	```yaml
+	!PARSE.MONTH
+	what: 'short'
+	```
 
 <details>
   <summary>More examples</summary>
 
 Parse month in number format:<br>
 <i>Input string:</i><code>2003-<mark>10</mark>-11</code>
+
 ```yaml
 !PARSE.MONTH 'number'
 ```
 
 Parse month in full format:<br>
 <i>Input string:</i><code>2003-<mark>OCTOBER</mark>-11</code>
+
 ```yaml
 !PARSE.MONTH
 what: 'full'
@@ -507,7 +520,7 @@ what: 'full'
 
 Type: _Parser_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.FRAC
@@ -516,22 +529,23 @@ max: <...>
 ```
 
 - `base` - indicates a base of the fraction.
-            Possible values: `milli`, `micro`, `nano`.
+			Possible values: `milli`, `micro`, `nano`.
 - `max` - indicates a maximum number of digits depending on the `base` value.
-            Possible values: `3`, `6`, `9` respectively.
+			Possible values: `3`, `6`, `9` respectively.
 
 !!! tip
-    Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of `!PARSE.DATETIME`.
+	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of `!PARSE.DATETIME`.
 
 
-## Example
-_Input string:_ `Aug 22 05:40:14`==.264==
+!!! example
 
-```yaml
-!PARSE.FRAC
-base: "micro"
-max: 6
-```
+	_Input string:_ `Aug 22 05:40:14`==.264==
+
+	```yaml
+	!PARSE.FRAC
+	base: "micro"
+	max: 6
+	```
 
 
 ---
@@ -541,7 +555,7 @@ max: 6
 Type: _Parser_.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !PARSE.DATETIME
@@ -559,8 +573,7 @@ Type: _Parser_.
 - Field `year` is optional. If not specified, the _smart year_ function will be used.
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?`, allow to parse microseconds or not  depends on their present in the input string.
-- Field `timezone` is optional. If not specified, the default value `UTC` will be used.
-  - `timezone` can be specified in two different formats.
+- Field `timezone` is optional. If not specified, the default value `UTC` will be used. It can be specified in two different formats.
     1. `Z`, `+08:00` - parsed from the input string.
     2. `Europe/Prague` - specified as a constant value.
 
@@ -576,27 +589,27 @@ Shortcut forms are available (in both lower/upper variants):
 !PARSE.DATETIME iso8601
 ```
 
-## Example
-_Input string:_ `2022-10-13T12:34:56.987654`
+!!! example
+	_Input string:_ `2022-10-13T12:34:56.987654`
 
-```yaml
-!PARSE.DATETIME
-- year: !PARSE.DIGITS
-- '-'
-- month: !PARSE.MONTH 'number'
-- '-'
-- day: !PARSE.DIGITS
-- 'T'
-- hour: !PARSE.DIGITS
-- ':'
-- minute: !PARSE.DIGITS
-- ':'
-- second: !PARSE.DIGITS
-- microsecond: !PARSE.FRAC
-                base: "micro"
-                max: 6
-- timezone: "Europe/Prague"
-```
+	```yaml
+	!PARSE.DATETIME
+	- year: !PARSE.DIGITS
+	- '-'
+	- month: !PARSE.MONTH 'number'
+	- '-'
+	- day: !PARSE.DIGITS
+	- 'T'
+	- hour: !PARSE.DIGITS
+	- ':'
+	- minute: !PARSE.DIGITS
+	- ':'
+	- second: !PARSE.DIGITS
+	- microsecond: !PARSE.FRAC
+					base: "micro"
+					max: 6
+	- timezone: "Europe/Prague"
+	```
 
 <details>
   <summary>More examples</summary>
@@ -615,8 +628,8 @@ Parse datetime without year, with short month form and optional microseconds:<br
 - !PARSE.EXACTLY { what: ':' }
 - second: !PARSE.DIGITS # Seconds
 - microsecond?: !PARSE.FRAC # Microseconds
-                base: "micro"
-                max: 6
+				base: "micro"
+				max: 6
 ```
 
 Parse datetime with timezone:<br>
@@ -668,5 +681,383 @@ Parse datetime with nanoseconds:<br>
   base: "nano"
   max: 9
 ```
+</details>
+
+
+---
+
+## `!PARSE.REPEAT`: Parse a repeated pattern
+
+Type: _Combinator_.
+
+Synopsis:
+
+```yaml
+!PARSE.REPEAT
+what: <...>
+min: <...>
+max: <...>
+exactly: <...>
+```
+
+Fields `min`, `max` and `exactly` are optional. If none of them is specified, `what` will be repeated as many times as possible.
+
+
+## Example
+_Input string:_ `abc_abc`
+
+```yaml
+!PARSE.REPEAT
+what: !PARSE.ONEOF "abc"
+exactly: 3
+```
+
+_Output:_ `['a', 'b', 'c']`
+
+<details>
+  <summary>More examples</summary>
+
+Parse <code>what</code> pattern as many as possible:
+```yaml
+!PARSE.REPEAT
+what: !PARSE.EXACTLY 'hello'
+```
+
+Parse <code>what</code> pattern at least 2 times, but not more than 4:
+```yaml
+!PARSE.REPEAT
+what: !PARSE.EXACTLY 'hello'
+min: 2
+max: 4
+```
 
 </details>
+
+
+---
+
+## `!PARSE.SEPARATED`: Parse a sequence with a separator
+
+Type: _Combinator_.
+
+Synopsis:
+
+```yaml
+!PARSE.SEPARATED
+what: <...>
+sep: <...>
+min: <...>
+max: <...>
+end: <...>
+```
+
+Fields `max` and `end` are optional. 
+
+- `end` - indicates if trailing separator is required. By default, it is optional.
+
+  
+## Example
+_Input string:_ `0->1->2->3`
+
+_Note:_ trailing separator is optional, so  input string `0->1->2->3->` is also valid.
+
+```yaml
+!PARSE.SEPARATED
+what: !PARSE.DIGITS
+sep: !PARSE.EXACTLY {what: "->"}
+min: 3
+```
+
+_Output:_ `[0, 1, 2, 3]`
+
+<details>
+  <summary>More examples</summary>
+
+Parse <code>what</code> values separated by <code>sep</code> in <code>[min;max]</code> interval, trailing separator is required:<br>
+<i>Input string:</i> <code>11,22,33,44,55,66,</code>
+```yaml
+!PARSE.SEPARATED
+what: !PARSE.DIGITS
+sep: !PARSE.EXACTLY {what: ","}
+end: True
+min: 3
+max: 7
+```
+
+Parse <code>what</code> values separated by <code>sep</code> in <code>[min;max]</code> interval, trailing separator is not presented:<br>
+<i>Input string:</i> <code>0..1..2..3</code>
+```yaml
+!PARSE.SEPARATED
+what: !PARSE.DIGITS
+sep: !PARSE.EXACTLY {what: ".."}
+end: False
+min: 3
+max: 5
+```
+
+</details>
+
+
+---
+
+## `!PARSE.TRIE`: Parse using starting prefix
+
+Type: _Combinator_.
+
+`!PARSE.TRIE` expression chooses one of the specified prefixes and parse the rest of the input string using the corresponding parser.
+
+Synopsis:
+
+```yaml
+!PARSE.TRIE
+- <prefix1>: <...>
+- <prefix2>: <...>
+...
+```
+
+!!!tip
+	Use `!PARSE.TRIE` to parse multivariance log messages.
+  
+## Example
+_Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnected by user`
+
+```yaml
+!PARSE.TRIE
+- 'Received disconnect from ': !PARSE.KVLIST
+	- CLIENT_IP: !PARSE.UNTIL ' '
+	- 'port '
+	- CLIENT_PORT: !PARSE.DIGITS
+	- ':'
+	- !PARSE.CHARS
+- 'Disconnected from user ': !PARSE.KVLIST
+	- USERNAME: !PARSE.UNTIL ' '
+	- CLIENT_IP: !PARSE.UNTIL ' '
+	- 'port '
+	- CLIENT_PORT: !PARSE.DIGITS
+```
+
+
+---
+
+## `!PARSE.OPTIONAL`: Parse optional pattern
+
+Type: _Combinator_
+
+`!PARSE.OPTIONAL` expression tries to parse the input string using the specified parser. If the parser fails, starting position rolls back to the initial one.
+
+
+Synopsis:
+
+```yaml
+!PARSE.OPTIONAL
+what: <...>
+```
+or shorter version:
+```yaml
+!PARSE.OPTIONAL <...>
+```
+  
+## Example
+_Input strings:_ 
+
+- `mymachine myproc[10]: DHCPACK to ` 
+- `mymachine myproc[10]DHCPACK to `
+
+```yaml hl_lines="6-8"
+!PARSE.KVLIST
+- HOSTNAME: !PARSE.UNTIL {what: ' '} # mymachine
+- TAG: !PARSE.UNTIL {what: '['} # myproc
+- PID: !PARSE.DIGITS  # 10
+- !PARSE.EXACTLY {what: ']'}
+- !PARSE.OPTIONAL ':'
+- !PARSE.OPTIONAL
+	what: !PARSE.SPACE
+- NAME: !PARSE.UNTIL {what: ' '}
+```
+
+
+---
+
+## `!PARSE.KV`: Parse key-value pair
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.KV
+- key: <...>
+  prefix: <...>
+- value: <...>
+- <...> # optional elements
+```
+
+!!!tip
+	Use  combination of  `!PARSE.REPEAT` and `!PARSE.KV` to parse repeated key-value pairs. (see examples)
+ 
+## Example
+_Input string:_ `eventID= "1011"`
+
+```yaml
+!PARSE.KV
+- key: !PARSE.UNTIL {what: '='}
+- !PARSE.SPACE
+- value: !PARSE.BETWEEN {what: '"'}
+```
+
+_Output:_ `(eventID, 1011)`
+
+
+<details>
+  <summary>More examples</summary>
+
+<i>Input string:</i> <code>eventID= "1011"</code>
+```yaml
+!PARSE.KV
+- key: !PARSE.UNTIL {what: '='}
+  prefix: SD.PARAM.
+- !PARSE.SPACE
+- value: !PARSE.BETWEEN {what: '"'}
+```
+<i>Output:</i> <code>(SD.PARAM.eventID, 1011)</code><br>
+<br>
+
+<i>Input string:</i> <code>devid="FEVM020000191439" vd="root" itime=1665629867</code>
+```yaml
+!PARSE.REPEAT
+what: !PARSE.KV
+	- !PARSE.OPTIONAL
+	  what: !PARSE.SPACE
+	- key: !PARSE.UNTIL '='
+	- value: !TRY
+			- !PARSE.BETWEEN '"'
+			- !PARSE.UNTIL { what: ' ', eof: true}
+```
+<i>Output:</i> <code>[(devid, FEVM020000191439), (vd, root), (itime, 1665629867)]</code>
+</details>
+
+
+---
+
+## `!PARSE.KVLIST`: Parse list of key-value pairs
+
+Iterating through list of elements `!PARSE.KVLIST` expression collects key-value pairs to list of tuples. Non-key elements are parsed, but not collected.
+Nested `!PARSE.KVLIST` expressions are joined to the parent one.
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.KVLIST
+- <...>
+- key1: <...>
+- key2: <...>
+- <...> 
+- !PARSE.KVLIST
+  - key3: <...>
+  - <...>
+- key4: <...>
+```
+
+## Example
+_Input string:_ `<141>May  9 10:00:00 VUW-DC-F5-P2R1.source-net.com notice tmm1[22731]: 01490500:5: /Common/Citrix_Receiver..`
+
+```yaml
+  !PARSE.KVLIST
+  # parse Syslog_RFC5424
+  - '<'
+  - log.syslog.priority: !PARSE.DIGITS
+  - '>'
+  - '@timestamp': !PARSE.DATETIME
+				- month: !PARSE.MONTH 'short'
+				- !PARSE.SPACES
+				- day: !PARSE.DIGITS # Day
+				- !PARSE.SPACES
+				- hour: !PARSE.DIGITS # Hours
+				- ':'
+				- minute: !PARSE.DIGITS # Minutes
+				- ':'
+				- second: !PARSE.DIGITS # Seconds
+				- timezone: "Europe/Prague"
+  - !PARSE.SPACES
+  - host.hostname: !PARSE.UNTIL ' '
+  - log.level: !PARSE.UNTIL ' '
+  - log.syslog.appname: !PARSE.UNTIL '['
+  - process.pid: !PARSE.DIGITS
+  - ']: '
+  - message: !PARSE.CHARS
+```
+
+_Output:_ `[(log.syslog.priority, 141), (@timestamp, 140994182325993472), (host.hostname, VUW-DC-F5-P2R1.source-net.com), (log.level, notice), (log.syslog.appname, tmm1), (process.pid, 22731), (message, 01490500:5: /Common/Citrix_Receiver..)]`
+
+
+---
+
+## `!PARSE.TUPLE`: Parse list of values to tuple
+
+Iterating through list of elements `!PARSE.TUPLE` expression collects values to tuple.
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.TUPLE
+- <...>
+- <...>
+- <...>
+
+```
+
+## Example
+_Input string:_ `Hello world!`
+
+```yaml
+!PARSE.TUPLE
+- 'Hello'
+- !PARSE.SPACE
+- 'world'
+- '!'
+```
+
+_Output:_ `('Hello', ' ', 'world', '!')`
+
+
+
+---
+
+## `!PARSE.RECORD`: Parse list of values to record structure
+
+Iterating through list of elements `!PARSE.RECORD` expression collects values to record structure.
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.RECORD
+- <...>
+- element1: <...>
+- element2: <...>
+- <...>
+
+```
+
+## Example
+_Input string:_ `<165>1 `
+
+```yaml
+!PARSE.RECORD
+- !PARSE.EXACTLY {what: '<'}
+- severity: !PARSE.DIGITS
+- !PARSE.EXACTLY {what: '>'}
+- version: !PARSE.DIGITS
+- !PARSE.EXACTLY {what: ' '}
+```
+
+_Output:_ `{'output.severity': 165, 'output.version': 1}`

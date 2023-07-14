@@ -12,8 +12,8 @@ Broken time means that year, month, day, hour, minute, second and microsecond ar
 
 !!! tip "Usefull tools"
 
-		* [UNIX Timestamp](https://www.unixtimestamp.com)
-		* [UTC to/from local time convertor](https://www.worldtimebuddy.com)
+	* [UNIX Timestamp](https://www.unixtimestamp.com)
+	* [UTC to/from local time convertor](https://www.worldtimebuddy.com)
 
 
 ## Bit layout
@@ -113,7 +113,7 @@ The datetime is stored in 64bit unsigned integer (`ui64`); little-endian format,
 
 !!! note
 
-	*) Type is	recommended/minimal byte-aligned type for a respective component.
+	*) Type is recommended/minimal byte-aligned type for a respective component.
 
 
 ## Timezone details
@@ -122,7 +122,7 @@ Timezone information originates from [pytz](http://pytz.sourceforge.net) respect
 
 !!! note
 
-		The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC._
+	The time zone database has precision down to the minute, it means that seconds and microseconds remain untouched when converting from/to UTC.
 
 The timezone data is represented by a filesystem directory structure commonly located at `/usr/share/splang` or at location specified by `SPLANG_SHARE_DIR` environment variable.
 The actual timezone data are stored at `tzinfo` subfolder.
@@ -171,8 +171,8 @@ The _parser table_ is a lookup table used for conversion from the local date/tim
 
 <img src="../date-time-ptable.jpg" alt="Organisation of the parser table" style="width: 461px;" />
 
-The table is organised into rows/years and columns/months.
-The cell is 4 bytes wide, the row is then 64 bytes long.
+The table is organised into rows/years and columns/months.  
+The cell is 4 bytes (32bits) wide, the row is then 64 bytes long.
 
 First 12 cells are "primary parser cells" (in light blue color), the number reflect the number of the month (1...12).
 The remaining 4 cells are "parser next cells", the number `nX` is the index.
@@ -182,6 +182,7 @@ The remaining 4 cells are "parser next cells", the number `nX` is the index.
 The position of the cell for a given date/time is calculated as `pos = (ym - min_ym) << 5` which means that year and month is used for a cell localization, minus the minimal year&month value for a table.
 
 Structure of the cell:
+
   * `16` bits: range, 16bits, `dhm`
   * `3` bits: `next`
   * `7` bits: hour offset from UTC
@@ -201,6 +202,7 @@ The "parser next cell" contain a "continuation" of the information for a month w
 The "continuation" means the offset from UTC that happens when local time passed time change boundary.
 
 Structure of the cell:
+
   * `16` bits: range, 16bits, `dhm`
   * `3` bits: not used, set to 0
   * `7` bits: hour offset from UTC
@@ -212,7 +214,9 @@ Because currently we only support the single time change in the month, this fiel
 
 The `hour` and `minute` information is used to adjust date/time from local to UTC.
 
-_Note: currently, only one time change per month is supported, which seems to be fully sufficient for all info in IANA time zone database._
+!!! note
+
+	Currently, only one time change per month is supported, which seems to be fully sufficient for all info in IANA time zone database.
 
 Empty/unused next cells are zeroed.
 

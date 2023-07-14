@@ -20,7 +20,7 @@ Test expression evaluates inputs and returns boolean value `true` or `false` bas
     - 3
     ```
 
-    This compares `count` argument with `3`.
+    This compares `count` argument with `3`, returns `count == 3`
 
 
 ---
@@ -40,6 +40,7 @@ This is negative counterpart to `!EQ`.
     - Frodo
     ```
 
+    This compares `name` argument with `Frodo`, returns `name != Frodo`.
 
 ---
 
@@ -123,7 +124,7 @@ where: <...>
 
 The `!IN` expression is used to check if a value `what` exists in a value `where` or not.
 Value `where` is a string, container (list, set, dictionary), structural type etc.
-Evaluate to "true" if it finds a value `what` in the specified value `where` and false otherwise.
+Evaluate to `true` if it finds a value `what` in the specified value `where` and `false` otherwise.
 
 !!! example
 
@@ -149,4 +150,4 @@ Evaluate to "true" if it finds a value `what` in the specified value `where` and
     where: "John Willy Boo"
     ```
 
-    Check for a presence of the substring "Willy" in the `where` value. Returns "true".
+    Check for a presence of the substring "Willy" in the `John Willy Boo` value. Returns `true`.

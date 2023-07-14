@@ -119,35 +119,31 @@ The `timezone` is optional information, if provided, the time will be printed in
 
 ### Format
 
-* `%H`: Hour (24-hour clock) as a zero-padded decimal number.
-* `%M`: Minute as a zero-padded decimal number.
-* `%S`: Second as a zero-padded decimal number.
-* `%f`: Microsecond as a decimal number, zero-padded to 6 digits.
-* `%I`: Hour (12-hour clock) as a zero-padded decimal number.
-* `%p`: Locale’s equivalent of either AM or PM.
-
-* `%d`: Day of the month as a zero-padded decimal number.
-* `%m`: Month as a zero-padded decimal number.
-* `%y`: Year without century as a zero-padded decimal number.
-* `%Y`: Year with century as a decimal number.
-
-* `%z`: UTC offset.
-
-* `%a`: Weekday as abbreviated name.
-* `%A`: Weekday as full name.
-* `%w`: Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.
-* `%b`: Month as abbreviated name.
-* `%B`: Month as full name.
-* `%j`: Day of the year as a zero-padded decimal number.
-* `%U`: Week number of the year (Sunday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.
-* `%W`: Week number of the year (Monday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Monday are considered to be in week 0.
-
-* `%c`: Date and time representation.
-* `%x`: Date representation.
-* `%X`: Time representation.
-
-* `%%`: A literal '%' character.
-
+| Directive | Component |
+| --- | --- |
+|`%H`| Hour (2-hour clock) as a zero-padded decimal number.|
+|`%M`| Minute as a zero-padded decimal number.|
+|`%S`| Second as a zero-padded decimal number.|
+|`%f`| Microsecond as a decimal number, zero-padded to 6 digits.|
+|`%I`| Hour (12-hour clock) as a zero-padded decimal number.|
+|`%p`| Locale’s equivalent of either AM or PM. |
+|`%d`| Day of the month as a zero-padded decimal number.|
+|`%m`| Month as a zero-padded decimal number.|
+|`%y`| Year without century as a zero-padded decimal number.|
+|`%Y`| Year with century as a decimal number|
+|`%z`| UTC offset|
+|`%a`| Weekday as abbreviated name.
+|`%A`| Weekday as full name.
+|`%w`| Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.|
+|`%b`| Month as abbreviated name.|
+|`%B`| Month as full name.|
+|`%j`| Day of the year as a zero-padded decimal number.|
+|`%U`| Week number of the year (Sunday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.|
+|`%W`| Week number of the year (Monday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Monday are considered to be in week 0. |
+|`%c`| Date and time representation.|
+|`%x`| Date representation.|
+|`%X`| Time representation.|
+|`%%`| A literal '%' character.|
 
 !!! example
 
@@ -158,7 +154,7 @@ The `timezone` is optional information, if provided, the time will be printed in
 	timezone: "Europe/Prague"
 	```
 
-	Prints the current local time as eg. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
+	Prints the current local time as e.g. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
 
 
 ---
@@ -180,7 +176,7 @@ timezone: <timezone>
 Parse `what` string input using `format` string.
 The `timezone` information is optional, if provided, then it specifies local timezone of the `what` string.
 
-See "Format" chapter above for more information about `format`.
+See [Format](#format) chapter above for more information about `format`.
 
 
 !!! example
@@ -212,16 +208,16 @@ The `timezone` if optional, if not provided UTC timezone is used.
 
 ### Components
 
-* `year`, `y`: Year
-* `month`, `m`: Month
-* `day`, `d`: Day
-
-* `hour`, `H`: Hour
-* `minute`, `M`: Minute
-* `second`, `S`: Second
-* `microsecond`, `f`: Microsecond
-
-* `weekday`, `w`: Day of the week
+| Directive | Component |
+| --- | --- |
+|`year`, `y`| Year |
+| `month`, `m`| Month |
+| `day`, `d`| Day |
+| `hour`, `H`| Hour |
+| `minute`, `M`| Minute |
+| `second`, `S`| Second |
+| `microsecond`, `f`| Microsecond |
+| `weekday`, `w`| Day of the week |
 
 !!! example
 
@@ -232,7 +228,7 @@ The `timezone` if optional, if not provided UTC timezone is used.
 	timezone: "Europe/Prague"
 	```
 
-	Get "hours" component of the current timestamp, using the "Europe/Prague" timezone.
+	Get `hours` component of the current timestamp, using the "Europe/Prague" timezone.
 
 
 !!! example "Example: Get a current year"

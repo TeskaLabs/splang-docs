@@ -5,7 +5,9 @@ title: Directives
 # Directives
 
 
-NOTE: SP-Lang directives are expanded during compilation. They are not expressions.
+!!! note
+
+    SP-Lang directives are expanded during compilation. They are not expressions.
 
 --- 
 
@@ -17,7 +19,7 @@ The `!INCLUDE` directive is used to paste a content of given file into current f
 If included file is not found, SP-Lang renders error.
 
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !INCLUDE <filename>
@@ -32,21 +34,20 @@ It could be:
   
 `.yaml` extension is optional and will be added to the `filename` if missing.
 
-### Example
+!!! example
 
-```yaml
-!INCLUDE other_file.yaml
-```
+  ```yaml
+  !INCLUDE other_file.yaml
+  ```
 
-This is a simple inclusion of the `other_file.yaml`.
-  
+  This is a simple inclusion of the `other_file.yaml`.
 
-```yaml
-!MATCH
-what: !GET {...}
-with:
-  'group1': !INCLUDE inc_group1
-  'group2': !INCLUDE inc_group2
-```
+  ```yaml
+  !MATCH
+  what: !GET {...}
+  with:
+    'group1': !INCLUDE inc_group1
+    'group2': !INCLUDE inc_group2
+  ```
 
-In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.
+  In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.
