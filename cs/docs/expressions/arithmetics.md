@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Aritmetika
+title: Aritmetické
 ---
 
 # Aritmetické výrazy
@@ -13,20 +13,18 @@ title: Aritmetika
 Typ: _Sequence_
 
 
-Můžete přidat následující typy:
+Výraz je definovaný pro následující typy:
 
- * Čísla (celá čísla a floaty)
+ * Čísla (celá čísla a desetinná čísla)
  * Řetězce
- * seznamy
- * Sady
- * Tuply
- * Záznamy
+ * Seznamy
+ * Množiny
+ * Tuples
+ * Records (záznamy)
 
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
 	!ADD
 	- 4
@@ -34,20 +32,16 @@ Můžete přidat následující typy:
 	- 6
 	```
 	
-
-  Vypočítá `4+(-5)+6`, výsledek je `5`.
+	Vypočítá `4+(-5)+6`, výsledek je `5`.
 
 ---
 
-## `!SUB`: SUB: 
+## `!SUB`: Odčítání
 
 Typ: _Sequence_
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
 	!SUB
 	- 3
@@ -55,6 +49,7 @@ Typ: _Sequence_
 	- -5
 	```
 	
+	Vypočítá `3-1-(-5)`, výsledkem je `7`.
 
 ---
 
@@ -63,36 +58,32 @@ Typ: _Sequence_
 
 Typ: _Sequence_
 
+!!! example "Příklad"
 
-!!! example
-
+    ```yaml
+    !MUL
+    - 7
+    - 11
+    - 13
+    ```
 	
-	
-	```yaml
-	!MUL
-	- 1.5
-	- 5.5
-	- 3.2
-	```
-	
+	Vypočítá `7*11*13`, výsledkem je `1001` (což je shodou okolností [Šahrazádino číslo](https://cs.wikipedia.org/wiki/Tis%C3%ADc_a_jedna_noc)).
 
 ---
 
-## `!DIV`: Division 
+## `!DIV`: Dělení
 
-Typ: DIV _Sequence_
+Typ: _Sequence_
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
 	!DIV
 	- 21
 	- 1.5
 	```
 	
+	Vypočítá `21/1.5`, výsledkem je `14.0`.
 	
 
 ### Dělení nulou
@@ -106,32 +97,42 @@ Druhou položkou je hodnota, která bude vrácena, pokud k takové chybě dojde.
 
 !TRY
 - !DIV
-  - !ARG vstup
+  - !ARG input
   - 0.0
 - 5.0
 ```
 
-
 ---
 
-## `!MOD`: Připomínka 
+## `!MOD`: Zbytek po dělení (modulo)
 
 Typ: _Sequence_
 
+Vypočítá znaménkový zbytek dělení (neboli výsledek operace modulo).
 
-Vypočítá znaménkový zbytek dělení (neboli operace modulo).
+!!! info
 
+	Více informací o operaci [modulo](https://cs.wikipedia.org/wiki/Zbytek_po_d%C4%9Blen%C3%AD) na Wikipedii.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
 	!MOD
 	- 21
-	- 1.5
+	- 4
 	```
-	
+
+	Vypočítá `21 mod 4`, výsledkem je `1`.
+
+!!! example "Příklad"
+
+	```yaml
+	!MOD
+	- -10
+	- 3
+	```
+
+	Vypočítá `-10 mod 3`, výsledkem je `2`.
 
 ---
 
@@ -139,43 +140,38 @@ Vypočítá znaménkový zbytek dělení (neboli operace modulo).
 
 Typ: _Sequence_
 
-
 Výpočet exponentu.
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
 	!POW
 	- 2
 	- 8
 	```
 	
+	Vypočítá `2^8`, výsledkem je `16`.
 
 ---
 
 ## `!ABS`: Absolutní hodnota
 
-Typ: _Mapování_
+Typ: _Mapping_
+
 ```yaml
 
 !ABS
-co: <x>
+what: <x>
 ```
 
-Vypočítejte absolutní hodnotu vstupu `x`, což je nezáporná hodnota `x` bez ohledu na její znaménko.
+Vypočítá absolutní hodnotu vstupu `x`, což je nezáporná hodnota `x` bez ohledu na její znaménko.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!ABS
-	co: -8,5
+	what: -8,5
 	```
 	
-	Výsledkem je hodnota `8,5`.
+	Výsledkem je hodnota `8.5`.
 

@@ -1,98 +1,80 @@
 ---
 git_commit_hash: b55fa3f
-title: Srovnání
+title: Porovnávací
 ---
 
 # Porovnávací výrazy
 
-
-Testovací výraz vyhodnotí vstupy a na základě výsledku testu vrátí logickou hodnotu `pravda` nebo `nepravda`.
+Testovací výraz vyhodnotí vstupy a na základě výsledku testu vrátí logickou hodnotu `true` nebo `false`.
 
 ---
 
 ## `!EQ`: Rovná se 
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
-	
 	!EQ
-	- !ARG počet
+	- !ARG count
 	- 3
 	```
 	
-	Porovná argument `count` s `3`.
-	
-	
+	Porovnává argument `count` s `3`, vrací `count == 3`.
+
 
 ---
 
-## `!NE`: Není rovno 
+## `!NE`: Nerovná se
 
 Typ: _Sequence_.
 
 Jedná se o zápornou obdobu `!EQ`.
 
+!!! example "Příklad"
 
-
-!!! example
-
-	
-	
 	```yaml
 	!NE
-	- !ARG název
+	- !ARG name
 	- Frodo
 	```
-	
-	
+
+	Porovnává argument `name` s `Frodo`, vrací `name != Frodo`.
 
 ---
 
-## `!LT`: Méně než 
+## `!LT`: Menší než
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!LT
-	- !ARG počet
+	- !ARG count
 	- 5
 	```
 	
-	Příklad testu `count &lt; 5`.
+	Příklad testu `count < 5`.
 	
 	
 
 ---
 
-## `!LE`: Méně než a rovno 
+## `!LE`: Menší nebo rovno
 
 Typ: _Sequence_.
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
-	
 	!LE
 	- 2
 	- !ARG počet
 	- 5
 	```
 	
-	Příklad testu rozsahu `2 &lt;= count &lt;= 5`.
-	
-	
+	Příklad testu rozsahu `2 <= count <= 5`.
+
 
 ---
 
@@ -100,65 +82,52 @@ Typ: _Sequence_.
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!GT [!ARG count, 5]
 	```
 	
-	Příklad testu `count &gt; 5` pomocí zhuštěného tvaru YAML.
-	
-	
+	Příklad testu `count >  5` pomocí kompaktní formy YAMLu.
 
 ---
 
-## `!GE`: Větší než a rovná se 
+## `!GE`: Větší nebo rovno
 
 Typ: _Sequence_.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!GT
-	- !ARG počet
+	- !ARG count
 	- 5
 	```
 	
-	Příklad testu `count &gt;= 5`.
-	
-	
+	Příklad testu `count >= 5`.
 
 ---
 
-## `!IN`: Test členství 
+## `!IN`: Test výskytu
 
 Typ: _Mapping_.
-```yaml
 
+```yaml
 !IN
-co: <...>
-kde: <...>
+what: <...>
+where: <...>
 ```
 
-Výraz `!IN` se používá ke kontrole, zda hodnota `what` existuje v hodnotě `where`, nebo ne.
-Hodnota `where` je řetězec, kontejner (seznam, množina, slovník), strukturní typ atd.
-Vyhodnotí se na "true", pokud najde hodnotu `what` v zadané hodnotě `where`, a na false v opačném případě.
+Výraz `!IN` se používá ke kontrole, zda hodnota se `what` vyskytuje v hodnotě `where`, nebo ne.
+Jako hodnotu `where` lze uvést řetězec, kontejner (seznam, množina, slovník), strukturní typ atd.
+Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, a na `false` v opačném případě.
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!IN
-	co: 5
-	kde:
+	what: 5
+	where:
 	  - 1
 	  - 2
 	  - 3
@@ -166,20 +135,16 @@ Vyhodnotí se na "true", pokud najde hodnotu `what` v zadané hodnotě `where`, 
 	  - 5
 	```
 	
-	Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrací hodnotu "true".
-	
-	
+	Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrátí `true`.
 
-!!! example
 
-	
-	
+!!! example "Příklad"
+
 	```yaml
-	
 	!IN
-	co: "Willy"
-	kde: "John Willy Boo"
+	what: "Willy"
+	where: "John Willy Boo"
 	```
 	
-	Zkontroluje přítomnost podřetězce "Willy" v hodnotě `where`. Vrací hodnotu "true".
+	Zkontroluje přítomnost podřetězce `Willy` v hodnotě `John Willy Boo`. Vrátí `true`.
 

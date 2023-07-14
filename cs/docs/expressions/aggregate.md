@@ -1,33 +1,28 @@
 ---
 git_commit_hash: b55fa3f
-title: Agregát
+title: Agregační
 ---
 
-# Souhrnné výrazy
+# Agregační výrazy
 
 Agregační výraz je typ funkce, která provádí výpočty nad množinou hodnot a jako výsledek vrací jednu hodnotu.
 Tyto výrazy se běžně používají k shrnutí nebo zhuštění dat.
 
 ---
 
-## `!AVG`: Průměr 
+## `!AVG`: Průměr (aritmetický průměr)
 
-Vypočítá průměr / aritmetický průměr.
+Vypočítá aritmetický průměr.
 
-Typ: _Posloupnost_
+Typ: _Sequence_
 
 !!! info
 
-	
-	
-	
-	Více informací o [aritmetickém průměru](https://en.wikipedia.org/wiki/Arithmetic_mean) na Wikipedii.
+	Více informací o [aritmetickém průměru](https://cs.wikipedia.org/wiki/Aritmetick%C3%BD_pr%C5%AFm%C4%9Br) na Wikipedii.
 	
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
 	
 	!AVG
@@ -36,23 +31,19 @@ Typ: _Posloupnost_
 	- 4
 	```
 	
-	Výpočet průměru `(6+2+4)/3`, výsledek je `3`.
-	
+	Výpočet průměru `(6+2+4)/3`, výsledek je `4`.
 
 ---
 
-## `!MAX`: Maximální 
+## `!MAX`: Maximum
 
 Vrací maximální hodnotu z posloupnosti.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!MAX
 	- 1.5
 	- 2.6
@@ -61,23 +52,20 @@ Typ: _Sequence_
 	- 4.45
 	```
 	
-	Výsledek tohoto výrazu je `5,1`.
+	Výsledek tohoto výrazu je `5.1`.
 	
 
 ---
 
-## `!MIN`: Minimální 
+## `!MIN`: Minimum
 
 Vrací minimální hodnotu z posloupnosti.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!MIN
 	- 2.6
 	- 3.05
@@ -86,62 +74,52 @@ Typ: _Sequence_
 	- 5.1
 	```
 	
-	Výsledek tohoto výrazu je `0,5`.
+	Výsledek tohoto výrazu je `0.5`.
 	
 
 ---
 
-## `!COUNT`: Počítejte počet položek 
+## `!COUNT`: Počet položek
 
-Spočítá počet položek v kontejneru.
+Spočítá počet položek v seznamu.
 
 Typ: _Sequence_
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
-	
 	!COUNT
 	- Frodo Pytlík
-	- Sam Gamgee
+	- Samvěd Křepelka
 	- Gandalf
 	- Legolas
 	- Gimli
 	- Aragorn
 	- Boromir z Gondoru
-	- Smíšek Brandybuck
-	- Pipin Took
+	- Smělmír Brandorád
+	- Pipin Bral
 	```
 	
-	Vrací `9`.
+	Výsledek tohoto výrazu je `9`.
 	
 
 ---
 
-## `!MEDIAN`: Střední hodnota 
+## `!MEDIAN`: Medián (prostřední hodnota)
 
 Medián je prostřední hodnota v seznamu čísel; polovina hodnot je větší než medián a polovina je menší než medián.
-Pokud má seznam sudý počet prvků, je medián průměrem dvou středních hodnot.
+Pokud má seznam sudý počet prvků, je medián aritmetickým průměrem dvou prostředních hodnot.
 
-Typ: Typ: _Posloupnost_
+Typ: _Sequence_
 
 
 !!! info
 
-	
-	
-	
-	Více informací o [medián](https://en.wikipedia.org/wiki/Median) na Wikipedii.
-	
+	Více informací o [medián](https://cs.wikipedia.org/wiki/Medi%C3%A1n) na Wikipedii.
 	
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
 	!MEDIAN
 	- 1
@@ -151,65 +129,52 @@ Typ: Typ: _Posloupnost_
 	- 101
 	```
 	
+	Výsledek výrazu je `4`.
 
 ---
 
-## `!MODE`: Hodnota, která se objevuje nejčastěji 
+## `!MODE`: Modus (hodnota vyskytující se nejčastěji)
 
-Mode je hodnota nebo hodnoty, které se v seznamu vyskytují nejčastěji.
-Lze jej použít k vyjádření centrální tendence souboru dat.
+Modus je označení pro hodnotu nebo hodnoty, které se v seznamu vyskytují nejčastěji.
+Lze ji použít k vyjádření centrální tendence souboru dat.
 
-Typ: _Posloupnost_
+Typ: _Sequence_
 
 !!! info
 
-	
-	
-	
-	Více informací o [mode](https://en.wikipedia.org/wiki/Mode_%28statistics%29) na Wikipedii.
-	
-	
+	Více informací o [mode](https://cs.wikipedia.org/wiki/Modus) na Wikipedii.
 
 
-!!! example
+!!! example "Příklad"
 
-	
-	
 	```yaml
 	!MODE
-	- -10
-	- -10
+	- 10
+	- 10
 	- -20
 	- -20
-	- 1
-	- 2
-	- 3
-	- 4
-	- 5
+	- 6
+	- 10
 	```
+
+	Výsledek výrazu je `10`.
 	
 
 ---
 
 ## `!RANGE`: Rozdíl mezi největší a nejmenší hodnotou 
 
-Vypočítá rozdíl mezi největší a nejmenší hodnotou.
+Range určuje rozdíl mezi největší a nejmenší hodnotou. V češtině je pro něj též užívaný termín "variační rozpětí".
 
-Typ: Typ: _Posloupnost_
+Typ: _Sequence_
 
 !!! info
 
-	
-	
-	
-	Více informací o [range](https://en.wikipedia.org/wiki/Range_%28statistics%29) na Wikipedii.
+	Více informací o [range](https://cs.wikipedia.org/wiki/Varia%C4%8Dn%C3%AD_rozp%C4%9Bt%C3%AD) na Wikipedii.
 	
 
+!!! example "Příklad"
 
-!!! example
-
-	
-	
 	```yaml
 	!RANGE
 	- 1
@@ -218,4 +183,3 @@ Typ: Typ: _Posloupnost_
 	- 20
 	- -1
 	```
-

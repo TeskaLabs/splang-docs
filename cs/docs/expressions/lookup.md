@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Vyhledávání
+title: Vyhledávací
 ---
 
 # Vyhledávací výrazy
@@ -15,14 +15,14 @@ Typ: xxx _Mapping_.
 
 ---
 
-## `!GET`: Získat položku z vyhledávání
+## `!GET`: Získá položku z vyhledávání
 
 Typ: _Mapping_.
 
 
 ---
 
-## `!IN`: Zkontrolujte, zda je položka v seznamu vyhledávání.
+## `!IN`: Zkontroluje, zda je položka v seznamu vyhledávání.
 
 Typ: _Mapping_.
 

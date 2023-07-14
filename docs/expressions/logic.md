@@ -9,7 +9,7 @@ Logic expressions operates with truth values `true` and `false`.
 
 !!! info "Logic expressions are representations of boolean algebra"
 
-    For more informations, continue to [boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) page at Wikipedia.
+	For more information, continue to [boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra) page at Wikipedia.
 
 
 ---
@@ -21,9 +21,9 @@ It is used to create more restrictive and precise conditions.
 
 Type: _Sequence_
 
-### Synopsis
+Synopsis:
 
-```
+```yaml
 !AND
 - <condition 1>
 - <condition 2>
@@ -35,41 +35,41 @@ The conditions are evaluated from top to bottom, and the evaluation process stop
 
 !!! info "Logical conjunction"
 
-    For more informations, continue to [Logical conjunction](https://en.wikipedia.org/wiki/Logical_conjunction) page at Wikipedia.
+    For more information, continue to [Logical conjunction](https://en.wikipedia.org/wiki/Logical_conjunction) page at Wikipedia.
 
 
-### Example
+!!! example
 
-```yaml
-!AND
-- !EQ
-  - !ARG vendor
-  - TeskaLabs
-- !EQ
-  - !ARG product
-  - LogMan.io
-- !EQ
-  - !ARG version
-  - v23.10
-```
+	```yaml
+	!AND
+	- !EQ
+	- !ARG vendor
+	- TeskaLabs
+	- !EQ
+	- !ARG product
+	- LogMan.io
+	- !EQ
+	- !ARG version
+	- v23.10
+	```
 
-In this example, if all of the conditions evaluate to true, the entire logical `!AND` expression will be true.
-If any of the conditions are false, the logical `!AND` expression will be false.
+	In this example, if all of the conditions evaluate to true, the entire logical `!AND` expression will be true.
+	If any of the conditions are false, the logical `!AND` expression will be false.
 
 
 ### Bitwise  `!AND`
 
 When `!AND` is applied on integer types, instead on booleans, it provides a bitwise AND.
 
-### Example
+!!! example
 
-```yaml
-!AND
-- !ARG PRI
-- 7
-```
+	```yaml
+	!AND
+	- !ARG PRI
+	- 7
+	```
 
-In this example, the argument `PRI` is masked with 7 (in binary `00000111`).
+	In this example, the argument `PRI` is masked with 7 (in binary `00000111`).
 
 ---
 
@@ -80,9 +80,9 @@ It is used to create more flexible and inclusive conditions.
 
 Type: _Sequence_
 
-### Synopsis
+Synopsis:
 
-```
+```yaml
 !OR
 - <condition 1>
 - <condition 2>
@@ -96,53 +96,52 @@ The conditions are evaluated from top to bottom, and the evaluation process stop
 
     For more informations, continue to [Logical disjunction](https://en.wikipedia.org/wiki/Logical_disjunction) page at Wikipedia.
 
+!!! example
 
-### Example
+	```yaml
+	!OR
+	- !EQ
+	- !ARG description
+	- unauthorized access
+	- !EQ
+	- !ARG reason
+	- brute force
+	- !EQ
+	- !ARG message
+	- malware detected
+	```
 
-```yaml
-!OR
-- !EQ
-  - !ARG description
-  - unauthorized access
-- !EQ
-  - !ARG reason
-  - brute force
-- !EQ
-  - !ARG message
-  - malware detected
-```
+	In this example, the expression is true when any of the following conditions is met:
 
-In this example, the expression is true when any of the following conditions is met:
-
-1. The `description` field matches the string "unauthorized access"
-2. The `reason` field matches the string "brute force"
-3. The `message` field matches the string "malware detected"
+	1. The `description` field matches the string "unauthorized access"
+	2. The `reason` field matches the string "brute force"
+	3. The `message` field matches the string "malware detected"
 
 
 ### Bitwise `!OR`
 
 When `!OR` is applied on integer types, instead on booleans, it provides a bitwise OR.
 
-### Example
+!!! example
 
-```yaml
-!OR
-- 1  # Read access (binary 001, decimal 1)
-- 4  # Execute access (binary 100, decimal 4)
-```
+	```yaml
+	!OR
+	- 1  # Read access (binary 001, decimal 1)
+	- 4  # Execute access (binary 100, decimal 4)
+	```
 
-In this example, the expression is evaluated to 5.
+	In this example, the expression is evaluated to 5.
 
-This is because, in a bitwise `!OR` operation, each corresponding bit in the binary representation of the two numbers is combined using the `!OR` expression:
+	This is because, in a bitwise `!OR` operation, each corresponding bit in the binary representation of the two numbers is combined using the `!OR` expression:
 
-```
-001 (read access)
-100 (execute access)
----
-101 (combined permissions)
-```
+	```
+	001 (read access)
+	100 (execute access)
+	---
+	101 (combined permissions)
+	```
 
-The expression calculates the permissions with the resulting value (binary 101, decimal 5) from the bitwise OR operation, combining both read and execute access.
+	The expression calculates the permissions with the resulting value (binary 101, decimal 5) from the bitwise OR operation, combining both read and execute access.
 
 ---
 
@@ -154,16 +153,16 @@ It is used to exclude specific conditions when certain conditions are not met.
 Type: _Mapping_.
 
 
-### Synopsis
+Synopsis:
 
-```
+```yaml
 !NOT
 what: <expression>
 ```
 
 !!! info "Negation"
 
-    For more informations, continue to [Negation](https://en.wikipedia.org/wiki/Negation) page at Wikipedia.
+	For more information, continue to [Negation](https://en.wikipedia.org/wiki/Negation) page at Wikipedia.
 
 
 ### Bitwise `!NOT`

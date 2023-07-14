@@ -371,7 +371,7 @@ Pro změnu typu hodnoty použijte výraz `!CAST`.
 ```yaml
 
 !CAST
-co: 1234
+what: 1234
 typ: fp32
 ```
 

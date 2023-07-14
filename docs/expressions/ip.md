@@ -15,7 +15,7 @@ IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](htt
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.FORMAT
@@ -31,7 +31,7 @@ Convert the internal representation of the IP address into a string.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !IP.INSUBNET
@@ -50,36 +50,36 @@ subnet:
 
 Test if `what` IP address belongs to a `subnet` or subnets , returns `true` if yes otherwise `false`.
 
-### Example with a single subnet
+!!! example "Example with a single subnet"
 
-```yaml
-!IP.INSUBNET
-what: 192.168.1.1
-subnet: 192.168.0.0/16
-```
-
-
-### Example with multiple subnets
-
-```yaml
-!IP.INSUBNET
-what: 1.2.3.4
-subnet:
-  - 10.0.0.0/8
-  - 172.16.0.0/12
-  - 192.168.0.0/16
-```
-
-The test that check if IP address is from IPv4 private address space as defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918).
+	```yaml
+	!IP.INSUBNET
+	what: 192.168.1.1
+	subnet: 192.168.0.0/16
+	```
 
 
-More compact form:
+!!! example "Example with multiple subnets"
 
-```yaml
-!IP.INSUBNET
-what: 1.2.3.4
-subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
-```
+	```yaml
+	!IP.INSUBNET
+	what: 1.2.3.4
+	subnet:
+		- 10.0.0.0/8
+		- 172.16.0.0/12
+		- 192.168.0.0/16
+	```
+
+	The test that check if IP address is from IPv4 private address space as defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918).
+
+
+	More compact form:
+
+	```yaml
+	!IP.INSUBNET
+	what: 1.2.3.4
+	subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+	```
 
 
 ---

@@ -28,7 +28,7 @@ Type: _Sequence_
 	- 4
 	```
 
-	Calculation of the average `(6+2+4)/3`,  the result is `3`.
+	Calculation of the average `(6+2+4)/3`,  the result is `4`.
 
 ---
 
@@ -55,7 +55,7 @@ Type: _Sequence_
 
 ## `!MIN`: Minimum 
 
-Returns a minimum value from the seqence.
+Returns a minimum value from the sequence.
 
 Type: _Sequence_
 
@@ -76,7 +76,7 @@ Type: _Sequence_
 
 ## `!COUNT`: Count number of items 
 
-Counts the number of items in a container.
+Counts the number of items in a list.
 
 Type: _Sequence_
 
@@ -123,6 +123,8 @@ Type: _Sequence_
 	- 101
 	```
 
+	Returns `4`.
+
 ---
 
 ## `!MODE`: Value that appears most often 
@@ -141,16 +143,15 @@ Type: _Sequence_
 
 	```yaml
 	!MODE
-	- -10
-	- -10
+	- 10
+	- 10
 	- -20
 	- -20
-	- 1
-	- 2
-	- 3
-	- 4
-	- 5
+	- 6
+	- 10
 	```
+
+	Returns `10`.
 
 ---
 

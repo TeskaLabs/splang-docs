@@ -6,7 +6,7 @@ title: Věnování
 # Věnování
 
 Tato práce je věnována památce mé matky, jejíž víra ve mne byla stejně pevná jako bezpodmínečná.
-Ačkoli technická stránka návrhu doménového jazyka byla nad její síly, její neochvějná víra ve mne byla majákem, který mě provázel.
+Ačkoli technická stránka návrhu doménového jazyka byla mimo její sféru, její neochvějná víra ve mne byla majákem, který mě provázel.
 
 Její duch, láska a houževnatost ve mně zůstávají, inspirují mě a pohání kupředu.
 Doufám, že tento jazyk, výtvor mé práce a lásky, je svědectvím jejího nezdolného ducha.

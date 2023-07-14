@@ -4,15 +4,13 @@ title: Record
 
 # Record expressions
 
-
-
 The record is one of basic data structures provided by SP-Lang.
 A record is a collection of items, possibly of different types.
 Items of a record are named (in a contrast to a tuple) by a label.
 
 !!! note
 
-    The record is built on top of `!TUPLE`.
+	The record is built on top of `!TUPLE`.
 
 --- 
 
@@ -20,7 +18,7 @@ Items of a record are named (in a contrast to a tuple) by a label.
 
 Type:  _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !RECORD
@@ -35,42 +33,39 @@ with:
 There is no limit of the number of items in the record.
 The order of the items is preserved.
 
-### Examples
+!!! example
 
-```yaml
-!RECORD
-with:
-  name: John Doe
-  age: 37
-  height: 175.4
-```
+	```yaml
+	!RECORD
+	with:
+	  name: John Doe
+	  age: 37
+	  height: 175.4
+	```
 
+!!! example "Use of the YAML flow form:"
 
-Use of the YAML flow form:
+	```yaml
+	!RECORD {with: {name: John Doe, age: 37, height: 175.4} }
+	```
 
-```yaml
-!RECORD {with: {name: John Doe, age: 37, height: 175.4} }
-```
+!!! example "Use of the `!!record` tag:"
 
+	```yaml
+	!!record {name: John Doe, age: 37, height: 175.4}
+	```
 
-Use of the `!!record` tag:
+!!! example "Enforce specific type of the item:"
 
-```yaml
-!!record {name: John Doe, age: 37, height: 175.4}
-```
+	```yaml
+	!RECORD
+	with:
+	  name: John Doe
+	  age: !!ui8 37
+	  height: 175.4
+	```
 
-
-Enforce specific type of the item:
-
-```yaml
-!RECORD
-with:
-  name: John Doe
-  age: !!ui8 37
-  height: 175.4
-```
-
-Field `age` will have a type `ui8`.
+	Field `age` will have a type `ui8`.
 
 
 --- 
@@ -79,7 +74,7 @@ Field `age` will have a type `ui8`.
 
 Type: _Mapping_.
 
-### Synopsis
+Synopsis:
 
 ```yaml
 !GET
@@ -95,51 +90,49 @@ Items are indexed from the 0, it means that the first item in the list has an in
 If the `what` is out of bound of the list, the statement returns with error.
 
 
-### Examples
+!!! example "Using names of items:"
 
-Using names of items:
+	```yaml
+	!GET
+	what: name
+	from:
+	  !RECORD
+	  with:
+	    name: John Doe
+	    age: 32 let
+	    height: 127,5
+	```
 
-```yaml
-!GET
-what: name
-from:
-  !RECORD
-  with:
-    name: John Doe
-    age: 32
-    height: 127.5
-```
-
-Returns `John Doe`.
+	Returns `John Doe`.
 
 
-Using the _index_ of items:
+!!! example "Using the _index_ of items:"
 
-```yaml
-!GET
-what: 1
-from:
-  !RECORD
-  with:
-    name: John Doe
-    age: 32
-    height: 127.5
-```
+	```yaml
+	!GET
+	what: 1
+	from:
+	  !RECORD
+	-  with:
+	    name: John Doe
+	    age: 32
+	    height: 127.5
+	```
 
-Returns `32`, a value of `age` item.
+	Returns `32`, a value of `age` item.
 
 
-Using the _negative index_ of items:
+!!! example "Using the _negative index_ of items:"
 
-```yaml
-!GET
-what: -1
-from:
-  !RECORD
-  with:
-    name: John Doe
-    age: 32
-    height: 127.5
-```
+	```yaml
+	!GET
+	what: -1
+	from:
+	  !RECORD
+	  with:
+		name: John Doe
+		age: 32
+		height: 127.5
+	```
 
-Returns `127.5`, a value of `height` item.
+	Returns `127.5`, a value of `height` item.

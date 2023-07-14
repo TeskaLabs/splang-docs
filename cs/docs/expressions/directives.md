@@ -1,59 +1,54 @@
 ---
 git_commit_hash: b55fa3f
-title: Směrnice
+title: Direktivy
 ---
 
-# Směrnice
-
+# Direktivy
 
 !!! note
 
-	
-	
-	
-	Směrnice SP-Lang jsou při kompilaci rozšířeny. Nejsou to výrazy.
-	
+    Direktivy SP-Lang jsou při kompilaci rozšířeny. Nejsou to výrazy.
+
 
 --- 
 
-## `!INCLUDE`: Vložte obsah jiného souboru 
+## `!INCLUDE`: Vloží obsah jiného souboru
 
-Typ: Typ: Skalární, Směrnice.
+Typ: Skalární, Direktiva.
 
 Direktiva `!INCLUDE` slouží k vložení obsahu daného souboru do aktuálního souboru.
-Pokud není includovaný soubor nalezen, SP-Lang zobrazí chybu.
+Pokud není vkládaný soubor nalezen, SP-Lang zobrazí chybu.
 
 
-### Synopse
+Synopsis:
+
 ```yaml
-
 !INCLUDE <filename>
 ```
 
-`Jméno souboru` je název souboru v knihovně, který má být zahrnut.
+`filename` je název souboru v knihovně, který má být vložen.
 
-Může to být:
+Můžeme ho specifikovat pomocí:
 
-* absolutní cesta začínající na `/` z kořene knihovny,
-* relativní cesta k umístění souboru obsahujícího příkaz `!INCLUDE`
+* absolutní cesty začínající na `/` z kořene knihovny,
+* relativní cesty k umístění souboru obsahujícího příkaz `!INCLUDE`
   
 Přípona `.yaml` je nepovinná a bude přidána ke jménu souboru, pokud chybí.
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!INCLUDE other_file.yaml
-```
+	```yaml
+	!INCLUDE other_file.yaml
+	```
 
-Jedná se o jednoduché začlenění souboru `other_file.yaml`.
-  
-```yaml
+	Jedná se o jednoduché začlenění souboru `other_file.yaml`.
 
-!MATCH
-what: !GET {...}
-with:
-  'group1': !INCLUDE inc_group1
-  'group2': !INCLUDE inc_group2
-```
+	```yaml
+	!MATCH
+	what: !GET {...}
+	with:
+	'group1': !INCLUDE inc_group1
+	'group2': !INCLUDE inc_group2
+	```
 
-V tomto příkladu se `!INCLUDE` používá k rozkladu většího výrazu na logicky oddělené soubory.
+	V tomto příkladu se `!INCLUDE` používá k rozkladu většího výrazu na logicky oddělené soubory.

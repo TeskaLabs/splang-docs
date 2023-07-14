@@ -1,76 +1,78 @@
 ---
 git_commit_hash: b55fa3f
-title: Sada
+title: Množiny
 ---
 
-# Nastavení výrazu
+# Výrazy pro práci s množinami
 
 
-Sada ukládá jedinečné položky bez konkrétního pořadí.
-Položky v sadě musí být stejného typu.
+Množina (set) ukládá objekty zvané prvky, aniž by si všímala konkrétního pořadí, a každý prvek ukládá pouze jednou.
+Prvky v množině musí být stejného typu.
 Množina je jednou ze základních datových struktur poskytovaných jazykem SP-Lang.
 
-Množina je nejvhodnější pro testování hodnoty příslušnosti spíše než pro získání konkrétního prvku z množiny.
+Množina je vhodnější pro testování výskytu nějakého prvku spíše než pro získání konkrétního prvku.
 
 --- 
 
 ## `!SET`: množina prvků 
 
-Typ:  _Implicitní posloupnost_, _Mapování_.
+Typ: _Implicit sequence_, _Mapping_.
 
-### Synopse
+Synopsis:
+
 ```yaml
-
 !SET
 - ...
 - ...
 ```
 
-_Nápověda: Pro určení počtu položek v sadě použijte `!COUNT`._
+!!! hint "Nápověda"
 
-
-### Příklady
+    Pro určení počtu položek v sadě použijte `!COUNT`.
 
 Existuje několik způsobů, jak lze v jazyce SP-Lang zadat množinu:
-```yaml
 
-!SET
-- "One"
-- "Dva"
-- "Three"
-- "Four"
-- "Five"
-```
+!!! example "Příklad"
 
+    ```yaml
+    !SET
+    - "One"
+    - "Dva"
+    - "Three"
+    - "Four"
+    - "Five"
+    ```
 
-[Neuspořádaná množina YAML](https://yaml.org/spec/1.2.2/#example-unordered-sets):
-```yaml
+!!! example "Příklad"
+    [Neuspořádaná množina YAML](https://yaml.org/spec/1.2.2/#example-unordered-sets):
 
-!!set
-? Žluté vepřové maso
-? Růžová tráva
-? Bílý sníh
-```
+    ```yaml
+    !!set
+    ? Žluté vepřové maso
+    ? Růžová tráva
+    ? Bílý sníh
+    ```
 
+!!! example "Příklad"
 
-Konzistentní sada pomocí [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
-```yaml
+    Kompaktní zápis množiny pomocí [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
-!SET ["One", "Two", "Three", "Four", "Five"]
-```
+    ```yaml
+    !SET ["One", "Two", "Three", "Four", "Five"]
+    ```
 
+!!! example "Příklad"
+    Formulář pro mapování:
 
-Formulář pro mapování:
-```yaml
-
-!SET
-s:
-  - "One"
-  - "Two"
-  - "Three"
-  - "Four"
-  - "Pět"
-```
+    ```yaml
+    !SET
+    with:
+    - "One"
+    - "Two"
+    - "Three"
+    - "Four"
+    - "Five"
+    ```
 
 
 --- 
@@ -79,28 +81,28 @@ s:
 
 Typ: _Mapping_.
 
-### Synopse
-```yaml
+Synopsis:
 
+```yaml
 !IN
-co: <item>
-kde: <set>
+what: <item>
+where: <set>
 ```
 
-Zkontrolujte, zda je `položka` přítomna v `setu`.
+Zkontroluje, zda je `item` přítomna v `set`.
 
-Výraz `!IN` je popsán v kapitole "Testy".
+Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](../comparisons/#in-test-vyskytu).
 
-### Příklad
-```yaml
+!!! example "Příklad"
 
-!IN
-co: 3
-kde:
-  !SET
-  with:
-    - 1
-    - 2
-    - 5
-    - 8 
-```
+    ```yaml
+    !IN
+    what: 3
+    where:
+      !SET
+      with:
+        - 1
+        - 2
+        - 5
+        - 8 
+    ```

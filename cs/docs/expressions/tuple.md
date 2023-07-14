@@ -3,11 +3,11 @@ git_commit_hash: b55fa3f
 title: Tuple
 ---
 
-# Tuplové výrazy
+# Výrazy pro tuple
 
 
-Tuple je jednou ze základních datových struktur, které SP-Lang nabízí.
-Tuple je kolekce položek, případně různých typů.
+Tuple (do češtiny přeložitelné asi jako 'pevný seznam') je jednou ze základních datových struktur, které SP-Lang nabízí.
+Tuple je kolekce položek, které mohou mít různé typy.
 
 --- 
 
@@ -15,11 +15,11 @@ Tuple je kolekce položek, případně různých typů.
 
 Typ:  _Mapping_.
 
-### Synopse
-```yaml
+Synopsis:
 
+```yaml
 !TUPLE
-s:
+with:
   - ...
   - ...
   ...
@@ -29,94 +29,98 @@ Počet položek v tuple není omezen.
 Pořadí položek je zachováno.
 
 
-### Příklady
-```yaml
+!!! example "Příklad"
 
-!TUPLE
-s:
-  - John Doe
-  - 37
-  - 175.4
-```
+    ```yaml
+    !TUPLE
+    with:
+      - John Doe
+      - 37
+      - 175.4
+    ```
 
+!!! example "Příklad"
 
-Použití zápisu `!!tuple`:
-```yaml
+    Použití zápisu `!!tuple`:
 
-!!tuple
-- 1
-- a
-- 1.2
-```
+    ```yaml
+    !!tuple
+    - 1
+    - a
+    - 1.2
+    ```
 
+!!! example "Příklad"
 
-Ještě stručnější verze `!!tuple` s použitím syntaxe flow:
-```yaml
+    Ještě stručnější verze `!!tuple` s použitím flow syntaxe:
 
-!!tuple ['John Doe', 37, 175.4]
-```
+    ```yaml
+    !!tuple ['John Doe', 37, 175.4]
+    ```
 
+!!! example "Příklad"
 
-Vynucení specifického typu položky:
-```yaml
+    Vynucení specifického typu položky:
 
-!TUPLE
-s:
-  - John Doe
-  - !!ui8 37
-  - 175.4
-```
+    ```yaml
+    !TUPLE
+    with:
+      - John Doe
+      - !!ui8 37
+      - 175.4
+    ```
 
-Položka č. 1 bude mít typ `ui8`.
+    Položka #1 bude mít typ `ui8`.
 
 
 --- 
 
-## `!GET`: Získat položku z tuple 
+## `!GET`: Získá položku z tuple 
 
 Typ: _Mapping_.
 
-### Synopse
-```yaml
+Synopsis:
 
+```yaml
 !GET
-co: <index of the item>
-z: <tuple>
+what: <index of the item>
+from: <tuple>
 ```
 
-Je to celé číslo, které představuje _index_ v tuplu.
+`what` je celé číslo, které představuje _index_ v tuple.
 `what` může být záporné, v takovém případě určuje položku od konce seznamu.
 Položky jsou indexovány od 0, to znamená, že první položka v seznamu má index 0.
 Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 
 
-### Příklady
-```yaml
+!!! example "Příklad"
 
-!GET
-what: 1
-from:
-  !TUPLE
-  s:
-    - Doe:: John Doe
-    - 32
-    - 127.5
-```
+    ```yaml
+    !GET
+    what: 1
+    from:
+      !TUPLE
+      with:
+        - Doe:: John Doe
+        - 32
+        - 127.5
+    ```
 
-Vrací `32`.
+    Vrací `32`.
 
+!!! example "Příklad"
 
-Použití _záporného indexu_ položek:
-```yaml
+    Použití _záporného indexu_ položek:
 
-!GET
-co: -1
-od:
-  !TUPLE
-  with:
-    - John Doe
-    - 32
-    - 127.5
-```
+    ```yaml
+    !GET
+    what: -1
+    from:
+      !TUPLE
+      with:
+        - John Doe
+        - 32
+        - 127.5
+    ```
 
-Vrací `127,5`.
+    Vrací `127,5`.

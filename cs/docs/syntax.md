@@ -5,9 +5,7 @@ title: Syntaxe
 
 # Syntaxe jazyka SP
 
-
 !!! info
-
 
 		Syntaxe SP-Lang používá [YAML 1.2](https://yaml.org/spec/1.2)
 
@@ -24,18 +22,18 @@ Komentář je označen indikátorem `#`.
 
 ## Čísla
 
-### Celé číslo
+### Celá čísla
 ```yaml
 
 kanonický zápis: 12345
-kladné desetinné číslo: +12345
-záporné desetinné číslo: -12345
+kladné číslo: +12345
+záporné číslo: -12345
 osmičkový zápis: 0o14
 hexadecimální zápis: 0xC
 ```
 
 
-### Plovoucí čárka
+### Desetinná čísla
 ```yaml
 
 pevný zápis: 1230.15
@@ -60,8 +58,8 @@ unicode: "\u263A"
 control: "\b1998\t1999\t2000\n"
 hexadecimální esc: "\x0d\x0a je \r\n"
 
-singl: ""Nazdar!" zvolal.
-citováno: # Not a ''comment''.
+singl: '"Nazdar!" zvolal.'
+citováno: '# Toto není ''komentář''.'
 ```
 
 Víceřádkové řetězce:
@@ -88,7 +86,7 @@ Doslovný styl (označený `|`) zachovává počáteční mezery.
 Složený styl (označený `>`) odstraňuje případné odsazení YAML.
 
 
-## Booleans
+## Pravdivostní hodnoty (booleans)
 ```yaml
 
 True boolean: true
@@ -102,22 +100,22 @@ Všechny výrazy SP-Lang (alias funkce) začínají na `!`, výrazy SP-Lang jsou
 
 Výrazy mohou být těchto typů:
 
- - _Mapování_
- - _Sequence_
- - _Skalární_
+ - _Mapování_ (_Mapping_)
+ - _Posloupnost_ (_Sequence_)
+ - _Skalár_ (_Scalar_)
 
 
-### Mapovací výraz
+### Mapovací výrazy
 
 Příklad:
 ```yaml
 
 !ENDSWITH
-co: FooBar
+what: FooBar
 postfix: Bar
 ```
 
-Příklad _flow_ formuláře:
+Příklad použití ve formě _flow_ :
 ```yaml
 !ENDSWITH {what: FooBar, postfix: Bar}
 ```
@@ -125,13 +123,11 @@ Příklad _flow_ formuláře:
 
 !!! abstract "Specifikace YAML"
 
-	
-	
 	Viz kapitola [10.2. Styly mapování](https://yaml.org/spec/1.1/#id932806).
 	
 	
 
-### Sekvenční výraz
+### Sekvenční výrazy
 
 Příklad:
 ```yaml
@@ -142,7 +138,7 @@ Příklad:
 - 3 
 ```
 
-Příklad formuláře _flow_:
+Příklad použití ve formě _flow_ :
 ```yaml
 
 !ADD [1, 2, 3]  
@@ -151,8 +147,6 @@ Příklad formuláře _flow_:
 
 !!! abstract "Specifikace YAML"
 
-	
-	
 	Viz kapitola [10.1. Styly sekvencí](https://yaml.org/spec/1.1/#id931088).
 	
 	
@@ -165,14 +159,10 @@ with: [1, 2, 3]
 ```
 
 !!! tip
-
-	
-	
 	
 	Jedná se vlastně o mapovací formu sekvenčního výrazu.
 	
-	
-	
+
 
 ### Skalární výrazy
 
@@ -185,7 +175,6 @@ Příklad:
 
 !!! abstract "Specifikace YAML"
 
-
 		Viz kapitola [9. Skalární styly](https://yaml.org/spec/1.1/#id903915)	
 
 ## Kotvy a aliasy
@@ -193,7 +182,7 @@ Příklad:
 SP-Lang využívá YAML [kotvy](https://yaml.org/spec/1.1/#id899912) a [aliasy](https://yaml.org/spec/1.1/#id902561).
 To znamená, že se můžete odkazovat na výsledek jiného výrazu pomocí _kotvy_.
 Kotva je řetězec začínající znakem "`&`".
-Výsledek výrazu anotovaného kotvou lze pak znovu použít pomocí _aliasu_, což je řetězec začínající na "`*`", který sdílí jméno kotvy.
+Výsledek výrazu anotovaného kotvou lze pak znovu použít pomocí _aliasu_, což je řetězec začínající na "`*`" následovaný jménem kotvy.
 Na jednu kotvu se může odkazovat více aliasů.
 
 Příklad:
@@ -208,7 +197,7 @@ Příklad:
 - *subcount
 ```
 
-Rovná se `1+(2*3)+(2*3)+(2*3)` odpovídající `19`.
+Výsledek je roven `1+(2*3)+(2*3)+(2*3)`, tedy `19`.
 
 
 ## Struktura souboru SP-Lang
@@ -232,19 +221,13 @@ Příklad souboru SP-Lang:
 ```
 
 
-!!! note
+!!! note "Poznámka"
 
-	
-	
-	
 	Soubor SP-Lang vždy začíná řádkem `---`.
 	
 	
 
 !!! info
 
-	
-	
-	
 	Jeden soubor může obsahovat více výrazů pomocí oddělovače YAML (`---`).
 
