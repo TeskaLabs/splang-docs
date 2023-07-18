@@ -1,9 +1,9 @@
 ---
 git_commit_hash: b55fa3f
-title: Jazykový design
+title: Design jazyka
 ---
 
-# Návrh jazyka SP-Lang
+# Design jazyka SP-Lang
 
 
 ## Vlastnosti
@@ -15,15 +15,12 @@ title: Jazykový design
  * Syntaxe je založena na <a href="https://yaml.org/">YAMLu</a>
 
 
-!!! question "Zkompilováno nebo interpretováno"
+!!! question "Kompilace anebo interpretace"
 
-	
+      SP-Lang je:
 
-   
-      SP-Lang je obojí:
-
-      * zkompilován pomocí <a href="https://llvm.org/">LLVM</a>
-      * interpretován v jazyce <a href="https://www.python.org">Python</a>
+      * jednak kompilován pomocí <a href="https://llvm.org/">LLVM</a>
+      * druhak interpretován v jazyce <a href="https://www.python.org">Python</a>
 
 
 
@@ -49,19 +46,17 @@ Data procházíte různými výrazy a sestavujete konečný výsledek.
 
 !!! info "Více informací"
 
-	
-	
 	  * [Statické jednoduché přiřazení](https://en.wikipedia.org/wiki/Static_single-assignment_form)
 	  * [Trvalé datové struktury](https://en.wikipedia.org/wiki/Persistent_data_structure)
 	
 
-## 🔐 Silně typované
+## 🔐 Silně typovaný
 
 Typy všech hodnot jsou známy v době kompilace.
 To umožňuje včasné odhalení chyb a posílení optimalizace.
 
 
-## 💡 Odvozování typů
+## 💡 Podpora odvozování typů
 
 Typy jsou odvozeny z jejich použití, aniž by byly deklarovány.
 Například nastavení proměnné na číslo vede k tomu, že typ této proměnné je stanoven jako číslo.
@@ -71,9 +66,9 @@ Pro pokročilé uživatele, kteří vyžadují větší kontrolu nad typovým sy
 Tato flexibilita umožňuje pokročilým uživatelům vyladit svůj kód pro maximální výkon a spolehlivost a zároveň využívat pohodlí typové inference.
 
 
-## 🎓Turingova úplnost
+## 🎓Turingovsky úplný
 
-SP-Lang je navržen tak, aby byl [Turingově úplný](https://en.wikipedia.org/wiki/Turing_completeness).
+SP-Lang je navržen tak, aby byl [turingovsky úplný](https://cs.wikipedia.org/wiki/Turingovsk%C3%A1_%C3%BAplnost).
 
 
 
