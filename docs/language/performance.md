@@ -10,7 +10,7 @@ title: Performance
 SP-Lang is designed to deliver a very high performance.
 
 Internally, it compiles provided expressions into a machine code, using [LLVM IR](https://llvm.org) and large degree of optimizations that are possible thanks to a functional structure of the language.
-It offers extremelly high single CPU core throughput with a seamless ability to scale procesing to available CPU cores and take full benefits of modern CPU architectures.
+It offers extremely high single CPU core throughput with a seamless ability to scale processing to available CPU cores and take full benefits of modern CPU architectures.
 
 Performance tests measures throughput in _EPS_, Events per seconds.
 Events per second is a term used in IT management to define the number of events that are processed by SP-Lang expression in one second.
@@ -50,7 +50,8 @@ what: |
   }
 ```
 
-_Note: Fast JSON parsing is powered by [cysimdjson](https://github.com/TeskaLabs/cysimdjson) respectively [simdjson](https://simdjson.org) projects._
+!!! note
+	Fast JSON parsing is powered by [cysimdjson](https://github.com/TeskaLabs/cysimdjson) respectively [simdjson](https://simdjson.org) projects._
 
 * Single CPU Core on `HW-M1-20`: 968502 EPS
 * Single CPU Core on `HW-I7-15`: 562862 EPS
