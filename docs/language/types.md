@@ -113,7 +113,8 @@ Underlying scalar type: `ui128`
 
 !!! abstract "RFC 4291"
 
-    IPv4 are mapped into IPv6 space as prescribed in [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
+    IPv4 are mapped into IPv6 space as prescribed in [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).  
+    The IPv4 address `12.23.45.67` will be mapped into `::ffff:c17:2d43`.
 
 
 ## Generic types
