@@ -5,8 +5,8 @@ title: Datum/čas
 
 # SP-Lang datum/čas 
 
-Typ `datetime` je hodnota, která reprezentuje datum a čas v UTC s použitím struktury broken time.
-Lomený čas znamená, že rok, měsíc, den, hodina, minuta, sekunda a mikrosekunda jsou uloženy ve vyhrazených polích; liší se např. od časového razítka UNIX.
+Typ `datetime` je hodnota, která reprezentuje datum a čas v UTC s použitím struktury zvané "broken time".
+To znamená, že rok, měsíc, den, hodina, minuta, sekunda a mikrosekunda jsou uloženy ve vyhrazených polích; liší se např. od UNIX timestamp.
 
 * Časové pásmo: [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)
 * Rozlišení: mikrosekundy (šest desetinných míst)
@@ -14,12 +14,9 @@ Lomený čas znamená, že rok, měsíc, den, hodina, minuta, sekunda a mikrosek
 
 !!! tip "Užitečné nástroje"
 
-	
-	
 		* [UNIX Timestamp](https://www.unixtimestamp.com)
 		* [Převodník UTC na/z místního času](https://www.worldtimebuddy.com)
-	
-	
+
 
 ## Rozložení bitů
 
@@ -116,11 +113,8 @@ Datum je uloženo v 64bitovém celočíselném formátu bez znaménka (`ui64`); 
 </table>
 
 
-!!! note
+!!! note "Poznámka"
 
-	
-	
-	
 	*) Typ je doporučený/minimální typ zarovnaný na bajty pro příslušnou komponentu.
 	
 	
@@ -131,10 +125,7 @@ Informace o časových pásmech pocházejí z [pytz](http://pytz.sourceforge.net
 
 !!! note
 
-	
-	
-	
-		Databáze časových pásem má přesnost na minuty, to znamená, že sekundy a mikrosekundy zůstávají při převodu z/do UTC nedotčeny _.
+	Databáze časových pásem má přesnost na minuty, to znamená, že sekundy a mikrosekundy zůstávají při převodu z/do UTC nedotčeny _.
 	
 
 Data o časových pásmech jsou reprezentována adresářovou strukturou souborového systému, která je běžně umístěna na adrese `/usr/share/splang` nebo na místě určeném proměnnou prostředí `SPLANG_SHARE_DIR`.
@@ -144,8 +135,6 @@ Data časových pásem jsou generována skriptem `generate_datetime_timezones.py
 
 !!! example "Příklad složky `tzinfo`"
 
-	
-	
 		```
 		.
 		└── tzinfo
@@ -155,17 +144,16 @@ Data časových pásem jsou generována skriptem `generate_datetime_timezones.py
 		    │ ├── Andorra.sptl
 		    │ ├── Andorra.sptb
 		```
-	
 
 Soubory `.sptl` a `.sptb` obsahují rychlostně optimalizované binární tabulky, které podporují rychlé vyhledávání pro převody místního času <-> UTC.
 Soubor `.sptl` je určen pro little-endian architektury procesorů (x86 a x86-64), soubor `.sptb` je určen pro big-endian architektury.
 
 Soubor je [memory-mapped](https://en.wikipedia.org/wiki/Memory-mapped_file) do paměťového prostoru procesu SP-Lang, zarovnaný na 64bajtovou hranici, takže jej lze přímo použít jako vyhledávač.
 
-### Společné struktury
+### Běžné struktury
 
-  * `ym`: Rok a měsíc, `ym = (rok &lt;&lt; 4) + měsíc`
-  * `dhm`: Den, hodina a minuta, `dhm = (den &lt;&lt; 11) + (hodina &lt;&lt; 6) + minuta`
+  * `ym`: Rok a měsíc, `ym = (year << 4) + month`
+  * `dhm`: Den, hodina a minuta, `dhm = (day << 11) + (hour << 6) + minute`
 
 Obě struktury jsou bitovými částmi skalární hodnoty `datetime` a lze je z `datetime` extrahovat pomocí `AND` a `SHR`.**
 
@@ -229,7 +217,8 @@ Protože v současné době podporujeme pouze jednu změnu času v měsíci, je 
 
 Informace `hodina` a `minuta` slouží k úpravě data/času z místního na UTC.
 
-_Poznámka: v současné době je podporována pouze jedna změna času v měsíci, což se zdá být plně dostačující pro všechny informace v databázi časových zón IANA._
+!!! note "Poznámka"
+	V současné době je podporována pouze jedna změna času v měsíci, což se zdá být plně dostačující pro všechny informace v databázi časových zón IANA.
 
 Prázdné/nepoužité další buňky jsou vynulovány.
 

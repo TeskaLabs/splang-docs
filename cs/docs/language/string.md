@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Struny
+title: Řetězce
 ---
 
 # Řetězce
@@ -11,20 +11,17 @@ Reprezentace typu řetězce je `str`.
 
 ## Reprezentace řetězce
 
-Řetězec je reprezentován [P-String](https://en.wikipedia.org/wiki/String_%28computer_science%29#Length-prefixed) příslušným záznamem s následujícími položkami:
+Řetězec je reprezentován [P-Stringem](https://en.wikipedia.org/wiki/String_%28computer_science%29#Length-prefixed) příslušným záznamem s následujícími položkami:
 
  * Délka řetězce v bajtech jako 64bitové číslo bez znaménka.
- * Ukazatel na začátek _řetězcových dat_.
+ * Pointer na začátek _řetězcových dat_.
 
 
 
 !!! tip "Řetězec je také pole bajtů"
 
-	
-	
 	Hodnota `str` je binárně kompatibilní s `[ui8]`, seznamem `ui8`.
-	
-	
+
 
 ## Kompatibilita s řetězci ukončenými nulou
 
@@ -34,7 +31,7 @@ Dodatečné `\0` může být umístěno hned za údaji řetězce, ale nesmí bý
 Zajišťuje přímou kompatibilitu se systémy [NULL-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string).
 Není však implicitně zaručena pomocí `str`.
 
-NULL ukončený řetězec lze "převést" na `str` vytvořením nového `str` pomocí `strlen()` a skutečného ukazatele na data řetězce.
+`NULL` ukončený řetězec lze "převést" na `str` vytvořením nového `str` pomocí `strlen()` a skutečného ukazatele na data řetězce.
 Alternativně lze vytvořit i úplnou kopii.
 
 ## Data řetězce

@@ -21,15 +21,15 @@ String is represented by a [P-String](https://en.wikipedia.org/wiki/String_%28co
     Value of `str` is binary compatible with `[ui8]`, a list of `ui8`.
 
 
-## Compatilitity with Null-terminated strings
+## Compatibility with Null-terminated strings
 
 Value of `str` MUST NOT end with `\0` (NULL).
 
 The additional `\0` can be placed just after string data but not included in a string length.
 It provides direct compatibility with [NULL-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string) systems.
-It is however not guaranted by `str` implicitly.
+It is however not guaranteed by `str` implicitly.
 
-NULL terminated string can be "converted" into `str` by creating new `str` usign `strlen()` and actual pointer to a string data.
+`NULL` terminated string can be "converted" into `str` by creating new `str` using `strlen()` and actual pointer to a string data.
 Alternativelly, the complete copy can be created as well.
 
 ## String data
