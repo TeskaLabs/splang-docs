@@ -75,7 +75,7 @@ Floating-point numbers are decimal numbers, such as 3.14 or -0.5, that are usefu
 
 ## Complex scalar types
 
-Complex scalar types are designed for values that provides some internal structure (so technically they are records or tuples) but they can fit into a scalar type (e.g. for performance or optimisation purposes).
+Complex scalar types are designed for values that provides some internal structure (so technically they are records or tuples) but they can fit into a scalar type (e.g. for performance or optimization purposes).
 
 
 ### Date/Time
