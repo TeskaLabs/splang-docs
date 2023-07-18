@@ -3,7 +3,7 @@ git_commit_hash: b55fa3f
 title: Výkon
 ---
 
-# SP-Lang Performance
+# Výkon jazyka SP-Lang
 
 
 ## Úvod
@@ -24,10 +24,10 @@ Výkonnostní testy jsou automatizovány pomocí rámce CI/CD, a proto jsou zcel
 
 Tento výraz vyhledává prvky konečné množiny řetězců ve vstupním textu.
 Hodí se např. pro klasifikaci škodlivých adres URL (poskytnutých blokovým seznamem) ve výstupu firewallu.
-```yaml
 
+```yaml
 !IN
-  kde: !ARG url
+  where: !ARG url
   what:
   - ".000a.biz"
   - ".001edizioni.com"
@@ -51,13 +51,14 @@ what: |
   }
 ```
 
-_Poznámka: Rychlé parsování JSON je zajištěno projekty [cysimdjson](https://github.com/TeskaLabs/cysimdjson), resp. [simdjson](https://simdjson.org)._.
+!!! note "Poznámka"
+	Rychlé parsování JSON je zajištěno projekty [cysimdjson](https://github.com/TeskaLabs/cysimdjson), resp. [simdjson](https://simdjson.org)._.
 
 * Jedno jádro procesoru na `HW-M1-20`: 968502 EPS
 * Jedno jádro CPU na `HW-I7-15`: 562862 EPS
 
 
-## Rozbor IETF Syslogu
+## Parsování IETF Syslogu
 
 Toto je parser IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/rfc5424) implementovaný v SP-Langu:
 ```yaml
