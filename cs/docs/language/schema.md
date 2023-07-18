@@ -5,36 +5,36 @@ title: Schéma
 
 # Schéma
 
-Schémata v SP-Langu popisují typ a další vlastnosti polí v dynamicky typovaných kontejnerech, jako jsou JSON nebo slovníky Pythonu.
+Schémata v SP-Langu popisují typ a další vlastnosti polí v dynamicky typovaných kontejnerech, jako je JSON nebo pythonovské slovníky.
 
-Je důležité poskytnout SP-Langu informace o typu, protože se používají jako vstup pro typovou inferenci, a tedy optimální výkon.
+Je důležité poskytnout SP-Langu informace o typu, protože se používají jako vstup pro typovou inferenci, a tedy pro optimální výkon.
 
 
 ## Definice schématu
 
 Reprezentace schématu ve formátu YAML:
-```yaml
 
+```yaml
 ---
 define:
-  typ: splang/schema
+  type: splang/schema
 
-pole:
+fields:
   field1:
-    typ: str
-    aliasy: field:: pole1: ["FieldOne"]
+    type: str
+    aliases: ["FieldOne"]
   
   field2:
-    typ: ui64
+    type: ui64
 ```
 
 
-## Options
+## Možnosti
 
 ### Možnost `type`
 
 Definuje datový typ daného atributu, například `str`, `si64` a podobně.
-Další informace naleznete v SP-Lang [type system](types).
+Další informace naleznete v [typovém systému](../types) SP-Langu.
 
 Tato volba je povinná.
 
@@ -44,14 +44,14 @@ Tato volba je povinná.
 Definuje aliasy polí pro daný atribut, které lze použít v deklaraci jako synonymní výraz.
 
 Pokud má pole `field1` alias pole s názvem `FieldOne`, jsou následující deklarace rovny, pokud je schéma správně definováno:
-```yaml
 
+```yaml
 !GET
 what: field1
 from: !ARG input
 ```
-```yaml
 
+```yaml
 !GET
 what: FieldOne
 from: !ARG input
@@ -65,8 +65,8 @@ Definuje jednotku atributu, pokud je potřeba, například pro časové značky.
 ## Deklarace funkce (Python)
 
 Příklad deklarace funkce SP-Lang, která používá `MYSCHEMA.yaml`:
-```python
 
+```python
 splang.FunctionDeclaration(
 	name="main",
 	returns="bool",
@@ -77,25 +77,24 @@ splang.FunctionDeclaration(
 ```
 
 a samotný soubor `MYSCHEMA.yaml`:
-```yaml
 
+```yaml
 ---
 define:
-  typ: splang/schema
+  type: splang/schema
 
-pole:
+fields:
   field1:
-    typ: str
+    type: str
 
   field2:
-    typ: ui64
+    type: ui64
 ```
-
 ### In-place schémata
 
 SP-Lang umožňuje specifikovat schéma přímo v kódu `FunctionDeclaration` jazyka Python:
-```python
 
+```python
 splang.FunctionDeclaration(
 	name="main",
 	returns="bool",
