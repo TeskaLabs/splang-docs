@@ -5,46 +5,46 @@ title: Typy kontejnerů
 
 # Podrobnosti o typech kontejnerů
 
-## Seznam
+## List (seznam)
 
-*Seznam* představuje konečný počet uspořádaných položek, přičemž stejná položka se může vyskytovat vícekrát.
+*List* je uspořádaný seznam konečného počtu položek, přičemž stejná položka se může vyskytovat vícekrát.
 
 <img src="../container-types-list.svg" alt="List schema"/>
 
 
-## Množina
+## Set (množina)
 
-*Set* je složen z *Interního seznamu* a hašovací tabulky.
+*Set* je složen z *Interního seznamu* (*Internal list*) a hašovací tabulky.
 
 <img src="../container-types-set.svg" alt="Set schema"/>
 
 
-## Dict
+## Dict (slovník)
 
-*dict* (neboli slovník) je složen z množiny (sama o sobě hashovací tabulka a seznam) klíčů (nazývané *Množina klíčů* s *Seznam klíčů* ) a seznamu hodnot (nazývaného *Seznam hodnot*).
+*dict* je kombinací množiny (která je složena z hašovací tabulky a seznamu) klíčů (nazývané *Key set* s *Key list* ) a seznamu hodnot (nazývaného *Value list*).
 
 <img src="../container-types-dict.svg" alt="Dict schema"/>
 
 
-## Hašovací tabulka
+## Hash table (hašovací tabulka)
 
 Typy *Set* a *Dict* používají [hash table](https://en.wikipedia.org/wiki/Hash_table).
 
 <img src="../container-types-hashtable.svg" alt="Hash table"/>
 
-Tabulka *hash* je navržena tak, že mapuje 64bitový hash klíče přímo na index položky.
-Strategie [perfect hash](https://en.wikipedia.org/wiki/Perfect_hash_function) je použita tak, že pro zkonstruovanou hash tabulku není implementováno žádné řešení kolizí.
+*Hash table* je navržena tak, že mapuje 64bitový hash klíče přímo na index položky.
+Podporuje strategii [perfect hash](https://en.wikipedia.org/wiki/Perfect_hash_function), takže pro zkonstruovanou hašovací tabulku není implementováno žádné řešení kolizí.
 Pokud algoritmus pro konstrukci hašovací tabulky zjistí kolizi, algoritmus se znovu spustí s jinou hodnotou *seed*.
 Tento přístup využívá relativně vysokou míru kolizí xxhash64.
 
-Hašovací tabulku lze (líně) generovat pouze tehdy, když je to potřeba (např. pro výrazy `!IN` a `!GET`).
+Hašovací tabulku lze generovat pouze tehdy, když je to potřeba (např. pro výrazy `!IN` a `!GET`).
 To platí pro objekty vytvářené dynamicky za běhu.
-Statické sady a slovníky poskytují připravenou hashovací tabulku.
+Statické množiny a slovníky poskytují připravenou hašovací tabulku.
 
 Hašovací tabulka se prohledává pomocí [binárního vyhledávání](https://en.wikipedia.org/wiki/Binary_search_algorithm).
 
 
 Použité hašovací funkce jsou:
 
- * [XXH3 64bit](https://cyan4973.github.io/xxHash/) se semenem pro `str`.
- * `xor` se semenem pro `si64`, `si32`, `si16`, `si8`, `ui64`, `ui32`, `si16`, `ui8`
+ * [XXH3 64bit](https://cyan4973.github.io/xxHash/) se seedem pro `str`.
+ * `xor` se seedem pro `si64`, `si32`, `si16`, `si8`, `ui64`, `ui32`, `si16`, `ui8`

@@ -1,6 +1,6 @@
 ---
 git_commit_hash: b55fa3f
-title: Typy
+title: Datové typy
 ---
 
 # Datové typy SP-Lang
@@ -13,13 +13,8 @@ Tento přístup umožňuje bezproblémové a uživatelsky přívětivé prostře
 
 !!! info
 
-	
-	
-	
 	Systém typů je soubor pravidel, která definují, jak se v jazyce klasifikují, kombinují a manipulují datové typy.
 	Pomáhá včas zachytit potenciální chyby, zvyšuje spolehlivost kódu a zajišťuje, aby se operace prováděly pouze nad kompatibilními datovými typy.
-	
-	
 
 ## Skalární typy
 
@@ -28,7 +23,7 @@ Jsou nezbytné pro práci s různými druhy dat a provádění různých operac�
 
 ### Celá čísla
 
-Celá čísla jsou celá čísla, jako například -5, 0 nebo 42, která lze použít pro počítání nebo jednoduché aritmetické operace.
+Celá čísla jako například -5, 0 nebo 42, která lze použít pro počítání nebo jednoduché aritmetické operace.
 Celá čísla mohou být se znaménkem nebo bez znaménka.
 
 |Typ|Jméno|Typ|Jméno|Bity|Bajty|.
@@ -45,23 +40,19 @@ Je to proto, že SP-Lang je primárně určen pro 64bitové procesory.
 
 `int` je alias pro `si64`.
 
-!!! warning
+!!! warning "Varování"
 
-	
-	
-	
 	256bitové velikosti zatím nejsou plně podporovány.
-	
-	
-
-### Boolean
-
-Boolean (`bool`) je typ, který má jednu ze dvou možných hodnot označených jako `True` a `False`.
 
 
-### Floating-Point
+### Pravdivostní hodnoty (boolean)
 
-Čísla s pohyblivou řádovou čárkou jsou desetinná čísla, například 3,14 nebo -0,5, která jsou užitečná pro výpočty zahrnující zlomky nebo přesnější hodnoty.
+Boolean (`bool`, pravdivostní hodnota) je typ, který má jednu ze dvou možných hodnot označených jako `True` a `False`.
+
+
+### Desetinná čísla (floats)
+
+Desetinná čísla, například 3,14 nebo -0,5, jsou užitečná pro výpočty zahrnující zlomky nebo přesnější hodnoty.
 
 |Typ|Název|Bajtů|
 |:----|:----|:----|
@@ -71,47 +62,34 @@ Boolean (`bool`) je typ, který má jednu ze dvou možných hodnot označených 
 |`fp128`|128bit float|16|
 
 
-!!! warning
+!!! warning "Varování"
 
-	
-	
-	
 	`fp16` a `fp128` nejsou plně podporovány.
-	
-	
 
-!!! warning
 
-	
-	
-	
+!!! warning "Varování"
+
 	Alias `float` se překládá na `fp64`, který se překládá na LLVM `double` (odlišný od aliasu `float`).
-	
-	
-	
 
-## Složené skalární typy
+## Komplexní skalární typy
 
-Komplexní skalární typy jsou určeny pro hodnoty, které poskytují nějakou vnitřní strukturu (technicky vzato jsou to tedy záznamy nebo tuply), ale mohou se vejít do skalárního typu (např. z důvodu výkonu nebo optimalizace).
+Komplexní skalární typy jsou určeny pro hodnoty, které poskytují nějakou vnitřní strukturu (technicky vzato jsou to tedy záznamy (records) nebo tuples), ale mohou se vejít do skalárního typu (např. z důvodu výkonu nebo optimalizace).
 
 
 ### Datum/čas
 
 `datetime`
 
-Jedná se o hodnotu, která reprezentuje datum a čas v UTC s využitím struktury broken time.
-Lomený čas znamená, že `rok`, `měsíc`, `den`, `hodina`, `minuta`, `sekunda` a `mikrosekunda` jsou uloženy ve vyhrazených polích; liší se např. od časového razítka UNIX.
+Jedná se o hodnotu, která reprezentuje datum a čas v UTC s využitím struktury "broken time".
+Broken time znamená, že `rok`, `měsíc`, `den`, `hodina`, `minuta`, `sekunda` a `mikrosekunda` jsou uloženy ve vyhrazených polích; liší se např. od časového razítka UNIX.
 
 * Časové pásmo: UTC
 * Rozlišení: mikrosekundy (šest desetinných míst)
 * 64bitové celé číslo bez znaménka, také známé jako `ui64`
 
 
-
 !!! info "Zlomené časové komponenty"
 
-	
-	
 	* `y` / `year`
 	* `m` / `měsíc`
 	* `d` / `day`
@@ -119,12 +97,11 @@ Lomený čas znamená, že `rok`, `měsíc`, `den`, `hodina`, `minuta`, `sekunda
 	* `M` / `minuta`
 	* `S` / `sekunda`
 	* `u` / `mikrosekunda`
-	
 
 Podrobnější popis data/času je [zde](../date-time).
 
 
-### IP adresa
+### IP adresy
 
 Tento datový typ obsahuje adresu IPv4 nebo IPv6.
 
@@ -135,13 +112,9 @@ Základní skalární typ: `ui128`
 
 !!! abstract "RFC 4291"
 
-	
-	
 	IPv4 jsou mapovány do prostoru IPv6, jak je předepsáno v [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
-	
-	
 
-## Obecné typy
+## Generické typy
 
 Generické typy se používají v počáteční fázi parsování, optimalizace a kompilace SP-Langu.
 Doplňujícím typem je _Specifický typ_.
@@ -155,19 +128,19 @@ Také pokud typ kontejneru obsahuje generický typ, je samotný _kontejnerový t
 ## Typy kontejnerů
 
 
-### Seznam
+### List (seznam)
 
 `[Ti]`
 
 * `Ti` označuje typ položky v seznamu
 
 
-Seznam musí obsahovat nulu, jednu nebo více položek *stejného typu*.
+List musí obsahovat nulu, jednu nebo více položek *stejného typu*.
 
 Typem konstruktoru je výraz `!LIST`.
 
 
-### Set
+### Set (množina)
 
 `{Ti}`
 
@@ -176,7 +149,7 @@ Typem konstruktoru je výraz `!LIST`.
 Typem konstruktoru je výraz `!SET`.
 
 
-### Slovník
+### Dictionary (slovník)
 
 `{Tk:Tv}`
 
@@ -198,16 +171,12 @@ Bag (neboli multimap) je kontejner, který umožňuje duplicitní klíče, na ro
 
 !!! tip
 
-	
-	
-	
-	Sáček je v podstatě seznamem 2 dvojic (párů).
-	
-	
+	Bag je v podstatě seznamem 2 dvojic (párů).
 
-## Typy produktů
 
-[Typ produktu](https://en.wikipedia.org/wiki/Product_type) je složený typ, který vznikl spojením jiných typů do _struktury_.
+## Produktové typy
+
+[Produktový typ](https://en.wikipedia.org/wiki/Product_type) je složený typ, který vznikne spojením jiných typů do _struktury_.
 
 
 ### Tuple
@@ -217,18 +186,13 @@ Signatura: `(T1, T2, T3, ...)`
 
 Konstruktor typu je výraz `!TUPLE`.
 
-Je ekvivalentní [typu struktury](https://llvm.org/docs/LangRef.html#structure-type) v LLVM IR.
+Je ekvivalentní [strukturnímu typu](https://llvm.org/docs/LangRef.html#structure-type) v LLVM IR.
 
 !!! tip
 
-	
-	
-	
 	Tuple bez členů respektive `()` je [jednotka](https://en.wikipedia.org/wiki/Unit_type).
-	
-	
 
-### Záznam
+### Record (záznam)
 
 Signatura: `(name1: T1, name2: T2, name3: T3, ...)`
 
@@ -237,27 +201,23 @@ Typem konstruktoru je výraz `!RECORD`.
 Je ekvivalentní výrazu `struct` jazyka C.
 
 
-## Součtový typ
+## Sum (součtový typ)
 
 Typ [Sum](https://en.wikipedia.org/wiki/Tagged_union) je datová struktura používaná k uchování hodnoty, která může nabývat několika různých typů.
 
-### libovolný
+### Any (libovolný typ)
 
 `any`
 
 Typ `any` je speciální typ, který představuje hodnotu, která může mít libovolný typ.
 
 
-!!! warning
+!!! warning "Varování"
 
-	
-	
-	
 	Typ `any` by neměl být používán jako preferovaný typ, protože má režijní náklady.
 	Přesto je poměrně užitečný při psaní slovníku, který kombinuje typy (např. `{str:any}`), a v dalších situacích, kdy typ hodnoty není při kompilaci znám.
 	
 	Hodnota obsažená v typu `any` je vždy umístěna v paměti (např. v paměťovém fondu); z tohoto důvodu je tento typ pomalejší než ostatní, které hodnotu ukládají přednostně do registrů procesoru.
-	
 
 Typ `any` je rekurzivní typ; může obsahovat sám sebe, protože obsahuje všechny ostatní typy v typovém univerzu.
 Z tohoto důvodu nelze vypočítat obecnou nebo dokonce maximální velikost proměnné `any`.
@@ -265,43 +225,29 @@ Z tohoto důvodu nelze vypočítat obecnou nebo dokonce maximální velikost pro
 
 ## Objektové typy
 
-### String
+### String (řetězec)
 
 `str`
 
 Musí být v kódování UTF-8.
 
-!!! note
+!!! note "Poznámka"
 
-	
-	
-	
-	`str` by mohl být předáván do `[ui8]` (seznam `ui8`) způsobem 'toll-free'; jedná se o binární ekvivalent.
-	
-	
+	`str` může být předáván do `[ui8]` (seznam `ui8`) způsobem 'toll-free'; jedná se o binární ekvivalent.
 
 ### Bajty
 
 
 !!! warning "Work in progress"
 
-	
-	
-	Plánované
-	
-	
+	Plánované.
 
 ### Enum
 
 
-!!! warning "Nedokončená výroba"
+!!! warning ""Work in progress"
 
-	
-	
-	Plánované
-	
-	
-	
+	Plánované.
 
 ### Regex
 
@@ -368,8 +314,8 @@ Seznam [Python](https://docs.python.org/3/c-api/list.html).
 ## Casting
 
 Pro změnu typu hodnoty použijte výraz `!CAST`.
-```yaml
 
+```yaml
 !CAST
 what: 1234
 typ: fp32
@@ -377,18 +323,12 @@ typ: fp32
 
 nebo ekvivalentní zkratka:
 ```yaml
-
 !!fp32 1234
 ```
 
-!!! note
+!!! note "Poznámka"
 
-	
-	
-	
 	Cast je také skvělým pomocníkem pro typovou inferenci, to znamená, že jej lze v případě potřeby použít k explicitnímu určení typu.
-	
-	
 
 ## Typy založené na schématu
 
@@ -403,7 +343,7 @@ Seznam typů založených na schématu:
  * `pydict<...>`
  * `json<...>`
 
-### Sestavená schémata
+### Vestavěná (build-in) schémata
 
- * ` `ANY`: Toto schéma deklaruje, že každý člen je typu `any`.
+ * `ANY`: Toto schéma deklaruje, že každý člen je typu `any`.
  * `VOID`: Toto schéma nemá žádný člen, pro určení typů polí použijte definici typu na místě.

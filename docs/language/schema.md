@@ -33,7 +33,7 @@ fields:
 ### Option `type`
 
 Defines the data type for the given attribute, such as `str`, `si64` and so on.
-Refer to a SP-Lang [type system](types) for more information.
+Refer to a SP-Lang [type system](../types) for more information.
 
 This option is mandatory.
 
