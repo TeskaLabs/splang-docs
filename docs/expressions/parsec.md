@@ -118,6 +118,59 @@ Synopsis:
 
 ---
 
+## `!PARSE.LETTERS`: Parse a sequence of letters
+
+Type: _Parser_.
+
+Synopsis:
+
+
+```yaml
+!PARSE.LETTERS
+min: <...>
+max: <...>
+exactly: <...>
+```
+Fields `min`, `max` and `exactly` are optional.
+
+!!! warning
+
+	`Exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
+
+!!! example
+
+	_Input string:_ `cat`
+
+	```yaml
+	!PARSE.LETTERS
+	max: 4
+	```
+
+<details>
+  <summary>More examples</summary>
+
+Parse as many letters as possible:
+```yaml
+!PARSE.LETTERS
+```
+
+Parse exactly 3 letters:
+```yaml
+!PARSE.LETTERS
+exactly: 3
+```
+
+Parse at least 2 letters, but not more than 4:
+```yaml
+!PARSE.LETTERS
+min: 2
+max: 4
+```
+
+</details>
+
+---
+
 ## `!PARSE.CHAR`: Parse a single character
 Any type of character.
 
