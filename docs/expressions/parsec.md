@@ -1133,10 +1133,10 @@ Synopsis:
 ```yaml
 !PARSE.CHARS.LOOKAHEAD
 what:
-	- <...>
-	- <...>
-	- <...>
-	...
+- <...>
+- <...>
+- <...>
+...
 eof: <true/false>
 ```
 
