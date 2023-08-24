@@ -1117,3 +1117,42 @@ _Input string:_ `<165>1 `
 ```
 
 _Output:_ `{'output.severity': 165, 'output.version': 1}`
+
+
+---
+
+## `!PARSE.CHARS.LOOKAHEAD`: Parse chars applying lookahead group
+
+Parse chars until specified lookahead group is found and stop before it.
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.CHARS.LOOKAHEAD
+what:
+	- <...>
+	- <...>
+	- <...>
+	...
+eof: <true/false>
+```
+
+- `eof` - indicates if we should parse till the end of the string if `what` lookahead group is not found.
+			Possible values: `true`(default) or `false`.
+
+
+## Example
+_Input string:_ `Rule Name cs=Proxy `
+
+```yaml
+!PARSE.CHARS.LOOKAHEAD
+what:
+- " "
+- !PARSE.LETTERS
+- '='
+```
+
+_Output:_ `Rule Name`
