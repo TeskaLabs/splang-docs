@@ -858,6 +858,7 @@ max: 5
 Type: _Combinator_.
 
 `!PARSE.TRIE` expression chooses one of the specified prefixes and parse the rest of the input string using the corresponding parser.
+If empty prefix is specified, corresponding parser will be used in case other prefixes are not matched.
 
 Synopsis:
 
@@ -887,6 +888,8 @@ _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnecte
 	- CLIENT_IP: !PARSE.UNTIL ' '
 	- 'port '
 	- CLIENT_PORT: !PARSE.DIGITS
+- '': !PARSE.KVLIST
+	- tags: ["unstructured-log"]
 ```
 
 
