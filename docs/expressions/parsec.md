@@ -948,7 +948,7 @@ _Input strings:_
 - !PARSE.EXACTLY {what: ']'}
 - !PARSE.OPTIONAL ':'
 - !PARSE.OPTIONAL
-	what: !PARSE.SPACE
+    what: !PARSE.SPACE
 - NAME: !PARSE.UNTIL {what: ' '}
 ```
 
@@ -1049,16 +1049,16 @@ _Input string:_ `<141>May  9 10:00:00 VUW-DC-F5-P2R1.source-net.com notice tmm1[
   - log.syslog.priority: !PARSE.DIGITS
   - '>'
   - '@timestamp': !PARSE.DATETIME
-				- month: !PARSE.MONTH 'short'
-				- !PARSE.SPACES
-				- day: !PARSE.DIGITS # Day
-				- !PARSE.SPACES
-				- hour: !PARSE.DIGITS # Hours
-				- ':'
-				- minute: !PARSE.DIGITS # Minutes
-				- ':'
-				- second: !PARSE.DIGITS # Seconds
-				- timezone: "Europe/Prague"
+                - month: !PARSE.MONTH 'short'
+                - !PARSE.SPACES
+                - day: !PARSE.DIGITS # Day
+                - !PARSE.SPACES
+                - hour: !PARSE.DIGITS # Hours
+                - ':'
+                - minute: !PARSE.DIGITS # Minutes
+                - ':'
+                - second: !PARSE.DIGITS # Seconds
+                - timezone: "Europe/Prague"
   - !PARSE.SPACES
   - host.hostname: !PARSE.UNTIL ' '
   - log.level: !PARSE.UNTIL ' '
