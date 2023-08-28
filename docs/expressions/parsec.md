@@ -878,20 +878,41 @@ _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnecte
 ```yaml
 !PARSE.TRIE
 - 'Received disconnect from ': !PARSE.KVLIST
-	- CLIENT_IP: !PARSE.UNTIL ' '
-	- 'port '
-	- CLIENT_PORT: !PARSE.DIGITS
-	- ':'
-	- !PARSE.CHARS
+							- CLIENT_IP: !PARSE.UNTIL ' '
+							- 'port '
+							- CLIENT_PORT: !PARSE.DIGITS
+							- ':'
+							- !PARSE.CHARS
 - 'Disconnected from user ': !PARSE.KVLIST
-	- USERNAME: !PARSE.UNTIL ' '
-	- CLIENT_IP: !PARSE.UNTIL ' '
-	- 'port '
-	- CLIENT_PORT: !PARSE.DIGITS
-- '': !PARSE.KVLIST
-	- tags: ["unstructured-log"]
+							- USERNAME: !PARSE.UNTIL ' '
+							- CLIENT_IP: !PARSE.UNTIL ' '
+							- 'port '
+							- CLIENT_PORT: !PARSE.DIGITS
 ```
 
+<details>
+  <summary>More examples</summary>
+
+<code>!PARSE.TRIE</code> expression with specified empty prefix for unmatched cases. <br>
+<i>Input string:</i><code>Failed password for root from 218.92.0.190 </code>
+```yaml
+!PARSE.TRIE
+- 'Received disconnect from ': !PARSE.KVLIST
+							- CLIENT_IP: !PARSE.UNTIL ' '
+							- 'port '
+							- CLIENT_PORT: !PARSE.DIGITS
+							- ':'
+							- !PARSE.CHARS
+- 'Disconnected from user ': !PARSE.KVLIST
+							- USERNAME: !PARSE.UNTIL ' '
+							- CLIENT_IP: !PARSE.UNTIL ' '
+							- 'port '
+							- CLIENT_PORT: !PARSE.DIGITS
+- '': !PARSE.KVLIST
+		- tags: ["unstructured-log"]
+```
+<i>Output:</i> <code>[(tags, ["unstructured-log"])]</code>
+</details>
 
 ---
 
