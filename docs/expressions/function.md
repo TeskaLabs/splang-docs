@@ -117,10 +117,10 @@ arg2: <value>
 	arguments: {x: int}
 	returns: int
 	do:
-	!IF # value <= 1
-	test: !GT [!ARG x, 1]
-	then: !MUL [!SELF {x: !SUB [!ARG x, 1]}, !ARG x]
-	else: 1
+	  !IF # value <= 1
+	    test: !GT [!ARG x, 1]
+	    then: !MUL [!SELF {x: !SUB [!ARG x, 1]}, !ARG x]
+	   else: 1
 	```
 
 	This expression defines a recursive function that takes a single integer argument `x` and returns an integer result.
