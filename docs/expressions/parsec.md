@@ -118,6 +118,59 @@ Synopsis:
 
 ---
 
+## `!PARSE.LETTERS`: Parse a sequence of letters
+
+Type: _Parser_.
+
+Synopsis:
+
+
+```yaml
+!PARSE.LETTERS
+min: <...>
+max: <...>
+exactly: <...>
+```
+Fields `min`, `max` and `exactly` are optional.
+
+!!! warning
+
+	`Exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
+
+!!! example
+
+	_Input string:_ `cat`
+
+	```yaml
+	!PARSE.LETTERS
+	max: 4
+	```
+
+<details>
+  <summary>More examples</summary>
+
+Parse as many letters as possible:
+```yaml
+!PARSE.LETTERS
+```
+
+Parse exactly 3 letters:
+```yaml
+!PARSE.LETTERS
+exactly: 3
+```
+
+Parse at least 2 letters, but not more than 4:
+```yaml
+!PARSE.LETTERS
+min: 2
+max: 4
+```
+
+</details>
+
+---
+
 ## `!PARSE.CHAR`: Parse a single character
 Any type of character.
 
@@ -805,6 +858,7 @@ max: 5
 Type: _Combinator_.
 
 `!PARSE.TRIE` expression chooses one of the specified prefixes and parse the rest of the input string using the corresponding parser.
+If empty prefix is specified, corresponding parser will be used in case other prefixes are not matched.
 
 Synopsis:
 
@@ -824,18 +878,41 @@ _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnecte
 ```yaml
 !PARSE.TRIE
 - 'Received disconnect from ': !PARSE.KVLIST
-	- CLIENT_IP: !PARSE.UNTIL ' '
-	- 'port '
-	- CLIENT_PORT: !PARSE.DIGITS
-	- ':'
-	- !PARSE.CHARS
+                            - CLIENT_IP: !PARSE.UNTIL ' '
+                            - 'port '
+                            - CLIENT_PORT: !PARSE.DIGITS
+                            - ':'
+                            - !PARSE.CHARS
 - 'Disconnected from user ': !PARSE.KVLIST
-	- USERNAME: !PARSE.UNTIL ' '
-	- CLIENT_IP: !PARSE.UNTIL ' '
-	- 'port '
-	- CLIENT_PORT: !PARSE.DIGITS
+                            - USERNAME: !PARSE.UNTIL ' '
+                            - CLIENT_IP: !PARSE.UNTIL ' '
+                            - 'port '
+                            - CLIENT_PORT: !PARSE.DIGITS
 ```
 
+<details>
+  <summary>More examples</summary>
+
+<code>!PARSE.TRIE</code> expression with specified empty prefix for unmatched cases. <br>
+<i>Input string:</i><code>Failed password for root from 218.92.0.190 </code>
+```yaml
+!PARSE.TRIE
+- 'Received disconnect from ': !PARSE.KVLIST
+                            - CLIENT_IP: !PARSE.UNTIL ' '
+                            - 'port '
+                            - CLIENT_PORT: !PARSE.DIGITS
+                            - ':'
+                            - !PARSE.CHARS
+- 'Disconnected from user ': !PARSE.KVLIST
+                            - USERNAME: !PARSE.UNTIL ' '
+                            - CLIENT_IP: !PARSE.UNTIL ' '
+                            - 'port '
+                            - CLIENT_PORT: !PARSE.DIGITS
+- '': !PARSE.KVLIST
+       - tags: ["trie-match-fail"]
+```
+<i>Output:</i> <code>[(tags, ["trie-match-fail"])]</code>
+</details>
 
 ---
 
@@ -871,7 +948,7 @@ _Input strings:_
 - !PARSE.EXACTLY {what: ']'}
 - !PARSE.OPTIONAL ':'
 - !PARSE.OPTIONAL
-	what: !PARSE.SPACE
+    what: !PARSE.SPACE
 - NAME: !PARSE.UNTIL {what: ' '}
 ```
 
@@ -972,16 +1049,16 @@ _Input string:_ `<141>May  9 10:00:00 VUW-DC-F5-P2R1.source-net.com notice tmm1[
   - log.syslog.priority: !PARSE.DIGITS
   - '>'
   - '@timestamp': !PARSE.DATETIME
-				- month: !PARSE.MONTH 'short'
-				- !PARSE.SPACES
-				- day: !PARSE.DIGITS # Day
-				- !PARSE.SPACES
-				- hour: !PARSE.DIGITS # Hours
-				- ':'
-				- minute: !PARSE.DIGITS # Minutes
-				- ':'
-				- second: !PARSE.DIGITS # Seconds
-				- timezone: "Europe/Prague"
+                - month: !PARSE.MONTH 'short'
+                - !PARSE.SPACES
+                - day: !PARSE.DIGITS # Day
+                - !PARSE.SPACES
+                - hour: !PARSE.DIGITS # Hours
+                - ':'
+                - minute: !PARSE.DIGITS # Minutes
+                - ':'
+                - second: !PARSE.DIGITS # Seconds
+                - timezone: "Europe/Prague"
   - !PARSE.SPACES
   - host.hostname: !PARSE.UNTIL ' '
   - log.level: !PARSE.UNTIL ' '
@@ -1061,3 +1138,42 @@ _Input string:_ `<165>1 `
 ```
 
 _Output:_ `{'output.severity': 165, 'output.version': 1}`
+
+
+---
+
+## `!PARSE.CHARS.LOOKAHEAD`: Parse chars applying lookahead group
+
+Parse chars until specified lookahead group is found and stop before it.
+
+Type: _Combinator_
+
+
+Synopsis:
+
+```yaml
+!PARSE.CHARS.LOOKAHEAD
+what:
+- <...>
+- <...>
+- <...>
+...
+eof: <true/false>
+```
+
+- `eof` - indicates if we should parse till the end of the string if `what` lookahead group is not found.
+			Possible values: `true`(default) or `false`.
+
+
+## Example
+_Input string:_ `Rule Name cs=Proxy `
+
+```yaml
+!PARSE.CHARS.LOOKAHEAD
+what:
+- " "
+- !PARSE.LETTERS
+- '='
+```
+
+_Output:_ `Rule Name`
