@@ -909,9 +909,9 @@ _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnecte
                             - 'port '
                             - CLIENT_PORT: !PARSE.DIGITS
 - '': !PARSE.KVLIST
-       - tags: ["unstructured-log"]
+       - tags: ["trie-match-fail"]
 ```
-<i>Output:</i> <code>[(tags, ["unstructured-log"])]</code>
+<i>Output:</i> <code>[(tags, ["trie-match-fail"])]</code>
 </details>
 
 ---
