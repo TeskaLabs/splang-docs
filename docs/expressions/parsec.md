@@ -570,6 +570,7 @@ what: 'full'
 ---
 
 ## `!PARSE.FRAC`: Parse a fraction
+Fraction parsing includes parsing of a dot (.) and a comma (,) separator.
 
 Type: _Parser_.
 
@@ -584,7 +585,7 @@ max: <...>
 - `base` - indicates a base of the fraction.
 			Possible values: `milli`, `micro`, `nano`.
 - `max` - indicates a maximum number of digits depending on the `base` value.
-			Possible values: `3`, `6`, `9` respectively.
+			Default values: `3`, `6`, `9` will be applied if `max` parametr is not specified.
 
 !!! tip
 	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of `!PARSE.DATETIME`.
@@ -597,9 +598,15 @@ max: <...>
 	```yaml
 	!PARSE.FRAC
 	base: "micro"
-	max: 6
 	```
 
+	or full form:
+
+	```yaml
+	!PARSE.FRAC
+	base: "micro"
+	max: 6
+	```
 
 ---
 
@@ -623,7 +630,7 @@ Synopsis:
 ```
 
 - Fields `month`, `day` are required.
-- Field `year` is optional. If not specified, the _smart year_ function will be used.
+- Field `year` is optional. If not specified, the _smart year_ function will be used. Two digit year option is supported.
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?`, allow to parse microseconds or not  depends on their present in the input string.
 - Field `timezone` is optional. If not specified, the default value `UTC` will be used. It can be specified in two different formats.
@@ -660,7 +667,6 @@ Shortcut forms are available (in both lower/upper variants):
 	- second: !PARSE.DIGITS
 	- microsecond: !PARSE.FRAC
 					base: "micro"
-					max: 6
 	- timezone: "Europe/Prague"
 	```
 
@@ -701,6 +707,25 @@ Parse datetime with timezone:<br>
 - ':'
 - second: !PARSE.DIGITS
 - timezone: !PARSE.CHARS
+```
+
+Parse datetime with two digit year:<br>
+<i>Input string:</i> <code>22-10-13T12:34:56.987654</code>
+```yaml
+!PARSE.DATETIME
+- year: !PARSE.DIGITS
+- '-'
+- month: !PARSE.MONTH 'number'
+- '-'
+- day: !PARSE.DIGITS
+- 'T'
+- hour: !PARSE.DIGITS
+- ':'
+- minute: !PARSE.DIGITS
+- ':'
+- second: !PARSE.DIGITS
+- microsecond: !PARSE.FRAC
+				base: "micro"
 ```
 
 Parse datetime using shortcut:<br>
