@@ -725,7 +725,7 @@ Parse datetime with two digit year:<br>
 - ':'
 - second: !PARSE.DIGITS
 - microsecond: !PARSE.FRAC
-				base: "micro"
+               base: "micro"
 ```
 
 Parse datetime using shortcut:<br>
@@ -756,8 +756,8 @@ Parse datetime with nanoseconds:<br>
 - !PARSE.EXACTLY { what: ':' }
 - second: !PARSE.DIGITS
 - nanosecond: !PARSE.FRAC
-  base: "nano"
-  max: 9
+              base: "nano"
+              max: 9
 ```
 </details>
 
