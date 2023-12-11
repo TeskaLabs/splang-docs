@@ -25,6 +25,8 @@ theme:
 
   logo: images/teskalabs-logo.svg
 
+  favicon: images/teskalabs.png
+
 extra_css:
   - stylesheets/extra.css
 
