@@ -11,6 +11,8 @@ The geopoint type provides a balance between precision and storage efficiency, m
 
 ## Format
 
+<img src="../geopoint.drawio.png" alt="Schema of the geopoint bit layout" />
+
 The higher 32 bits represent the longitude, and the lower 32 bits represent the latitude.
 Both longitude and latitude are encoded as signed 32-bit integers (si32), allowing for a high level of precision.
 
