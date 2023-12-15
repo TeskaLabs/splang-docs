@@ -18,7 +18,7 @@ Both longitude and latitude are encoded as signed 32-bit integers (si32), allowi
 
 ### Longitude
 
-Scale factor for longitude is: (2^32 / 360) = ~11930464.711111112
+Scale factor for longitude is: (2^32 / 360) = ~11930464.711
 
 Encoding: encoded = (longitude + 180) * (2^32 / 360)
 
@@ -26,7 +26,7 @@ Decoding: longitude = (encoded / (2^32 / 360)) - 180
 
 ### Latitude
 
-Scale factor for latitude is: (2^32 / 180) = ~23860929.422222223
+Scale factor for latitude is: (2^32 / 180) = ~23860929.422
 
 Encoding: encoded = (latitude + 90) * (2^32 / 180)
 
