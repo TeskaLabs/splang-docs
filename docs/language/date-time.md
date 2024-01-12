@@ -228,3 +228,51 @@ Likely the expression that produced this value failed in some way.
 
 The error code is stored in lower 32bits.
 
+
+## Mixed types
+
+Since `datetime` is 64bit integer, it could happen - yet this is *NOT* recommended - that another date/time representation is used.
+This is an table how to automatically detect a what format is used for a date/time representation.
+
+
+<table>
+<thead>
+	<tr>
+		<th>Representation</th>
+		<th>1st Jan 2000</th>
+		<th>1st Jan 2100</th>
+		<th>Lower range</th>
+		<th>Upper range</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>UNIX timestamp</td>
+		<td>   946 681 200</td>
+		<td> 4 102 441 200</td>
+		<td>             0</td>
+		<td>10 000 000 000</td>
+	</tr>
+	<tr>
+		<td>UNIX timestamp (milli)</td>
+		<td>   946 681 200 000</td>
+		<td> 4 102 441 200 000</td>
+		<td>   100 000 000 000</td>
+		<td>10 000 000 000 000</td>
+	</tr>
+	<tr>
+		<td>UNIX timestamp (micro)</td>
+		<td>   946 681 200 000 000</td>
+		<td> 4 102 441 200 000 000</td>
+		<td>   100 000 000 000 000</td>
+		<td>10 000 000 000 000 000</td>
+	</tr>
+	<tr>
+		<td>SP-Lang datetime</td>
+		<td>140 742 023 840 793 010</td>
+		<td>147 778 898 258 559 000</td>
+		<td>100 000 000 000 000 000</td>
+		<td>-</td>
+	</tr>
+</tbody>
+</table>
