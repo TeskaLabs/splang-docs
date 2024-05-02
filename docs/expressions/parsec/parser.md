@@ -715,7 +715,8 @@ Shortcut forms are available (in both lower/upper variants):
 !PARSE.DATETIME RFC3339
 ```
 
-This expression parses date-times defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+This expression parses datetimes defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+Timezone is always parsed from the input string.
 
 Example of date-times that can be parsed using the shortcut:
 
@@ -725,21 +726,41 @@ Example of date-times that can be parsed using the shortcut:
 2021-06-29 16:51:43.987654+02:00
 ```
 
+#### RFC 3164
+
+```yaml
+!PARSE.DATETIME RFC3164
+```
+
+This expression parses datetimes defined by [RFC 3164](https://www.rfc-editor.org/rfc/rfc3164).
+Year is provided by the _smart year_ function. Timezone can be set up in the lmio-parsec configuration.
+
+Example of date-times that can be parsed using the shortcut:
+
+```
+Apr 24 15:25:20
+Oct  3 20:33:02
+AUG  4 10:20:20
+```
+
+
 #### ISO 8601
 
 ```yaml
 !PARSE.DATETIME ISO8601
 ```
 
-This expression parses date-times defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+This expression parses datetimes defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+Timezone can be parsed from the input string or set up in the lmio-parsec configuration.
 
 Example of date-times that can be parsed using the shortcut:
 
 ```
 2024-04-12T10:16:21Z
 20240412T101621Z
-2024-04-12T03:16:21+00:00
+2024-12-11T11:17:21.123456+00:00
 2024-04-12T03:16:21−07:00
+2024-04-12T03:16:21
 ```
 
 ---
