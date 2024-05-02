@@ -718,7 +718,7 @@ Shortcut forms are available (in both lower/upper variants):
 This expression parses datetimes defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
 Timezone is always parsed from the input string.
 
-Example of date-times that can be parsed using the shortcut:
+Example of datetimes that can be parsed using the shortcut:
 
 ```
 1985-04-12T23:20:50.52Z
@@ -735,7 +735,7 @@ Example of date-times that can be parsed using the shortcut:
 This expression parses datetimes defined by [RFC 3164](https://www.rfc-editor.org/rfc/rfc3164).
 Year is provided by the _smart year_ function. Timezone can be set up in the lmio-parsec configuration.
 
-Example of date-times that can be parsed using the shortcut:
+Example of datetimes that can be parsed using the shortcut:
 
 ```
 Apr 24 15:25:20
@@ -753,7 +753,7 @@ AUG  4 10:20:20
 This expression parses datetimes defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 Timezone can be parsed from the input string or set up in the lmio-parsec configuration.
 
-Example of date-times that can be parsed using the shortcut:
+Example of datetimes that can be parsed using the shortcut:
 
 ```
 2024-04-12T10:16:21Z
