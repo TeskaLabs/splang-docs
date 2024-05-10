@@ -568,7 +568,7 @@ Synopsis:
 ```
 
 - Fields `month` and `day` are required.
-- Field `year` is optional. If not specified, the _smart year_ function will be used. Two digit year option is supported.
+- Field `year` is optional. If not specified, the [smart year](#smart-year) function will be used. Two digit year option is supported.
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?` allows you to parse microseconds or not, depending on their presence in the input string.
 - Field `timezone` is optional. If not specified, the default value `UTC` will be used. It can be specified in two different formats.
@@ -576,7 +576,7 @@ Synopsis:
     2. `Europe/Prague` - specified as a constant value.
 
 
-There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortcuts](#shortuts).
+There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortcuts](#shortcuts).
 
 !!! example
 	_Input string:_ `2022-10-13T12:34:56.987654`
@@ -704,26 +704,14 @@ There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortc
 				base: "nano"
 				max: 9
 	```
+### Smart year
 
+The `smart year` function is designed to predict the complete year from a provided month by taking into account the
+current year and month to determine the most likely corresponding four-digit year.
 
 ### Shortcuts
 Shortcut forms are available (in both lower/upper variants):
 
-#### RFC 3339
-
-```yaml
-!PARSE.DATETIME RFC3339
-```
-
-This expression parses date-times defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
-
-Example of date-times that can be parsed using the shortcut:
-
-```
-1985-04-12T23:20:50.52Z
-1996-12-19T16:39:57-08:00
-2021-06-29 16:51:43.987654+02:00
-```
 
 #### ISO 8601
 
@@ -731,15 +719,51 @@ Example of date-times that can be parsed using the shortcut:
 !PARSE.DATETIME ISO8601
 ```
 
-This expression parses date-times defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+This expression parses datetimes defined by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+Timezone can be parsed from the input string or, if not present, it can be set in the lmio-parsec configuration.
 
-Example of date-times that can be parsed using the shortcut:
+Example of datetimes that can be parsed using the shortcut:
 
 ```
 2024-04-12T10:16:21Z
 20240412T101621Z
-2024-04-12T03:16:21+00:00
+2024-12-11T11:17:21.123456+00:00
 2024-04-12T03:16:21−07:00
+2024-04-12T03:16:21
+```
+
+#### RFC 3339
+
+```yaml
+!PARSE.DATETIME RFC3339
+```
+
+This expression parses datetimes defined by [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339).
+Timezone is always parsed from the input string.
+
+Example of datetimes that can be parsed using the shortcut:
+
+```
+1985-04-12T23:20:50.52Z
+1996-12-19T16:39:57-08:00
+2021-06-29 16:51:43.987654+02:00
+```
+
+#### RFC 3164
+
+```yaml
+!PARSE.DATETIME RFC3164
+```
+
+This expression parses datetimes defined by [RFC 3164](https://www.rfc-editor.org/rfc/rfc3164).
+Year is provided by the [smart year](#smart-year) function. Timezone must be set in LogMan.io Parsec configuration, otherwise considered as UTC.
+
+Example of datetimes that can be parsed using the shortcut:
+
+```
+Apr 24 15:25:20
+Oct  3 20:33:02
+AUG  4 10:20:20
 ```
 
 ---
