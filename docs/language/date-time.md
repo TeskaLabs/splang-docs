@@ -231,7 +231,7 @@ The error code is stored in lower 32bits.
 
 ## Mixed types
 
-Since `datetime` is 64bit integer, it could happen - yet this is *NOT* recommended - that another date/time representation is used.
+Since `datetime` is 64bit unsigned integer, it could happen - yet this is *NOT* recommended - that another date/time representation is used.
 This is an table how to automatically detect a what format is used for a date/time representation.
 
 
