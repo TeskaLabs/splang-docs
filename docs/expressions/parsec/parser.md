@@ -15,6 +15,11 @@ Basic parsers can differentiate between digits, letters and spaces:
 - `!PARSE.SPACE`, `!PARSE.SPACES`: parse single or multiple whitespace characters
 - `!PARSE.CHAR`, `!PARSE.CHARS`: parse single or multiple characters
 
+The following expressions are used for parsing specific types of strings:
+
+- `!PARSE.IP`: parse IP address
+- `!PARSE.MAC`: parse MAC address
+
 The following expressions are used for parsing characters from custom set of characters and looking for specific characters in input strings:
 
 - `!PARSE.EXACTLY`: parse only specific sequence of characters 
@@ -293,6 +298,52 @@ max: 4
 
 ---
 
+## `!PARSE.IP`: Parse an IP address
+
+Parse IP address in both IPv4 and IPv6 formats. Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#ip-address) of the IP address. 
+
+Type: _Parser_.
+
+Synopsis:
+
+```yaml
+!PARSE.IP
+```
+
+!!! example
+
+	_Input string:_ `193.178.72.2`
+
+	```yaml
+	!PARSE.IP
+	```
+
+
+---
+
+## `!PARSE.MAC`: Parse a MAC address
+
+Parse MAC address in the format `XX:XX:XX:XX:XX:XX`. Returns numeric representation of the MAC address. 
+
+
+Type: _Parser_.
+
+Synopsis:
+
+```yaml
+!PARSE.MAC
+```
+
+!!! example
+
+	_Input string:_ `4d:3b:4c:bc:e5:6d`
+
+	```yaml
+	!PARSE.MAC
+	```
+
+
+---
 
 ## `!PARSE.EXACTLY`: Parse precisely a defined sequence of characters
 
