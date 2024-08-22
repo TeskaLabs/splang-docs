@@ -117,6 +117,19 @@ Underlying scalar type: `ui128`
     For example, the IPv4 address `12.23.45.67` will be mapped into IPv6 address `::ffff:c17:2d43`.
 
 
+### MAC Address
+
+This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address).
+
+!!! note "What is MAC Address?"
+
+    A MAC address (short for medium access control address) is a unique identifier assigned to a network card etc.
+
+`mac`
+
+Underlying scalar type: `ui64`, only 6 octecs are used.
+
+
 ### Geographical coordinate
 
 This type represents geographical coordinate, specifically longitude and latitude.
