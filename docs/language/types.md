@@ -119,7 +119,7 @@ Underlying scalar type: `ui128`
 
 ### MAC Address
 
-This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address).
+This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address), (EUI-48).
 
 !!! note "What is MAC Address?"
 
@@ -127,7 +127,7 @@ This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address)
 
 `mac`
 
-Underlying scalar type: `ui64`, only 6 octecs are used.
+Underlying scalar type: `ui64`, only 6 octecs are used in EUI-48.
 
 
 ### Geographical coordinate
