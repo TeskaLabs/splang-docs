@@ -323,7 +323,7 @@ Synopsis:
 
 ## `!PARSE.MAC`: Parse a MAC address
 
-Parse MAC address in the format `XX:XX:XX:XX:XX:XX`. Returns numeric representation of the MAC address. 
+Parse MAC address in the format `XX:XX:XX:XX:XX:XX`. Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#mac-address) of the MAC address.
 
 
 Type: _Parser_.
