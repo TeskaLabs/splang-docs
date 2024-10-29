@@ -235,7 +235,7 @@ what: <...>
     what: ["FooBar", "Baz"]
     ```
 
-    Returns list of values `['foobar', 'baz']`.
+    Returns list of values `["foobar", "baz"]`.
 
 ---
 
@@ -371,7 +371,7 @@ items:
   - <...>
   - <...>
 delimiter: <string>
-miss: ''
+miss: ""
 ```
 
 Default `delimiter` is space (" ").
@@ -386,5 +386,5 @@ If `miss` is `None` and  any of `items` is `None`, the result of the whole join 
     items:
       - "Foo"
       - "Bar"
-    delimiter: ','
+    delimiter: ","
     ```
