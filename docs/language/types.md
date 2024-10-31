@@ -117,6 +117,30 @@ Underlying scalar type: `ui128`
     For example, the IPv4 address `12.23.45.67` will be mapped into IPv6 address `::ffff:c17:2d43`.
 
 
+### MAC Address
+
+This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address), (EUI-48).
+
+!!! note "What is MAC Address?"
+
+    A MAC address (short for medium access control address) is a unique identifier assigned to a network card etc.
+
+`mac`
+
+Underlying scalar type: `ui64`, only 6 octecs are used in EUI-48.
+
+
+### Geographical coordinate
+
+This type represents geographical coordinate, specifically longitude and latitude.
+
+`geopoint`
+
+Underlying scalar type: `u64`
+
+More detailed description of geopoint is [here](../geopoint).
+
+
 ## Generic types
 
 Generic types are used in the early stage of the SP-Lang parsing, optimization and compilation.

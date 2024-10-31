@@ -205,6 +205,8 @@ to: <...>
 
 ## `!LOWER`: Transform string to lower-case 
 
+Transform a string or list of strings input to lowercase format.
+
 Type: _Mapping_
 
 
@@ -225,6 +227,15 @@ what: <...>
 
     Returns `foobar`.
 
+
+!!! example
+
+    ```yaml
+    !LOWER
+    what: ["FooBar", "Baz"]
+    ```
+
+    Returns list of values `["foobar", "baz"]`.
 
 ---
 
@@ -360,7 +371,7 @@ items:
   - <...>
   - <...>
 delimiter: <string>
-miss: ''
+miss: ""
 ```
 
 Default `delimiter` is space (" ").
@@ -375,5 +386,5 @@ If `miss` is `None` and  any of `items` is `None`, the result of the whole join 
     items:
       - "Foo"
       - "Bar"
-    delimiter: ','
+    delimiter: ","
     ```
