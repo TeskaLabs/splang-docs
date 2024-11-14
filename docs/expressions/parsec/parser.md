@@ -770,6 +770,28 @@ Oct  3 20:33:02
 AUG  4 10:20:20
 ```
 
+#### Epoch
+
+```yaml
+!PARSE.DATETIME EPOCH
+```
+
+```yaml
+!PARSE.DATETIME epoch
+```
+
+This expression parses datetimes defined by [Unix time](https://en.wikipedia.org/wiki/Unix_time).
+Expression allows parsing for different Unix datetime representations, such as seconds, milliseconds, microseconds and seconds
+with micro/milliseconds floating point.
+
+Example of datetimes that can be parsed using the shortcut:
+
+```
+1731410205 - seconds
+1727951634.687 - seconds with microseconds floating point
+1728564383160 - milliseconds
+```
+
 ---
 
 
