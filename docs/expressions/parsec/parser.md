@@ -352,6 +352,8 @@ or shorter version:
 - `eof`: Indicates if we should parse till the end of the string if `what` symbol is not found.
 			Possible values: `true` or `false` (default).
 
+- `escape`: Indicates escape character.
+
 
 !!! info
 
@@ -394,6 +396,18 @@ Parse until <code>tab</code> symbol:
 !PARSE.UNTIL
 what: 'tab'
 ```
+
+Parse until vertical slash, escape internal vertical slashes:<br>
+
+<i>Input string:</i><code>CRED_REFR\|success\|fail|</code>
+
+```yaml
+!PARSE.UNTIL
+what: '|'
+escape: '\'
+```
+
+
 </details>
 
 
@@ -451,7 +465,7 @@ Parse between double-quotes, short form:
 
 Parse between double-quotes, escape internal double-quotes:<br>
 
-<i>Input string:</i><code>"one, "two", three"</code>
+<i>Input string:</i><code>"one, \"two\", three"</code>
 
 ```yaml
 !PARSE.BETWEEN
