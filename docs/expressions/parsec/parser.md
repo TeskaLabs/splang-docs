@@ -596,7 +596,7 @@ Synopsis:
     For parsing datetime in [UNIX time](https://en.wikipedia.org/wiki/Unix_time), use [`!PARSE.DATETIME EPOCH`](#epoch).
 
 !!! tip
-    Use [`!PARSE.MONTH`](#parsemonth-parse-a-month-name) for parsing months in datetime.
+    Use [`!PARSE.MONTH`](#parsemonth-parse-a-month-name) for parsing a month.
 
 !!! tip
     Use [`!PARSE.FRAC`](#parsefrac-parse-a-fraction) for parsing microseconds and nanoseconds. Note that this expression consumes `.` and `,` as well. Do not parse them separately.
