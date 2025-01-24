@@ -970,19 +970,24 @@ max: <...>
 	Default values `3`, `6`, `9` will be applied if `max` parametr is not specified.
 
 !!! tip
-	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of `!PARSE.DATETIME`.
+	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format).
 
 
 !!! example
 
-	_Input string:_ `Aug 22 05:40:14`==.264==
+    Input strings:
+
+    ```
+    Aug 22 05:40:14.264
+    Aug 22 05:40:14.264023
+    ```
 
 	```yaml
 	!PARSE.FRAC
 	base: "micro"
 	```
 
-	or full form:
+	or the full form:
 
 	```yaml
 	!PARSE.FRAC
