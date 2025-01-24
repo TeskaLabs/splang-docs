@@ -584,7 +584,7 @@ Synopsis:
 ```
 
 - Fields `month` and `day` are required.
-- Field `year` is optional. If not specified, the [smart year](#smart-year) function will be used. Two digit year option is supported.
+- Field `year` is optional. If not specified, the [smart year](#smart-year) function will be used. Both 2 and 4-digit numbers are supported.
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?` allows you to parse microseconds or not, depending on their presence in the input string.
 - Field `timezone` is optional. If not specified, the default value `UTC` will be used. [Read more about timezone parsing here.](#timezone)
@@ -595,6 +595,11 @@ Synopsis:
 !!! tip "UNIX time"
     For parsing datetime in [UNIX time](https://en.wikipedia.org/wiki/Unix_time), use [`!PARSE.DATETIME EPOCH`](#epoch).
 
+!!! tip
+    Use [`!PARSE.MONTH`](#parsemonth-parse-a-month-name) for parsing months in datetime.
+
+!!! tip
+    Use [`!PARSE.FRAC`](#parsefrac-parse-a-fraction) for parsing microseconds and nanoseconds. Note that this expression consumes `.` and `,` as well. Do not parse them separately.
 
 !!! example
 	_Input string:_ `2022-10-13T12:34:56.987654`
@@ -617,6 +622,29 @@ Synopsis:
 	```
 
 
+??? example "Two-digit year"
+
+	Parse datetime with two-digit year:
+
+	_Input string:_ `22-10-13T12:34:56.987654`
+
+	```yaml hl_lines="2"
+	!PARSE.DATETIME
+	- year: !PARSE.DIGITS  # Year can be either 4-digit or 2-digit
+	- '-'
+	- month: !PARSE.MONTH "number"
+	- '-'
+	- day: !PARSE.DIGITS
+	- 'T'
+	- hour: !PARSE.DIGITS
+	- ':'
+	- minute: !PARSE.DIGITS
+	- ':'
+	- second: !PARSE.DIGITS
+	- microsecond: !PARSE.FRAC
+				base: micro
+	```
+
 ??? example "No year, optional microseconds"
 
 	Parse datetime without a year, with short month form and optional microseconds:
@@ -632,16 +660,16 @@ Synopsis:
 	```yaml hl_lines="2 12"
 	!PARSE.DATETIME
     # There is no year in input string, smart year function is used.
-	- month: !PARSE.MONTH 'short'  # Month
+	- month: !PARSE.MONTH 'short'
 	- !PARSE.SPACE
-	- day: !PARSE.DIGITS  # Day
+	- day: !PARSE.DIGITS
 	- !PARSE.SPACE
-	- hour: !PARSE.DIGITS  # Hour
+	- hour: !PARSE.DIGITS
 	- ":"
-	- minute: !PARSE.DIGITS  # Minutes
+	- minute: !PARSE.DIGITS
 	- ":"
-	- second: !PARSE.DIGITS  # Seconds
-	- microsecond?: !PARSE.FRAC  # Microseconds are optional
+	- second: !PARSE.DIGITS
+	- microsecond?: !PARSE.FRAC  # Parsing of microseconds is optional here
 					base: "micro"
 					max: 6
 	```
@@ -649,28 +677,6 @@ Synopsis:
 	In this case, `year` is automatically determined by the _smart year_ function, which basically means that the current year is used.
 
 
-??? example "Two-digit year"
-
-	Parse datetime with two-digit year:
-
-	_Input string:_ `22-10-13T12:34:56.987654`
-
-	```yaml
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- '-'
-	- month: !PARSE.MONTH 'number'
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- microsecond: !PARSE.FRAC
-				base: "micro"
-	```
 
 ??? example "Milliseconds"
 
@@ -678,7 +684,7 @@ Synopsis:
 
 	_Input string:_ `2023-03-23T07:00:00.734`
 
-	```yaml
+	```yaml hl_lines="13-15"
 	!PARSE.DATETIME
 	- year: !PARSE.DIGITS
 	- "-"
@@ -692,7 +698,7 @@ Synopsis:
 	- ":"
 	- second: !PARSE.DIGITS
 	- microsecond: !PARSE.FRAC
-				base: "milli"
+				base: milli
 				max: 3
 	```
 
@@ -702,7 +708,7 @@ Synopsis:
 
 	_Input string:_ `2023-03-23T07:00:00.734323900`
 
-	```yaml
+	```yaml hl_lines="13-15"
 	!PARSE.DATETIME
 	- year: !PARSE.DIGITS
 	- "-"
@@ -744,7 +750,7 @@ Timezone can be either specified in the log or it can be missing. There are two 
     This will come handy when the timezone is missing in the log or when it is used incorrectly.
 
 
-!!! example "Timezone from input"
+??? example "Timezone from input"
 
 	Parse datetime which contains timezone in input strings.
 
@@ -774,7 +780,7 @@ Timezone can be either specified in the log or it can be missing. There are two 
 	```
 
 
-!!! example "Fixed timezone"
+??? example "Fixed timezone"
 
 	Parse datetime with fixed timezone.
 
