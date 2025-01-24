@@ -62,7 +62,7 @@ Typy jsou odvozeny z jejich použití, aniž by byly deklarovány.
 Například nastavení proměnné na číslo vede k tomu, že typ této proměnné je stanoven jako číslo.
 To dále snižuje složitost pro tvůrce bez oběti na výkonu známé z interpretovaných jazyků.
 
-Pro pokročilé uživatele, kteří vyžadují větší kontrolu nad typovým systémem, poskytuje SP-Lang mechanismy pro explicitní určení typů nebo interakci s [typovým systémem](../types) v případě potřeby.
+Pro pokročilé uživatele, kteří vyžadují větší kontrolu nad typovým systémem, poskytuje SP-Lang mechanismy pro explicitní určení typů nebo interakci s [typovým systémem](../types.md) v případě potřeby.
 Tato flexibilita umožňuje pokročilým uživatelům vyladit svůj kód pro maximální výkon a spolehlivost a zároveň využívat pohodlí typové inference.
 
 

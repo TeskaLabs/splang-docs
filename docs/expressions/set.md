@@ -91,7 +91,7 @@ where: <set>
 
 Check if `item` is present in the `set`.
 
-The expression `!IN` is described in the [Comparisons](../comparisons/#in-membership-test) chapter.
+The expression `!IN` is described in the [Comparisons](./comparisons.md#in-membership-test) chapter.
 
 !!! example
 

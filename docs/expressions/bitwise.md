@@ -8,7 +8,7 @@ title: Bitwise
 The bit shifts treat a value as a series of bits, the binary digits of the value are moved, or shifted, to the left or right.
 
 
-There are also bitwise `!AND`, `!OR` and `!NOT` expression, at [Logic](../logic) chapter.
+There are also bitwise `!AND`, `!OR` and `!NOT` expression, at [Logic](./logic.md) chapter.
 
 ---
 

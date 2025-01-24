@@ -11,7 +11,7 @@ It is in the UTC timezone.
 
 !!! info
 
-	For more information about `datatime` type, continue [here](../../language/date-time).
+	For more information about `datatime` type, continue [here](../language/date-time.md).
 
 ---
 

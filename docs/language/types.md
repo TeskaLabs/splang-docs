@@ -100,7 +100,7 @@ Broken time means that `year`, `month`, `day`, `hour`, `minute`, `second` and `m
     * `S` / `second`
     * `u` / `microsecond`
 
-More detailed description of date/time is [here](../date-time).
+More detailed description of date/time is [here](./date-time.md).
 
 
 ### IP Address
@@ -138,7 +138,7 @@ This type represents geographical coordinate, specifically longitude and latitud
 
 Underlying scalar type: `u64`
 
-More detailed description of geopoint is [here](../geopoint).
+More detailed description of geopoint is [here](./geopoint.md).
 
 
 ## Generic types
@@ -366,7 +366,7 @@ or an equivalent shortcut:
 
 _Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
 Schema is basically a directory that maps fields to their types and so on.
-For more information, continue to a chapter about SP-Lang [schemas](../schema).
+For more information, continue to a chapter about SP-Lang [schemas](./schema.md).
 
 SP-Lang Schema-based type specifies the schema by a _schema name_: `json<SCHEMANAME>`.
 The _schema name_ is used to locate the schema definition eg. in the library.
