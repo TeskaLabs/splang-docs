@@ -757,7 +757,7 @@ Timezone can be either specified in the log or it can be missing. There are two 
 	_Input strings_:
 
 	```
-	2024-04-15T12:00:00+04:00 ...(something something)
+	2024-04-15T12:00:00+04:00 ...(other log content)
 	2024-04-15T12:00:00+02:00 ...
 	2024-04-15T12:00:00+00:00 ...
 	2024-04-15T12:00:00-02:00 ...
@@ -777,37 +777,6 @@ Timezone can be either specified in the log or it can be missing. There are two 
 	- ':'
 	- second: !PARSE.DIGITS
 	- timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
-	```
-
-
-??? example "Fixed timezone"
-
-	Parse datetime with fixed timezone.
-
-	_Input strings_:
-
-	```
-	2024-04-15T12:00:00+04:00 ...(something something)
-	2024-04-15T12:00:00+02:00 ...
-	2024-04-15T12:00:00+00:00 ...
-	2024-04-15T12:00:00-02:00 ...
-	```
-
-	```yaml hl_lines="13-14"
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- '-'
-	- month: !PARSE.MONTH 'number'
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- timezone: Europe/Prague  # Use fixed timezone
-    - !PARSE.UNTIL " "  # We need to skip the timezone part from input
 	```
 
 
