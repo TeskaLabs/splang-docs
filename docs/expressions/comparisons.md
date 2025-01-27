@@ -23,6 +23,8 @@ Test expression evaluates inputs and returns boolean value `true` or `false` bas
 
 Equal to.
 
+Type: _Sequence_.
+
 !!! example
 
     ```yaml
@@ -32,7 +34,6 @@ Equal to.
     ```
 
     This compares `count` argument with `3`, returns `count == 3`
-
 
 ---
 

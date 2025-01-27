@@ -107,6 +107,7 @@ nav:
       - language/types/container-types.md
 
   - Expressions:
+    - expressions/index.md
     - expressions/aggregate.md
     - expressions/arithmetics.md
     - expressions/bitwise.md
