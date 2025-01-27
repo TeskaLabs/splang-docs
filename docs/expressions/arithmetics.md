@@ -8,13 +8,13 @@ title: Arithmetic
 
 Arithmetic expressions are used for basic arithmetic operations with data.
 
-* [`!ADD`](#add): Addition
-* [`!SUB`](#sub): Subtraction
-* [`!MUL`](#mul): Multiplication
-* [`!DIV`](#div): Division
-* [`!MOD`](#mod): Modulo (remainder after division)
-* [`!POW`](#pow): Exponentiation
-* [`!ABS`](#abs): Absolute value
+* [`!ADD`](#add): Addition.
+* [`!SUB`](#sub): Subtraction.
+* [`!MUL`](#mul): Multiplication.
+* [`!DIV`](#div): Division.
+* [`!MOD`](#mod): Modulo (remainder after division).
+* [`!POW`](#pow): Exponentiation.
+* [`!ABS`](#abs): Absolute value.
 
 
 ---
@@ -25,12 +25,12 @@ Type: _Sequence_
 
 You can add following types:
 
- * Numbers (Integers and floats)
- * Strings
- * Lists
- * Sets
- * Tuples
- * Records
+* Numbers (Integers and floats)
+* Strings
+* Lists
+* Sets
+* Tuples
+* Records
 
 !!! example
 
