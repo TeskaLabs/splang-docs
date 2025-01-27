@@ -62,4 +62,3 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | `!TRY` | sequence | Execute till first non-error expression. |
 | `!MAP` | mapping | Apply the expression on each element in a sequence. |
 | `!REDUCE` | mapping | Reduce the elements of an list into a single value. |
-

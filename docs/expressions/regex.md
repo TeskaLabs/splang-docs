@@ -167,4 +167,4 @@ Parse by a regular expression.
 
 Type: _Mapping_.
 
-See the chapter [`!PARSE.REGEX`](./parsec/parser.md/#parseregex-parse-a-sequence-of-characters-that-matches-a-regular-expression)
+See the chapter [`!PARSE.REGEX`](./parsec/parser.md/#parseregex)
