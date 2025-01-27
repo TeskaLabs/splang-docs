@@ -131,3 +131,6 @@ nav:
       - expressions/parsec/index.md
       - expressions/parsec/parser.md
       - expressions/parsec/combinator.md
+
+  - Visual Programming:
+    - visual/index.md
