@@ -11,7 +11,7 @@ They specify how parsing is applied, what is the output type. They can be used f
 
 **Output selectors** determine the type of output:
 
-- [`!PARSE.KVLIST`](#parsekvlist-parse-list-of-key-value-pairs): Parse sequence of keys and values into [bag type](../../language/types.md#bag).
+- [`!PARSE.KVLIST`](#parsekvlist-parse-list-of-key-value-pairs): Parse sequence of keys and values into [bag type](../../language/types/index.md#bag).
 - [`!PARSE.KV`](#parsekv-parse-key-value-pair): Parse key and value from the input string.
 - [`!PARSE.TUPLE`](#parsetuple-parse-list-of-values-to-tuple): Parse into [tuple type](../tuple.md).
 - [`!PARSE.RECORD`](#parserecord-parse-list-of-values-to-record-structure)
@@ -33,7 +33,7 @@ They specify how parsing is applied, what is the output type. They can be used f
 
 Type: _Combinator_
 
-Iterating through list of elements `!PARSE.KVLIST` expression collects key-value pairs to [bag](../../language/types.md#bag).
+Iterating through list of elements `!PARSE.KVLIST` expression collects key-value pairs to [bag](../../language/types/index.md#bag).
 
 Synopsis:
 ```yaml

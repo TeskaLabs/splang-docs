@@ -10,30 +10,30 @@ Parser expressions are functions for parsing a certain sequence of characters.
 
 Basic parsers can differentiate between digits, letters and spaces:
 
-- [`!PARSE.DIGIT`](#parsedigit-parse-a-single-digit), [`!PARSE.DIGITS`](#parsedigits-parse-a-sequence-of-digits): parse single or multiple digits
-- [`!PARSE.LETTER`](#parseletter-parse-a-single-letter), [`!PARSE.LETTERS`](#parseletters-parse-a-sequence-of-letters): parse single or multiple letters
+- [`!PARSE.DIGIT`](#parsedigit-parse-a-single-digit), [`!PARSE.DIGITS`](#parsedigits-parse-a-sequence-of-digits): parse single or multiple digits.
+- [`!PARSE.LETTER`](#parseletter-parse-a-single-letter), [`!PARSE.LETTERS`](#parseletters-parse-a-sequence-of-letters): parse single or multiple letters.
 - [`!PARSE.SPACE`](#parsespace-parse-a-single-space-character), [`!PARSE.SPACES`](#parsespaces-parse-a-sequence-of-space-characters): parse single or multiple whitespace characters
-- [`!PARSE.CHAR`](#parsechar-parse-a-single-character), [`!PARSE.CHARS`](#parsechars-parse-a-sequence-of-characters): parse single or multiple characters
+- [`!PARSE.CHAR`](#parsechar-parse-a-single-character), [`!PARSE.CHARS`](#parsechars-parse-a-sequence-of-characters): parse single or multiple characters.
 
 The following expressions are used for parsing characters from custom set of characters and looking for specific characters in input strings:
 
-- [`!PARSE.EXACTLY`](#parseexactly-parse-precisely-a-defined-sequence-of-characters): parse only specific sequence of characters 
-- [`!PARSE.UNTIL`](#parseuntil-parse-a-sequence-of-characters-until-a-specific-character-is-found): parse till a specific character is found
-- [`!PARSE.BETWEEN`](#parsebetween-parse-a-sequence-of-characters-between-two-specific-characters): parse between two characters
-- [`!PARSE.ONEOF`](#parseoneof-parse-a-single-character-from-a-set-of-characters): parse only one of allowed characters
-- [`!PARSE.NONEOF`](#parsenoneof-parse-a-single-character-that-is-not-in-a-set-of-characters): parse every character except forbidden ones
-- [`!PARSE.REGEX`](#parseregex-parse-a-sequence-of-characters-that-matches-a-regular-expression): parse characters matching a regular expression
+- [`!PARSE.EXACTLY`](#parseexactly-parse-precisely-a-defined-sequence-of-characters): parse only specific sequence of characters.
+- [`!PARSE.UNTIL`](#parseuntil-parse-a-sequence-of-characters-until-a-specific-character-is-found): parse till a specific character is found.
+- [`!PARSE.BETWEEN`](#parsebetween-parse-a-sequence-of-characters-between-two-specific-characters): parse between two characters.
+- [`!PARSE.ONEOF`](#parseoneof-parse-a-single-character-from-a-set-of-characters): parse only one of allowed characters.
+- [`!PARSE.NONEOF`](#parsenoneof-parse-a-single-character-that-is-not-in-a-set-of-characters): parse every character except forbidden ones.
+- [`!PARSE.REGEX`](#parseregex-parse-a-sequence-of-characters-that-matches-a-regular-expression): parse characters matching a regular expression.
 
 The following expressions are used for parsing dates and times in various formats:
 
-- [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format): parse date and time
-- [`!PARSE.MONTH`](#parsemonth-parse-a-month-name): parse month in various formats
-- [`!PARSE.FRAC`](#parsefrac-parse-a-fraction): parse decimal numbers (which is useful for parsing microseconds)
+- [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format): parse date and time.
+- [`!PARSE.MONTH`](#parsemonth-parse-a-month-name): parse month in various formats.
+- [`!PARSE.FRAC`](#parsefrac-parse-a-fraction): parse decimal numbers (which is useful for parsing microseconds).
 
 The following expressions are used for parsing specific types of strings:
 
-- [`!PARSE.IP`](#parseip-parse-an-ip-address): parse IP address
-- [`!PARSE.MAC`](#parsemac-parse-a-mac-address): parse MAC address
+- [`!PARSE.IP`](#parseip-parse-an-ip-address): parse IP address.
+- [`!PARSE.MAC`](#parsemac-parse-a-mac-address): parse MAC address.
 
 ---
 

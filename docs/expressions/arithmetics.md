@@ -1,13 +1,25 @@
 ---
-title: Arithmetics
+title: Arithmetic
 ---
 
-# Arithmetics expressions
+# Arithmetic expressions
+
+## Overview
+
+Arithmetic expressions are used for basic arithmetic operations with data.
+
+* [`!ADD`](#add): Addition
+* [`!SUB`](#sub): Subtraction
+* [`!MUL`](#mul): Multiplication
+* [`!DIV`](#div): Division
+* [`!MOD`](#mod): Modulo (remainder after division)
+* [`!POW`](#pow): Exponentiation
+* [`!ABS`](#abs): Absolute value
 
 
 ---
 
-## `!ADD`: Addition 
+## `!ADD`
 
 Type: _Sequence_
 
@@ -33,7 +45,7 @@ You can add following types:
 
 ---
 
-## `!SUB`: Substraction 
+## `!SUB`
 
 Type: _Sequence_
 
@@ -51,7 +63,7 @@ Type: _Sequence_
 ---
 
 
-## `!MUL`: Multiplication 
+## `!MUL`
 
 Type: _Sequence_
 
@@ -68,7 +80,7 @@ Type: _Sequence_
 
 ---
 
-## `!DIV`: Division 
+## `!DIV`
 
 Type: _Sequence_
 
@@ -101,7 +113,7 @@ The second item is a value that will be returned when such an error occurs.
 
 ---
 
-## `!MOD`: Remainder 
+## `!MOD`
 
 Type: _Sequence_
 
@@ -133,7 +145,7 @@ Calculate the signed remainder of a division (aka modulo operation).
 
 ---
 
-## `!POW`: Exponentiation 
+## `!POW`
 
 Type: _Sequence_
 
@@ -152,7 +164,7 @@ Calculate the exponent.
 
 ---
 
-## `!ABS`: Absolute value
+## `!ABS`
 
 Type: _Mapping_
 

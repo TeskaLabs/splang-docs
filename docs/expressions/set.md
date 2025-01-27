@@ -2,8 +2,9 @@
 title: Set
 ---
 
-# Set expression
+# Set expressions
 
+## Overview
 
 The set store unique items, without any particular order.
 Items in the set must be of the same type.
@@ -11,9 +12,14 @@ The set is one of basic data structures provided by SP-Lang.
 
 A set is best suited for a testing value for membership rather than retrieving a specific element from a set.
 
---- 
+* [`!SET`](#set): Set of items.
+* [`!IN`](#in): Membership test.
 
-## `!SET`: Set of items 
+---
+
+## `!SET`
+
+Set of items.
 
 Type:  _Implicit sequence_, _Mapping_.
 
@@ -42,7 +48,7 @@ There are several ways, how a set can be specified in SP-Lang:
     - "Five"
     ```
 
-!!! example
+!!! example "Unordered set"
 
     [YAML unordered set](https://yaml.org/spec/1.2.2/#example-unordered-sets):
 
@@ -53,7 +59,7 @@ There are several ways, how a set can be specified in SP-Lang:
     ? White snow
     ```
 
-!!! example
+!!! example "YAML flow sequences"
 
     Concise set using [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
@@ -74,10 +80,11 @@ There are several ways, how a set can be specified in SP-Lang:
     - "Five"
     ```
 
+---
 
---- 
+## `!IN`
 
-## `!IN`: Membership test 
+Membership test.
 
 Type: _Mapping_.
 
@@ -91,7 +98,7 @@ where: <set>
 
 Check if `item` is present in the `set`.
 
-The expression `!IN` is described in the [Comparisons](./comparisons.md#in-membership-test) chapter.
+The expression `!IN` is described in the [Comparisons](./comparisons.md#in) chapter.
 
 !!! example
 

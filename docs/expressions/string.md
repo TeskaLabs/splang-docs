@@ -4,10 +4,20 @@ title: String
 
 # String expressions
 
+## Overview
+
+* [`!IN`](#in): Tests if a string contains a substring.
+* [`!STARTSWITH`](#startswith): Tests whether a string starts with a selected prefix.
+* [`!ENDSWITH`](#endswith): Tests whether a string ends with a selected suffix.
+* [`!SUBSTRING`](#substring): Extracts part of a string.
+* [`!LOWER`](#lower), [`!UPPER`](#upper): Transforms a string into lowercase / uppercase.
+* [`!CUT`](#cut): Cuts the string and returns a selected part.
+* [`!SPLIT`](#split), [`!RSPLIT`](#rsplit): Splits a string into a list.
+* [`!JOIN`](#join): Joins a list of strings.
 
 ---
 
-## `!IN`: Test if the string contains a substring 
+## `!IN`
 
 The `!IN` expression is used to check if a string `what` exists in a string `where` or not.
 
@@ -73,7 +83,7 @@ It makes it an ideal tool for complex filtering as a standalone bit or an optimi
 
 This approach is recommended from applications in streams, where you need to filter an extensive amount of the data with assumption that only a smaller portion of the data matches the patters.
 An application of the `!REGEX` expression directly will slow processing down significantly, because it is complex regular expression.
-The idea is to "pre-filter" data with a simplier but faster condition so that only a fraction of the data reaches the expensive `!REGEX`.
+The idea is to "pre-filter" data with a simpler but faster condition so that only a fraction of the data reaches the expensive `!REGEX`.
 The typical performance improvement is 5x-10x.
 
 For that reason, the `!IN` must be a perfect superset of the `!REGEX`, it means:
@@ -85,7 +95,7 @@ For that reason, the `!IN` must be a perfect superset of the `!REGEX`, it means:
 
 ---
 
-## `!STARTSWITH`: Test if the string starts with a prefix 
+## `!STARTSWITH`
 
 Returns `true` if `what` string begins with `prefix`.
 
@@ -127,7 +137,7 @@ The expression evaluates to `true` if at least one prefix string matches the sta
 
 ---
 
-## `!ENDSWITH`: Test if the string ends with a postfix 
+## `!ENDSWITH`
 
 Returns `true` if `what` string ends with `postfix`.
 
@@ -169,7 +179,7 @@ The expression evaluates to `true` if at least one postfix string matches the en
 
 ---
 
-## `!SUBSTRING`: Extract part of the string 
+## `!SUBSTRING`
 
 Return part of the string `what`, in between `from` and `to` index.
 
@@ -203,7 +213,7 @@ to: <...>
 
 ---
 
-## `!LOWER`: Transform string to lower-case 
+## `!LOWER`
 
 Transform a string or list of strings input to lowercase format.
 
@@ -239,7 +249,7 @@ what: <...>
 
 ---
 
-## `!UPPER`: Transform string to upper-case 
+## `!UPPER`
 
 Type: _Mapping_
 
@@ -262,7 +272,7 @@ what: <...>
 
 ---
 
-## `!CUT`: Cut portion of the string 
+## `!CUT`
 
 Cut the string by a delimiter and return the piece identified by `field` index (starts with 0).
 
@@ -278,7 +288,7 @@ field: <int>
 ```
 
 The argument `value` string will be split using a `delimiter` argument.
-The argument `field` specifies a number of the splited strings to return, starting with 0.  
+The argument `field` specifies a number of the split strings to return, starting with 0.  
 If the negative `field` is provided, then field is taken from the end of the string, for example -2 means the second last substring.
 
 
@@ -307,7 +317,7 @@ If the negative `field` is provided, then field is taken from the end of the str
   
 ---
 
-## `!SPLIT`: Split a string into the list 
+## `!SPLIT`
 
 Splits a string into a list of strings.
 
@@ -338,7 +348,7 @@ An optional `maxsplit` arguments specifies how many splits to do.
 
 ---
 
-## `!RSPLIT`: Right split a string into the list
+## `!RSPLIT`
 
 Splits a string from the right (end of the string) into a list of strings.
 
@@ -359,7 +369,7 @@ An optional `maxsplit` arguments specifies how many splits to do.
 
 ---
 
-## `!JOIN`: Join a list of strings 
+## `!JOIN`
 
 Type: _Mapping_
 

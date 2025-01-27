@@ -4,11 +4,18 @@ title: Functions
 
 # Functions expressions
 
+## Overview
+
+* [`!ARGUMENT`, `!ARG`](#argument-arg): Gets a function argument.
+* [`!FUNCTION`, `!FN`](#function-fn): Defines a new function.
+* [`!SELF`](#self): Applies the current function.
 
 
---- 
+---
 
-## `!ARGUMENT`, `!ARG`: Get a function argument  
+## `!ARGUMENT`, `!ARG`
+
+Provides an access to an argument `name`.
 
 Type: _Scalar_.
 
@@ -18,32 +25,31 @@ Synopsis:
 !ARGUMENT name
 ```
 
+or
+
 ```yaml
 !ARG name
 ```
 
-Provides an access to an argument `name`.
 
 !!! tip
 
     `!ARG` is an concise version of `!ARGUMENT`.
 
 
---- 
+---
 
-## `!FUNCTION`, `!FN`: Define a function 
-
+## `!FUNCTION`, `!FN`
 
 The `!FUNCTION` expression defines a new function.
 It is typically used as a top-level expression.
 
 Type: _Mapping_.
 
-
 !!! info
 
-    SP-Lang expressions are _implicitly_ placed function definition.
-    It means that in a majority of cases, `!FUNCTION` can be skipped, and only `do` section is provided
+    SP-Lang expressions are implicitly_placed function definition.
+    It means that in a majority of cases, the expression `!FUNCTION` can be skipped, and only `do` section is provided.
 
 
 Synopsis:
@@ -87,9 +93,10 @@ do:
     This expression defines a function that takes four arguments (`a`, `b`, `c`, and `d`) with respective data types (`si64`, `si32`, `si32`, and `si32`) and returns a result of type `fp64`.
     The function multiplies the four input arguments (`a`, `b`, `c`, and `d`) and returns the product as a floating-point number (`fp64`).
 
---- 
+---
 
-## `!SELF`: Apply a current function  
+
+## `!SELF`
 
 The `!SELF` provides an ability to recursively apply "self" aka a current function.
 

@@ -4,12 +4,22 @@ title: Control
 
 # Control expressions
 
+## Overview
 
-SP-Lang provides a variety of control flow statements. 
+SP-Lang provides a variety of control flow statements.
 
---- 
+* [`!IF`](#if): Simple conditional branching.
+* [`!WHEN`](#when): Powerful branching.
+* [`!MATCH`](#match): Pattern matching.
+* [`!TRY`](#try): Execute till first non-error expression.
+* [`!MAP`](#map): Apply the expression on each element in a sequence.
+* [`!REDUCE`](#reduce): Reduce the elements of a list into a single value.
 
-## `!IF`: Simple conditional branching  
+---
+
+## `!IF`
+
+Simple conditional branching.
 
 Type: _Mapping_.
 
@@ -24,8 +34,8 @@ else: <expression>
 
 Based on the value of `test`, the branch is evaluated:
 
-- `then` in case of `test !EQ true`
-- `else` in case of `test !EQ false`
+* `then` in case of `test !EQ true`
+* `else` in case of `test !EQ false`
 
 Both `then` and `else` have to return the same type, which will be also the type of the `!IF` return value.
 
@@ -46,7 +56,9 @@ Both `then` and `else` have to return the same type, which will be also the type
 
 ---
 
-## `!WHEN`: Powerful branching  
+## `!WHEN`  
+
+Powerful branching.
 
 Type: _Sequence_.
 
@@ -69,7 +81,6 @@ Cases can match many different patterns, including interval matches, tuples, and
 
 - else: <expression>
 ```
-
 
 If `else` is not provided, then `WHEN` returns `False`.
 
@@ -96,7 +107,7 @@ If `else` is not provided, then `WHEN` returns `False`.
         - !ARG key
         - 50
       then:
-        "fourty to fifty (exclusive)"
+        "forty to fifty (exclusive)"
 
     # In-set match
     - test:
@@ -113,12 +124,13 @@ If `else` is not provided, then `WHEN` returns `False`.
         "unknown"
     ```
 
---- 
+---
 
-## `!MATCH`: Pattern matching 
+## `!MATCH`
+
+Pattern matching.
 
 Type: _Mapping_.
-
 
 ```yaml
 !MATCH
@@ -143,13 +155,12 @@ The expression fails with error when no matching `<value>` is found and `else` b
     !MATCH
     what: !ARG value
     with:
-      1: "one"
-      2: "two"
-      3: "three"
+        1: "one"
+        2: "two"
+        3: "three"
     else:
-      "other number"
+        "other number"
     ```
-
 
 !!! hint "Use of `!MATCH` to structure the code"
 
@@ -157,15 +168,17 @@ The expression fails with error when no matching `<value>` is found and `else` b
     !MATCH
     what: !ARG code
     with:
-      1: !INCLUDE code-1.yaml
-      2: !INCLUDE code-2.yaml
+        1: !INCLUDE code-1.yaml
+        2: !INCLUDE code-2.yaml
     else:
-      !INCLUDE code-else.yaml
+        !INCLUDE code-else.yaml
     ```
-  
+
 ---
 
-## `!TRY`: Execute till first non-error expression  
+## `!TRY`
+
+Execute till first non-error expression.
 
 Type: _Sequence_
 
@@ -185,10 +198,13 @@ Returns `None` (error) when end of the list is reached.
 
 Note: The obsoleted name of this expression was `!FIRST`.
 It was obsoleted in November 2022.
-    
+
+
 ---
 
-## `!MAP`: Apply the expression on each element in a sequence 
+## `!MAP`
+
+Apply the expression on each element in a sequence.
 
 Type: _Mapping_.
 
@@ -207,14 +223,16 @@ The result is a new list with transformed elements.
     !MAP
     what: [1, 2, 3, 4, 5, 6, 7]
     apply:
-      !ADD [!ARG x, 10]
+        !ADD [!ARG x, 10]
     ```
 
     The result is `[11, 12, 13, 14, 15, 16, 17]`.
 
 ---
 
-## `!REDUCE`: Reduce the elements of an list into a single value 
+## `!REDUCE`
+
+Reduce the elements of an list into a single value.
 
 Type: _Mapping_.
 

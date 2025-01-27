@@ -4,6 +4,7 @@ title: Date/time
 
 # Date/time expressions
 
+## Overview
 
 Date and time is expressed in SP-Lang by a `datetime` type.
 It has a microsecond resolution and a range from year 8190 B.C. to a year 8191.
@@ -11,11 +12,16 @@ It is in the UTC timezone.
 
 !!! info
 
-	For more information about `datatime` type, continue [here](../language/date-time.md).
+    For more information about `datetime` type, continue [here](../language/types/date-time.md).
+
+* [`!NOW`](#now): A current date and time.
+* [`!DATETIME`](#datetime): Construct a new `datetime`.
+* [`!DATETIME.FORMAT`](#datetimeformat): Format `datetime`.
+* [`!GET`](#get) Get a `datetime` component.
 
 ---
 
-## `!NOW`: A current date and time 
+## `!NOW`
 
 Type: _Mapping_.
 
@@ -27,7 +33,7 @@ Get a current date and time.
 
 ---
 
-## `!DATETIME`: Construct the date/time 
+## `!DATETIME`
 
 Type: _Mapping_.
 
@@ -58,48 +64,47 @@ timezone: <timezone>
 
 !!! example "Example: UTC date/time"
 
-	```yaml
-	!DATETIME
-	year: 2021
-	month: 10
-	day: 13
-	hour: 12
-	minute: 34
-	second: 56
-	microsecond: 987654
-	```
+    ```yaml
+    !DATETIME
+    year: 2021
+    month: 10
+    day: 13
+    hour: 12
+    minute: 34
+    second: 56
+    microsecond: 987654
+    ```
 
 !!! example "Example: default values"
 
-	```yaml
-	!DATETIME
-	year: 2021
-	month: 10
-	day: 13
-	```
-
+    ```yaml
+    !DATETIME
+    year: 2021
+    month: 10
+    day: 13
+    ```
 
 !!! example "Example: timezones"
 
-	```yaml
-	!DATETIME
-	year: 2021
-	month: 10
-	day: 13
-	timezone: Europe/Prague
-	```
+    ```yaml
+    !DATETIME
+    year: 2021
+    month: 10
+    day: 13
+    timezone: Europe/Prague
+    ```
 
-	```yaml
-	!DATETIME
-	year: 2021
-	month: 10
-	day: 13
-	timezone: "+05:00"
-	```
+    ```yaml
+    !DATETIME
+    year: 2021
+    month: 10
+    day: 13
+    timezone: "+05:00"
+    ```
 
 ---
 
-## `!DATETIME.FORMAT`: Format a date/time 
+## `!DATETIME.FORMAT`
 
 Type: _Mapping_.
 
@@ -113,7 +118,7 @@ format: <format>
 timezone: <string>
 ```
 
-The `datetime` contains the information about the data and time to be used for formating.
+The `datetime` contains the information about the data and time to be used for formatting.
 The `format` is a string that contains specification about the format of the output.
 The `timezone` is optional information, if provided, the time will be printed in the local time specified  by the argument, otherwise UTC timezone is used.
 
@@ -147,19 +152,18 @@ The `timezone` is optional information, if provided, the time will be printed in
 
 !!! example
 
-	```yaml
-	!DATETIME.FORMAT
-	with: !NOW
-	format: "%Y-%m-%d %H:%M:%S"
-	timezone: "Europe/Prague"
-	```
+    ```yaml
+    !DATETIME.FORMAT
+    with: !NOW
+    format: "%Y-%m-%d %H:%M:%S"
+    timezone: "Europe/Prague"
+    ```
 
-	Prints the current local time as e.g. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
-
+    Prints the current local time as e.g. `2022-12-31 12:34:56` using the timezone "Europe/Prague".
 
 ---
 
-## `!DATETIME.PARSE`: Parse a date/time 
+## `!DATETIME.PARSE`
 
 Type: _Mapping_.
 
@@ -181,20 +185,19 @@ See [Format](#format) chapter above for more information about `format`.
 
 !!! example
 
-	```yaml
-	!DATETIME.PARSE
-	what: "2021-06-29T16:51:43-08"
-	format: "%y-%m-%dT%H:%M:%S%z"
-	```
+    ```yaml
+    !DATETIME.PARSE
+    what: "2021-06-29T16:51:43-08"
+    format: "%y-%m-%dT%H:%M:%S%z"
+    ```
 
 ---
 
-## `!GET`: Get a date/time component 
+## `!GET`
 
 Type: _Mapping_.
 
 Extract the date/time component such as hour, minute, day etc. from `datetime`.
-
 
 ```yaml
 !GET
@@ -221,19 +224,18 @@ The `timezone` if optional, if not provided UTC timezone is used.
 
 !!! example
 
-	```yaml
-	!GET
-	what: H
-	from: !NOW
-	timezone: "Europe/Prague"
-	```
+    Get `hours` component of the current timestamp, using the "Europe/Prague" timezone.
 
-	Get `hours` component of the current timestamp, using the "Europe/Prague" timezone.
+    ```yaml
+    !GET
+    what: H
+    from: !NOW
+    timezone: "Europe/Prague"
+    ```
 
 
 !!! example "Example: Get a current year"
 
-	```yaml
-	!GET { what: year, from: !NOW }
-	```
-
+    ```yaml
+    !GET { what: year, from: !NOW }
+    ```

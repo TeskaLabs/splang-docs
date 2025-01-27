@@ -12,9 +12,8 @@ that indicates successful parsing or provide an error message if the parsing pro
 
 Parsec expressions are divided into two groups: parsers and combinators.
 
-**Parsers** can be seen as the fundamental units or building blocks. They are responsible for recognizing and processing specific patterns or elements within the input string.
+[**Parsers**](./parser.md) can be seen as the fundamental units or building blocks. They are responsible for recognizing and processing specific patterns or elements within the input string.
 
-**Combinators** are operators (higher order functions) that allow the combination and composition of parsers.
+[**Combinators**](./combinator.md) are operators (higher order functions) that allow the combination and composition of parsers.
 
-Every expression starts with `!PARSE.` prefix.
-
+Every expression starts with ```!PARSE.``` prefix.

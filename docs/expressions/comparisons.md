@@ -4,13 +4,24 @@ title: Comparisons
 
 # Comparisons expressions
 
+## Overview
+
 
 Test expression evaluates inputs and returns boolean value `true` or `false` based on the result of the test.
 
+* [!EQ](#eq): Equal
+* [!NE](#ne): Not equal
+* [!LT](#lt): Less than
+* [!LE](#le): Less than or equal to
+* [!GT](#gt): Greater than
+* [!GE](#ge): Greater than or equal to
+* [!IN](#in): Membership test
+
 ---
 
-## `!EQ`: Equal 
+## `!EQ`
 
+Equal to.
 
 !!! example
 
@@ -25,7 +36,9 @@ Test expression evaluates inputs and returns boolean value `true` or `false` bas
 
 ---
 
-## `!NE`: Not equal 
+## `!NE`
+
+Not equal to.
 
 Type: _Sequence_.
 
@@ -44,7 +57,9 @@ This is negative counterpart to `!EQ`.
 
 ---
 
-## `!LT`: Less than 
+## `!LT`
+
+Less than.
 
 Type: _Sequence_.
 
@@ -61,7 +76,9 @@ Type: _Sequence_.
 
 ---
 
-## `!LE`: Less than and equal 
+## `!LE`
+
+Less than or equal to.
 
 Type: _Sequence_.
 
@@ -80,7 +97,9 @@ Type: _Sequence_.
 
 ---
 
-## `!GT`: Greater than 
+## `!GT`
+
+Greater than.
 
 Type: _Sequence_.
 
@@ -95,7 +114,9 @@ Type: _Sequence_.
 
 ---
 
-## `!GE`: Greater than  and equal 
+## `!GE`
+
+Greater than or equal to.
 
 Type: _Sequence_.
 
@@ -112,7 +133,9 @@ Type: _Sequence_.
 
 ---
 
-## `!IN`: Membership test 
+## `!IN`
+
+Membership test.
 
 Type: _Mapping_.
 

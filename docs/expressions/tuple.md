@@ -4,13 +4,20 @@ title: Tuple
 
 # Tuple expressions
 
+## Overview
 
 The tuple is one of basic data structures provided by SP-Lang.
 A tuple is a collection of items, possibly of different types.
 
---- 
 
-## `!TUPLE`: A collection of items 
+* [`!TUPLE`](#tuple): A collection of items.
+* [`!GET`](#get): Get item from a tuple.
+
+---
+
+## `!TUPLE`
+
+A collection of items.
 
 Type:  _Mapping_.
 
@@ -71,10 +78,11 @@ The order of the items is preserved.
 
     Item #1 will have a type `ui8`.
 
+---
 
---- 
+## `!GET`
 
-## `!GET`: Get the item from a tuple 
+Get item from a tuple.
 
 Type: _Mapping_.
 
@@ -86,27 +94,28 @@ what: <index of the item>
 from: <tuple>
 ```
 
-`what` is an integer (number), it represent the _index_ in a tuple.
-`what` can be negative, in that case, it specifies an item from the end of the list.
+Argument `what` is an integer (number), it represent the _index_ in a tuple.
+It can be negative, in that case, it specifies an item from the end of the list.
+
 Items are indexed from the 0, it means that the first item in the list has an index 0.
+
 If the `what` is out of bound of the list, the statement returns with error.
 
 
 !!! example
 
-```yaml
-!GET
-what: 1
-from:
-  !TUPLE
-  with:
-    - John Doe
-    - 32
-    - 127.5
-```
+    ```yaml
+    !GET
+    what: 1
+    from:
+      !TUPLE
+      with:
+        - John Doe
+        - 32
+        - 127.5
+    ```
 
-    Returns `32`.
-
+        Returns `32`.
 
 !!! example
 

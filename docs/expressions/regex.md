@@ -4,14 +4,25 @@ title: Regex
 
 # Regex expressions
 
+## Overview
 
 !!! tip
 
     Use [Regexr](https://regexr.com) to develop and test regular expressions.
 
---- 
 
-## `!REGEX`: Regular expression search  
+* [`!REGEX`](#regex): Regular expression search.
+* [`!REGEX.REPLACE`](#regexreplace): Regular expression replace.
+* [`!REGEX.SPLIT`](#regexsplit): Split a string by a regular expression.
+* [`!REGEX.FINDALL`](#regexfindall): Find all occurrences by a regular expression.
+* [`!REGEX.PARSE`](#regexparse): Parse by a regular expression.
+
+
+---
+
+## `!REGEX`
+
+Regular expression search.
 
 Type: _Mapping_.
 
@@ -59,7 +70,9 @@ The expression `miss` is optional, default value is `false`.
 
 --- 
 
-## `!REGEX.REPLACE`: Regular expression replace
+## `!REGEX.REPLACE`
+
+Regular expression replace.
 
 Type: _Mapping_.
 
@@ -86,9 +99,11 @@ Replace regular expression `regex` matches in `what` by value of `by`.
 
     Returns: `Hello Mars!`
 
---- 
+---
 
-## `!REGEX.SPLIT`: Split a string by a regular expression  
+## `!REGEX.SPLIT`
+
+Split a string by a regular expression.
 
 Type: _Mapping_.
 
@@ -106,7 +121,7 @@ Split string `what` by regular expression `regex`.
 An optional argument `max` specify the maximum number of splits.
 
 
-### Example
+!!! example
 
     ```yaml
     !REGEX.SPLIT
@@ -116,9 +131,11 @@ An optional argument `max` specify the maximum number of splits.
 
     Returns: `['07', '14', '2007', '12', '34', '56']`
 
---- 
+---
 
-## `!REGEX.FINDALL`: Find all occurences by a regular expression  
+## `!REGEX.FINDALL`
+
+Find all occurrences by a regular expression.
 
 Type: _Mapping_.
 
@@ -144,7 +161,9 @@ Find all matches of `regex` in the string `what`.
 
 ---
 
-## `!REGEX.PARSE`: Parse by a regular expression 
+## `!REGEX.PARSE`
+
+Parse by a regular expression.
 
 Type: _Mapping_.
 
