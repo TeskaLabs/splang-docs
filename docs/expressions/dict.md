@@ -31,7 +31,7 @@ with:
 
 !!! hint
 
-	Use [`!COUNT`](../aggregate/#count-count-number-of-items) to determine number of items in the dictionary.
+	Use [`!COUNT`](./aggregate.md#count-count-number-of-items) to determine number of items in the dictionary.
 
 
 !!! example
@@ -64,7 +64,7 @@ with:
 ### Type specification
 
 The type of dictionary is denoted as `{Tk:Tv}`, where `Tk` is a type of the key and `Tv` is a type of value.
-For more info about the dictionary type, continue to the relevant chapter in a [type system](../../language/types#dictionary).
+For more info about the dictionary type, continue to the relevant chapter in a [type system](../language/types.md#dictionary).
 
 The dictionary will try to infer its type based on the items added.
 The type of the first item will likely provide the key type `Tk` and the value type `Tv`.
@@ -138,7 +138,7 @@ Check if `key` is present in the `dict`.
 
 !!! note
 
-	The expression `!IN` is described in the [Comparisons](../comparisons/#in-membership-test) chapter.
+	The expression `!IN` is described in the [Comparisons](./comparisons.md#in-membership-test) chapter.
 
 !!! example
 

@@ -58,7 +58,7 @@ Types are derived from their use without being declared.
 For example, setting a variable to a number results in that variable's type being established as a number.
 This further reduces a complexity for a maker without any performance sacrifice known from interpreted languages.
 
-For advanced users who require more control over the type system, the SP-Lang provide mechanisms to explicitly specify types or interact with the [type system](../types) when necessary.
+For advanced users who require more control over the type system, the SP-Lang provide mechanisms to explicitly specify types or interact with the [type system](../language/types.md) when necessary.
 This flexibility allows advanced users to fine-tune their code for maximum performance and reliability, while still benefiting from the convenience of type inference.
 
 

@@ -564,11 +564,9 @@ what: <...>
 
 ---
 
-
 ## `!PARSE.DATETIME`: Parse datetime in a given format
 
 Type: _Parser_.
-
 
 Synopsis:
 
@@ -586,15 +584,22 @@ Synopsis:
 ```
 
 - Fields `month` and `day` are required.
-- Field `year` is optional. If not specified, the [smart year](#smart-year) function will be used. Two digit year option is supported.
+- Field `year` is optional. If not specified, the [smart year](#smart-year) function will be used. Both 2 and 4-digit numbers are supported.
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?` allows you to parse microseconds or not, depending on their presence in the input string.
-- Field `timezone` is optional. If not specified, the default value `UTC` will be used. It can be specified in two different formats.
-    1. `Z`, `+08:00` - parsed from the input string.
-    2. `Europe/Prague` - specified as a constant value.
+- Field `timezone` is optional. If not specified, the default value `UTC` will be used. [Read more about timezone parsing here.](#timezone)
 
+!!! tip "Common datetime formats"
+    Use [Shortcuts](#shortcuts) for parsing datetime formats [`RFC 3339`](#rfc-3339), [`RFC 3164`](#rfc-3164) and [`ISO 8601`](#iso-8601).
 
-There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortcuts](#shortcuts).
+!!! tip "UNIX time"
+    For parsing datetime in [UNIX time](https://en.wikipedia.org/wiki/Unix_time), use [`!PARSE.DATETIME EPOCH`](#epoch).
+
+!!! tip
+    Use [`!PARSE.MONTH`](#parsemonth-parse-a-month-name) for parsing a month.
+
+!!! tip
+    Use [`!PARSE.FRAC`](#parsefrac-parse-a-fraction) for parsing microseconds and nanoseconds. Note that this expression consumes `.` and `,` as well. Do not parse them separately.
 
 !!! example
 	_Input string:_ `2022-10-13T12:34:56.987654`
@@ -617,76 +622,17 @@ There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortc
 	```
 
 
-??? example "Parse without year and with optional microseconds"
+??? example "Two-digit year"
 
-	Parse datetime without year, with short month form and optional microseconds:
-
-	_Input strings:_ 
-	
-	```
-	Aug 17 12:00:00
-	Aug 17 12:00:00.123
-	Aug 17 12:00:00.123456
-	```
-
-	```yaml
-	!PARSE.DATETIME
-	- month: !PARSE.MONTH 'short' # Month
-	- !PARSE.SPACE
-	- day: !PARSE.DIGITS # Day
-	- !PARSE.SPACE
-	- hour: !PARSE.DIGITS # Hour
-	- ":"
-	- minute: !PARSE.DIGITS # Minutes
-	- ":"
-	- second: !PARSE.DIGITS # Seconds
-	- microsecond?: !PARSE.FRAC # Microseconds
-					base: "micro"
-					max: 6
-	```
-
-	In this case, `year` is automatically determined by the _smart year_ function, which basically means that the current year is used.
-
-??? example "Parse timezone"
-
-	Parse datetime with timezone.
-
-	_Input strings_:
-
-	```
-	2024-04-15T12:00:00+04:00
-	2024-04-15T12:00:00+02:00
-	2024-04-15T12:00:00+00:00
-	2024-04-15T12:00:00-02:00
-	```
-
-	```yaml
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- '-'
-	- month: !PARSE.MONTH 'number'
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- timezone: !PARSE.CHARS
-	```
-
-??? example "Parse two digit year"
-
-	Parse datetime with two digit year:
+	Parse datetime with two-digit year:
 
 	_Input string:_ `22-10-13T12:34:56.987654`
 
-	```yaml
+	```yaml hl_lines="2"
 	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
+	- year: !PARSE.DIGITS  # Year can be either 4-digit or 2-digit
 	- '-'
-	- month: !PARSE.MONTH 'number'
+	- month: !PARSE.MONTH "number"
 	- '-'
 	- day: !PARSE.DIGITS
 	- 'T'
@@ -696,16 +642,73 @@ There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortc
 	- ':'
 	- second: !PARSE.DIGITS
 	- microsecond: !PARSE.FRAC
-				base: "micro"
+				base: micro
 	```
 
-??? example "Parse nanoseconds"
+??? example "No year, optional microseconds"
+
+	Parse datetime without a year, with short month form and optional microseconds:
+
+	_Input strings:_ 
+	
+	```
+	Aug 17 12:00:00
+	Aug 17 12:00:00.123
+	Aug 17 12:00:00.123456
+	```
+
+	```yaml hl_lines="2 12"
+	!PARSE.DATETIME
+    # There is no year in input string, smart year function is used.
+	- month: !PARSE.MONTH 'short'
+	- !PARSE.SPACE
+	- day: !PARSE.DIGITS
+	- !PARSE.SPACE
+	- hour: !PARSE.DIGITS
+	- ":"
+	- minute: !PARSE.DIGITS
+	- ":"
+	- second: !PARSE.DIGITS
+	- microsecond?: !PARSE.FRAC  # Parsing of microseconds is optional here
+					base: "micro"
+					max: 6
+	```
+
+	In this case, `year` is automatically determined by the _smart year_ function, which basically means that the current year is used.
+
+
+
+??? example "Milliseconds"
+
+	Parse datetime with milliseconds:
+
+	_Input string:_ `2023-03-23T07:00:00.734`
+
+	```yaml hl_lines="13-15"
+	!PARSE.DATETIME
+	- year: !PARSE.DIGITS
+	- "-"
+	- month: !PARSE.DIGITS
+	- "-"
+	- day: !PARSE.DIGITS
+	- "T"
+	- hour: !PARSE.DIGITS
+	- ":"
+	- minute: !PARSE.DIGITS
+	- ":"
+	- second: !PARSE.DIGITS
+	- microsecond: !PARSE.FRAC
+				base: milli
+				max: 3
+	```
+
+??? example "Nanoseconds"
 
 	Parse datetime with nanoseconds:
 
 	_Input string:_ `2023-03-23T07:00:00.734323900`
 
-	```yaml
+	```yaml hl_lines="13-15"
 	!PARSE.DATETIME
 	- year: !PARSE.DIGITS
 	- "-"
@@ -722,6 +725,61 @@ There are also shortcuts for time formats `RFC 3331` and `ISO 8601`, see [Shortc
 				base: "nano"
 				max: 9
 	```
+
+
+### Timezone
+
+Timezone can be either specified in the log or it can be missing. There are two approaches for that:
+
+1. Timezone is parsed from the input string. In that case, use the suitable parsing expression for the timezone part.
+
+    ```yaml
+    !PARSE.DATETIME
+    - timezone: !PARSE.UNTIL " "
+    ```
+
+    Permissible formats of timezones are: `Z`, `UTC`, `+02:00`, `-0600`.
+
+2. Timezone is fixed. In that case, specify it as [IANA timezone](https://www.iana.org/time-zones).
+
+    ```yaml
+    !PARSE.DATETIME
+    - timezone: "Europe/Prague"
+    ```
+
+    This will come handy when the timezone is missing in the log or when it is used incorrectly.
+
+
+??? example "Timezone from input"
+
+	Parse datetime which contains timezone in input strings.
+
+	_Input strings_:
+
+	```
+	2024-04-15T12:00:00+04:00 ...(other log content)
+	2024-04-15T12:00:00+02:00 ...
+	2024-04-15T12:00:00+00:00 ...
+	2024-04-15T12:00:00-02:00 ...
+	```
+
+	```yaml hl_lines="13"
+	!PARSE.DATETIME
+	- year: !PARSE.DIGITS
+	- '-'
+	- month: !PARSE.MONTH 'number'
+	- '-'
+	- day: !PARSE.DIGITS
+	- 'T'
+	- hour: !PARSE.DIGITS
+	- ':'
+	- minute: !PARSE.DIGITS
+	- ':'
+	- second: !PARSE.DIGITS
+	- timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
+	```
+
+
 ### Smart year
 
 The `smart year` function is designed to predict the complete year from a provided month by taking into account the
@@ -881,19 +939,24 @@ max: <...>
 	Default values `3`, `6`, `9` will be applied if `max` parametr is not specified.
 
 !!! tip
-	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of `!PARSE.DATETIME`.
+	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format).
 
 
 !!! example
 
-	_Input string:_ `Aug 22 05:40:14`==.264==
+    Input strings:
+
+    ```
+    Aug 22 05:40:14.264
+    Aug 22 05:40:14.264023
+    ```
 
 	```yaml
 	!PARSE.FRAC
 	base: "micro"
 	```
 
-	or full form:
+	or the full form:
 
 	```yaml
 	!PARSE.FRAC

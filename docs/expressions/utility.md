@@ -27,7 +27,7 @@ This feature is called *implicit casting*.
 In case of explicit need for a type conversion, use `!CAST` expression.
 It is very powerful method that do a lot of heavy-lifting.
 
-For more details, see chapter about [types](../../language/types).
+For more details, see chapter about [types](../language/types.md).
 
 !!! example
 

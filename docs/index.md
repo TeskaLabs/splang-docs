@@ -15,7 +15,7 @@ We hope that this documentation will provide you with all the information you ne
 
 !!! quote "Made with :octicons-heart-fill-24:{ .heart } by TeskaLabs"
 
-    SP-Lang is the technology built at [TeskaLabs](https://www.teskalabs.com).  
+    SP-Lang is the technology built at [TeskaLabs](https://www.teskalabs.com).
 
 <!-- <img src="splang-logo.jpg" alt="SP-lang logo" style="width: 128px;" /> -->
 
@@ -29,8 +29,6 @@ This, together with extensive optimizations, gives the performance in the same c
 
 For that reason, SP-Lang is a natural candidate for a cost-effective processing of the massive data streams in the cloud or on‑premise applications.
 
-
-
 !!! example "Hello world! in SP-Lang"
 
     ```yaml
@@ -41,13 +39,12 @@ For that reason, SP-Lang is a natural candidate for a cost-effective processing 
     - "!"
     ```
 
-
 !!! example "The same example in the visual form of SP-Lang"
 
     <img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
 
-**Your first steps with SP-Lang start in the [tutorial](tutorial).**
+**Your first steps with SP-Lang start in the [tutorial](tutorial.md).**
 
 ## Features of the SP-Lang
 

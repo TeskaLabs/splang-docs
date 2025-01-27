@@ -34,7 +34,7 @@ fields:
 ### Možnost `type`
 
 Definuje datový typ daného atributu, například `str`, `si64` a podobně.
-Další informace naleznete v [typovém systému](../types) SP-Langu.
+Další informace naleznete v [typovém systému](../types.md) SP-Langu.
 
 Tato volba je povinná.
 
