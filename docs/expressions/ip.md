@@ -4,14 +4,22 @@ title: IP Address
 
 # IP Address expressions
 
+## Overview
 
 IP addresses are represented internally as a number, 128bit unsigned integer.
 Such a type can contain both IPv6 and IPv4.
 IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2).
 
---- 
 
-## `!IP.FORMAT`: Convert an IP address into a string  
+* [`!IP.FORMAT`](#ipformat): Converts an IP address into a string.
+* [`!IP.INSUBNET`](#ipinsubnet): Check if IP address falls into a subnet.
+
+
+---
+
+## `!IP.FORMAT`
+
+Convert an IP address into a string.
 
 Type: _Mapping_.
 
@@ -24,10 +32,11 @@ what: <ip>
 
 Convert the internal representation of the IP address into a string.
 
+---
 
---- 
+## `!IP.INSUBNET`
 
-## `!IP.INSUBNET`: Check if IP address falls into a subnet 
+Check if IP address falls into a subnet.
 
 Type: _Mapping_.
 
@@ -52,35 +61,34 @@ Test if `what` IP address belongs to a `subnet` or subnets , returns `true` if y
 
 !!! example "Example with a single subnet"
 
-	```yaml
-	!IP.INSUBNET
-	what: 192.168.1.1
-	subnet: 192.168.0.0/16
-	```
+    ```yaml
+    !IP.INSUBNET
+    what: 192.168.1.1
+    subnet: 192.168.0.0/16
+    ```
 
 
 !!! example "Example with multiple subnets"
 
-	```yaml
-	!IP.INSUBNET
-	what: 1.2.3.4
-	subnet:
-		- 10.0.0.0/8
-		- 172.16.0.0/12
-		- 192.168.0.0/16
-	```
+    ```yaml
+    !IP.INSUBNET
+    what: 1.2.3.4
+    subnet:
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
+    ```
 
-	The test that check if IP address is from IPv4 private address space as defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918).
+    The test that check if IP address is from IPv4 private address space as defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918).
 
 
-	More compact form:
+    More compact form:
 
-	```yaml
-	!IP.INSUBNET
-	what: 1.2.3.4
-	subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
-	```
-
+    ```yaml
+    !IP.INSUBNET
+    what: 1.2.3.4
+    subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+    ```
 
 ---
 
@@ -94,7 +102,6 @@ If needed, you may explicitly cast string-based IP address into the `ip` type:
 type: ip
 what: 192.168.1.1
 ```
-
 
 ## Parse of the IP subnet
 

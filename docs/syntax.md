@@ -4,7 +4,6 @@ title: Syntax
 
 # SP-Lang Syntax
 
-
 !!! info
 
     SP-Lang syntax is using [YAML 1.2](https://yaml.org/spec/1.2)
@@ -13,7 +12,7 @@ title: Syntax
 
 ## Comments
 
-An comment is marked by a `#` indicator. 
+An comment is marked by a `#` indicator.
 
 ```yaml
 # This file contains no

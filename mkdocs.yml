@@ -20,8 +20,13 @@ theme:
         name: Switch to light mode
 
   features:
+    - navigation.tabs
     - navigation.footer
     - navigation.indexes
+    - navigation.top
+    - content.code.annotate
+    - content.code.copy
+    - search.highlight
 
   logo: images/teskalabs-logo.svg
 
@@ -41,12 +46,16 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - def_list
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight: {}
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 
   - toc:
       permalink: "¤"
@@ -75,5 +84,57 @@ plugins:
   - glightbox
   - search
   - awesome-pages
+  - open-in-new-tab
   - print-site:
       add_to_navigation: true
+
+
+# Page tree
+nav:
+  - "Welcome!":
+    - index.md
+    - dedication.md
+    - tutorial.md
+    - syntax.md
+
+  - Language:
+    - language/design.md
+    - language/performance.md
+    - language/schema.md
+    - language/memory.md
+    - Data types:
+      - language/types/index.md
+      - language/types/date-time.md
+      - language/types/geopoint.md
+      - language/types/string.md
+      - language/types/container-types.md
+
+  - Expressions:
+    - expressions/index.md
+    - expressions/aggregate.md
+    - expressions/arithmetics.md
+    - expressions/bitwise.md
+    - expressions/comparisons.md
+    - expressions/control.md
+    - expressions/datetime.md
+    - expressions/dict.md
+    - expressions/directives.md
+    - expressions/function.md
+    - expressions/ip.md
+    - expressions/json.md
+    - expressions/list.md
+    - expressions/logic.md
+    - expressions/lookup.md
+    - expressions/record.md
+    - expressions/regex.md
+    - expressions/set.md
+    - expressions/string.md
+    - expressions/tuple.md
+    - expressions/utility.md
+    - Parsec:
+      - expressions/parsec/index.md
+      - expressions/parsec/parser.md
+      - expressions/parsec/combinator.md
+
+  - Visual Programming:
+    - visual/index.md

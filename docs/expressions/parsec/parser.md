@@ -10,34 +10,36 @@ Parser expressions are functions for parsing a certain sequence of characters.
 
 Basic parsers can differentiate between digits, letters and spaces:
 
-- [`!PARSE.DIGIT`](#parsedigit-parse-a-single-digit), [`!PARSE.DIGITS`](#parsedigits-parse-a-sequence-of-digits): parse single or multiple digits
-- [`!PARSE.LETTER`](#parseletter-parse-a-single-letter), [`!PARSE.LETTERS`](#parseletters-parse-a-sequence-of-letters): parse single or multiple letters
-- [`!PARSE.SPACE`](#parsespace-parse-a-single-space-character), [`!PARSE.SPACES`](#parsespaces-parse-a-sequence-of-space-characters): parse single or multiple whitespace characters
-- [`!PARSE.CHAR`](#parsechar-parse-a-single-character), [`!PARSE.CHARS`](#parsechars-parse-a-sequence-of-characters): parse single or multiple characters
+- [`!PARSE.DIGIT`](#parsedigit), [`!PARSE.DIGITS`](#parsedigits): Parse single or multiple digits.
+- [`!PARSE.LETTER`](#parseletter), [`!PARSE.LETTERS`](#parseletters): Parse single or multiple letters.
+- [`!PARSE.SPACE`](#parsespace), [`!PARSE.SPACES`](#parsespaces): Parse single or multiple whitespace characters
+- [`!PARSE.CHAR`](#parsechar), [`!PARSE.CHARS`](#parsechars): Parse single or multiple characters.
 
 The following expressions are used for parsing characters from custom set of characters and looking for specific characters in input strings:
 
-- [`!PARSE.EXACTLY`](#parseexactly-parse-precisely-a-defined-sequence-of-characters): parse only specific sequence of characters 
-- [`!PARSE.UNTIL`](#parseuntil-parse-a-sequence-of-characters-until-a-specific-character-is-found): parse till a specific character is found
-- [`!PARSE.BETWEEN`](#parsebetween-parse-a-sequence-of-characters-between-two-specific-characters): parse between two characters
-- [`!PARSE.ONEOF`](#parseoneof-parse-a-single-character-from-a-set-of-characters): parse only one of allowed characters
-- [`!PARSE.NONEOF`](#parsenoneof-parse-a-single-character-that-is-not-in-a-set-of-characters): parse every character except forbidden ones
-- [`!PARSE.REGEX`](#parseregex-parse-a-sequence-of-characters-that-matches-a-regular-expression): parse characters matching a regular expression
+- [`!PARSE.EXACTLY`](#parseexactly): Parse only specific sequence of characters.
+- [`!PARSE.UNTIL`](#parseuntil): Parse till a specific character is found.
+- [`!PARSE.BETWEEN`](#parsebetween): Parse between two characters.
+- [`!PARSE.ONEOF`](#parseoneof): Parse only one of allowed characters.
+- [`!PARSE.NONEOF`](#parsenoneof): Parse every character except forbidden ones.
+- [`!PARSE.REGEX`](#parseregex): Parse characters matching a regular expression.
 
 The following expressions are used for parsing dates and times in various formats:
 
-- [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format): parse date and time
-- [`!PARSE.MONTH`](#parsemonth-parse-a-month-name): parse month in various formats
-- [`!PARSE.FRAC`](#parsefrac-parse-a-fraction): parse decimal numbers (which is useful for parsing microseconds)
+- [`!PARSE.DATETIME`](#parsedatetime): Parse date and time.
+- [`!PARSE.MONTH`](#parsemonth): Parse month in various formats.
+- [`!PARSE.FRAC`](#parsefrac): Parse decimal numbers (which is useful for parsing microseconds).
 
 The following expressions are used for parsing specific types of strings:
 
-- [`!PARSE.IP`](#parseip-parse-an-ip-address): parse IP address
-- [`!PARSE.MAC`](#parsemac-parse-a-mac-address): parse MAC address
+- [`!PARSE.IP`](#parseip): Parse IP address.
+- [`!PARSE.MAC`](#parsemac): Parse MAC address.
 
 ---
 
-## `!PARSE.DIGIT`: Parse a single digit
+## `!PARSE.DIGIT`
+
+Parse a single digit.
 
 Type: _Parser_.
 
@@ -49,15 +51,17 @@ Synopsis:
 
 !!! example
 
-	_Input string:_ `2`
+    _Input string:_ `2`
 
-	```yaml
-	!PARSE.DIGIT
-	```
+    ```yaml
+    !PARSE.DIGIT
+    ```
 
 ---
 
-## `!PARSE.DIGITS`: Parse a sequence of digits
+## `!PARSE.DIGITS`
+
+Parse a sequence of digits.
 
 Type: _Parser_.
 
@@ -76,17 +80,17 @@ exactly: <...>
 
 !!! warning
 
-	`exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
+    `exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
 
 
 !!! example
 
-	_Input string:_ `123`
+    _Input string:_ `123`
 
-	```yaml
-	!PARSE.DIGITS
-	max: 4
-	```
+    ```yaml
+    !PARSE.DIGITS
+    max: 4
+    ```
 
 <details>
   <summary>More examples</summary>
@@ -111,11 +115,13 @@ max: 4
 
 </details>
 
-
 ---
 
-## `!PARSE.LETTER`: Parse a single letter
-Latin letters from A to Z, both uppercase and lowercase.
+## `!PARSE.LETTER`
+
+Parse a single letter.
+
+By letters, we mean latin letters from A to Z, both uppercase and lowercase.
 
 Type: _Parser_.
 
@@ -127,21 +133,24 @@ Synopsis:
 
 !!! example
 
-	_Input string:_ `A`
+    _Input string:_ `A`
 
-	```yaml
-	!PARSE.LETTER
-	```
+    ```yaml
+    !PARSE.LETTER
+    ```
 
 
 ---
 
-## `!PARSE.LETTERS`: Parse a sequence of letters
+## `!PARSE.LETTERS`
+
+Parse a sequence of letters.
+
+By letters, we mean latin letters from A to Z, both uppercase and lowercase.
 
 Type: _Parser_.
 
 Synopsis:
-
 
 ```yaml
 !PARSE.LETTERS
@@ -149,20 +158,22 @@ min: <...>
 max: <...>
 exactly: <...>
 ```
+
 Fields `min`, `max` and `exactly` are optional.
 
 !!! warning
 
-	`exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
+    `exactly` field can't be used together with `min` or `max` fields.
+    And of course `max` value can't be less than `min` value.
 
 !!! example
 
-	_Input string:_ `cat`
+    _Input string:_ `cat`
 
-	```yaml
-	!PARSE.LETTERS
-	max: 4
-	```
+    ```yaml
+    !PARSE.LETTERS
+    max: 4
+    ```
 
 <details>
   <summary>More examples</summary>
@@ -187,10 +198,11 @@ max: 4
 
 </details>
 
-
 ---
 
-## `!PARSE.SPACE`: Parse a single space character
+## `!PARSE.SPACE`
+
+Parse a single space character.
 
 Type: _Parser_.
 
@@ -200,10 +212,11 @@ Synopsis:
 !PARSE.SPACE
 ```
 
-
 ---
 
-## `!PARSE.SPACES`: Parse a sequence of space characters
+## `!PARSE.SPACES`
+
+Parse a sequence of space characters.
 
 Parse as many space symbols as possible:
 
@@ -215,12 +228,11 @@ Synopsis:
 !PARSE.SPACES
 ```
 
-
 ---
 
+## `!PARSE.CHAR`
 
-## `!PARSE.CHAR`: Parse a single character
-Any type of character.
+Parse a single character of any type.
 
 Type: _Parser_.
 
@@ -232,16 +244,17 @@ Synopsis:
 
 !!! example
 
-	_Input string:_ `@`
+    Input string: `@`
 
-	```yaml
-	!PARSE.CHAR
-	```
-
+    ```yaml
+    !PARSE.CHAR
+    ```
 
 ---
 
-## `!PARSE.CHARS`: Parse a sequence of characters
+## `!PARSE.CHARS`
+
+Parse a sequence of characters.
 
 Type: _Parser_.
 
@@ -253,24 +266,26 @@ min: <...>
 max: <...>
 exactly: <...>
 ```
+
 Fields `min`, `max` and `exactly` are optional.
 
 !!! warning
 
-	`exactly` field can't be used together with `min` or `max` fields. And of course `max` value can't be less than `min` value.
+    `exactly` field can't be used together with `min` or `max` fields.
+    And of course `max` value can't be less than `min` value.
 
 !!! example
 
-	_Input string:_ `name@123_`
+    Input string:_ `name@123_`
 
-	```yaml
-	!PARSE.CHARS
-	max: 8
-	```
+    ```yaml
+    !PARSE.CHARS
+    max: 8
+    ```
 
 !!! tip
 
-	Use `!PARSE.CHARS` without fields to parse till the end of the string.
+    Use `!PARSE.CHARS` with default settings to parse till the end of the string.
 
 
 <details>
@@ -298,7 +313,9 @@ max: 4
 
 ---
 
-## `!PARSE.EXACTLY`: Parse precisely a defined sequence of characters
+## `!PARSE.EXACTLY`
+
+Parse a precisely defined sequence of characters.
 
 Type: _Parser_.
 
@@ -308,24 +325,27 @@ Synopsis:
 !PARSE.EXACTLY
 what: <...>
 ```
+
 or shorter version:
+
 ```yaml
 !PARSE.EXACTLY <...>
 ```
 
 !!! example
 
-	_Input string:_ `Hello world!`
+    Input string:_`Hello world!`
 
-	```yaml
-	!PARSE.EXACTLY
-	what: "Hello"
-	```
-
+    ```yaml
+    !PARSE.EXACTLY
+    what: "Hello"
+    ```
 
 ---
 
-## `!PARSE.UNTIL`: Parse a sequence of characters until a specific character is found
+## `!PARSE.UNTIL`
+
+Parse a sequence of characters until a specific character is found.
 
 Type: _Parser_.
 
@@ -347,27 +367,27 @@ or shorter version:
 - `what`: Specifies one (and only one) character to search for in the input string.
 
 - `stop`: Indicates whether the stop character should be parsed or not.
-			Possible values: `before` or `after` (default).
+            Possible values: `before` or `after` (default).
 
 - `eof`: Indicates if we should parse till the end of the string if `what` symbol is not found.
-			Possible values: `true` or `false` (default).
+            Possible values: `true` or `false` (default).
 
 - `escape`: Indicates escape character.
 
 
 !!! info
 
-	Field `what` must be a single character. But some whitespace characters can also be used such as `tab`.
-	To search for a sequence of characters, see the expression [`!PARSE.CHARS.LOOKAHEAD`](./combinator.md#parsecharslookahead-parse-chars-applying-lookahead-group).
+    Field `what` must be a single character. But some whitespace characters can also be used such as `tab`.
+    To search for a sequence of characters, see the expression [`!PARSE.CHARS.LOOKAHEAD`](./combinator.md#parsecharslookahead).
 
 !!! example
 
-	_Input string:_ `60290:11`
+    _Input string:_ `60290:11`
 
-	```yaml
-	!PARSE.UNTIL
-	what: ":"
-	```
+    ```yaml
+    !PARSE.UNTIL
+    what: ":"
+    ```
 
 <details>
   <summary>More examples</summary>
@@ -413,8 +433,9 @@ escape: '\'
 
 ---
 
+## `!PARSE.BETWEEN`
 
-## `!PARSE.BETWEEN`: Parse a sequence of characters between two specific characters
+Parse a sequence of characters between two specific characters.
 
 Type: _Parser_.
 
@@ -427,7 +448,9 @@ start: <...>
 stop: <...>
 escape: <...>
 ```
+
 or shorter version:
+
 ```yaml
 !PARSE.BETWEEN <...>
 ```
@@ -438,16 +461,15 @@ or shorter version:
 
 - `escape` - indicates escape character.
 
-
 !!! example
 
-	_Input string:_ `[10/May/2023:08:15:54 +0000]`
+    Input string:_ `[10/May/2023:08:15:54 +0000]`
 
-	```yaml
-	!PARSE.BETWEEN
-	start: '['
-	stop: ']'
-	```
+    ```yaml
+    !PARSE.BETWEEN
+    start: '['
+    stop: ']'
+    ```
 
 <details>
   <summary>More examples</summary>
@@ -477,7 +499,9 @@ escape: '\'
 
 ---
 
-## `!PARSE.ONEOF`: Parse a single character from a set of characters
+## `!PARSE.ONEOF`
+
+Parse a single character from a selected set of characters.
 
 Type: _Parser_.
 
@@ -494,25 +518,26 @@ or shorter version:
 
 !!! example
 
-	_Input strings:_
+    _Input strings:_
 
-	```
-	process finished with status 0
-	process finished with status 1
-	process finished with status x
-	```
+    ```
+    process finished with status 0
+    process finished with status 1
+    process finished with status x
+    ```
 
-	```yaml
-	!PARSE.KVLIST
-	- "process finished with status "
-	- !PARSE.ONEOF
-	what: "01x"
-	```
-
+    ```yaml
+    !PARSE.KVLIST
+    - "process finished with status "
+    - !PARSE.ONEOF
+    what: "01x"
+    ```
 
 ---
 
-## `!PARSE.NONEOF`: Parse a single character that is not in a set of characters
+## `!PARSE.NONEOF`
+
+Parse a single character that is not in a selected set of characters.
 
 Type: _Parser_.
 
@@ -522,24 +547,27 @@ Synopsis:
 !PARSE.NONEOF
 what: <...>
 ```
+
 or shorter version:
+
 ```yaml
 !PARSE.NONEOF <...>
 ```
 
 !!! example
 
-	_Input string:_ `Wow!`
+    Input string:_ `Wow!`
 
-	```yaml
-	!PARSE.NONEOF
-	what: ",;:[]()"
-	```
-
+    ```yaml
+    !PARSE.NONEOF
+    what: ",;:[]()"
+    ```
 
 ---
 
-## `!PARSE.REGEX`: Parse a sequence of characters that matches a regular expression
+## `!PARSE.REGEX`
+
+Parse a sequence of characters that matches a regular expression.
 
 Type: _Parser_.
 
@@ -552,19 +580,20 @@ what: <...>
 
 !!! example
 
-	_Input string:_ `FTVW23_L-C: Message...`
+    Input string:_ `FTVW23_L-C: Message...`
 
-	_Output:_ `FTVW23_L-C`
+    _Output:_ `FTVW23_L-C`
 
-	```yaml
-	!PARSE.REGEX
-	what: '[a-zA-Z0-9_\-0]+'
-	```
-
+    ```yaml
+    !PARSE.REGEX
+    what: '[a-zA-Z0-9_\-0]+'
+    ```
 
 ---
 
-## `!PARSE.DATETIME`: Parse datetime in a given format
+## `!PARSE.DATETIME`
+
+Parse datetime.
 
 Type: _Parser_.
 
@@ -596,135 +625,132 @@ Synopsis:
     For parsing datetime in [UNIX time](https://en.wikipedia.org/wiki/Unix_time), use [`!PARSE.DATETIME EPOCH`](#epoch).
 
 !!! tip
-    Use [`!PARSE.MONTH`](#parsemonth-parse-a-month-name) for parsing a month.
+    Use [`!PARSE.MONTH`](#parsemonth) for parsing a month.
 
 !!! tip
-    Use [`!PARSE.FRAC`](#parsefrac-parse-a-fraction) for parsing microseconds and nanoseconds. Note that this expression consumes `.` and `,` as well. Do not parse them separately.
+    Use [`!PARSE.FRAC`](#parsefrac) for parsing microseconds and nanoseconds. Note that this expression consumes `.` and `,` as well. Do not parse them separately.
 
 !!! example
-	_Input string:_ `2022-10-13T12:34:56.987654`
+    _Input string:_ `2022-10-13T12:34:56.987654`
 
-	```yaml
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- '-'
-	- month: !PARSE.MONTH 'number'
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- microsecond: !PARSE.FRAC
-			base: "micro"
-	```
-
+    ```yaml
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - '-'
+    - month: !PARSE.MONTH 'number'
+    - '-'
+    - day: !PARSE.DIGITS
+    - 'T'
+    - hour: !PARSE.DIGITS
+    - ':'
+    - minute: !PARSE.DIGITS
+    - ':'
+    - second: !PARSE.DIGITS
+    - microsecond: !PARSE.FRAC
+            base: "micro"
+    ```
 
 ??? example "Two-digit year"
 
-	Parse datetime with two-digit year:
+    Parse datetime with two-digit year:
 
-	_Input string:_ `22-10-13T12:34:56.987654`
+    _Input string:_ `22-10-13T12:34:56.987654`
 
-	```yaml hl_lines="2"
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS  # Year can be either 4-digit or 2-digit
-	- '-'
-	- month: !PARSE.MONTH "number"
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- microsecond: !PARSE.FRAC
-				base: micro
-	```
+    ```yaml hl_lines="2"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS  # Year can be either 4-digit or 2-digit
+    - '-'
+    - month: !PARSE.MONTH "number"
+    - '-'
+    - day: !PARSE.DIGITS
+    - 'T'
+    - hour: !PARSE.DIGITS
+    - ':'
+    - minute: !PARSE.DIGITS
+    - ':'
+    - second: !PARSE.DIGITS
+    - microsecond: !PARSE.FRAC
+                base: micro
+    ```
 
 ??? example "No year, optional microseconds"
 
-	Parse datetime without a year, with short month form and optional microseconds:
+    Parse datetime without a year, with short month form and optional microseconds:
 
-	_Input strings:_ 
-	
-	```
-	Aug 17 12:00:00
-	Aug 17 12:00:00.123
-	Aug 17 12:00:00.123456
-	```
+    _Input strings:_ 
+    
+    ```
+    Aug 17 12:00:00
+    Aug 17 12:00:00.123
+    Aug 17 12:00:00.123456
+    ```
 
-	```yaml hl_lines="2 12"
-	!PARSE.DATETIME
+    ```yaml hl_lines="2 12"
+    !PARSE.DATETIME
     # There is no year in input string, smart year function is used.
-	- month: !PARSE.MONTH 'short'
-	- !PARSE.SPACE
-	- day: !PARSE.DIGITS
-	- !PARSE.SPACE
-	- hour: !PARSE.DIGITS
-	- ":"
-	- minute: !PARSE.DIGITS
-	- ":"
-	- second: !PARSE.DIGITS
-	- microsecond?: !PARSE.FRAC  # Parsing of microseconds is optional here
-					base: "micro"
-					max: 6
-	```
+    - month: !PARSE.MONTH 'short'
+    - !PARSE.SPACE
+    - day: !PARSE.DIGITS
+    - !PARSE.SPACE
+    - hour: !PARSE.DIGITS
+    - ":"
+    - minute: !PARSE.DIGITS
+    - ":"
+    - second: !PARSE.DIGITS
+    - microsecond?: !PARSE.FRAC  # Parsing of microseconds is optional here
+                    base: "micro"
+                    max: 6
+    ```
 
-	In this case, `year` is automatically determined by the _smart year_ function, which basically means that the current year is used.
-
-
+    In this case, `year` is automatically determined by the _smart year_ function, which basically means that the current year is used.
 
 ??? example "Milliseconds"
 
-	Parse datetime with milliseconds:
+    Parse datetime with milliseconds:
 
-	_Input string:_ `2023-03-23T07:00:00.734`
+    _Input string:_ `2023-03-23T07:00:00.734`
 
-	```yaml hl_lines="13-15"
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- "-"
-	- month: !PARSE.DIGITS
-	- "-"
-	- day: !PARSE.DIGITS
-	- "T"
-	- hour: !PARSE.DIGITS
-	- ":"
-	- minute: !PARSE.DIGITS
-	- ":"
-	- second: !PARSE.DIGITS
-	- microsecond: !PARSE.FRAC
-				base: milli
-				max: 3
-	```
+    ```yaml hl_lines="13-15"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - "-"
+    - month: !PARSE.DIGITS
+    - "-"
+    - day: !PARSE.DIGITS
+    - "T"
+    - hour: !PARSE.DIGITS
+    - ":"
+    - minute: !PARSE.DIGITS
+    - ":"
+    - second: !PARSE.DIGITS
+    - microsecond: !PARSE.FRAC
+                base: milli
+                max: 3
+    ```
 
 ??? example "Nanoseconds"
 
-	Parse datetime with nanoseconds:
+    Parse datetime with nanoseconds:
 
-	_Input string:_ `2023-03-23T07:00:00.734323900`
+    _Input string:_ `2023-03-23T07:00:00.734323900`
 
-	```yaml hl_lines="13-15"
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- "-"
-	- month: !PARSE.DIGITS
-	- "-"
-	- day: !PARSE.DIGITS
-	- "T"
-	- hour: !PARSE.DIGITS
-	- ":"
-	- minute: !PARSE.DIGITS
-	- ":"
-	- second: !PARSE.DIGITS
-	- nanosecond: !PARSE.FRAC
-				base: "nano"
-				max: 9
-	```
+    ```yaml hl_lines="13-15"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - "-"
+    - month: !PARSE.DIGITS
+    - "-"
+    - day: !PARSE.DIGITS
+    - "T"
+    - hour: !PARSE.DIGITS
+    - ":"
+    - minute: !PARSE.DIGITS
+    - ":"
+    - second: !PARSE.DIGITS
+    - nanosecond: !PARSE.FRAC
+                base: "nano"
+                max: 9
+    ```
 
 
 ### Timezone
@@ -752,9 +778,9 @@ Timezone can be either specified in the log or it can be missing. There are two 
 
 ??? example "Timezone from input"
 
-	Parse datetime which contains timezone in input strings.
+    Parse datetime which contains timezone in input strings.
 
-	_Input strings_:
+    _Input strings_:
 
 	```
 	2024-04-15T12:00:00+04:00 ...(other log content)
@@ -763,21 +789,21 @@ Timezone can be either specified in the log or it can be missing. There are two 
 	2024-04-15T12:00:00-02:00 ...
 	```
 
-	```yaml hl_lines="13"
-	!PARSE.DATETIME
-	- year: !PARSE.DIGITS
-	- '-'
-	- month: !PARSE.MONTH 'number'
-	- '-'
-	- day: !PARSE.DIGITS
-	- 'T'
-	- hour: !PARSE.DIGITS
-	- ':'
-	- minute: !PARSE.DIGITS
-	- ':'
-	- second: !PARSE.DIGITS
-	- timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
-	```
+    ```yaml hl_lines="13"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - '-'
+    - month: !PARSE.MONTH 'number'
+    - '-'
+    - day: !PARSE.DIGITS
+    - 'T'
+    - hour: !PARSE.DIGITS
+    - ':'
+    - minute: !PARSE.DIGITS
+    - ':'
+    - second: !PARSE.DIGITS
+    - timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
+    ```
 
 
 ### Smart year
@@ -866,8 +892,9 @@ Example of datetimes that can be parsed using the shortcut:
 
 ---
 
+## `!PARSE.MONTH`
 
-## `!PARSE.MONTH`: Parse a month name
+Parse a month.
 
 Type: _Parser_.
 
@@ -877,7 +904,9 @@ Synopsis:
 !PARSE.MONTH
 what: <...>
 ```
+
 or shorter version:
+
 ```yaml
 !PARSE.MONTH <...>
 ```
@@ -890,33 +919,38 @@ Possible values are:
 - `full`: full name representation, e.g. `January`, `December`
 
 !!! tip
-	Use `!PARSE.MONTH` to parse month name as part of `!PARSE.DATETIME`.
+    Use `!PARSE.MONTH` to parse month name as part of `!PARSE.DATETIME`.
 
 
 !!! example
 
-	_Input string:_ `10/`==Jan==`/2023:08:15:54`
+    _Input string:_ `10/`==Jan==`/2023:08:15:54`
 
-	```yaml
-	!PARSE.MONTH 'short'
-	```
+    ```yaml
+    !PARSE.MONTH 'short'
+    ```
 
-	_Input string:_ `10/`==01==`/2023:08:15:54`
+    _Input string:_ `10/`==01==`/2023:08:15:54`
 
-	```yaml
-	!PARSE.MONTH 'number'
-	```
+    ```yaml
+    !PARSE.MONTH 'number'
+    ```
 
-	_Input string:_ `10/`==January==`/2023:08:15:54`
+    _Input string:_ `10/`==January==`/2023:08:15:54`
 
-	```yaml
-	!PARSE.MONTH 'full'
-	```
+    ```yaml
+    !PARSE.MONTH 'full'
+    ```
 
 ---
 
-## `!PARSE.FRAC`: Parse a fraction
-Fraction parsing includes parsing of a dot (.) and a comma (,) separator.
+## `!PARSE.FRAC`
+
+Parse a fraction.
+
+!!! warn
+
+    Fraction parsing includes parsing of a dot (.) and a comma (,) separator.
 
 Type: _Parser_.
 
@@ -929,17 +963,16 @@ max: <...>
 ```
 
 - `base`: Indicates a base of the fraction.
-	Possible values are:
-
-	* `milli` for `10^-3` base
-	* `micro` for `10^-6` base
-	* `nano` for `10^-9` base
+    Possible values are:
+    * `milli` for `10^-3` base
+    * `micro` for `10^-6` base
+    * `nano` for `10^-9` base
 
 - `max`: Indicates a maximum number of digits depending on the `base` value.
-	Default values `3`, `6`, `9` will be applied if `max` parametr is not specified.
+    Default values `3`, `6`, `9` will be applied if `max` parameter is not specified.
 
 !!! tip
-	Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of [`!PARSE.DATETIME`](#parsedatetime-parse-datetime-in-a-given-format).
+    Use `!PARSE.FRAC` to parse microseconds or nanoseconds as part of [`!PARSE.DATETIME`](#parsedatetime).
 
 
 !!! example
@@ -951,25 +984,26 @@ max: <...>
     Aug 22 05:40:14.264023
     ```
 
-	```yaml
-	!PARSE.FRAC
-	base: "micro"
-	```
+    ```yaml
+    !PARSE.FRAC
+    base: "micro"
+    ```
 
-	or the full form:
+    or the full form:
 
-	```yaml
-	!PARSE.FRAC
-	base: "micro"
-	max: 6
-	```
+    ```yaml
+    !PARSE.FRAC
+    base: "micro"
+    max: 6
+    ```
 
 ---
 
+## `!PARSE.IP`
 
-## `!PARSE.IP`: Parse an IP address
+Parse IP address in both IPv4 and IPv6 formats.
 
-Parse IP address in both IPv4 and IPv6 formats. Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#ip-address) of the IP address. 
+Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#ip-address) of the IP address.
 
 Type: _Parser_.
 
@@ -981,18 +1015,20 @@ Synopsis:
 
 !!! example
 
-	_Input string:_ `193.178.72.2`
+    Input string:_ `193.178.72.2`
 
-	```yaml
-	!PARSE.IP
-	```
+    ```yaml
+    !PARSE.IP
+    ```
 
 
 ---
 
-## `!PARSE.MAC`: Parse a MAC address
+## `!PARSE.MAC`
 
-Parse MAC address in the format `XX:XX:XX:XX:XX:XX`. Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#mac-address) of the MAC address.
+Parse MAC address in the format `XX:XX:XX:XX:XX:XX`.
+
+Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#mac-address) of the MAC address.
 
 
 Type: _Parser_.
@@ -1005,10 +1041,10 @@ Synopsis:
 
 !!! example
 
-	_Input string:_ `4d:3b:4c:bc:e5:6d`
+    _Input string:_ `4d:3b:4c:bc:e5:6d`
 
-	```yaml
-	!PARSE.MAC
-	```
+    ```yaml
+    !PARSE.MAC
+    ```
 
 ---

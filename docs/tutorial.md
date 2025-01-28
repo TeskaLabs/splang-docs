@@ -4,14 +4,12 @@ title: Tutorial
 
 # SP-Lang Tutorial
 
-
 ## Introduction
 
 Welcome to the SP-Lang tutorial.
 SP-Lang, short for _Stream Processing Language_, is a domain-specific language (DSL).
 It's based on YAML, a human-readable data serialization language.
-This tutorial aims to introduce the basic elements of SP-Lang. 
-
+This tutorial aims to introduce the basic elements of SP-Lang.
 
 ## Hello World
 
@@ -27,17 +25,16 @@ In SP-Lang, the triple dashes (`---`) signal the start of the code.
 `Hello world!` here is a value that you want to return.
 In this case, it's our friendly "Hello world!" greeting.
 
-
 ## SP-Lang is based on YAML
 
-SP-Lang is built on the <a href="https://yaml.org">YAML</a> (Yet Another Markup Language).
+SP-Lang is built on the [YAML (Yet Another Markup Language)](https://yaml.org).
 YAML emphasizes simplicity and readability, making it a great foundation for SP-Lang.
 
 !!! important
 
-	YAML relies heavily on indentation, which is significant in its syntax.
-	As a best practice, we recommend using two spaces for indentation.
-	Do note that TABs are not supported in YAML.
+    YAML relies heavily on indentation, which is significant in its syntax.
+    As a best practice, we recommend using two spaces for indentation.
+    Do note that TABs are not supported in YAML.
 
 
 ## Comments
@@ -47,8 +44,8 @@ This makes it easier for others (and your future self) to understand what your c
 
 
 ```yaml
-# This is a comment.
 ---
+# This is a comment.
 Hello world!
 ```
 
@@ -77,7 +74,7 @@ Expressions in SP-Lang start with an exclamation mark (`!`).
 
 !!! tip
 
-	The term "Expression" is an alternative term for a function.
+    The term "Expression" is an alternative term for a function.
 
 
 In this example, `!ADD` is the expression for arithmetic addition that sums up the provided numbers.

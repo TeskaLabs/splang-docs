@@ -4,15 +4,21 @@ title: Bitwise
 
 # Bitwise expressions
 
+## Overview
 
 The bit shifts treat a value as a series of bits, the binary digits of the value are moved, or shifted, to the left or right.
 
+* [`!SHL`](#shl), [`!SHR`](#shr): Left and right logical shifts.
+* [`!SAL`](#sal), [`!SAR`](#sar): Left and right arithmetic shifts.
+* [`!ROL`](#rol), [`!ROR`](#ror): Circular rotations to the left and right.
 
 There are also bitwise `!AND`, `!OR` and `!NOT` expression, at [Logic](./logic.md) chapter.
 
 ---
 
-## `!SHL`: Left logical shift 
+## `!SHL`
+
+Left logical shift.
 
 Type: _Mapping_.
 
@@ -39,7 +45,9 @@ by: <...>
 
 ---
 
-## `!SHR`: Right logical shift  
+## `!SHR`
+
+Right logical shift.
 
 Type: _Mapping_.
 
@@ -67,7 +75,9 @@ by: <...>
 
 --- 
 
-## `!SAL`: Left arithmetic shift 
+## `!SAL`
+
+Left arithmetic shift.
 
 Type: _Mapping_.
 
@@ -88,7 +98,9 @@ by: <...>
 
 ---
 
-## `!SAR`: Right arithmetic shift 
+## `!SAR`
+
+Right arithmetic shift.
 
 Type: _Mapping_.
 
@@ -101,7 +113,9 @@ by: <...>
 
 ---
 
-## `!ROL`: Left rotation (circular) shift 
+## `!ROL`
+
+Circular left rotation.
 
 Type: _Mapping_.
 
@@ -114,7 +128,9 @@ by: <...>
 
 ---
 
-## `!ROR`: Right rotation (circular) shift 
+## `!ROR`
+
+Circular right rotation.
 
 Type: _Mapping_.
 

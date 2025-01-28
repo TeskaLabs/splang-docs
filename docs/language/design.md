@@ -1,26 +1,23 @@
 ---
-title: Language design
+title: Design
 ---
 
 # SP-Lang language design
 
-
 ## Properties
 
- * <a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative language</a>
- * <a href="https://en.wikipedia.org/wiki/Functional_programming">Functional language</a>
- * <a href="https://en.wikipedia.org/wiki/Strong_and_weak_typing">Strongly typed language</a>
- * <a href="https://en.wikipedia.org/wiki/Type_inference">Type inference</a>
- * Syntax is based on <a href="https://yaml.org/">YAML</a>
+* [📜 Declarative language](https://en.wikipedia.org/wiki/Declarative_programming)
+* [🔗 Functional language](https://en.wikipedia.org/wiki/Functional_programming)
+* [🔀 Stateless language](https://en.wikipedia.org/wiki/Static_single-assignment_form)
+* [🔐 Strongly typed language](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
+* [💡 Type inference](https://en.wikipedia.org/wiki/Type_inference)
+* Syntax is based on [YAML](https://yaml.org/)
 
 !!! question "Compiled or interpreted"
-   
-      SP-Lang is both:
+    SP-Lang is both:
 
-      * Compiled by <a href="https://llvm.org/">LLVM</a>
-      * Interpreted in <a href="https://www.python.org">Python</a>
-
-
+    * Compiled by <a href="https://llvm.org/">LLVM</a>
+    * Interpreted in <a href="https://www.python.org">Python</a>
 
 ## 📜 Declarative
 
@@ -43,14 +40,13 @@ You pass data through various expressions to build the final result.
 
 !!! info "More information"
 
-      * [Static Single Assignment](https://en.wikipedia.org/wiki/Static_single-assignment_form)
-      * [Persistent Data Structures](https://en.wikipedia.org/wiki/Persistent_data_structure)
+    * [Static Single Assignment](https://en.wikipedia.org/wiki/Static_single-assignment_form)
+    * [Persistent Data Structures](https://en.wikipedia.org/wiki/Persistent_data_structure)
 
 ## 🔐 Strongly typed
 
 The types of all the values are known at compile time.
 This allows for the early detection of errors and reinforce optimizations.
-
 
 ## 💡 Type inference
 
@@ -58,13 +54,9 @@ Types are derived from their use without being declared.
 For example, setting a variable to a number results in that variable's type being established as a number.
 This further reduces a complexity for a maker without any performance sacrifice known from interpreted languages.
 
-For advanced users who require more control over the type system, the SP-Lang provide mechanisms to explicitly specify types or interact with the [type system](../language/types.md) when necessary.
+For advanced users who require more control over the type system, the SP-Lang provide mechanisms to explicitly specify types or interact with the [type system](../language/types/index.md) when necessary.
 This flexibility allows advanced users to fine-tune their code for maximum performance and reliability, while still benefiting from the convenience of type inference.
-
 
 ## 🎓Turing completeness
 
 SP-Lang is designed to be [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness).
-
-
-

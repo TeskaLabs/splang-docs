@@ -4,14 +4,19 @@ title: Directives
 
 # Directives
 
+## Overview
 
 !!! note
 
     SP-Lang directives are expanded during compilation. They are not expressions.
 
---- 
+* [`!INCLUDE`](#include): Inserts the content of another file.
 
-## `!INCLUDE`: Insert the content of another file 
+---
+
+## `!INCLUDE`
+
+Insert the content of another file.
 
 Type: Scalar, Directive.
 
@@ -36,18 +41,21 @@ It could be:
 
 !!! example
 
-  ```yaml
-  !INCLUDE other_file.yaml
-  ```
+    This is a simple inclusion of the `other_file.yaml`:
 
-  This is a simple inclusion of the `other_file.yaml`.
+    ```yaml
+    !INCLUDE other_file.yaml
+    ```
 
-  ```yaml
-  !MATCH
-  what: !GET {...}
-  with:
-    'group1': !INCLUDE inc_group1
-    'group2': !INCLUDE inc_group2
-  ```
 
-  In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files.
+!!! example
+
+    In this example, `!INCLUDE` is used to decompose a larger expression into a logically separated files:
+
+    ```yaml
+    !MATCH
+    what: !GET {...}
+    with:
+      'group1': !INCLUDE inc_group1
+      'group2': !INCLUDE inc_group2
+    ```

@@ -4,10 +4,17 @@ title: Utility
 
 # Utility expressions
 
+## Overview
+
+- [`!CAST`](#cast): Converts type of the argument into another.
+- [`!HASH`](#hash): Calculates a digest.
+- [`!DEBUG`](#debug): Debugs the expression.
 
 ---
 
-## `!CAST`: Convert type of the argument into another 
+## `!CAST`
+
+Convert type of the argument into another.
 
 Type: _Mapping_.
 
@@ -22,26 +29,28 @@ type: <type>
 Explicitly convert type of `what` into the type of `type`.
 
 SP-Lang automatically converts types of arguments so that the user doesn't need to think about types at all.
-This feature is called *implicit casting*.
+This feature is called _implicit casting_.
 
 In case of explicit need for a type conversion, use `!CAST` expression.
 It is very powerful method that do a lot of heavy-lifting.
 
-For more details, see chapter about [types](../language/types.md).
+For more details, see chapter about [types](../language/types/index.md).
 
 !!! example
 
-	```yaml
-	!CAST
-	what: "10.3"
-	type: fp64
-	```
+    ```yaml
+    !CAST
+    what: "10.3"
+    type: fp64
+    ```
 
-	This is an explicit casting of the string into a floating-point number.
+    This is an explicit casting of the string into a floating-point number.
 
 ---
 
-## `!HASH`: Calculate a digest 
+## `!HASH`
+
+Calculate a digest.
 
 Type: _Mapping_.
 
@@ -63,26 +72,24 @@ Calculate the hash for an `what` value.
 
 ### Supported hashing functions
 
-* `XXH64`: xxHash, 64bit, non-cryptografic, extremely fast hash algorithm
-* `XXH3`: xxHash, 64bit, non-cryptografic, futher optimized for small inputs
+* `XXH64`: xxHash, 64bit, non-cryptographic, extremely fast hash algorithm
+* `XXH3`: xxHash, 64bit, non-cryptographic, further optimized for small inputs
 
-More information about xxHash are at [xxhash.com](http://www.xxhash.com/)
+More information about xxHash are at [xxhash.com](http://www.xxhash.com/).
 
 
-!!! example "Příklad"
+!!! example
 
-	```yaml
-	!HASH
-	what: "Hello world!"
-	seed: 5
-	```
-
+    ```yaml
+    !HASH
+    what: "Hello world!"
+    seed: 5
+    ```
 
 ---
 
-## `!DEBUG`: Debug the expression 
+## `!DEBUG`
 
 Print the content of the input and pass the value unchanged on the output.
 
 Type: _Mapping_.
-

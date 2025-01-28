@@ -127,7 +127,7 @@ This data type contains [MAC address](https://en.wikipedia.org/wiki/MAC_address)
 
 `mac`
 
-Underlying scalar type: `ui64`, only 6 octecs are used in EUI-48.
+Underlying scalar type: `ui64`, only 6 octets are used in EUI-48.
 
 
 ### Geographical coordinate
@@ -366,7 +366,7 @@ or an equivalent shortcut:
 
 _Schema_ is the SP-Lang concept of how to bridge schema-less systems such us JSON or Python with strongly-typed SP-Lang.
 Schema is basically a directory that maps fields to their types and so on.
-For more information, continue to a chapter about SP-Lang [schemas](./schema.md).
+For more information, continue to a chapter about SP-Lang [schemas](../schema.md).
 
 SP-Lang Schema-based type specifies the schema by a _schema name_: `json<SCHEMANAME>`.
 The _schema name_ is used to locate the schema definition eg. in the library.
