@@ -2,13 +2,13 @@
 title: Functions
 ---
 
-# Functions expressions
+# Function expressions
 
 ## Overview
 
 * [`!ARGUMENT`, `!ARG`](#argument-arg): Gets a function argument.
 * [`!FUNCTION`, `!FN`](#function-fn): Defines a new function.
-* [`!SELF`](#self): Applies the current function.
+* [`!SELF`](#self): Applies the current function, used for recursion.
 
 
 ---
