@@ -53,7 +53,7 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!FN`](./function.md#function-fn) | mapping | function | Defines a new function. |
 | [`!SELF`](./function.md#self) | mapping | function | Applies the current function, used for recursion. |
 | [`!IP.FORMAT`](./ip.md#ipformat) | mapping | ip | Converts an IP address into a string. |
-| [`!IP.SUBNET`](./ip.md#ipsubnet) | mapping | ip | Check if IP address falls into a subnet. |
+| [`!IP.INSUBNET`](./ip.md#ipinsubnet) | mapping | ip | Check if IP address falls into a subnet. |
 | [`!GET`](./json.md#get) | mapping | json | Gets a single value from JSON. |
 | [`!JSON.PARSE`](./json.md#jsonparse) | mapping | json | Parses JSON. |
 | [`!LIST`](./list.md#list) | mapping | list |  Creates a list of items. |

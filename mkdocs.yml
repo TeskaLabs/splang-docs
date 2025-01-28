@@ -26,6 +26,7 @@ theme:
     - navigation.top
     - content.code.annotate
     - content.code.copy
+    - search.highlight
 
   logo: images/teskalabs-logo.svg
 

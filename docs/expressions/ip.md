@@ -12,7 +12,7 @@ IPv4 are mapped into IPv6 space, using [RFC 4291 "IPv4-Mapped IPv6 Address"](htt
 
 
 * [`!IP.FORMAT`](#ipformat): Converts an IP address into a string.
-* [`!IP.SUBNET`](#ipsubnet): Check if IP address falls into a subnet.
+* [`!IP.INSUBNET`](#ipinsubnet): Check if IP address falls into a subnet.
 
 
 ---
@@ -90,7 +90,6 @@ Test if `what` IP address belongs to a `subnet` or subnets , returns `true` if y
     subnet: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
     ```
 
-
 ---
 
 ## Parse of the IP address
@@ -103,7 +102,6 @@ If needed, you may explicitly cast string-based IP address into the `ip` type:
 type: ip
 what: 192.168.1.1
 ```
-
 
 ## Parse of the IP subnet
 
