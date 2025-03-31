@@ -1,18 +1,22 @@
 ---
-git_commit_hash: b55fa3f
 title: Direktivy
 ---
 
 # Direktivy
 
+## Přehled
+
 !!! note
 
     Direktivy SP-Lang jsou při kompilaci rozšířeny. Nejsou to výrazy.
 
+* [`!INCLUDE`](#include): Vloží obsah jiného souboru.
 
---- 
+---
 
-## `!INCLUDE`: Vloží obsah jiného souboru
+## `!INCLUDE`
+
+Vloží obsah jiného souboru.
 
 Typ: Skalární, Direktiva.
 
@@ -35,20 +39,23 @@ Můžeme ho specifikovat pomocí:
   
 Přípona `.yaml` je nepovinná a bude přidána ke jménu souboru, pokud chybí.
 
-!!! example "Příklad"
+!!! example
 
-	```yaml
-	!INCLUDE other_file.yaml
-	```
+    Toto je jednoduché začlenění souboru `other_file.yaml`:
 
-	Jedná se o jednoduché začlenění souboru `other_file.yaml`.
+    ```yaml
+    !INCLUDE other_file.yaml
+    ```
 
-	```yaml
-	!MATCH
-	what: !GET {...}
-	with:
-	'group1': !INCLUDE inc_group1
-	'group2': !INCLUDE inc_group2
-	```
 
-	V tomto příkladu se `!INCLUDE` používá k rozkladu většího výrazu na logicky oddělené soubory.
+!!! example
+
+    V tomto příkladu se `!INCLUDE` používá k rozkladu většího výrazu na logicky oddělené soubory:
+
+    ```yaml
+    !MATCH
+    what: !GET {...}
+    with:
+      'group1': !INCLUDE inc_group1
+      'group2': !INCLUDE inc_group2
+    ```

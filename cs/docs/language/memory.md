@@ -1,5 +1,4 @@
 ---
-git_commit_hash: b55fa3f
 title: Správa paměti
 ---
 
@@ -7,7 +6,7 @@ title: Správa paměti
 
 Správa paměti v SP-Langu je založena na konceptu paměťových arén - [memory arenas](https://en.wikipedia.org/wiki/Region-based_memory_management).
 
-<img src="../memory-arena.svg" alt="Memory arena schema"/>
+<img src="../memory-arena.svg" alt="Schéma paměťové arény"/>
 
 _Diagram: Rozložení paměťových arén_
 

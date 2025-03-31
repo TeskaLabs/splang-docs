@@ -1,6 +1,5 @@
 ---
-git_commit_hash: b55fa3f
-title: Záznamy
+title: Záznam
 ---
 
 # Výrazy pro záznam
@@ -13,7 +12,10 @@ Položky záznamu jsou pojmenovány (na rozdíl od tuple) pomocí štítku (labe
 
 	Záznam je postaven na `!TUPLE`.
 
---- 
+* [`!RECORD`](#record): Kolekce pojmenovaných položek.
+* [`!GET`](#get): Získá položku ze záznamu.
+
+---
 
 ## `!RECORD`: Kolekce pojmenovaných položek 
 
@@ -52,15 +54,11 @@ Pořadí položek je zachováno.
 
 !!! example "Použití tagu `!!record`:"
 
-
-
 	```yaml
-	{jméno: John Doe, věk: 37 let, výška: 175,4}
+	!!record {jméno: John Doe, věk: 37 let, výška: 175,4}
 	```
 
-!!! example
-
-	Vynucení konkrétního typu položky:
+!!! example "Vynucení konkrétního typu položky:"
 
 	```yaml
 	!RECORD
@@ -72,8 +70,7 @@ Pořadí položek je zachováno.
 
 	Pole `age` bude mít typ `ui8`.
 
-
---- 
+---
 
 ## `!GET`: Získá položku ze záznamu
 
@@ -94,9 +91,7 @@ Hodnota `what` může být záporná, v takovém případě určuje položku z k
 Položky jsou indexovány od 0, to znamená, že první položka v seznamu má index 0.
 Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 
-
 !!! example "Příklad použití názvů položek:"
-
 
 	```yaml
 	!GET
@@ -125,7 +120,6 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 	```
 
 	Vrací `32`, hodnotu položky `age`.
-
 
 !!! example "Použití _záporného indexu_ položek:"
 

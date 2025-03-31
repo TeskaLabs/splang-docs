@@ -1,6 +1,7 @@
 site_name: "SP-Lang Documentation"
 theme:
   name: 'material'
+  language: en
 
   font:
     text: Verdana

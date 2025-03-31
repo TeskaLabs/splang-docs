@@ -1,5 +1,4 @@
 ---
-git_commit_hash: b55fa3f
 title: Výkon
 ---
 
@@ -11,7 +10,7 @@ title: Výkon
 SP-Lang je navržen tak, aby poskytoval velmi vysoký výkon.
 
 Interně kompiluje poskytnuté výrazy do strojového kódu pomocí [LLVM IR](https://llvm.org) a velkého stupně optimalizací, které jsou možné díky funkcionální struktuře jazyka.
-Nabízí extrémně vysokou propustnost jednoho jádra procesoru s bezproblémovou schopností škálovat zpracování podle dostupných jader procesoru a plně využívat výhod moderních architektur procesorů.
+Nabízí extrémně vysokou propustnost jednoho jádra procesoru s bezproblémovou schopností škálovat zpracování podle dostupných jader procesoru a plně využívat výhody moderních architektur procesorů.
 
 Výkonnostní testy měří propustnost v _EPS_, událostech za sekundu.
 Události za sekundu je termín používaný ve správě IT pro definici počtu událostí, které jsou zpracovány výrazem SP-Lang za jednu sekundu.
@@ -31,7 +30,7 @@ Hodí se např. pro klasifikaci škodlivých adres URL (poskytnutých blokovým 
   what:
   - ".000a.biz"
   - ".001edizioni.com"
- < 64 domains in total >
+  < 64 domén celkem >
   - ".2win-tech.com"
   - ".2zzz.ru"
 ```
@@ -42,12 +41,12 @@ Tento seznam poskytuje projekt [blackweb](https://github.com/maravento/blackweb)
 
 
 ## Parsování JSON
-```yaml
 
+```yaml
 !JSON.PARSE
 what: |
   {
-  	&lt; https://github.com/TeskaLabs/cysimdjson/blob/main/perftest/jsonexamples/test.json &gt;
+  	< https://github.com/TeskaLabs/cysimdjson/blob/main/perftest/jsonexamples/test.json >
   }
 ```
 
@@ -61,9 +60,9 @@ what: |
 ## Parsování IETF Syslogu
 
 Toto je parser IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/rfc5424) implementovaný v SP-Langu:
-```yaml
 
-# Hlavička
+```yaml
+!PARSE.TUPLE # Hlavička
 - !PARSE.EXACTLY {what: '<'}
 - !PARSE.DIGITS
 - !PARSE.EXACTLY {what: '>'}
@@ -87,27 +86,27 @@ Toto je parser IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/r
   - !PARSE.EXACTLY {what: 'Z'}
 
 - !PARSE.EXACTLY {what: ' '} # HOSTNAME
-- !PARSE.UNTIL {what: ' '}
+- !PARSE.UNTIL   {what: ' '}
 
 - !PARSE.EXACTLY {what: ' '} # APP-NAME
-- !PARSE.UNTIL {what: ' '}
+- !PARSE.UNTIL   {what: ' '}
  
 - !PARSE.EXACTLY {what: ' '} # PROCID
-- !PARSE.UNTIL {what: ' '}
+- !PARSE.UNTIL   {what: ' '}
 
 - !PARSE.EXACTLY {what: ' '} # MSGID
-- !PARSE.UNTIL {what: ' '}
+- !PARSE.UNTIL   {what: ' '}
 
 - !PARSE.EXACTLY {what: ' '} # STRUCTURED-DATA
 - !PARSE.OPTIONAL
   what: !PARSE.TUPLE
     - !PARSE.EXACTLY {what: '['}
-    - !PARSE.UNTIL {what: ' '} # SD-ID
+    - !PARSE.UNTIL   {what: ' '} # SD-ID
     - !PARSE.REPEAT  
       what:
       !PARSE.TUPLE # SD-PARAM
       - !PARSE.EXACTLY {what: ' '}
-      - !PARSE.UNTIL {what: '='} # PARAM-NAME
+      - !PARSE.UNTIL   {what: '='} # PARAM-NAME
       - !PARSE.EXACTLY {what: '='}
       - !PARSE.BETWEEN 
          what: '"'
@@ -129,4 +128,4 @@ Toto je parser IETF Syslog aka [RFC5424](https://datatracker.ietf.org/doc/html/r
 ### HW-I7-15
 
 * Stroj: MacBook Pro (15palcový, 2016)
-* CPU: [I7-6700HQ](https://ark.intel.com/content/www/us/en/ark/products/88967/intel-core-i76700hq-processor-6m-cache-up-to-3-50-ghz.html), uveden na trh v roce 2015.
+* CPU: 2.6 GHz Quad-Core Intel Core i7, [I7-6700HQ](https://ark.intel.com/content/www/us/en/ark/products/88967/intel-core-i76700hq-processor-6m-cache-up-to-3-50-ghz.html), uveden na trh v roce 2015

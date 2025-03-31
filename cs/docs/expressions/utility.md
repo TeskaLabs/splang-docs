@@ -1,14 +1,20 @@
 ---
-git_commit_hash: b55fa3f
 title: Pomocné
 ---
 
 # Pomocné výrazy
 
+## Přehled
+
+- [`!CAST`](#cast): Převádí typ argumentu na jiný.
+- [`!HASH`](#hash): Vypočítá digest.
+- [`!DEBUG`](#debug): Ladí výraz.
 
 ---
 
-## `!CAST`: Převádí typ argumentu na jiný 
+## `!CAST`
+
+Převádí typ argumentu na jiný.
 
 Typ: _Mapping_.
 
@@ -28,21 +34,23 @@ Tato funkce se nazývá *implicit casting*.
 V případě potřeby explicitní konverze typu použijte výraz `!CAST`.
 Jedná se o velmi mocnou metodu, která dělá hodně těžkou práci.
 
-Další podrobnosti najdete v kapitole o [typech](../../language/types).
+Další podrobnosti najdete v kapitole o [typech](../language/types/index.md).
 
 !!! example "Příklad"
 
-	```yaml
-	!CAST
-	what: "10.3"
-	type: fp64
-	```
+    ```yaml
+    !CAST
+    what: "10.3"
+    type: fp64
+    ```
 
-	Jedná se o explicitní převod řetězce na číslo s desetinnou čárkou.
+    Jedná se o explicitní převod řetězce na číslo s desetinnou čárkou.
 
 ---
 
-## `!HASH`: Vypočítá digest
+## `!HASH`
+
+Vypočítá digest.
 
 Typ: _Mapping_.
 
@@ -72,18 +80,16 @@ Více informací o xxHash naleznete na adrese [xxhash.com](http://www.xxhash.com
 
 !!! example "Příklad"
 
-	```yaml
-	!HASH
-	what: "Hello world!"
-	seed: 5
-	```
-
+    ```yaml
+    !HASH
+    what: "Hello world!"
+    seed: 5
+    ```
 
 ---
 
-## `!DEBUG`: Ladění výrazů 
+## `!DEBUG`
 
 Vypíše obsah vstupu a na výstupu předá nezměněnou hodnotu.
 
 Typ: _Mapping_.
-

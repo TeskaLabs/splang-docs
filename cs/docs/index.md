@@ -1,5 +1,4 @@
 ---
-git_commit_hash: b55fa3f
 title: Vítejte!
 ---
 
@@ -48,7 +47,7 @@ Z tohoto důvodu je SP-Lang přirozeným kandidátem na nákladově efektivní z
 
 	<img src="visual-hello-world.jpg" alt="Visual Hello world in SP-Lang" style="width: 197px;" />
 
-**Pro první seznámení s jazykem SP-Lang vyzkoušejte náš [tutoriál](./tutorial.md).**
+**Pro první seznámení s jazykem SP-Lang vyzkoušejte náš [tutoriál](tutorial.md).**
 
 ## Vlastnosti jazyka SP-Lang
 

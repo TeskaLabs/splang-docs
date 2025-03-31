@@ -1,22 +1,27 @@
 ---
-git_commit_hash: b55fa3f
 title: Množiny
 ---
 
 # Výrazy pro práci s množinami
 
+## Přehled
 
-Množina (set) ukládá objekty zvané prvky, aniž by si všímala konkrétního pořadí, a každý prvek ukládá pouze jednou.
-Prvky v množině musí být stejného typu.
+Množina ukládá unikátní prvky, aniž by si všímala konkrétního pořadí. 
+Prvky v množině musí být stejného typu. 
 Množina je jednou ze základních datových struktur poskytovaných jazykem SP-Lang.
 
-Množina je vhodnější pro testování výskytu nějakého prvku spíše než pro získání konkrétního prvku.
+Množina je nejvhodnější pro testování přítomnosti hodnoty než pro získání konkrétního prvku z množiny.
 
---- 
+* [`!SET`](#set): Množina prvků.
+* [`!IN`](#in): Test členství.
 
-## `!SET`: množina prvků 
+---
 
-Typ: _Implicit sequence_, _Mapping_.
+## `!SET`
+
+Množina prvků.
+
+Typ:  _Implicit sequence_, _Mapping_.
 
 Synopsis:
 
@@ -26,13 +31,13 @@ Synopsis:
 - ...
 ```
 
-!!! hint "Nápověda"
+!!! hint
 
-    Pro určení počtu položek v sadě použijte `!COUNT`.
+    Použijte `!COUNT` pro určení počtu prvků v množině.
 
 Existuje několik způsobů, jak lze v jazyce SP-Lang zadat množinu:
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !SET
@@ -43,7 +48,8 @@ Existuje několik způsobů, jak lze v jazyce SP-Lang zadat množinu:
     - "Five"
     ```
 
-!!! example "Příklad"
+!!! example "Neuspořádaná množina"
+
     [Neuspořádaná množina YAML](https://yaml.org/spec/1.2.2/#example-unordered-sets):
 
     ```yaml
@@ -53,31 +59,32 @@ Existuje několik způsobů, jak lze v jazyce SP-Lang zadat množinu:
     ? Bílý sníh
     ```
 
-!!! example "Příklad"
+!!! example "YAML flow sequences"
 
     Kompaktní zápis množiny pomocí [YAML flow sequences](https://yaml.org/spec/1.2.2/#741-flow-sequences):
 
     ```yaml
-    !SET ["One", "Two", "Three", "Four", "Five"]
+    !SET ["One", "Dva", "Three", "Four", "Five"]
     ```
 
-!!! example "Příklad"
+!!! example
     Formulář pro mapování:
 
     ```yaml
     !SET
     with:
     - "One"
-    - "Two"
+    - "Dva"
     - "Three"
     - "Four"
     - "Five"
     ```
 
+---
 
---- 
+## `!IN`
 
-## `!IN`: Test členství 
+Test členství.
 
 Typ: _Mapping_.
 
@@ -91,9 +98,9 @@ where: <set>
 
 Zkontroluje, zda je `item` přítomna v `set`.
 
-Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](../comparisons/#in-test-vyskytu).
+Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](./comparisons.md#in).
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !IN

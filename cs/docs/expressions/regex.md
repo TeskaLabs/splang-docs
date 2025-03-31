@@ -1,19 +1,28 @@
 ---
-git_commit_hash: b55fa3f
 title: Regex
 ---
 
 # Regexové výrazy
 
+## Přehled
 
 !!! tip
 
     Pomocí [Regexr](https://regexr.com) můžete vytvářet a testovat regulární výrazy.
 
 
---- 
+* [`!REGEX`](#regex): Vyhledávání pomocí regulárního výrazu.
+* [`!REGEX.REPLACE`](#regexreplace): Nahrazení regulárním výrazem.
+* [`!REGEX.SPLIT`](#regexsplit): Rozdělení řetězce pomocí regulárního výrazu.
+* [`!REGEX.FINDALL`](#regexfindall): Najít všechny výskyty podle regulárního výrazu.
+* [`!REGEX.PARSE`](#regexparse): Parsování pomocí regulárního výrazu.
 
-## `!REGEX`: Vyhledávání pomocí regulárních výrazů  
+
+---
+
+## `!REGEX`
+
+Vyhledávání pomocí regulárního výrazu.
 
 Typ: _Mapping_.
 
@@ -35,7 +44,7 @@ Výraz `hit` je nepovinný, výchozí hodnota je `true`.
 Výraz `miss` je nepovinný, výchozí hodnota je `false`.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !IF
@@ -44,9 +53,9 @@ Výraz `miss` je nepovinný, výchozí hodnota je `false`.
       what: "Hello world!"
       regex: "world"
     then:
-      "Yes :-)"
+      "Ano :-)"
     else:
-      "No ;-("
+      "Ne ;-("
 ```
 
 !!! example "Jiná forma:"
@@ -61,7 +70,9 @@ Výraz `miss` je nepovinný, výchozí hodnota je `false`.
 
 --- 
 
-## `!REGEX.REPLACE`: Nahrazení regulárním výrazem
+## `!REGEX.REPLACE`
+
+Nahrazení regulárním výrazem.
 
 Typ: _Mapping_.
 
@@ -80,7 +91,6 @@ Nahradit regulární výraz `regex` odpovídající hodnotě `what` hodnotou `by
 !!! example
 
     ```yaml
-
     !REGEX.REPLACE
     what: "Hello world!"
     regex: "world"
@@ -89,9 +99,11 @@ Nahradit regulární výraz `regex` odpovídající hodnotě `what` hodnotou `by
 
     Vrací: `Hello Mars!`
 
---- 
+---
 
-## `!REGEX.SPLIT`: Rozdělí řetězec pomocí regulárního výrazu  
+## `!REGEX.SPLIT`
+
+Rozdělení řetězce pomocí regulárního výrazu.
 
 Typ: _Mapping_.
 
@@ -109,7 +121,7 @@ Dělí řetězec `what` regulárním výrazem `regex`.
 Nepovinný argument `max` určuje maximální počet rozdělení.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !REGEX.SPLIT
@@ -119,9 +131,11 @@ Nepovinný argument `max` určuje maximální počet rozdělení.
 
     Vrací: `['07', '14', '2007', '12', '34', '56']`
 
---- 
+---
 
-## `!REGEX.FINDALL`: Najde všechny výskyty podle regulárního výrazu  
+## `!REGEX.FINDALL`
+
+Najít všechny výskyty podle regulárního výrazu.
 
 Typ: _Mapping_.
 
@@ -135,7 +149,7 @@ regex: <regex>
 
 Najde všechny shody `regex` v řetězci `what`.
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !REGEX.FINDALL
@@ -147,8 +161,10 @@ Najde všechny shody `regex` v řetězci `what`.
 
 ---
 
-## `!REGEX.PARSE`: Parsování pomocí regulárního výrazu 
+## `!REGEX.PARSE`
 
-Type: _Mapping_.
+Parsování pomocí regulárního výrazu.
 
-Viz kapitolu [`!PARSE.REGEX`](../parsec/#parseregex-parsuje-posloupnost-znaku-ktera-odpovida-regularnimu-vyrazu)
+Typ: _Mapping_.
+
+Viz kapitolu [`!PARSE.REGEX`](./parsec/parser.md/#parseregex)

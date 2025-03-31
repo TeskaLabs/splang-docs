@@ -1,5 +1,4 @@
 ---
-git_commit_hash: b55fa3f
 title: Schéma
 ---
 
@@ -34,7 +33,7 @@ fields:
 ### Možnost `type`
 
 Definuje datový typ daného atributu, například `str`, `si64` a podobně.
-Další informace naleznete v [typovém systému](../types.md) SP-Langu.
+Další informace naleznete v [typovém systému](./types/index.md) SP-Langu.
 
 Tato volba je povinná.
 

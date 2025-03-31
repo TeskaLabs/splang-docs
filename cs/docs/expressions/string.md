@@ -1,14 +1,23 @@
 ---
-git_commit_hash: b55fa3f
 title: Řetězce
 ---
 
 # Výrazy pro řetězce
 
+## Přehled
+
+* [`!IN`](#in): Testuje, zda řetězec obsahuje podřetězec.
+* [`!STARTSWITH`](#startswith): Testuje, zda řetězec začíná vybranou předponou.
+* [`!ENDSWITH`](#endswith): Testuje, zda řetězec končí vybranou příponou.
+* [`!SUBSTRING`](#substring): Extrahuje část řetězce.
+* [`!LOWER`](#lower), [`!UPPER`](#upper): Převádí řetězec na malá / velká písmena.
+* [`!CUT`](#cut): Vyjme část řetězce a vrátí vybranou část.
+* [`!SPLIT`](#split), [`!RSPLIT`](#rsplit): Rozdělí řetězec na seznam.
+* [`!JOIN`](#join): Spojí seznam řetězců.
 
 ---
 
-## `!IN`: Testuje, zda řetězec obsahuje podřetězec 
+## `!IN`
 
 Výraz `!IN` slouží ke kontrole, zda řetězec `what` je podřetězcem `where`, nebo ne.
 
@@ -25,12 +34,12 @@ where: <...>
 Pokud najde podřetězec `what` v řetězci `where`, vyhodnotí se jako `true`, v opačném případě jako `false`.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !IN
     what: "Willy"
-    kde: "John Willy Boo"
+    where: "John Willy Boo"
     ```
 
     Zkontroluje přítomnost podřetězce "Willy" v hodnotě `where`. Vrátí hodnotu `true`.
@@ -79,18 +88,18 @@ Typické zlepšení výkonu je 5x-10x.
 
 Z tohoto důvodu musí být `!IN` dokonalou nadmnožinou `!REGEX`, to znamená:
 
-* `!IN` -&gt; `true`, `!REGEX` -&gt; `true`: `true`
-* `!IN` -&gt; `true`, `!REGEX` -&gt; `false`: `false` (to by měla být menšina případů).
-* `!IN` -&gt; `false`, `!REGEX` -&gt; `false`: `false` (předfiltrování, mělo by se jednat o většinu případů)
-* `!IN` -&gt; `false`, `!REGEX` -&gt; `true`: této kombinaci se MUSÍTE vyhnout, podle toho přijměte `!IN` a/nebo `!REGEX`.
+* `!IN` -> `true`, `!REGEX` -> `true`: `true`
+* `!IN` -> `true`, `!REGEX` -> `false`: `false` (to by měla být menšina případů)
+* `!IN` -> `false`, `!REGEX` -> `false`: `false` (předfiltrování, mělo by se jednat o většinu případů)
+* `!IN` -> `false`, `!REGEX` -> `true`: této kombinaci se MUSÍTE vyhnout, podle toho přijměte `!IN` a/nebo `!REGEX`.
 
 ---
 
-## `!STARTSWITH`: Otestuje, zda řetězec začíná předponou 
+## `!STARTSWITH`
 
 Vrací hodnotu `true`, pokud řetězec `what` začíná předponou `prefix`.
 
-Typ:  _Mapping_
+Typ: _Mapping_
 
 Synopsis:
 
@@ -101,7 +110,7 @@ prefix: <...>
 ```
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !STARTSWITH
@@ -111,10 +120,9 @@ prefix: <...>
 
 ### Víceřetězcová varianta
 
+!!! warning "Práce v pokroku"
 
-!!! warning "Work in progress"
-
-	Zatím neimplementováno.
+    Zatím neimplementováno.
 
 
 ```yaml
@@ -129,7 +137,7 @@ Výraz se vyhodnotí jako `true`, pokud alespoň jeden prefixový řetězec odpo
 
 ---
 
-## `!ENDSWITH`: Testuje, zda řetězec končí příponou
+## `!ENDSWITH`
 
 Vrací hodnotu `true`, pokud řetězec `what` končí příponou `postfix`.
 
@@ -144,20 +152,19 @@ postfix: <...>
 ```
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !ENDSWITH
     what: "autoexec.bat"
-    postfix: "bat"
+    postfix: ".bat"
     ```
 
 ### Víceřetězcová varianta
 
+!!! warning "Práce v pokroku"
 
-!!! warning "Work in progress"
-
-	Zatím neimplementováno.
+    Zatím neimplementováno.
 
 
 ```yaml
@@ -172,20 +179,19 @@ Výraz se vyhodnotí jako `true`, pokud alespoň jeden postfixový řetězec odp
 
 ---
 
-## `!SUBSTRING`: Extrahuje část řetězce 
+## `!SUBSTRING`
 
 Vrátí část řetězce `what` mezi indexy `from` a `to`.
 
 Typ: _Mapping_
-
 
 Synopsis:
 
 ```yaml
 !SUBSTRING
 what: <...>
-od: <...>
-do: <...>
+from: <...>
+to: <...>
 ```
 
 !!! info
@@ -193,23 +199,24 @@ do: <...>
     První znak řetězce se nachází na pozici `from=0`.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !SUBSTRING
     what: "FooBar"
     from: 1
-    do: 3
+    to: 3
     ```
 
     Vrací `oo`.
 
 ---
 
-## `!LOWER`: Převede řetězec na malá písmena 
+## `!LOWER`
+
+Převede řetězec nebo seznam řetězců na malá písmena.
 
 Typ: _Mapping_
-
 
 Synopsis:
 
@@ -219,7 +226,7 @@ what: <...>
 ```
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !LOWER
@@ -229,9 +236,18 @@ what: <...>
     Vrací `foobar`.
 
 
+!!! example
+
+    ```yaml
+    !LOWER
+    what: ["FooBar", "Baz"]
+    ```
+
+    Vrací seznam hodnot `["foobar", "baz"]`.
+
 ---
 
-## `!UPPER`: Převede řetězec na velká písmena 
+## `!UPPER`
 
 Typ: _Mapping_
 
@@ -243,7 +259,7 @@ what: <...>
 ```
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !UPPER
@@ -254,7 +270,7 @@ what: <...>
 
 ---
 
-## `!CUT`: Vyjmout část řetězce 
+## `!CUT`
 
 Rozdělí řetězec oddělovačem a vrátí část identifikovanou indexem `field` (začíná 0).
 
@@ -274,7 +290,7 @@ Argument `field` určuje počet rozdělených řetězců, které se mají vráti
 Pokud je uveden záporný údaj `field`, pak se pole bere od konce řetězce, například -2 znamená předposlední podřetězec.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !CUT
@@ -285,7 +301,7 @@ Pokud je uveden záporný údaj `field`, pak se pole bere od konce řetězce, na
 
     Vrátí hodnotu "Melon".
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !CUT
@@ -299,7 +315,7 @@ Pokud je uveden záporný údaj `field`, pak se pole bere od konce řetězce, na
   
 ---
 
-## `!SPLIT`: Rozdělí řetězec do seznamu 
+## `!SPLIT`
 
 Rozdělí řetězec na seznam řetězců.
 
@@ -310,7 +326,7 @@ Synopsis:
 ```yaml
 !SPLIT
 what: <string>
-oddělovač: <string>
+delimiter: <string>
 maxsplit: <number>
 ```
 
@@ -318,7 +334,7 @@ maxsplit: <number>
 Nepovinný argument `maxsplit` určuje, kolik rozdělení se má provést.
 
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !SPLIT
@@ -330,11 +346,11 @@ Nepovinný argument `maxsplit` určuje, kolik rozdělení se má provést.
 
 ---
 
-## `!RSPLIT`: Rozdělí řetězec do seznamu zprava
+## `!RSPLIT`
 
 Rozdělí řetězec zprava (od konce řetězce) do seznamu řetězců.
 
-Type: _Mapping_
+Typ: _Mapping_
 
 Synopsis:
 
@@ -345,11 +361,13 @@ delimiter: <string>
 maxsplit: <number>
 ```
 
-Argument `what` se rozdělí podle `delimeter`. Nepovinný argument `maxsplit` určuje, kolik rozdělení se má provést.
+Řetězec argumentu `what` bude rozdělen pomocí argumentu `delimiter`.
+Nepovinný argument `maxsplit` určuje, kolik rozdělení se má provést.
+
 
 ---
 
-## `!JOIN`: Spojí seznam řetězců 
+## `!JOIN`
 
 Typ: _Mapping_
 
@@ -361,7 +379,7 @@ items:
   - <...>
   - <...>
 delimiter: <string>
-miss: ''
+miss: ""
 ```
 
 Výchozí `delimiter` je mezera (" ").
@@ -369,12 +387,12 @@ Výchozí `delimiter` je mezera (" ").
 Pokud je položka `None`, použije se hodnota parametru `miss`, ve výchozím nastavení je to prázdný řetězec.
 Pokud je `miss` `None` a některá z položek `items` je `None`, výsledkem celého spojení je `None`.
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !JOIN
     items:
       - "Foo"
       - "Bar"
-    delimiter: ','
+    delimiter: ","
     ```

@@ -1,16 +1,25 @@
 ---
-git_commit_hash: b55fa3f
 title: Řídicí
 ---
 
 # Řídicí výrazy
 
+## Přehled
 
 SP-Lang nabízí celou řadu řídicích výrazů.
 
---- 
+* [`!IF`](#if): Jednoduché podmíněné větvení.
+* [`!WHEN`](#when): Silné větvení.
+* [`!MATCH`](#match): Porovnávání vzorů.
+* [`!TRY`](#try): Provádění do prvního bezchybného výrazu.
+* [`!MAP`](#map): Aplikace výrazu na každý prvek v posloupnosti.
+* [`!REDUCE`](#reduce): Redukce prvků seznamu na jedinou hodnotu.
 
-## `!IF`: Jednoduché podmíněné větvení  
+---
+
+## `!IF`
+
+Jednoduché podmíněné větvení.
 
 Typ: _Mapping_.
 
@@ -25,12 +34,12 @@ else: <expression>
 
 Na základě hodnoty `test` se vyhodnotí větev:
 
-- `then` v případě `test !EQ true`
-- `else` v případě `test !EQ false`
+* `then` v případě `test !EQ true`
+* `else` v případě `test !EQ false`
 
 Oba případy `then` a `else` musejí vracet stejný typ, který bude zároveň typem návratové hodnoty `!IF`.
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !IF
@@ -39,14 +48,16 @@ Oba případy `then` a `else` musejí vracet stejný typ, který bude zároveň 
       - !ARG input
       - 2
     then:
-      It is two.
+      Je to dva.
     else:
-      It is NOT two.
+      Není to dva.
     ```
 
 ---
 
-## `!WHEN`: Násobné větvení
+## `!WHEN`  
+
+Silné větvení.
 
 Typ: _Sequence_.
 
@@ -69,11 +80,9 @@ Jednotlivé případy mohou odpovídat mnoha různým vzorům, včetně interval
 - else: <expression>
 ```
 
-
 Pokud není zadáno `else`, pak `WHEN` vrací `False`.
 
-
-!!! example "Příklad"
+!!! example
 
     Příklad použití `!WHEN` pro přesnou shodu, shodu rozsahu a nastavenou shodu:
 
@@ -85,7 +94,7 @@ Pokud není zadáno `else`, pak `WHEN` vrací `False`.
         !EQ
         - !ARG key
         - 34
-      pak:
+      then:
         "třicet čtyři"
 
     # Shoda rozsahu
@@ -112,9 +121,11 @@ Pokud není zadáno `else`, pak `WHEN` vrací `False`.
         "neznámý"
     ```
 
---- 
+---
 
-## `!MATCH`: Porovnávání vzorů
+## `!MATCH`
+
+Porovnávání vzorů.
 
 Typ: _Mapping_.
 
@@ -134,18 +145,17 @@ Výraz `!MATCH` vyhodnotí výraz `what-expression`, přiřadí hodnotu výrazu 
 Větev `else` výrazu `!MATCH` je nepovinná.
 Výraz selže s chybou, pokud není nalezena žádná odpovídající `<value>` a větev `else` chybí.
 
-
-!!! example  "Příklad"
+!!! example
 
     ```yaml
     !MATCH
     what: !ARG value
     with:
-      1: "jedna"
-      2: "dva"
-      3: "tři"
+        1: "jedna"
+        2: "dva"
+        3: "tři"
     else:
-      "jiné číslo"
+        "jiné číslo"
     ```
 
 !!! hint "Použití `!MATCH` pro strukturování kódu"
@@ -154,15 +164,17 @@ Výraz selže s chybou, pokud není nalezena žádná odpovídající `<value>` 
     !MATCH
     what: !ARG kód
     with:
-      1: !INCLUDE code-1.yaml
-      2: !INCLUDE code-2.yaml
+        1: !INCLUDE code-1.yaml
+        2: !INCLUDE code-2.yaml
     else:
-      !INCLUDE code-else.yaml
+        !INCLUDE code-else.yaml
     ```
 
 ---
 
-## `!TRY`: Provádění operací dž do prvního bezchybného výrazu  
+## `!TRY`
+
+Provádění do prvního bezchybného výrazu.
 
 Typ: _Sequence_
 
@@ -180,10 +192,12 @@ V opačném případě pokračuje k dalšímu výrazu.
 Při dosažení konce seznamu vrátí `None` (chyba).
 
 Poznámka: Zastaralý název tohoto výrazu byl `!FIRST`. Nepoužívá se od listopadu 2022.
-    
+
 ---
 
-## `!MAP`: Použít výraz na každý prvek v posloupnosti 
+## `!MAP`
+
+Použít výraz na každý prvek v posloupnosti.
 
 Typ: _Mapping_.
 
@@ -196,21 +210,22 @@ apply: <expression>
 Výraz `apply` se aplikuje na každý prvek v posloupnosti `what` s argumentem `x` obsahujícím příslušnou hodnotu prvku.
 Výsledkem je nový seznam s transformovanými prvky.
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !MAP
-    whaz: [1, 2, 3, 4, 5, 6, 7]
+    what: [1, 2, 3, 4, 5, 6, 7]
     apply:
-      !ADD [!ARG x, 10]
+        !ADD [!ARG x, 10]
     ```
 
     Výsledek je `[11, 12, 13, 14, 15, 16, 17]`.
-    
 
 ---
 
-## `!REDUCE`: Redukce prvků seznamu na jedinou hodnotu 
+## `!REDUCE`
+
+Redukce prvků seznamu na jedinou hodnotu.
 
 Typ: _Mapping_.
 
@@ -228,7 +243,7 @@ Výraz `initval` poskytuje počáteční hodnotu pro argument `a`.
 
 Nepovinná hodnota `fold` určuje "levé skládání" (`left`, výchozí) nebo "pravé skládání" (`right`).
 
-!!! example "Příklad"
+!!! example
 
     ```yaml
     !REDUCE
@@ -237,7 +252,6 @@ Nepovinná hodnota `fold` určuje "levé skládání" (`left`, výchozí) nebo "
     apply:
       !ADD [!ARG a, !ARG b]
     ```
-    
+
     Vypočítá součet posloupnosti s počáteční hodnotou `-10`.  
     Výsledek je `18 = -10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
-

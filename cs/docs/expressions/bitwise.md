@@ -1,18 +1,24 @@
 ---
-git_commit_hash: b55fa3f
 title: Bitové
 ---
 
 # Bitové operace
 
-Bitové posuny ("bit shifts") zachází s hodnotou jako se sérií bitů, umožňuje přesunout nebo posunout binární číslice doleva nebo doprava.
+## Přehled
 
+Bitové posuny zachází s hodnotou jako se sérií bitů, binární číslice hodnoty jsou posunuty doleva nebo doprava.
 
-Existují také bitové výrazy `!AND`, `!OR` a `!NOT`, viz kapitolu [Logické výrazy](../logic).
+* [`!SHL`](#shl), [`!SHR`](#shr): Logické posuny doleva a doprava.
+* [`!SAL`](#sal), [`!SAR`](#sar): Aritmetické posuny doleva a doprava.
+* [`!ROL`](#rol), [`!ROR`](#ror): Kruhové posuny doleva a doprava.
+
+Existují také bitové výrazy `!AND`, `!OR` a `!NOT`, viz kapitolu [Logické výrazy](./logic.md).
 
 ---
 
-## `!SHL`: Logický posun doleva 
+## `!SHL`
+
+Logický posun doleva.
 
 Typ: _Mapping_.
 
@@ -34,17 +40,17 @@ by: <...>
 	by: 2
 	```
 
-	`9` je reprezentovaná binární hodnotou `1001`. Levý logický posun posune bity doleva o 2 pozice. Výsledkem je `100100`, což je v desítkovém zápise `36`. To je  `9 * (2^2)`. To je stejný výsledek jako `9 * (2^2)`.
-	
+	`9` je reprezentována binární hodnotou `1001`. Levý logický posun posune bity doleva o 2 pozice. Výsledkem je `100100`, což je v desítkovém zápise `36`. To je stejný výsledek jako `9 * (2^2)`.
 
 ---
 
-## `!SHR`: Logický posun doprava 
+## `!SHR`
+
+Logický posun doprava.
 
 Typ: _Mapping_.
 
 ```yaml
-
 !SHR
 what: <...>
 by: <...>
@@ -53,7 +59,6 @@ by: <...>
 !!! tip
 
 	Pravý posun lze použít jako rychlé dělení čísly 2, 4, 8 atd.
-
 
 !!! example "Příklad"
 
@@ -67,7 +72,9 @@ by: <...>
 
 --- 
 
-## `!SAL`: Aritmetický posun doleva
+## `!SAL`
+
+Aritmetický posun doleva.
 
 Typ: _Mapping_.
 
@@ -85,40 +92,43 @@ by: <...>
 	by: 2
 	```
 
-
 ---
 
-## `!SAR`: Pravý aritmetický posun 
+## `!SAR`
+
+Pravý aritmetický posun.
 
 Typ: _Mapping_.
-```yaml
 
+```yaml
 !SAR
 what: <...>
 by: <...>
 ```
 
-
 ---
 
-## `!ROL`: Kruhový posun doleva 
+## `!ROL`
+
+Kruhový posun doleva.
 
 Typ: _Mapping_.
-```yaml
 
+```yaml
 !ROL
 what: <...>
 by: <...>
 ```
 
-
 ---
 
-## `!ROR`: Kruhový posun doprava
+## `!ROR`
+
+Kruhový posun doprava.
 
 Typ: _Mapping_.
-```yaml
 
+```yaml
 !ROR
 what: <...>
 by: <...>

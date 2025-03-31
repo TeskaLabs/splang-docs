@@ -1,22 +1,28 @@
 ---
-git_commit_hash: b55fa3f
 title: Slovníky
 ---
 
 # Slovníkové výrazy
 
-**Slovník (dict)** uchovává kolekci dvojic (klíč, hodnota) tak, že každý možný klíč se v kolekci vyskytuje nejvýše jednou.
-Klíče ve slovníku musí být stejného typu, stejně jako hodnoty.
+## Přehled
+
+**Slovník (dict)** uchovává kolekci dvojic (klíč, hodnota) tak, že každý možný klíč se v kolekci vyskytuje nejvýše jednou. Klíče ve slovníku musí být stejného typu, stejně jako hodnoty.
 
 Položka je dvojice (klíč, hodnota) reprezentovaná jako tuple.
 
-!!! Hint "Nápověda"
+!!! Nápověda
 
-	Tuto strukturu můžete znát pod alternativními názvy "asociativní pole" nebo "mapa".
+    Tuto strukturu můžete znát pod alternativními názvy "asociativní pole" nebo "mapa".
 
---- 
+* [`!DICT`](#dict): Slovník.
+* [`!GET`](#get): Získat hodnotu ze slovníku.
+* [`!IN`](#in): Test výskytu.
 
-## `!DICT`: Dictionary 
+---
+
+## `!DICT`
+
+Slovník.
 
 Typ:  _Mapping_
 
@@ -29,48 +35,42 @@ with:
   ...
 ```
 
-!!! hint "Nápověda"
+!!! nápověda
 
-	Pro zjištění počtu položek ve slovníku použijte [`!COUNT`](../aggregate/#count-pocet-polozek).
+    Pro zjištění počtu položek ve slovníku použijte [`!COUNT`](./aggregate.md#count).
 
+!!! příklad
 
-!!! example "Příklad"
+    V jazyce SP-Lang lze slovník zadat několika způsoby:
 
-	V jazyce SP-Lang lze slovník zadat několika způsoby:
+    ```yaml
+    !DICT
+    with:
+      key1: "One"
+      key2: "Two"
+      key3: "Three"
+    ```
 
-	```yaml
-	!DICT
-	with:
-	  key1: "One"
-	  key2: "Two"
-	  key3: "Three"
-	```
-	
-	Implicitně zadaný slovník:
+    Implicitně zadaný slovník:
 
-	```yaml
-	---
-	key1: "One"
-	key2: "Two"
-	key3: "Three"
-	```"Three"
-	```
-	
-	Slovník zadaný zkráceně využívaje `!!dict` a flow stylu v YAML:
+    ```yaml
+    ---
+    key1: "One"
+    key2: "Two"
+    key3: "Three"
+    ```
 
-	```yaml
-	!!dict {key1: "One", key2: "Two", key3: "Three"}
-	```
-	
+    Slovník zadaný zkráceně využívaje `!!dict` a flow stylu v YAML:
+
+    ```yaml
+    !!dict {key1: "One", key2: "Two", key3: "Three"}
+    ```
 
 ### Specifikace typu
 
-Typ slovníku se označuje jako `{Tk:Tv}`, kde `Tk` je typ klíče a `Tv` je typ hodnoty.
-Další informace o typu slovníku naleznete v příslušné kapitole v [typovém systému](../../language/types/#slovnik).
+Typ slovníku se označuje jako `{Tk:Tv}`, kde `Tk` je typ klíče a `Tv` je typ hodnoty. Další informace o typu slovníku naleznete v příslušné kapitole v [typovém systému](../language/types/index.md#dictionary).
 
-Slovník se pokusí odvodit svůj typ na základě přidaných položek.
-Typ první položky pravděpodobně poskytne typ klíče `Tk` a typ hodnoty `Tv`.
-Pokud je slovník prázdný, jeho odvozený typ je `{str:si64}`.
+Slovník se pokusí odvodit svůj typ na základě přidaných položek. Typ první položky pravděpodobně poskytne typ klíče `Tk` a typ hodnoty `Tv`. Pokud je slovník prázdný, jeho odvozený typ je `{str:si64}`.
 
 Toto lze přepsat pomocí explicitní specifikace typu:
 
@@ -88,10 +88,11 @@ with:
 
 Ve výše uvedeném příkladu je typ slovníku `{str:any}`, typ klíče je `str` a typ hodnot je `any`.
 
+---
 
---- 
+## `!GET`
 
-## `!GET`: Získá hodnotu ze slovníku 
+Získat hodnotu ze slovníku.
 
 Typ: _Mapping_.
 
@@ -102,29 +103,30 @@ from: <dict>
 default: <value>
 ```
 
-Získá hodnotu ze slovníku `dict` (slovník) identifikovaného pomocí `key`.
+Získá položku ze slovníku `dict` (slovník) identifikovaného pomocí `key`.
 
-Pokud `klíč` není nalezen, vrátí `default` nebo chybu, pokud `default` není zadán.
-`default` je nepovinné.
+Pokud `key` není nalezen, vrátí `default` nebo chybu, pokud `default` není zadán. `default` je nepovinné.
 
-!!! example "Příklad"
+!!! příklad
 
-	```yaml
-	!GET
-	what: 3
-	from:
-	  !DICT
-	  with:
-		1: "One"
-		2: "Two"
-		3: "Three"
-	```
+    ```yaml
+    !GET
+    what: 3
+    from:
+      !DICT
+      with:
+        1: "One"
+        2: "Two"
+        3: "Three"
+    ```
 
-	Returns `Three`.
+    Vrátí `Three`.
 
---- 
+---
 
-## `!IN`: Test výskytu
+## `!IN`
+
+Test výskytu.
 
 Typ: _Mapping_.
 
@@ -136,19 +138,19 @@ where: <dict>
 
 Zkontroluje, zda je `key` přítomen v `dict`.
 
-!!! note "Poznámka"
+!!! poznámka
 
-	Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](../comparisons/#in-test-vyskytu).
+    Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](./comparisons.md#in).
 
-!!! example "Příklad"
+!!! příklad
 
-	```yaml
-	!IN
-	what: 3
-	where:
-	  !DICT
-	  with:
-		1: "One"
-		2: "Two"
-		3: "Three"
-	```
+    ```yaml
+    !IN
+    what: 3
+    where:
+      !DICT
+      with:
+        1: "One"
+        2: "Two"
+        3: "Three"
+    ```

@@ -1,17 +1,22 @@
 ---
-git_commit_hash: b55fa3f
 title: Tuple
 ---
 
 # Výrazy pro tuple
 
+## Přehled
 
 Tuple (do češtiny přeložitelné asi jako 'pevný seznam') je jednou ze základních datových struktur, které SP-Lang nabízí.
 Tuple je kolekce položek, které mohou mít různé typy.
 
---- 
+* [`!TUPLE`](#tuple): Kolekce položek.
+* [`!GET`](#get): Získá položku z tuple.
 
-## `!TUPLE`: Kolekce položek 
+---
+
+## `!TUPLE`
+
+Kolekce položek.
 
 Typ:  _Mapping_.
 
@@ -27,7 +32,6 @@ with:
 
 Počet položek v tuple není omezen.
 Pořadí položek je zachováno.
-
 
 !!! example "Příklad"
 
@@ -72,10 +76,11 @@ Pořadí položek je zachováno.
 
     Položka #1 bude mít typ `ui8`.
 
+---
 
---- 
+## `!GET`
 
-## `!GET`: Získá položku z tuple 
+Získá položku z tuple.
 
 Typ: _Mapping_.
 
@@ -87,11 +92,12 @@ what: <index of the item>
 from: <tuple>
 ```
 
-`what` je celé číslo, které představuje _index_ v tuple.
-`what` může být záporné, v takovém případě určuje položku od konce seznamu.
-Položky jsou indexovány od 0, to znamená, že první položka v seznamu má index 0.
-Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
+Argument `what` je celé číslo (číslo), které představuje _index_ v tuple.
+Může být záporné, v takovém případě určuje položku od konce seznamu.
 
+Položky jsou indexovány od 0, to znamená, že první položka v seznamu má index 0.
+
+Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 
 !!! example "Příklad"
 
@@ -101,7 +107,7 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
     from:
       !TUPLE
       with:
-        - Doe:: John Doe
+        - John Doe
         - 32
         - 127.5
     ```

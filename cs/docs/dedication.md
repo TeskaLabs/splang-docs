@@ -1,5 +1,4 @@
 ---
-git_commit_hash: b55fa3f
 title: Věnování
 ---
 
