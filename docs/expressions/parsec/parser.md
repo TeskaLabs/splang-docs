@@ -413,8 +413,7 @@ eof: true
 
 Parse until <code>tab</code> symbol (upper and lower case are supported):
 ```yaml
-!PARSE.UNTIL
-what: tab
+!PARSE.UNTIL tab
 ```
 
 Parse until <code>newline</code> symbol (upper and lower case are supported):
