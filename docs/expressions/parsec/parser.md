@@ -768,7 +768,7 @@ Timezone can be either specified in the log or it can be missing. There are two 
     - timezone: !PARSE.UNTIL " "
     ```
 
-    Permissible formats of timezones are: `Z`, `UTC`, `+02:00`, `-0600`.
+    Permissible formats of timezones are: `Z`, `UTC`, `CET`, `CEST`, `+02:00`, `-0600`.
 
 2. Timezone is fixed. In that case, specify it as [IANA timezone](https://www.iana.org/time-zones).
 
@@ -788,9 +788,8 @@ Timezone can be either specified in the log or it can be missing. There are two 
 
 	```
 	2024-04-15T12:00:00+04:00 ...(other log content)
-	2024-04-15T12:00:00+02:00 ...
-	2024-04-15T12:00:00+00:00 ...
 	2024-04-15T12:00:00-02:00 ...
+	2024-04-15T12:00:00Z ...
 	```
 
     ```yaml hl_lines="13"
@@ -809,6 +808,29 @@ Timezone can be either specified in the log or it can be missing. There are two 
     - timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
     ```
 
+    _Input strings_:
+
+	```
+	2024-04-15T12:00:00 CET ...(other log content)
+	2024-04-15T12:00:00 UTC ...
+	```
+
+    ```yaml hl_lines="14"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - '-'
+    - month: !PARSE.MONTH 'number'
+    - '-'
+    - day: !PARSE.DIGITS
+    - 'T'
+    - hour: !PARSE.DIGITS
+    - ':'
+    - minute: !PARSE.DIGITS
+    - ':'
+    - second: !PARSE.DIGITS
+    - !PARSE.SPACE
+    - timezone: !PARSE.UNTIL " "  # Read timezone from '+04:00', '+02:00', etc.
+    ```
 
 ### Smart year
 
