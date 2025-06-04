@@ -1074,3 +1074,53 @@ Synopsis:
     ```
 
 ---
+
+## `!PARSE.CEFKV`
+
+Parse log entries in CEF (Common Event Format) key-value format, extracting structured fields from input string.
+
+Each field is in the format `key=value`, with `=` as the fixed key-value separator, and a single space separating each key-value pair.
+
+The expression can correctly handle values that contain spaces, as long as each key-value pair is properly formatted.
+
+
+Type: _Parser_.
+
+Synopsis:
+
+```yaml
+!PARSE.CEFKV
+```
+
+!!! example
+
+    _Input string:_ `start=1731934886000 end=1731934886000 ahost=aac-ax-01 agt=192.168.57.141 agentZoneURI=/All Zones/ArcSight System IPv4/Private Address Space Zones/RFC1918: 192.168.0.0-192.168.255.255 amac=00-50-56-8C-85-D4 av=8.4.6.9408.1 atz=Europe/Prague at=syslog dvchost=pfsense1data.local dvc=192.168.51.2 dtz=Europe/Prague geid=3293577591578960401 parserVersion= parserIdentifier= _cefVer=1.0`
+
+    ```yaml
+    !PARSE.CEFKV
+    ```
+
+    _Output:_
+
+    ```
+    [
+        ('start', '1731934886000'),
+        ('end', '1731934886000'),
+        ('ahost', 'aac-ax-01'),
+        ('agt', '192.168.57.141'),
+        ('agentZoneURI', '/All Zones/ArcSight System IPv4/Private Address Space Zones/RFC1918: 192.168.0.0-192.168.255.255'),
+        ('amac', '00-50-56-8C-85-D4'),
+        ('av', '8.4.6.9408.1'),
+        ('atz', 'Europe/Prague'),
+        ('at', 'syslog'),
+        ('dvchost', 'pfsense1data.local'),
+        ('dvc', '192.168.51.2'),
+        ('dtz', 'Europe/Prague'),
+        ('geid', '3293577591578960401'),
+        ('parserVersion', ''),
+        ('parserIdentifier', ''),
+        ('_cefVer', '1.0')
+    ]
+    ```
+
+---
