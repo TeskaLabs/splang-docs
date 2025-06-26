@@ -1083,6 +1083,10 @@ Each field is in the format `key=value`, with `=` as the fixed key-value separat
 
 The expression can correctly handle values that contain spaces, as long as each key-value pair is properly formatted.
 
+The fields extracted by !PARSE.CEFKV correspond to those defined in the CEF standard field reference. For a full list of supported fields and detailed format specifications, refer to the official documentation:
+
+[Implementing ArcSight Common Event Format (CEF) - Version 26](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.4/pdfdoc/cef-implementation-standard/cef-implementation-standard.pdf)
+
 
 Type: _Parser_.
 
