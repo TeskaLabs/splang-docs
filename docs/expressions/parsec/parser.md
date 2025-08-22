@@ -614,6 +614,7 @@ Synopsis:
 - microsecond: <...>
 - nanosecond: <...>
 - timezone: <...>
+- period: <...>
 ```
 
 - Fields `month` and `day` are required.
@@ -621,6 +622,7 @@ Synopsis:
 - Fields `hour`, `minute`, `second`,  `microsecond`, `nanosecond` are optional. If not specified, the default value 0 will be used.
 - Specifying microseconds field like `microseconds?` allows you to parse microseconds or not, depending on their presence in the input string.
 - Field `timezone` is optional. If not specified, the default value `UTC` will be used. [Read more about timezone parsing here.](#timezone)
+- Field `period` is optional. If not specified, the 24-hour format will be used. The period value is case-insensitive.
 
 !!! tip "Common datetime formats"
     Use [Shortcuts](#shortcuts) for parsing datetime formats [`RFC 3339`](#rfc-3339), [`RFC 3164`](#rfc-3164) and [`ISO 8601`](#iso-8601).
@@ -756,6 +758,28 @@ Synopsis:
                 max: 9
     ```
 
+??? example "Period"
+
+    Parse datetime with period (AM/PM):
+
+    _Input string:_ `7/24/2025 4:27:44 AM`
+
+    ```yaml hl_lines="13-15"
+    !PARSE.DATETIME
+    - month: !PARSE.MONTH "number"
+    - "/"
+    - day: !PARSE.DIGITS
+    - "/"
+    - year: !PARSE.DIGITS
+    - !PARSE.SPACE
+    - hour: !PARSE.DIGITS
+    - ":"
+    - minute: !PARSE.DIGITS
+    - ":"
+    - second: !PARSE.DIGITS
+    - !PARSE.SPACE
+    - period: !PARSE.CHARS
+      ```
 
 ### Timezone
 
