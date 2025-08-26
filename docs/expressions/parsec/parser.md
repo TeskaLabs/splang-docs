@@ -764,7 +764,7 @@ Synopsis:
 
     _Input string:_ `7/24/2025 4:27:44 AM`
 
-    ```yaml hl_lines="13-15"
+    ```yaml hl_lines="14"
     !PARSE.DATETIME
     - month: !PARSE.MONTH "number"
     - "/"
@@ -779,7 +779,7 @@ Synopsis:
     - second: !PARSE.DIGITS
     - !PARSE.SPACE
     - period: !PARSE.CHARS
-      ```
+    ```
 
 ### Timezone
 
