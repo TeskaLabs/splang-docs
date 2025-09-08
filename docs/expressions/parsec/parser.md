@@ -337,8 +337,28 @@ or shorter version:
     Input string:_`Hello world!`
 
     ```yaml
-    !PARSE.EXACTLY
-    what: "Hello"
+    !PARSE.EXACTLY { what: Hello }
+    ```
+
+    Shorter version:
+
+    ```yaml
+    !PARSE.EXACTLY Hello
+    ```
+
+!!! tip
+
+    When using `!PARSE.EXACTLY` inside `!PARSE.KVLIST`, you can also use the shortest form:
+
+    Input string: `Hello world!`
+
+
+    ```yaml
+    !PARSE.KVLIST
+    - Hello
+    - !PARSE.SPACE
+    - world
+    - "!"
     ```
 
 ---
