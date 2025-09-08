@@ -337,8 +337,27 @@ or shorter version:
     Input string:_`Hello world!`
 
     ```yaml
-    !PARSE.EXACTLY
-    what: "Hello"
+    !PARSE.EXACTLY { what: "Hello" }
+    ```
+
+    Shorter version:
+
+    ```yaml
+    !PARSE.EXACTLY "Hello"
+    ```
+
+!!! tip
+
+    When using `!PARSE.EXACTLY` inside `!PARSE.KVLIST`, you can also use the shortest form:
+
+    Input string: `<260>`
+
+
+    ```yaml
+    !PARSE.KVLIST
+    - "<"  # instead of !PARSE.EXACTLY "<"
+    - value: !PARSE.DIGITS
+    - ">"  # instead of !PARSE.EXACTLY ">"
     ```
 
 ---
@@ -382,7 +401,7 @@ or shorter version:
 
 !!! example
 
-    _Input string:_ `60290:11`
+    Input string:_ `60290:11`
 
     ```yaml
     !PARSE.UNTIL
@@ -456,23 +475,22 @@ escape: <...>
 or shorter version:
 
 ```yaml
-!PARSE.BETWEEN <...>
+!PARSE.BETWEEN <what>
 ```
 
-- `what` - indicates between which same characters we should parse.
+- `what`: Specifies the character to parse between when both the start and end delimiters are the same (e.g., double quotes).
 
-- `start`, `stop` - indicates between which different characters we should parse.
+- `start`, `stop`: Specify different characters to use as the start and end delimiters, respectively.
 
-- `escape` - indicates escape character.
+- `escape`: Defines the escape character to allow inclusion of delimiter characters within the parsed sequence.
+
 
 !!! example
 
-    Input string:_ `[10/May/2023:08:15:54 +0000]`
+    Input string:_`[10/May/2023:08:15:54 +0000]`
 
     ```yaml
-    !PARSE.BETWEEN
-    start: '['
-    stop: ']'
+    !PARSE.BETWEEN { start: '[', stop: ']' }
     ```
 
 <details>
@@ -480,8 +498,7 @@ or shorter version:
 
 Parse between double-quotes:
 ```yaml
-!PARSE.BETWEEN
-what: '"'
+!PARSE.BETWEEN { what: '"' }
 ```
 
 Parse between double-quotes, short form:
@@ -494,12 +511,10 @@ Parse between double-quotes, escape internal double-quotes:<br>
 <i>Input string:</i><code>"one, \"two\", three"</code>
 
 ```yaml
-!PARSE.BETWEEN
-what: '"'
-escape: '\'
+!PARSE.BETWEEN { what: '"', escape: '\'}
 ```
-</details>
 
+</details>
 
 ---
 
@@ -515,14 +530,16 @@ Synopsis:
 !PARSE.ONEOF
 what: <...>
 ```
+
 or shorter version:
+
 ```yaml
-!PARSE.ONEOF <...>
+!PARSE.ONEOF <what>
 ```
 
 !!! example
 
-    _Input strings:_
+    Input strings:_
 
     ```
     process finished with status 0
@@ -974,7 +991,7 @@ Possible values are:
 
 !!! example
 
-    _Input string:_ `10/`==Jan==`/2023:08:15:54`
+    Input string:_ `10/`==Jan==`/2023:08:15:54`
 
     ```yaml
     !PARSE.MONTH 'short'
@@ -1091,7 +1108,7 @@ Synopsis:
 
 !!! example
 
-    _Input string:_ `4d:3b:4c:bc:e5:6d`
+    Input string:_ `4d:3b:4c:bc:e5:6d`
 
     ```yaml
     !PARSE.MAC
