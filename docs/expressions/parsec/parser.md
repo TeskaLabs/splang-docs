@@ -337,13 +337,13 @@ or shorter version:
     Input string:_`Hello world!`
 
     ```yaml
-    !PARSE.EXACTLY { what: Hello }
+    !PARSE.EXACTLY { what: "Hello" }
     ```
 
     Shorter version:
 
     ```yaml
-    !PARSE.EXACTLY Hello
+    !PARSE.EXACTLY "Hello"
     ```
 
 !!! tip
