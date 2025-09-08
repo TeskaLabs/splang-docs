@@ -350,15 +350,14 @@ or shorter version:
 
     When using `!PARSE.EXACTLY` inside `!PARSE.KVLIST`, you can also use the shortest form:
 
-    Input string: `Hello world!`
+    Input string: `<260>`
 
 
     ```yaml
     !PARSE.KVLIST
-    - Hello
-    - !PARSE.SPACE
-    - world
-    - "!"
+    - "<"  # instead of !PARSE.EXACTLY "<"
+    - value: !PARSE.DIGITS
+    - ">"  # instead of !PARSE.EXACTLY ">"
     ```
 
 ---
