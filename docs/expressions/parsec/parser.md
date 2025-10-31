@@ -35,6 +35,11 @@ The following expressions are used for parsing specific types of strings:
 - [`!PARSE.IP`](#parseip): Parse IP address.
 - [`!PARSE.MAC`](#parsemac): Parse MAC address.
 
+The following expressions are used for parsing structured key-value data:
+
+- [`!PARSE.CEFKV`](#parsecefkv): Parse CEF (Common Event Format) key-value pairs.
+- [`!PARSE.FIELDS`](#parsefields): Parse multiple fields separated by a specific character.
+
 ---
 
 ## `!PARSE.DIGIT`
@@ -1165,6 +1170,139 @@ Synopsis:
         ('parserVersion', ''),
         ('parserIdentifier', ''),
         ('_cefVer', '1.0')
+    ]
+    ```
+
+---
+
+
+## `!PARSE.FIELDS`
+
+Parse multiple fields that are separated by a specific character and optionally enclosed in delimiters, which will be removed during parsing.
+Assign each parsed field to the corresponding key from a provided `keys` list.
+
+If the `stop` parameter is specified, exactly the number of fields matching the number of keys will be parsed.
+The last field will be read until the `stop` character is encountered. Parser stops **before** the `stop` character.
+
+Parsing fails if the number of parsed fields does not match the number of keys.
+
+
+Type: _Parser_.
+
+Synopsis:
+
+```yaml
+!PARSE.FIELDS
+keys: <...>
+separator: <...>
+delimiters: <...>
+empty: <...>
+stop: <...>
+```
+
+- `keys` is a list of field names to be extracted from the input string.
+- `separator` is a character that separates the fields in the input string.
+- `delimiters` is a list of characters or character pairs that can wrap the fields in the input string.
+- `stop` is an optional character that indicates the end of the last field to be parsed.
+- `empty` is an optional boolean flag (default: `false`) that remove all empty fields from the output.
+
+
+!!! example
+
+    _Input string:_ `<8>,url,,"2024/12/09 19:45:31",99.70.55.200`
+
+    ```yaml
+    !PARSE.FIELDS
+    keys:
+      - pri
+      - subtype
+      - future_use
+      - time_generated
+      - src_ip
+    separator: ","
+    delimiters:
+      - '"'  # Single character means start and stop is the same
+      - "'"
+      - ['<', '>']  # Start and stop characters are different
+      - '"""'
+    ```
+
+    _Output:_
+
+    ```
+    [
+      ('pri', '8'),
+      ('subtype', 'url'),
+      ('future_use', ''),
+      ('time_generated', '2024/12/09 19:45:31'),
+      ('src_ip', '99.70.55.200'),
+    ]
+    ```
+
+??? example "Parse with empty fields removed"
+
+    _Input string:_ `<8>,url,,"2024/12/09 19:45:31",99.70.55.200`
+
+    ```yaml
+    !PARSE.FIELDS
+    keys:
+      - pri
+      - subtype
+      - future_use
+      - time_generated
+      - src_ip
+    separator: ","
+    delimiters:
+      - '"'  # Single character means start and stop is the same
+      - "'"
+      - ['<', '>']  # Start and stop characters are different
+      - '"""'
+    empty: true
+    ```
+
+
+    _Output:_
+
+    ```
+    [
+      ('pri', '8'),
+      ('subtype', 'url'),
+      ('time_generated', '2024/12/09 19:45:31'),
+      ('src_ip', '99.70.55.200'),
+    ]
+    ```
+
+??? example "Parse exact number of fields (last field until `stop` character)"
+
+    _Input string:_ `52228,1,,123,info@mail.uipath.com some extra text`
+
+    ```yaml
+    !PARSE.FIELDS
+    keys:
+      - field1
+      - field2
+      - field3
+      - field4
+      - field5
+    separator: ","
+    delimiters:
+      - '"'  # Single character means start and stop is the same
+      - "'"
+      - ['<', '>']  # Start and stop characters are different
+      - '"""'
+    stop: " "
+    ```
+
+
+    _Output:_
+
+    ```
+    [
+      ('field1', '52228'),
+      ('field2', '1'),
+      ('field3', ''),
+      ('field4', '123'),
+      ('field5', 'info@mail.uipath.com'),
     ]
     ```
 
