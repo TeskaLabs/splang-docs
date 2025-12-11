@@ -115,6 +115,6 @@ what: <string>
 
     ```yaml
     !HEX.BYTES
-    what: "010500000000000515000000a35b58727597ab680556749e2f270200"
+    what: "8F3A12"
     ```
-    _Output:_ `b"\x01\x05\x00\x00\x00\x00\x00\x05\x15\x00\x00\x00\xa3[Xru\x97\xabh\x05Vt\x9e/'\x02\x00"`
+    _Output:_ `b'\x8f:\x12'`

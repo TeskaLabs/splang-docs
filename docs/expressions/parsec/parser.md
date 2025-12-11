@@ -1098,7 +1098,7 @@ Synopsis:
 
 ## `!PARSE.MAC`
 
-Parse MAC address in various formats:
+Parse MAC address in one of the following formats:
 
 - `XX:XX:XX:XX:XX:XX` — colon-separated
 - `XX-XX-XX-XX-XX-XX` — dash-separated
