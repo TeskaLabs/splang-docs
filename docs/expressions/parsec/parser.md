@@ -1098,6 +1098,8 @@ Synopsis:
 
 ## `!PARSE.MAC`
 
+Parse MAC address in various formats:
+
 - `XX:XX:XX:XX:XX:XX` — colon-separated
 - `XX-XX-XX-XX-XX-XX` — dash-separated
 - `XXXX.XXXX.XXXX` — dot-separated (Cisco style)
