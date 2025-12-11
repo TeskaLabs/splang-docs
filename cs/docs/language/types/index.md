@@ -237,9 +237,10 @@ Musí být v kódování UTF-8.
 
 ### Byty
 
-!!! warning "Práce v pokroku"
+`binary`
 
-    Plánováno
+Obsahuje binární data.
+
 
 ### Enum
 
