@@ -14,6 +14,7 @@ title: String
 * [`!CUT`](#cut): Cuts the string and returns a selected part.
 * [`!SPLIT`](#split), [`!RSPLIT`](#rsplit): Splits a string into a list.
 * [`!JOIN`](#join): Joins a list of strings.
+* [`!LDAP.SID`](#ldapsid): Converts ldap bytes to ldap sid string.
 
 ---
 
@@ -398,3 +399,37 @@ If `miss` is `None` and  any of `items` is `None`, the result of the whole join 
       - "Bar"
     delimiter: ","
     ```
+
+---
+
+## `!LDAP.SID`
+
+Converts LDAP SID bytes to LDAP SID string representation.
+
+Type: _Mapping_
+
+Synopsis:
+
+```yaml
+!LDAP.SID
+what: <bytes>
+```
+
+??? example "Convert event field with LDAP SID bytes to LDAP SID string"
+
+    _Input string:_ `b"\x01\x05\x00\x00\x00\x00\x00\x05\x15\x00\x00\x00\xa3[Xru\x97\xabh\x05Vt\x9e/'\x02\x00"`
+
+    ```yaml
+    !LDAP.SID
+    what: !ITEM EVENT ldapbytes
+    ```
+    _Output:_ `S-1-5-21-1918393251-1756075893-2658424325-141103`
+
+??? example "Convert hex representation of LDAP SID bytes to LDAP SID string"
+
+    ```yaml
+    !LDAP.SID
+    what: !HEX.BYTES
+          what: "010500000000000515000000a35b58727597ab680556749e2f270200"
+    ```
+    _Output:_ `S-1-5-21-1918393251-1756075893-2658424325-141103`

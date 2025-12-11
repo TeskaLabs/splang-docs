@@ -1098,7 +1098,11 @@ Synopsis:
 
 ## `!PARSE.MAC`
 
-Parse MAC address in the format `XX:XX:XX:XX:XX:XX`.
+- `XX:XX:XX:XX:XX:XX` — colon-separated
+- `XX-XX-XX-XX-XX-XX` — dash-separated
+- `XXXX.XXXX.XXXX` — dot-separated (Cisco style)
+- `0xXXXXXXXXXXXX` — hex-encoded
+
 
 Returns [numeric representation](https://ndocs.teskalabs.com/sp-lang/language/types/#mac-address) of the MAC address.
 
