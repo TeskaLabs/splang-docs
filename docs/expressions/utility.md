@@ -9,7 +9,7 @@ title: Utility
 - [`!CAST`](#cast): Converts type of the argument into another.
 - [`!HASH`](#hash): Calculates a digest.
 - [`!DEBUG`](#debug): Debugs the expression.
-- [`!HEX.BINARY`](#hexbinary): Converts hexadecimal string into binary data.
+- [`!HEX.BYTES`](#hexbytes): Converts hexadecimal string into binary data.
 
 ---
 
@@ -25,7 +25,12 @@ Synopsis:
 !CAST
 what: <input>
 type: <type>
+default: <value>
+base: <integer>
 ```
+
+- `default` is optional. Returned when conversion fails.
+- `base` is optional. Used when converting strings to integers (radix).
 
 Explicitly convert type of `what` into the type of `type`.
 
@@ -64,7 +69,7 @@ seed: <integer>
 type: <type of hash>
 ```
 
-Calculate the hash for an `what` value.
+Calculate the hash for a `what` value and return the digest as a list of bytes (`list[ui8]`).
 
 `seed` specifies the initial hash seed.
 
@@ -95,10 +100,16 @@ Print the content of the input and pass the value unchanged on the output.
 
 Type: _Mapping_.
 
+Synopsis:
+
+```yaml
+!DEBUG
+what: <expression>
+```
 
 ---
 
-## `!HEX.BINARY`
+## `!HEX.BYTES`
 
 Convert hexadecimal string into binary data.
 
@@ -107,7 +118,7 @@ Type: _Mapping_.
 Synopsis:
 
 ```yaml
-!HEX.BINARY
+!HEX.BYTES
 what: <string>
 ```
 

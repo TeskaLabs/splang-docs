@@ -16,8 +16,8 @@ An item is a (key, value) pair, represented as a tuple.
     You may know this structure under alternative names "associative array" or "map".
 
 * [`!DICT`](#dict): Dictionary.
+* [`!DICT.FORMAT`](#dictformat): Format a dictionary into a string.
 * [`!GET`](#get): Get the value from a dictionary.
-* [`!IN`](#in): Membership test.
 
 ---
 
@@ -105,13 +105,11 @@ Type: _Mapping_.
 !GET
 what: <key>
 from: <dict>
-default: <value>
 ```
 
 Get the item from the `dict` (dictionary) identified by the `key`.
 
-If the `key` is not found, return `default` or error if `default` is not provided.
-`default` is optional.
+If the `key` is not found, the expression returns `None` (error).
 
 
 !!! example
@@ -131,33 +129,36 @@ If the `key` is not found, return `default` or error if `default` is not provide
 
 ---
 
-## `!IN`
+## `!DICT.FORMAT`
 
-Membership test.
+Format a dictionary into a string.
 
 Type: _Mapping_.
 
+Synopsis:
+
 ```yaml
-!IN
-what: <key>
-where: <dict>
+!DICT.FORMAT
+what: <dict>
+type: <format>
+fields:
+  - <field1>
+  - <field2>
 ```
 
-Check if `key` is present in the `dict`.
-
-!!! note
-
-    The expression `!IN` is described in the [Comparisons](./comparisons.md#in) chapter.
+- `type` is optional (default: `kvs`). Supported values:
+  * `kvs` — `key=value` pairs separated by spaces
+  * `kvdqs` — `key="value"` pairs separated by spaces
+  * `cef` — CEF-style `key="value"` or `key=value` pairs
+  * `qs` — URL query string
+- `fields` is optional. When provided, only the listed fields are formatted.
 
 !!! example
 
     ```yaml
-    !IN
-    what: 3
-    where:
-      !DICT
-      with:
-        1: "One"
-        2: "Two"
-        3: "Three"
+    !DICT.FORMAT
+    what: !EVENT
+    type: kvs
+    fields:
+      - message
     ```

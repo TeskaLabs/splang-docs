@@ -12,8 +12,7 @@ SP-Lang provides a variety of control flow statements.
 * [`!WHEN`](#when): Powerful branching.
 * [`!MATCH`](#match): Pattern matching.
 * [`!TRY`](#try): Execute till first non-error expression.
-* [`!MAP`](#map): Apply the expression on each element in a sequence.
-* [`!REDUCE`](#reduce): Reduce the elements of a list into a single value.
+* [`!FOR`](#for): Apply an expression to each item in a sequence.
 
 ---
 
@@ -82,7 +81,7 @@ Cases can match many different patterns, including interval matches, tuples, and
 - else: <expression>
 ```
 
-If `else` is not provided, then `WHEN` returns `False`.
+If `else` is not provided, then `!WHEN` returns `None` (error).
 
 
 !!! example
@@ -196,71 +195,23 @@ Otherwise continue to the next expression.
 Returns `None` (error) when end of the list is reached.
 
 
-Note: The obsoleted name of this expression was `!FIRST`.
-It was obsoleted in November 2022.
+Note: `!FIRST` is a legacy alias for `!TRY` and is still accepted.
 
 
 ---
 
-## `!MAP`
+## `!FOR`
 
-Apply the expression on each element in a sequence.
+Apply an expression to each item in a sequence.
 
 Type: _Mapping_.
 
 ```yaml
-!MAP
-what: <sequence>
-apply: <expression>
+!FOR
+each: <sequence>
+do: <expression>
 ```
 
-The `apply` expression is applied on each element in the `what` sequence with the argument `x` containing the respective item value.
-The result is a new list with transformed elements.
+Returns a list with the result of `do` evaluated once for each item in `each`.
 
-!!! example
-
-    ```yaml
-    !MAP
-    what: [1, 2, 3, 4, 5, 6, 7]
-    apply:
-        !ADD [!ARG x, 10]
-    ```
-
-    The result is `[11, 12, 13, 14, 15, 16, 17]`.
-
----
-
-## `!REDUCE`
-
-Reduce the elements of an list into a single value.
-
-Type: _Mapping_.
-
-
-```yaml
-!REDUCE
-what: <expression>
-apply: <expression>
-initval: <expression>
-fold: <left|right>
-```
-
-The `apply` expression is applied on each element in the `what` sequence with the argument `a` containing an aggregation of the reduce operation and argument `b` containing the respective item value.
-
-The `initval` expression provides the initial value for the `a` argument.
-
-An optional `fold` value specified a "left folding" (`left`, default) or a "right folding" (`right`).
-
-
-!!! example
-
-    ```yaml
-    !REDUCE
-    what: [1, 2, 3, 4, 5, 6, 7]
-    initval: -10
-    apply:
-      !ADD [!ARG a, !ARG b]
-    ```
-
-    Calculates a sum of the sequence with an initial value `-10`.  
-    Result is `18 = -10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
+The current item from `each` is not passed into `do` as an argument.

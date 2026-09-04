@@ -16,6 +16,7 @@ title: Regex
 * [`!REGEX.SPLIT`](#regexsplit): Split a string by a regular expression.
 * [`!REGEX.FINDALL`](#regexfindall): Find all occurrences by a regular expression.
 * [`!REGEX.PARSE`](#regexparse): Parse by a regular expression.
+* [`!REGEX.EXPAND`](#regexexpand): Expand shorthand strings into a list of alternatives.
 
 
 ---
@@ -167,4 +168,68 @@ Parse by a regular expression.
 
 Type: _Mapping_.
 
-See the chapter [`!PARSE.REGEX`](./parsec/parser.md/#parseregex)
+Synopsis:
+
+```yaml
+!REGEX.PARSE
+what: <string>
+with: <regex>
+into: <expression>
+```
+
+Try each regular expression from `with` (a single regex or a list of regexes) against `what`.
+On the first match, evaluate `into`.
+
+Matched groups are available inside `into` as `!ARG group`.
+Group `0` is the entire match, group `1` is the first capture group, and so on.
+
+Returns `None` (error) when no regex matches.
+
+!!! example
+
+    ```yaml
+    !REGEX.PARSE
+    what: !ARG event
+    with: '<(\d{1,3})>(\d{1,2}) (\S+)'
+    into: !RECORD
+      with:
+        PRI: !CAST
+          what: !GET {from: !ARG group, what: 1}
+          type: ui16
+        VERSION: !CAST
+          what: !GET {from: !ARG group, what: 2}
+          type: ui8
+        HOSTNAME: !GET {from: !ARG group, what: 3}
+    ```
+
+For parsing characters with parser combinators, see [`!PARSE.REGEX`](./parsec/parser.md#parseregex).
+
+---
+
+## `!REGEX.EXPAND`
+
+Expand shorthand strings into a list of alternatives.
+
+Type: _Mapping_.
+
+Synopsis:
+
+```yaml
+!REGEX.EXPAND
+what:
+  - <string>
+  - <string>
+```
+
+Supported expansions:
+
+- `"ReadData (or ListDirectory)"` → `["ReadData", "ListDirectory"]`
+- `"Execute/Traverse"` → `["Execute", "Traverse"]`
+
+!!! example
+
+    ```yaml
+    !REGEX.EXPAND
+    what:
+      - "ReadData (or ListDirectory)"
+    ```
