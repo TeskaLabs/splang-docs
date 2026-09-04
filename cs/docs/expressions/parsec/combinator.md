@@ -10,15 +10,16 @@ Kombinátory jsou funkce pro skládání parsec výrazů (parserů nebo jiných 
 
 **Výběr výstupu** určuje typ výstupu:
 
-- [`!PARSE.KVLIST`](#parsekvlist): Analyzuje sekvenci klíčů a hodnot do [typu tašky](../../language/types/index.md#bag).
+- [`!PARSE.KVLIST`](#parsekvlist): Analyzuje sekvenci klíčů a hodnot do [typu kvlistu](../../language/types/index.md#kvlist).
 - [`!PARSE.KV`](#parsekv): Analyzuje klíč a hodnotu ze vstupního řetězce.
+- [`!PARSE.DICT`](#parsedict): Analyzuje sekvenci klíčů a hodnot do [slovníku](../../language/types/index.md#dictionary).
 - [`!PARSE.TUPLE`](#parsetuple): Analyzuje do [typu n-tice](../tuple.md).
-- [`!PARSE.RECORD`](#parserecord)
+- [`!PARSE.RECORD`](#parserecord): Analyzuje do struktury záznamu.
 
 **Výrazy pro řízení toku** mohou provádět sekvenci parserových výrazů na základě určitých podmínek:
 
 - [`!PARSE.REPEAT`](#parserepeat): Provádí stejnou sekvenci výrazů vícekrát, podobně jako příkaz "for" z různých jazyků.
-- [`!PARSE.SEPARATED`](#parseseparated)
+- [`!PARSE.SEPARATED`](#parseseparated): Analyzuje sekvenci hodnot oddělených oddělovačem.
 - [`!PARSE.OPTIONAL`](#parseoptional): Přidává volitelnou parserovou funkci, podobně jako příkaz "if/else" z různých jazyků.
 - [`!PARSE.TRIE`](#parsetrie): Provádí sekvenci výrazů na základě předpony vstupního řetězce.
 
@@ -32,7 +33,7 @@ Kombinátory jsou funkce pro skládání parsec výrazů (parserů nebo jiných 
 
 Analyzuje seznam párů klíč-hodnota.
 
-Iterováním přes seznam prvků výraz `!PARSE.KVLIST` shromažďuje páry klíč-hodnota do [tašky](../../language/types/index.md#bag).
+Iterováním přes seznam prvků výraz `!PARSE.KVLIST` shromažďuje páry klíč-hodnota do [kvlistu](../../language/types/index.md#kvlist).
 
 Typ: _Kombinátor_
 
@@ -254,7 +255,68 @@ Synopse:
     - ' '
     ```
 
-    _Výstup:_ `{'output.severity': 165, 'output.version': 1}`
+    _Výstup:_ `{'severity': 165, 'version': 1}`
+
+---
+
+## `!PARSE.DICT`
+
+Analyzuje seznam párů klíč-hodnota do slovníku.
+
+Iterováním přes seznam prvků výraz `!PARSE.DICT` shromažďuje pojmenované hodnoty do [slovníku](../../language/types/index.md#dictionary). Prvky bez klíče jsou analyzovány, ale nejsou shromažďovány. Vnořené slovníky nebo záznamy jsou sloučeny do nadřazeného slovníku.
+
+Typ: _Kombinátor_
+
+Synopse:
+
+```yaml
+!PARSE.DICT
+- <...>
+- key: <...>
+```
+
+Prvky bez klíče jsou analyzovány, ale nejsou shromažďovány:
+
+```yaml
+!PARSE.DICT
+- <...>  # analyzováno, ale neshromažďováno
+- key1: <...>  # analyzováno a shromážděno
+- key2: <...>  # analyzováno a shromážděno
+```
+
+Řetězcové literály jsou automaticky převedeny na `!PARSE.EXACTLY`:
+
+```yaml
+!PARSE.DICT
+- 'prefix '
+- key: !PARSE.CHARS
+```
+
+!!! tip
+    Použijte `!PARSE.DICT` společně s [`!PARSE.TRIE`](#parsetrie), když různé předpony mají naplnit stejnou strukturu slovníku.
+
+!!! example
+
+    _Vstupní řetězec:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnected by user`
+
+    ```yaml
+    !PARSE.DICT
+    - CLIENT_IP: !PARSE.UNTIL ' '
+    - 'port '
+    - CLIENT_PORT: !PARSE.DIGITS
+    - ':'
+    - !PARSE.DIGITS
+    - ': disconnected by user'
+    ```
+
+    _Výstup:_
+
+    ```
+    {
+        'CLIENT_IP': '10.17.248.1',
+        'CLIENT_PORT': '60290'
+    }
+    ```
 
 ## `!PARSE.REPEAT`
 
@@ -353,7 +415,8 @@ max: <...>
 end: <...>
 ```
 
-- `min` a `max` jsou volitelné.
+- `min` je povinné.
+- `max` je volitelné.
 - `end` určuje, zda je požadován koncový oddělovač. Ve výchozím nastavení je volitelný.
 
 !!! example

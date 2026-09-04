@@ -14,6 +14,7 @@ Basic parsers can differentiate between digits, letters and spaces:
 - [`!PARSE.LETTER`](#parseletter), [`!PARSE.LETTERS`](#parseletters): Parse single or multiple letters.
 - [`!PARSE.SPACE`](#parsespace), [`!PARSE.SPACES`](#parsespaces): Parse single or multiple whitespace characters
 - [`!PARSE.CHAR`](#parsechar), [`!PARSE.CHARS`](#parsechars): Parse single or multiple characters.
+- [`!PARSE.EOF`](#parseeof): Assert that the end of the input string has been reached.
 
 The following expressions are used for parsing characters from custom set of characters and looking for specific characters in input strings:
 
@@ -81,7 +82,7 @@ exactly: <...>
 
 - `exactly` specifies the exact number of digits to parse.
 - `min` and `max` specify the minimal and maximal number of digits to parse. They cannot be combined with `exactly` parameter.
-- If none of fields `min`, `max` and `exactly` is specified, as many digits as possible are parsed.
+- If none of fields `min`, `max` and `exactly` is specified, as many digits as possible are parsed. The default minimum is `1`.
 
 !!! warning
 
@@ -164,7 +165,7 @@ max: <...>
 exactly: <...>
 ```
 
-Fields `min`, `max` and `exactly` are optional.
+Fields `min`, `max` and `exactly` are optional. If `min` is not specified, the default minimum is `1`.
 
 !!! warning
 
@@ -272,7 +273,7 @@ max: <...>
 exactly: <...>
 ```
 
-Fields `min`, `max` and `exactly` are optional.
+Fields `min`, `max` and `exactly` are optional. If `min` is not specified, the default minimum is `1`.
 
 !!! warning
 
@@ -315,6 +316,32 @@ max: 4
 ```
 
 </details>
+
+---
+
+## `!PARSE.EOF`
+
+Assert that the end of the input string has been reached.
+
+Type: _Parser_.
+
+Synopsis:
+
+```yaml
+!PARSE.EOF
+```
+
+The parser succeeds only when the current parsing position is at the end of the input string.
+
+!!! example
+
+    _Input string:_ `abc`
+
+    ```yaml
+    !PARSE.TUPLE
+    - 'abc'
+    - !PARSE.EOF
+    ```
 
 ---
 
@@ -1146,7 +1173,10 @@ Synopsis:
 
 ```yaml
 !PARSE.CEFKV
+custom_to_kv: <true/false>
 ```
+
+- `custom_to_kv` is optional (default: `false`). When set to `true`, custom CEF label fields (`cs1Label`, `cn2Label`, and similar) are converted into regular key-value pairs.
 
 !!! example
 

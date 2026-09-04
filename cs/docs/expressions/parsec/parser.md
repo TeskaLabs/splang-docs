@@ -14,6 +14,7 @@ Základní analyzátory mohou rozlišovat mezi číslicemi, písmeny a mezerami:
 - [`!PARSE.LETTER`](#parseletter), [`!PARSE.LETTERS`](#parseletters): Analyzovat jednotlivá nebo více písmen.
 - [`!PARSE.SPACE`](#parsespace), [`!PARSE.SPACES`](#parsespaces): Analyzovat jednotlivé nebo více znaků pro mezeru.
 - [`!PARSE.CHAR`](#parsechar), [`!PARSE.CHARS`](#parsechars): Analyzovat jednotlivé nebo více znaků.
+- [`!PARSE.EOF`](#parseeof): Ověřit, že bylo dosaženo konce vstupního řetězce.
 
 Následující výrazy se používají pro analýzu znaků z vlastního souboru znaků a hledání specifických znaků v vstupních řetězcích:
 
@@ -76,7 +77,7 @@ exactly: <...>
 
 - `exactly` určuje přesný počet číslic k analýze.
 - `min` a `max` určují minimální a maximální počet číslic k analýze. Nemohou být kombinovány s parametrem `exactly`.
-- Pokud není uvedeno žádné z polí `min`, `max` a `exactly`, analyzuje se co nejvíce číslic.
+- Pokud není uvedeno žádné z polí `min`, `max` a `exactly`, analyzuje se co nejvíce číslic. Výchozí minimum je `1`.
 
 !!! warning
 
@@ -157,7 +158,7 @@ max: <...>
 exactly: <...>
 ```
 
-Pole `min`, `max` a `exactly` jsou volitelná.
+Pole `min`, `max` a `exactly` jsou volitelná. Pokud není uvedeno `min`, výchozí minimum je `1`.
 
 !!! warning
 
@@ -265,7 +266,7 @@ max: <...>
 exactly: <...>
 ```
 
-Pole `min`, `max` a `exactly` jsou volitelná.
+Pole `min`, `max` a `exactly` jsou volitelná. Pokud není uvedeno `min`, výchozí minimum je `1`.
 
 !!! warning
 
@@ -307,6 +308,32 @@ max: 4
 ```
 
 </details>
+
+---
+
+## `!PARSE.EOF`
+
+Ověří, že bylo dosaženo konce vstupního řetězce.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.EOF
+```
+
+Analyzátor uspěje pouze tehdy, když je aktuální pozice analýzy na konci vstupního řetězce.
+
+!!! example
+
+    _Vstupní řetězec:_ `abc`
+
+    ```yaml
+    !PARSE.TUPLE
+    - 'abc'
+    - !PARSE.EOF
+    ```
 
 ---
 
