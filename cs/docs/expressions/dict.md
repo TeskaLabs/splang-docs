@@ -15,8 +15,8 @@ Položka je dvojice (klíč, hodnota) reprezentovaná jako tuple.
     Tuto strukturu můžete znát pod alternativními názvy "asociativní pole" nebo "mapa".
 
 * [`!DICT`](#dict): Slovník.
+* [`!DICT.FORMAT`](#dictformat): Formátuje slovník do řetězce.
 * [`!GET`](#get): Získat hodnotu ze slovníku.
-* [`!IN`](#in): Test výskytu.
 
 ---
 
@@ -100,12 +100,11 @@ Typ: _Mapping_.
 !GET
 what: <key>
 from: <dict>
-default: <value>
 ```
 
-Získá položku ze slovníku `dict` (slovník) identifikovaného pomocí `key`.
+Získá položku ze slovníku `dict` identifikovanou pomocí `key`.
 
-Pokud `key` není nalezen, vrátí `default` nebo chybu, pokud `default` není zadán. `default` je nepovinné.
+Pokud `key` není nalezen, výraz vrátí `None` (chyba).
 
 !!! příklad
 
@@ -124,33 +123,36 @@ Pokud `key` není nalezen, vrátí `default` nebo chybu, pokud `default` není z
 
 ---
 
-## `!IN`
+## `!DICT.FORMAT`
 
-Test výskytu.
+Formátuje slovník do řetězce.
 
 Typ: _Mapping_.
 
+Synopse:
+
 ```yaml
-!IN
-what: <key>
-where: <dict>
+!DICT.FORMAT
+what: <dict>
+type: <formát>
+fields:
+  - <pole1>
+  - <pole2>
 ```
 
-Zkontroluje, zda je `key` přítomen v `dict`.
-
-!!! poznámka
-
-    Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](./comparisons.md#in).
+- `type` je nepovinné (výchozí: `kvs`). Podporované hodnoty:
+  * `kvs` — dvojice `key=value` oddělené mezerami
+  * `kvdqs` — dvojice `key="value"` oddělené mezerami
+  * `cef` — dvojice ve stylu CEF `key="value"` nebo `key=value`
+  * `qs` — URL query string
+- `fields` je nepovinné. Pokud je uvedeno, formátují se pouze uvedená pole.
 
 !!! příklad
 
     ```yaml
-    !IN
-    what: 3
-    where:
-      !DICT
-      with:
-        1: "One"
-        2: "Two"
-        3: "Three"
+    !DICT.FORMAT
+    what: !EVENT
+    type: kvs
+    fields:
+      - message
     ```

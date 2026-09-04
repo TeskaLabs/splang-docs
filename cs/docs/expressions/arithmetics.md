@@ -27,10 +27,6 @@ Můžete sčítat následující typy:
 
 * Čísla (celá čísla a desetinná čísla)
 * Řetězce
-* Seznamy
-* Množiny
-* Tuples
-* Records
 
 !!! example "Příklad"
 
@@ -159,7 +155,7 @@ Vypočítá exponent.
     - 8
     ```
 
-    Vypočítá `2^8`, výsledek je `16`.
+    Vypočítá `2^8`, výsledek je `256`.
 
 ---
 

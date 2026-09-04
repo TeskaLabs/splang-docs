@@ -24,16 +24,18 @@ Synopsis:
 ```yaml
 !GET
 what: <item>
-typ: <type>
-od: <json>
-výchozí: <value>
+type: <type>
+from: <json>
+default: <value>
 ```
 
-Získat položku zadanou pomocí `what` z JSON objektu `from`.
+Získá položku zadanou pomocí `what` z JSON objektu `from`.
 Pokud položka není nalezena, vrátí `default` nebo chybu, pokud není zadáno `default`.
 `default` je nepovinné.
 
 Volitelně můžete zadat typ položky pomocí `type`.
+
+`what` musí být konstanta známá v době kompilace (JSON pointer).
 
 !!! example "Příklad"
 

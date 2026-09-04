@@ -9,6 +9,7 @@ title: Pomocné
 - [`!CAST`](#cast): Převádí typ argumentu na jiný.
 - [`!HASH`](#hash): Vypočítá digest.
 - [`!DEBUG`](#debug): Ladí výraz.
+- [`!HEX.BYTES`](#hexbytes): Převádí hexadecimální řetězec na binární data.
 
 ---
 
@@ -23,8 +24,13 @@ Synopsis:
 ```yaml
 !CAST
 what: <input>
-typ: <type>
+type: <type>
+default: <value>
+base: <integer>
 ```
+
+- `default` je nepovinné. Vrací se při neúspěšné konverzi.
+- `base` je nepovinné. Používá se při převodu řetězců na celá čísla (součást číselné soustavy).
 
 Explicitně převádí typ `what` na typ `type`.
 
@@ -63,7 +69,7 @@ seed: <integer>
 typ: <type of hash>
 ```
 
-Vypočítá hash pro hodnotu `what`.
+Vypočítá hash pro hodnotu `what` a vrátí digest jako seznam bajtů (`list[ui8]`).
 
 `seed` určuje počáteční hash seed.
 
@@ -93,3 +99,33 @@ Více informací o xxHash naleznete na adrese [xxhash.com](http://www.xxhash.com
 Vypíše obsah vstupu a na výstupu předá nezměněnou hodnotu.
 
 Typ: _Mapping_.
+
+Synopse:
+
+```yaml
+!DEBUG
+what: <výraz>
+```
+
+---
+
+## `!HEX.BYTES`
+
+Převádí hexadecimální řetězec na binární data.
+
+Typ: _Mapping_.
+
+Synopse:
+
+```yaml
+!HEX.BYTES
+what: <string>
+```
+
+!!! example "Příklad"
+
+    ```yaml
+    !HEX.BYTES
+    what: "8F3A12"
+    ```
+    _Výstup:_ `b'\x8f:\x12'`

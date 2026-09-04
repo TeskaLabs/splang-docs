@@ -674,4 +674,220 @@ Synopse:
 
     Analyzovat datum a čas s dvou-místným rokem:
 
-    _Vstupní řetězec:_ `22-10-13T12:34:
+    _Vstupní řetězec:_ `22-10-13T12:34:56.987654`
+
+    ```yaml hl_lines="2"
+    !PARSE.DATETIME
+    - year: !PARSE.DIGITS
+    - '-'
+    - month: !PARSE.MONTH "number"
+    - '-'
+    - day: !PARSE.DIGITS
+    - 'T'
+    - hour: !PARSE.DIGITS
+    - ':'
+    - minute: !PARSE.DIGITS
+    - ':'
+    - second: !PARSE.DIGITS
+    - microsecond: !PARSE.FRAC
+                base: micro
+    ```
+
+### Zkratky
+
+Podporované zkrácené formy (malá i velká písmena):
+
+#### ISO 8601
+
+```yaml
+!PARSE.DATETIME ISO8601
+```
+
+#### RFC 3339
+
+```yaml
+!PARSE.DATETIME RFC3339
+```
+
+#### RFC 3164
+
+```yaml
+!PARSE.DATETIME RFC3164
+```
+
+#### Epoch
+
+```yaml
+!PARSE.DATETIME EPOCH
+```
+
+---
+
+## `!PARSE.MONTH`
+
+Analyzuje měsíc.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.MONTH
+what: <...>
+```
+
+nebo kratší verze:
+
+```yaml
+!PARSE.MONTH <...>
+```
+
+Parametr `what` určuje formát názvu měsíce.
+Možné hodnoty:
+
+- `number`: číselná reprezentace, např. `01` pro leden, `12` pro prosinec
+- `short`: třípísmenná reprezentace, např. `Jan` pro leden, `Dec` pro prosinec
+- `full`: plný název, např. `January`, `December`
+
+!!! tip
+    Použijte `!PARSE.MONTH` pro analýzu měsíce jako součásti `!PARSE.DATETIME`.
+
+---
+
+## `!PARSE.FRAC`
+
+Analyzuje desetinnou část.
+
+!!! warn
+
+    Parsování desetinné části zahrnuje i tečku (.) a čárku (,) jako oddělovač.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.FRAC
+base: <...>
+max: <...>
+```
+
+- `base`: Základ desetinné části (`milli`, `micro`, `nano`).
+- `max`: Maximální počet číslic podle hodnoty `base`. Výchozí hodnoty jsou `3`, `6`, `9`.
+
+---
+
+## `!PARSE.IP`
+
+Analyzuje IP adresu ve formátu IPv4 i IPv6.
+
+Vrací [číselnou reprezentaci](https://ndocs.teskalabs.com/sp-lang/language/types/#ip-address) IP adresy.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.IP
+```
+
+!!! example
+
+    _Vstupní řetězec:_ `193.178.72.2`
+
+    ```yaml
+    !PARSE.IP
+    ```
+
+---
+
+## `!PARSE.MAC`
+
+Analyzuje MAC adresu v jednom z těchto formátů:
+
+- `XX:XX:XX:XX:XX:XX` — oddělené dvojtečkami
+- `XX-XX-XX-XX-XX-XX` — oddělené pomlčkami
+- `XXXX.XXXX.XXXX` — oddělené tečkami (Cisco styl)
+- `0xXXXXXXXXXXXX` — hex kódování
+
+Vrací [číselnou reprezentaci](https://ndocs.teskalabs.com/sp-lang/language/types/#mac-address) MAC adresy.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.MAC
+```
+
+---
+
+## `!PARSE.CEFKV`
+
+Analyzuje záznamy ve formátu CEF (Common Event Format) key-value a extrahuje strukturovaná pole ze vstupního řetězce.
+
+Každé pole má formát `key=value`, `=` je pevný oddělovač a jednotlivé dvojice jsou odděleny jednou mezerou.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.CEFKV
+custom_to_kv: <true/false>
+```
+
+- `custom_to_kv` je nepovinné (výchozí: `false`). Pokud je `true`, vlastní CEF label pole (`cs1Label`, `cn2Label` a podobně) se převedou na běžné dvojice klíč-hodnota.
+
+---
+
+## `!PARSE.FIELDS`
+
+Analyzuje více polí oddělených určitým znakem a volitelně uzavřených v oddělovačích, které se při parsování odstraní.
+Každé pole se přiřadí odpovídajícímu klíči ze seznamu `keys`.
+
+Pokud je zadán parametr `stop`, parsuje se přesně tolik polí, kolik je klíčů.
+Poslední pole se čte až do znaku `stop`. Parser se zastaví **před** znakem `stop`.
+
+Parsování selže, pokud počet polí neodpovídá počtu klíčů.
+
+Typ: _Analyzátor_.
+
+Synopse:
+
+```yaml
+!PARSE.FIELDS
+keys: <...>
+separator: <...>
+delimiters: <...>
+empty: <...>
+stop: <...>
+```
+
+- `keys` je seznam názvů polí extrahovaných ze vstupního řetězce.
+- `separator` je znak oddělující pole.
+- `delimiters` je seznam znaků nebo dvojic znaků, které mohou pole obalovat.
+- `stop` je nepovinný znak konce posledního pole.
+- `empty` je nepovinný boolean (výchozí: `false`), který odstraní prázdná pole z výstupu.
+
+!!! example
+
+    _Vstupní řetězec:_ `<8>,url,,"2024/12/09 19:45:31",99.70.55.200`
+
+    ```yaml
+    !PARSE.FIELDS
+    keys:
+      - pri
+      - subtype
+      - future_use
+      - time_generated
+      - src_ip
+    separator: ","
+    delimiters:
+      - '"'
+      - "'"
+      - ['<', '>']
+      - '"""'
+    ```
+
+---

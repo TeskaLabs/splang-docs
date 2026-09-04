@@ -91,6 +91,8 @@ Hodnota `what` může být záporná, v takovém případě určuje položku z k
 Položky jsou indexovány od 0, to znamená, že první položka v seznamu má index 0.
 Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 
+`what` musí být konstanta známá v době kompilace (literální název nebo index).
+
 !!! example "Příklad použití názvů položek:"
 
 	```yaml
@@ -99,9 +101,9 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 	from:
 	  !RECORD
 	  with:
-	    jméno: John Doe
-	    věk: 32 let
-	    výška: 127,5
+	    name: John Doe
+	    age: 32
+	    height: 127.5
 	```
 
 	Vrátí `John Doe`.
@@ -113,7 +115,7 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 	what: 1
 	from:
 	  !RECORD
-	-  with:
+	  with:
 	    name: John Doe
 	    age: 32
 	    height: 127.5

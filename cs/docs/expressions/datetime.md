@@ -17,13 +17,12 @@ Je v časovém pásmu UTC.
 * [`!NOW`](#now): Aktuální datum a čas.
 * [`!DATETIME`](#datetime): Konstrukce nového `datetime`.
 * [`!DATETIME.FORMAT`](#datetimeformat): Formátování `datetime`.
+* [`!DATETIME.PARSE`](#datetimeparse): Parsování `datetime` z řetězce.
 * [`!GET`](#get): Získání komponenty `datetime`.
 
 ---
 
-## `!NOW`
-
-Typ: _Mapping_.
+Typ: _Scalar_.
 
 Získá aktuální datum a čas.
 
@@ -54,10 +53,10 @@ timezone: <timezone>
 * `year` je celé číslo v rozsahu -8190 … 8191.
 * `month` je celé číslo v rozsahu 1 … 12.
 * `day` je celé číslo v rozsahu 1 … 31, odpovídající počtu dní v daném měsíci.
-* `hour` je celé číslo v rozsahu 0 … 24, je nepovinné a výchozí hodnota je `0`.
+* `hour` je celé číslo v rozsahu 0 … 23, je nepovinné a výchozí hodnota je `0`.
 * `minute` je celé číslo v rozsahu 0 … 59, je nepovinné a výchozí hodnota je `0`.
 * `second` je celé číslo v rozsahu 0 … 60, je nepovinné a výchozí hodnota je `0`.
-* `microsecond` je celé číslo v rozsahu 0 … 1000000, je nepovinné a výchozí hodnota je `0`.
+* `microsecond` je celé číslo v rozsahu 0 … 999999, je nepovinné a výchozí hodnota je `0`.
 * `timezone` je název časového pásma podle [IANA Time Zone Database](https://www.iana.org/time-zones). Je nepovinné a výchozí časové pásmo je UTC.
 
 !!! example "Příklad: Datum/čas v UTC"
@@ -121,31 +120,19 @@ timezone: <string>
 
 ### Formát
 
+SP-Lang aktuálně podporuje tyto direktivy:
+
 | Direktiva | Komponenta |
 | --- | --- |
 |`%H`| Hodiny (24hodinové hodiny) jako desetinné číslo doplněné nulou.|
 |`%M`| Minuta jako desetinné číslo doplněné nulou.|
 |`%S`| Vteřina jako desetinné číslo doplněné nulou.|
 |`%f`| Mikrosekunda jako desetinné číslo doplněné nulou na 6 číslic.|
-|`%I`| Hodina (12hodinové hodiny) jako desetinné číslo doplněné nulou.|
-|`%p`| Ekvivalent AM nebo PM v místním jazyce. |
 |`%d`| Den v měsíci jako desetinné číslo doplněné nulou.|
 |`%m`| Měsíc jako desetinné číslo doplněné nulou.|
 |`%y`| Rok bez století jako desetinné číslo doplněné nulou.|
 |`%Y`| Rok se stoletím jako desetinné číslo.|
-|`%z`| Posun UTC.|
-|`%a`| Zkrácený název dne v týdnu.|
-|`%A`| Den v týdnu jako plný název.|
 |`%w`| Den v týdnu jako desetinné číslo, kde 0 je neděle a 6 je sobota.|
-|`%b`| Měsíc jako zkrácený název.|
-|`%B`| Měsíc jako plný název.|
-|`%j`| Den v roce jako desetinné číslo doplněné nulou.|
-|`%U`| Číslo týdne v roce (neděle jako první den v týdnu) jako desetinné číslo doplněné nulou. Všechny dny v novém roce předcházející první neděli se považují za dny v týdnu 0.|
-|`%W`| Číslo týdne v roce (pondělí jako první den v týdnu) jako desetinné číslo doplněné nulou. Všechny dny v novém roce předcházející prvnímu pondělí se považují za dny v týdnu 0.|
-|`%c`| Reprezentace data a času.|
-|`%x`| Reprezentace data.|
-|`%X`| Reprezentace času.|
-|`%%`| Doslovný znak '%'.|
 
 !!! example
 

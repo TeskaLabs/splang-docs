@@ -31,6 +31,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!SHL`](./bitwise.md#shl) | mapování | bitwise | Levý logický posun. |
 | [`!SHR`](./bitwise.md#shr) | mapování | bitwise | Pravý logický posun. |
 | [`!SAL`](./bitwise.md#sal) | mapování | bitwise | Levý aritmetický posun. |
+| [`!SAR`](./bitwise.md#sar) | mapování | bitwise | Pravý aritmetický posun. |
 | [`!ROL`](./bitwise.md#rol) | mapování | bitwise | Kružnicová rotace vlevo. |
 | [`!ROR`](./bitwise.md#ror) | mapování | bitwise | Kružnicová rotace vpravo. |
 | [`!EQ`](./comparisons.md#eq) | sekvence | porovnání | Rovná se. |
@@ -44,8 +45,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!WHEN`](./control.md#when) | sekvence |  ovládání | Silné větvení. |
 | [`!MATCH`](./control.md#match) | mapování | ovládání | Shoda vzoru. |
 | [`!TRY`](./control.md#try) | sekvence | ovládání |  Provádí až do prvního výrazu bez chyby. |
-| [`!MAP`](./control.md#map) | mapování | ovládání |  Aplikuje výraz na každý prvek v sekvenci. |
-| [`!REDUCE`](./control.md#reduce) | mapování | ovládání |  Sníží prvky seznamu na jednu hodnotu. |
+| [`!FOR`](./control.md#for) | mapování | ovládání | Aplikuje výraz na každou položku v posloupnosti. |
 | [`!INCLUDE`](./directives.md#include) | skalární | direktivy | Vloží obsah jiného souboru. |
 | [`!ARGUMENT`](./function.md#argument-arg) | skalární | funkce | Získá argument funkce. |
 | [`!ARG`](./function.md#argument-arg) | skalární | funkce | Získá argument funkce. |
@@ -63,7 +63,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!NOT`](./logic.md#not) | sekvence | logika | Negace. |
 | [`!LOOKUP`](./lookup.md#lookup) | mapování | vyhledávání | Vytváří nové vyhledávání. |
 | [`!GET`](./lookup.md#get) | mapování | vyhledávání | Získá položky z vyhledávání. |
-| [`IN`](./lookup.md#in) | mapování | vyhledávání | Zkontroluje, zda je položka ve vyhledávání. |
+| [`!IN`](./lookup.md#in) | mapování | vyhledávání | Zkontroluje, zda je položka ve vyhledávání. |
 | [`!RECORD`](./record.md#record) | mapování | záznam |  Kolekce pojmenovaných položek. |
 | [`!GET`](./record.md#get) | mapování | záznam |  Získá položku ze záznamu. |
 | [`!REGEX`](./regex.md#regex) | | regex | Vyhledávání pomocí regulárního výrazu. |
@@ -71,6 +71,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!REGEX.SPLIT`](./regex.md#regexsplit) | mapování | regex | Rozdělí řetězec podle regulárního výrazu. |
 | [`!REGEX.FINDALL`](./regex.md#regexfindall) | mapování | regex | Najde všechny výskyty podle regulárního výrazu. |
 | [`!REGEX.PARSE`](./regex.md#regexparse) | mapování | regex | Parsuje podle regulárního výrazu. |
+| [`!REGEX.EXPAND`](./regex.md#regexexpand) | mapování | regex | Rozbalí zkrácené řetězce do alternativ. |
 | [`!SET`](./set.md#set) | mapování | množina | Množina položek. |
 | [`!IN`](./set.md#in) | mapování| množina | Test členství. |
 | [`!IN`](./string.md#in) | mapování | řetězec | Testuje, zda řetězec obsahuje podřetězec. |
@@ -83,8 +84,16 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!SPLIT`](./string.md#split) | mapování | řetězec | Rozdělí řetězec na seznam. |
 | [`!RSPLIT`](./string.md#rsplit) | mapování | řetězec | Rozdělí řetězec zprava na seznam. |
 | [`!JOIN`](./string.md#join) | mapování | řetězec | Spojí seznam řetězců. |
+| [`!LDAP.SID`](./string.md#ldapsid) | mapování | řetězec | Převádí LDAP SID bajty na řetězec. |
 | [`!TUPLE`](./tuple.md#tuple) | mapování | n-tice |  Kolekce položek. |
 | [`!GET`](./tuple.md#get) | mapování | n-tice |  Získá položku z n-tice. |
 | [`!CAST`](./utility.md#cast) | mapování | utility | Převede typ argumentu na jiný. |
 | [`!HASH`](./utility.md#hash) | mapování | utility | Vypočítá hash. |
 | [`!DEBUG`](./utility.md#debug) | mapování | utility | Ladí výraz. |
+| [`!HEX.BYTES`](./utility.md#hexbytes) | mapování | utility | Převádí hexadecimální řetězec na binární data. |
+| [`!DICT`](./dict.md#dict) | mapování | slovník | Slovník. |
+| [`!DICT.FORMAT`](./dict.md#dictformat) | mapování | slovník | Formátuje slovník do řetězce. |
+| [`!NOW`](./datetime.md#now) | skalární | datum/čas | Aktuální datum a čas. |
+| [`!DATETIME`](./datetime.md#datetime) | mapování | datum/čas | Konstrukce datetime. |
+| [`!DATETIME.FORMAT`](./datetime.md#datetimeformat) | mapování | datum/čas | Formátování datetime. |
+| [`!DATETIME.PARSE`](./datetime.md#datetimeparse) | mapování | datum/čas | Parsování datetime z řetězce. |

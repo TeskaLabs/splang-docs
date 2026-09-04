@@ -116,7 +116,7 @@ Typ: _Sekvence_.
 !!! example
 
     ```yaml
-    !GT
+    !GE
     - !ARG count
     - 5
     ```
