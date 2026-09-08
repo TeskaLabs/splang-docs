@@ -188,3 +188,5 @@ Type: _Sequence_
     - 20
     - -1
     ```
+
+    Returns `21`.
