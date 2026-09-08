@@ -197,10 +197,6 @@ Analyzuje seznam hodnot do n-tice.
 
 Iterováním přes seznam prvků výraz `!PARSE.TUPLE` shromažďuje hodnoty do [n-tice](../tuple.md).
 
-!!! poznámka
-
-    Tento výraz není plně implementován. V praxi ho nelze použít, protože jeho výstup není správně přizpůsoben pro `!PARSE.KVLIST` a lmio-parsec. Je zde popsán pouze pro úplnost.
-
 Synopse:
 
 ```yaml
@@ -232,10 +228,6 @@ Synopse:
 Analyzuje seznam hodnot do struktury záznamu.
 
 Iterováním přes seznam prvků výraz `!PARSE.RECORD` shromažďuje hodnoty do struktury záznamu.
-
-!!! poznámka
-
-    Tento výraz není plně implementován. V praxi ho nelze použít, protože jeho výstup není správně přizpůsoben pro `!PARSE.KVLIST` a lmio-parsec. Je zde popsán pouze pro úplnost.
 
 Typ: _Kombinátor_
 
@@ -272,10 +264,6 @@ Synopse:
 Analyzuje seznam párů klíč-hodnota do slovníku.
 
 Iterováním přes seznam prvků výraz `!PARSE.DICT` shromažďuje pojmenované hodnoty do [slovníku](../../language/types/index.md#dictionary). Prvky bez klíče jsou analyzovány, ale nejsou shromažďovány. Vnořené slovníky nebo záznamy jsou sloučeny do nadřazeného slovníku.
-
-!!! poznámka
-
-    Tento výraz není plně implementován. V praxi ho nelze použít, protože jeho výstup není správně přizpůsoben pro `!PARSE.KVLIST` a lmio-parsec. Je zde popsán pouze pro úplnost.
 
 Typ: _Kombinátor_
 

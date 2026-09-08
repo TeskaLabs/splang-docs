@@ -802,16 +802,13 @@ Synopse:
 
 ### Časové pásmo
 
-!!! poznámka
-
-    Parsování časových pásem v rámci `!PARSE.DATETIME` není plně implementováno. Použijte [zkratky](#zkratky) (`ISO 8601`, `RFC 3339`), které časové pásmo zpracovávají robustněji.
-
 Časové pásmo může být uvedeno v logu, nebo může chybět. Existují dva přístupy:
 
 1. Časové pásmo se parsuje ze vstupního řetězce. V tom případě použijte vhodný parsovací výraz pro část s časovým pásmem.
 
     ```yaml
     !PARSE.DATETIME
+    - ...
     - timezone: !PARSE.UNTIL " "
     ```
 
@@ -821,6 +818,7 @@ Synopse:
 
     ```yaml
     !PARSE.DATETIME
+    - ...
     - timezone: "Europe/Prague"
     ```
 

@@ -832,16 +832,13 @@ Synopsis:
 
 ### Timezone
 
-!!! note
-
-    Timezone parsing within `!PARSE.DATETIME` is not fully implemented. Use the [shortcuts](#shortcuts) (`ISO 8601`, `RFC 3339`), which handle timezones more robustly.
-
 Timezone can be either specified in the log or it can be missing. There are two approaches for that:
 
 1. Timezone is parsed from the input string. In that case, use the suitable parsing expression for the timezone part.
 
     ```yaml
     !PARSE.DATETIME
+    - ...
     - timezone: !PARSE.UNTIL " "
     ```
 
@@ -851,6 +848,7 @@ Timezone can be either specified in the log or it can be missing. There are two 
 
     ```yaml
     !PARSE.DATETIME
+    - ...
     - timezone: "Europe/Prague"
     ```
 
