@@ -34,8 +34,6 @@ where: <list>
 
 Check if an `item` is present in the `list`.
 
-The expression `!IN` is described in the [Set](./set.md#in) chapter.
-
 !!! example
 
     ```yaml

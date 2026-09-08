@@ -141,8 +141,6 @@ Zkontroluje, zda je `klíč` přítomen v hodnotě `where`.
 Výraz `!IN` funguje na hodnotách podobných slovníku, které podporují test výskytu, jako je aktuální událost (`!EVENT`) nebo parsovaný JSON dokument.
 Není podporován na nativní struktuře `!DICT`.
 
-Výraz `!IN` je popsán v kapitole [Množiny](./set.md#in).
-
 ---
 
 ## `!DICT.FORMAT`

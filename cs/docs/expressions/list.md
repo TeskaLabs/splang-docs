@@ -34,8 +34,6 @@ where: <seznam>
 
 Zkontroluje, zda je `položka` přítomna v `seznamu`.
 
-Výraz `!IN` je popsán v kapitole [Množiny](./set.md#in).
-
 !!! příklad
 
     ```yaml

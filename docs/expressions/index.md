@@ -57,6 +57,7 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!JSON.PARSE`](./json.md#jsonparse) | mapping | json | Parses JSON. |
 | [`!LIST`](./list.md#list) | mapping | list |  Creates a list of items. |
 | [`!GET`](./list.md#get) | mapping | list | Gets a single item from a list. |
+| [`!IN`](./list.md#in) | mapping | list | Membership test. |
 | [`!AND`](./logic.md#and) | sequence | logic |  Conjunction. |
 | [`!OR`](./logic.md#or) | sequence | logic | Disjunction. |
 | [`!NOT`](./logic.md#not) | sequence | logic | Negation. |
@@ -90,6 +91,7 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!HASH`](./utility.md#hash) | mapping | utility | Calculates a digest. |
 | [`!HEX.BYTES`](./utility.md#hexbytes) | mapping | utility | Converts hexadecimal string into binary data. |
 | [`!DICT`](./dict.md#dict) | mapping | dict | Dictionary. |
+| [`!IN`](./dict.md#in) | mapping | dict | Membership test. |
 | [`!DICT.FORMAT`](./dict.md#dictformat) | mapping | dict | Format a dictionary into a string. |
 | [`!NOW`](./datetime.md#now) | scalar | datetime | Current date and time. |
 | [`!DATETIME`](./datetime.md#datetime) | mapping | datetime | Construct a datetime. |

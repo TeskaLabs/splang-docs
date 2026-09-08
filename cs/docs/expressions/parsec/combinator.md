@@ -304,9 +304,6 @@ Prvky bez klíče jsou analyzovány, ale nejsou shromažďovány:
 - key: !PARSE.CHARS
 ```
 
-!!! tip
-    Použijte `!PARSE.DICT` společně s [`!PARSE.TRIE`](#parsetrie), když různé předpony mají naplnit stejnou strukturu slovníku.
-
 !!! example
 
     _Vstupní řetězec:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnected by user`

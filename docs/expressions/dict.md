@@ -147,8 +147,6 @@ Check if a `key` is present in the `where` value.
 The expression `!IN` works on dict-like values that support membership, such as the current event (`!EVENT`) or a parsed JSON document.
 It is not supported on a native `!DICT` structure.
 
-The expression `!IN` is described in the [Set](./set.md#in) chapter.
-
 ---
 
 ## `!DICT.FORMAT`

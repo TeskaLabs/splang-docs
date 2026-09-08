@@ -305,9 +305,6 @@ String literals are translated into `!PARSE.EXACTLY` automatically:
 - key: !PARSE.CHARS
 ```
 
-!!! tip
-    Use `!PARSE.DICT` together with [`!PARSE.TRIE`](#parsetrie) when different prefixes should populate the same dictionary structure.
-
 !!! example
 
     _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnected by user`

@@ -57,6 +57,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!JSON.PARSE`](./json.md#jsonparse) | mapování | json | Parsuje JSON. |
 | [`!LIST`](./list.md#list) | mapování | seznam |  Vytváří seznam položek. |
 | [`!GET`](./list.md#get) | mapování | seznam | Získá jednu položku ze seznamu. |
+| [`!IN`](./list.md#in) | mapování | seznam | Test členství. |
 | [`!AND`](./logic.md#and) | sekvence | logika |  Konjunkce. |
 | [`!OR`](./logic.md#or) | sekvence | logika | Disjunkce. |
 | [`!NOT`](./logic.md#not) | sekvence | logika | Negace. |
@@ -90,6 +91,7 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!HASH`](./utility.md#hash) | mapování | utility | Vypočítá hash. |
 | [`!HEX.BYTES`](./utility.md#hexbytes) | mapování | utility | Převádí hexadecimální řetězec na binární data. |
 | [`!DICT`](./dict.md#dict) | mapování | slovník | Slovník. |
+| [`!IN`](./dict.md#in) | mapování | slovník | Test výskytu. |
 | [`!DICT.FORMAT`](./dict.md#dictformat) | mapování | slovník | Formátuje slovník do řetězce. |
 | [`!NOW`](./datetime.md#now) | skalární | datum/čas | Aktuální datum a čas. |
 | [`!DATETIME`](./datetime.md#datetime) | mapování | datum/čas | Konstrukce datetime. |
