@@ -95,8 +95,9 @@ If `what` is a string, then it is a name of the field in the record.
 If `what` is an integer (number), then it is _index_ in the record.
 `what` can be negative, in that case, it specifies an item from the end of the list.
 Items are indexed from the 0, it means that the first item in the list has an index 0.
-If the `what` is out of bound of the list, the statement returns with error.
+If `what` is out of bound of the list, the statement returns with error.
 
+`what` must be a compile-time constant (a literal name or index).
 
 !!! example "Using names of items:"
 
@@ -107,8 +108,8 @@ If the `what` is out of bound of the list, the statement returns with error.
       !RECORD
       with:
         name: John Doe
-        age: 32 let
-        height: 127,5
+        age: 32
+        height: 127.5
     ```
 
     Returns `John Doe`.
@@ -121,7 +122,7 @@ If the `what` is out of bound of the list, the statement returns with error.
     what: 1
     from:
       !RECORD
-    -  with:
+      with:
         name: John Doe
         age: 32
         height: 127.5

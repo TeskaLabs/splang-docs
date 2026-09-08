@@ -15,7 +15,6 @@ Test expression evaluates inputs and returns boolean value `true` or `false` bas
 * [!LE](#le): Less than or equal to
 * [!GT](#gt): Greater than
 * [!GE](#ge): Greater than or equal to
-* [!IN](#in): Membership test
 
 ---
 
@@ -124,7 +123,7 @@ Type: _Sequence_.
 !!! example
 
     ```yaml
-    !GT
+    !GE
     - !ARG count
     - 5
     ```
@@ -133,45 +132,3 @@ Type: _Sequence_.
 
 
 ---
-
-## `!IN`
-
-Membership test.
-
-Type: _Mapping_.
-
-```yaml
-!IN
-what: <...>
-where: <...>
-```
-
-The `!IN` expression is used to check if a value `what` exists in a value `where` or not.
-Value `where` is a string, container (list, set, dictionary), structural type etc.
-Evaluate to `true` if it finds a value `what` in the specified value `where` and `false` otherwise.
-
-!!! example
-
-    ```yaml
-    !IN
-    what: 5
-    where:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-    ```
-
-    Check for a presence of the value `5` in the list `where`. Returns "true".
-
-
-!!! example
-
-    ```yaml
-    !IN
-    what: "Willy"
-    where: "John Willy Boo"
-    ```
-
-    Check for a presence of the substring "Willy" in the `John Willy Boo` value. Returns `true`.

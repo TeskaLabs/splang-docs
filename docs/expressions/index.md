@@ -31,6 +31,7 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!SHL`](./bitwise.md#shl) | mapping | bitwise | Left logical shift. |
 | [`!SHR`](./bitwise.md#shr) | mapping | bitwise | Right logical shift. |
 | [`!SAL`](./bitwise.md#sal) | mapping | bitwise | Left arithmetic shift. |
+| [`!SAR`](./bitwise.md#sar) | mapping | bitwise | Right arithmetic shift. |
 | [`!ROL`](./bitwise.md#rol) | mapping | bitwise | Circular rotation to the left. |
 | [`!ROR`](./bitwise.md#ror) | mapping | bitwise | Circular rotation to the right. |
 | [`!EQ`](./comparisons.md#eq) | sequence | comparisons | Equal to. |
@@ -39,13 +40,11 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!LE`](./comparisons.md#le) | sequence | comparisons | Less than or equal to. |
 | [`!GT`](./comparisons.md#gt) | sequence | comparisons | Greater than. |
 | [`!GE`](./comparisons.md#ge) | sequence | comparisons | Greater than or equal to. |
-| [`!IN`](./comparisons.md#in) | mapping | comparisons | Membership test. |
 | [`!IF`](./control.md#if) | mapping | control | Simple conditional branching. |
 | [`!WHEN`](./control.md#when) | sequence |  control | Powerful branching. |
 | [`!MATCH`](./control.md#match) | mapping | control | Pattern matching. |
 | [`!TRY`](./control.md#try) | sequence | control |  Execute till first non-error expression. |
-| [`!MAP`](./control.md#map) | mapping | control |  Apply the expression on each element in a sequence. |
-| [`!REDUCE`](./control.md#reduce) | mapping | control |  Reduce the elements of an list into a single value. |
+| [`!FOR`](./control.md#for) | mapping | control | Apply an expression to each item in a sequence. |
 | [`!INCLUDE`](./directives.md#include) | scalar | directives | Inserts the content of another file. |
 | [`!ARGUMENT`](./function.md#argument-arg) | scalar | function | Gets a function argument. |
 | [`!ARG`](./function.md#argument-arg) | scalar | function | Gets a function argument. |
@@ -58,12 +57,13 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!JSON.PARSE`](./json.md#jsonparse) | mapping | json | Parses JSON. |
 | [`!LIST`](./list.md#list) | mapping | list |  Creates a list of items. |
 | [`!GET`](./list.md#get) | mapping | list | Gets a single item from a list. |
+| [`!IN`](./list.md#in) | mapping | list | Membership test. |
 | [`!AND`](./logic.md#and) | sequence | logic |  Conjunction. |
 | [`!OR`](./logic.md#or) | sequence | logic | Disjunction. |
 | [`!NOT`](./logic.md#not) | sequence | logic | Negation. |
 | [`!LOOKUP`](./lookup.md#lookup) | mapping | lookup | Creates a new lookup. |
 | [`!GET`](./lookup.md#get) | mapping | lookup | Gets items from a lookup. |
-| [`IN`](./lookup.md#in) | mapping | lookup | Checks if an item is in a lookup. |
+| [`!IN`](./lookup.md#in) | mapping | lookup | Checks if an item is in a lookup. |
 | [`!RECORD`](./record.md#record) | mapping | record |  A collection of named items. |
 | [`!GET`](./record.md#get) | mapping | record |  Gets the item from a record. |
 | [`!REGEX`](./regex.md#regex) | | regex | Regular expression search. |
@@ -71,6 +71,7 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!REGEX.SPLIT`](./regex.md#regexsplit) | mapping | regex | Split a string by a regular expression. |
 | [`!REGEX.FINDALL`](./regex.md#regexfindall) | mapping | regex | Find all occurrences by a regular expression. |
 | [`!REGEX.PARSE`](./regex.md#regexparse) | mapping | regex | Parse by a regular expression. |
+| [`!REGEX.EXPAND`](./regex.md#regexexpand) | mapping | regex | Expand shorthand strings into alternatives. |
 | [`!SET`](./set.md#set) | mapping | set | Set of items. |
 | [`!IN`](./set.md#in) | mapping| set | Membership test. |
 | [`!IN`](./string.md#in) | mapping | string | Tests if a string contains a substring. |
@@ -83,8 +84,16 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!SPLIT`](./string.md#split) | mapping | string | Splits a string into a list. |
 | [`!RSPLIT`](./string.md#rsplit) | mapping | string | Splits a string from right into a list. |
 | [`!JOIN`](./string.md#join) | mapping | string | Joins a list of strings. |
+| [`!LDAP.SID`](./string.md#ldapsid) | mapping | string | Converts LDAP SID bytes to string. |
 | [`!TUPLE`](./tuple.md#tuple) | mapping | tuple |  A collection of items. |
 | [`!GET`](./tuple.md#get) | mapping | tuple |  Get item from a tuple. |
 | [`!CAST`](./utility.md#cast) | mapping | utility | Converts type of the argument into another. |
 | [`!HASH`](./utility.md#hash) | mapping | utility | Calculates a digest. |
-| [`!DEBUG`](./utility.md#debug) | mapping | utility | Debugs the expression. |
+| [`!HEX.BYTES`](./utility.md#hexbytes) | mapping | utility | Converts hexadecimal string into binary data. |
+| [`!DICT`](./dict.md#dict) | mapping | dict | Dictionary. |
+| [`!IN`](./dict.md#in) | mapping | dict | Membership test. |
+| [`!DICT.FORMAT`](./dict.md#dictformat) | mapping | dict | Format a dictionary into a string. |
+| [`!NOW`](./datetime.md#now) | scalar | datetime | Current date and time. |
+| [`!DATETIME`](./datetime.md#datetime) | mapping | datetime | Construct a datetime. |
+| [`!DATETIME.FORMAT`](./datetime.md#datetimeformat) | mapping | datetime | Format a datetime. |
+| [`!DATETIME.PARSE`](./datetime.md#datetimeparse) | mapping | datetime | Parse a datetime from a string. |

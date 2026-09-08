@@ -13,13 +13,14 @@ They specify how parsing is applied, what is the output type. They can be used f
 
 - [`!PARSE.KVLIST`](#parsekvlist): Parse sequence of keys and values into [bag type](../../language/types/index.md#bag).
 - [`!PARSE.KV`](#parsekv): Parse key and value from the input string.
+- [`!PARSE.DICT`](#parsedict): Parse sequence of keys and values into [dictionary](../../language/types/index.md#dictionary).
 - [`!PARSE.TUPLE`](#parsetuple): Parse into [tuple type](../tuple.md).
-- [`!PARSE.RECORD`](#parserecord)
+- [`!PARSE.RECORD`](#parserecord): Parse into a record structure.
 
 **Flow control** expressions can perform sequence of parser expressions based on certain conditions:
 
 - [`!PARSE.REPEAT`](#parserepeat): Performs the same sequence of expressions multiple times, similarly to "for" statement from different languages.
-- [`!PARSE.SEPARATED`](#parseseparated)
+- [`!PARSE.SEPARATED`](#parseseparated): Parse a sequence of values separated by a delimiter.
 - [`!PARSE.OPTIONAL`](#parseoptional): Adds optional parser function, similarly to "if/else" statement from different languages.
 - [`!PARSE.TRIE`](#parsetrie): Performs the sequence of expressions based on the input string prefix.
 
@@ -255,7 +256,65 @@ Synopsis:
     - ' '
     ```
 
-    _Output:_ `{'output.severity': 165, 'output.version': 1}`
+    _Output:_ `{'severity': 165, 'version': 1}`
+
+---
+
+## `!PARSE.DICT`
+
+Parse list of key-value pairs into a dictionary.
+
+Iterating through list of elements, the `!PARSE.DICT` expression collects named values into a [dictionary](../../language/types/index.md#dictionary). Non-key elements are parsed, but not collected. Nested dictionary or record results are merged into the parent dictionary.
+
+Type: _Combinator_
+
+Synopsis:
+
+```yaml
+!PARSE.DICT
+- <...>
+- key: <...>
+```
+
+Non-key elements are parsed, but not collected:
+
+```yaml
+!PARSE.DICT
+- <...>  # parsed, but not collected
+- key1: <...>  # parsed and collected
+- key2: <...>  # parsed and collected
+```
+
+String literals are translated into `!PARSE.EXACTLY` automatically:
+
+```yaml
+!PARSE.DICT
+- 'prefix '
+- key: !PARSE.CHARS
+```
+
+!!! example
+
+    _Input string:_ `Received disconnect from 10.17.248.1 port 60290:11: disconnected by user`
+
+    ```yaml
+    !PARSE.DICT
+    - CLIENT_IP: !PARSE.UNTIL ' '
+    - 'port '
+    - CLIENT_PORT: !PARSE.DIGITS
+    - ':'
+    - !PARSE.DIGITS
+    - ': disconnected by user'
+    ```
+
+    _Output:_
+
+    ```
+    {
+        'CLIENT_IP': '10.17.248.1',
+        'CLIENT_PORT': '60290'
+    }
+    ```
 
 ## `!PARSE.REPEAT`
 
@@ -354,7 +413,8 @@ max: <...>
 end: <...>
 ```
 
-- `min` and `max` are optional.
+- `min` is required.
+- `max` is optional.
 - `end` indicates if trailing separator is required. By default, it is optional.
 
 !!! example

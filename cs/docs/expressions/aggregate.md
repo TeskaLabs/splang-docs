@@ -155,7 +155,9 @@ Typ: _Sequence_
     - 10
     ```
 
-    Vrací `10`.
+    Vrací `[10]`.
+
+    Pokud má více hodnot stejnou nejvyšší četnost, všechny se vrátí jako seznam.
 
 ---
 

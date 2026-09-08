@@ -23,14 +23,10 @@ Arithmetic expressions are used for basic arithmetic operations with data.
 
 Type: _Sequence_
 
-You can add following types:
+You can add the following types:
 
-* Numbers (Integers and floats)
+* Numbers (integers and floats)
 * Strings
-* Lists
-* Sets
-* Tuples
-* Records
 
 !!! example
 
@@ -92,7 +88,7 @@ Type: _Sequence_
     - 1.5
     ```
 
-    Calculates `21/5`, the result is `14.0`.
+    Calculates `21/1.5`, the result is `14.0`.
 
 
 ### Division by zero
@@ -160,7 +156,7 @@ Calculate the exponent.
     - 8
     ```
 
-    Calculates `2^8`, the result is `16`.
+    Calculates `2^8`, the result is `256`.
 
 ---
 

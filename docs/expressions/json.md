@@ -35,7 +35,7 @@ If the item is not found, return `default` or error if `default` is not provided
 
 You may optionally specify the item type by `type`.
 
-!!! example
+`what` must be a compile-time constant (JSON pointer path).
 
     JSON (aka `!ARG jsonmessage`):
 

@@ -12,8 +12,7 @@ SP-Lang nabízí celou řadu řídicích výrazů.
 * [`!WHEN`](#when): Silné větvení.
 * [`!MATCH`](#match): Porovnávání vzorů.
 * [`!TRY`](#try): Provádění do prvního bezchybného výrazu.
-* [`!MAP`](#map): Aplikace výrazu na každý prvek v posloupnosti.
-* [`!REDUCE`](#reduce): Redukce prvků seznamu na jedinou hodnotu.
+* [`!FOR`](#for): Aplikace výrazu na každou položku v posloupnosti.
 
 ---
 
@@ -80,7 +79,7 @@ Jednotlivé případy mohou odpovídat mnoha různým vzorům, včetně interval
 - else: <expression>
 ```
 
-Pokud není zadáno `else`, pak `WHEN` vrací `False`.
+Pokud není zadáno `else`, pak `!WHEN` vrací `None` (chyba).
 
 !!! example
 
@@ -191,67 +190,23 @@ V opačném případě pokračuje k dalšímu výrazu.
 
 Při dosažení konce seznamu vrátí `None` (chyba).
 
-Poznámka: Zastaralý název tohoto výrazu byl `!FIRST`. Nepoužívá se od listopadu 2022.
+Poznámka: `!FIRST` je zastaralý alias pro `!TRY` a je stále podporován.
+
 
 ---
 
-## `!MAP`
+## `!FOR`
 
-Použít výraz na každý prvek v posloupnosti.
+Aplikuje výraz na každou položku v posloupnosti.
 
 Typ: _Mapping_.
 
 ```yaml
-!MAP
-what: <sequence>
-apply: <expression>
+!FOR
+each: <posloupnost>
+do: <výraz>
 ```
 
-Výraz `apply` se aplikuje na každý prvek v posloupnosti `what` s argumentem `x` obsahujícím příslušnou hodnotu prvku.
-Výsledkem je nový seznam s transformovanými prvky.
+Vrací seznam s výsledkem vyhodnocení `do` pro každou položku z `each`.
 
-!!! example
-
-    ```yaml
-    !MAP
-    what: [1, 2, 3, 4, 5, 6, 7]
-    apply:
-        !ADD [!ARG x, 10]
-    ```
-
-    Výsledek je `[11, 12, 13, 14, 15, 16, 17]`.
-
----
-
-## `!REDUCE`
-
-Redukce prvků seznamu na jedinou hodnotu.
-
-Typ: _Mapping_.
-
-```yaml
-!REDUCE
-what: <expression>
-apply: <expression>
-initval: <expression>
-fold: <left|right>
-```
-
-Výraz `apply` se aplikuje na každý prvek v posloupnosti `what` s argumentem `a` obsahujícím agregaci operace reduce a argumentem `b` obsahujícím příslušnou hodnotu prvku.
-
-Výraz `initval` poskytuje počáteční hodnotu pro argument `a`.
-
-Nepovinná hodnota `fold` určuje "levé skládání" (`left`, výchozí) nebo "pravé skládání" (`right`).
-
-!!! example
-
-    ```yaml
-    !REDUCE
-    what: [1, 2, 3, 4, 5, 6, 7]
-    initval: -10
-    apply:
-      !ADD [!ARG a, !ARG b]
-    ```
-
-    Vypočítá součet posloupnosti s počáteční hodnotou `-10`.  
-    Výsledek je `18 = -10 + 1 + 2 + 3 + 4 + 5 + 6 + 7`.
+Aktuální položka z `each` není předána do `do` jako argument.

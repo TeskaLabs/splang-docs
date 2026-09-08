@@ -17,13 +17,14 @@ It is in the UTC timezone.
 * [`!NOW`](#now): A current date and time.
 * [`!DATETIME`](#datetime): Construct a new `datetime`.
 * [`!DATETIME.FORMAT`](#datetimeformat): Format `datetime`.
-* [`!GET`](#get) Get a `datetime` component.
+* [`!DATETIME.PARSE`](#datetimeparse): Parse `datetime` from a string.
+* [`!GET`](#get): Get a `datetime` component.
 
 ---
 
 ## `!NOW`
 
-Type: _Mapping_.
+Type: _Scalar_.
 
 Get a current date and time.
 
@@ -55,10 +56,10 @@ timezone: <timezone>
 * `year` is an integer number in range -8190 … 8191.
 * `month` is an integer number in range 1 … 12.
 * `day` is an integer number in range 1 … 31, respective to a number of days in a given month.
-* `hour` is an integer number in 0 … 24, it is optional and default value is `0`.
+* `hour` is an integer number in 0 … 23, it is optional and default value is `0`.
 * `minute` is an integer number in 0 … 59, it is optional and default value is `0`.
 * `second` is an integer number in 0 … 60, it is optional and default value is `0`.
-* `microsecond` is an integer number in 0 … 1000000, it is optional and default value is `0`.
+* `microsecond` is an integer number in 0 … 999999, it is optional and default value is `0`.
 * `timezone` is [IANA Time Zone Database](https://www.iana.org/time-zones) name of the timezone. It is optional and a default timezone is UTC.
 
 
@@ -124,31 +125,19 @@ The `timezone` is optional information, if provided, the time will be printed in
 
 ### Format
 
+SP-Lang currently supports the following directives:
+
 | Directive | Component |
 | --- | --- |
-|`%H`| Hour (2-hour clock) as a zero-padded decimal number.|
+|`%H`| Hour (24-hour clock) as a zero-padded decimal number.|
 |`%M`| Minute as a zero-padded decimal number.|
 |`%S`| Second as a zero-padded decimal number.|
 |`%f`| Microsecond as a decimal number, zero-padded to 6 digits.|
-|`%I`| Hour (12-hour clock) as a zero-padded decimal number.|
-|`%p`| Locale’s equivalent of either AM or PM. |
 |`%d`| Day of the month as a zero-padded decimal number.|
 |`%m`| Month as a zero-padded decimal number.|
 |`%y`| Year without century as a zero-padded decimal number.|
-|`%Y`| Year with century as a decimal number|
-|`%z`| UTC offset|
-|`%a`| Weekday as abbreviated name.
-|`%A`| Weekday as full name.
+|`%Y`| Year with century as a decimal number.|
 |`%w`| Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.|
-|`%b`| Month as abbreviated name.|
-|`%B`| Month as full name.|
-|`%j`| Day of the year as a zero-padded decimal number.|
-|`%U`| Week number of the year (Sunday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.|
-|`%W`| Week number of the year (Monday as the first day of the week) as a zero-padded decimal number. All days in a new year preceding the first Monday are considered to be in week 0. |
-|`%c`| Date and time representation.|
-|`%x`| Date representation.|
-|`%X`| Time representation.|
-|`%%`| A literal '%' character.|
 
 !!! example
 

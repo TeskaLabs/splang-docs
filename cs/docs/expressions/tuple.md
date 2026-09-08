@@ -99,6 +99,8 @@ Položky jsou indexovány od 0, to znamená, že první položka v seznamu má i
 
 Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
 
+`what` musí být konstanta známá v době kompilace (literální index).
+
 !!! example "Příklad"
 
     ```yaml
@@ -129,4 +131,4 @@ Pokud je `what` mimo hranice seznamu, příkaz se vrátí s chybou.
         - 127.5
     ```
 
-    Vrací `127,5`.
+    Vrací `127.5`.

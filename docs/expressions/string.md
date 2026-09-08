@@ -192,8 +192,8 @@ Synopsis:
 ```yaml
 !SUBSTRING
 what: <...>
-from: <...>
-to: <...>
+from: <...>  # optional, default: 0
+to: <...>    # optional, default: -1
 ```
 
 !!! info

@@ -162,7 +162,9 @@ Type: _Sequence_
     - 10
     ```
 
-    Returns `10`.
+    Returns `[10]`.
+
+    When multiple values share the highest frequency, all of them are returned as a list.
 
 ---
 

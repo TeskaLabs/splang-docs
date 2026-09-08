@@ -101,6 +101,7 @@ Items are indexed from the 0, it means that the first item in the list has an in
 
 If the `what` is out of bound of the list, the statement returns with error.
 
+`what` must be a compile-time constant (a literal index).
 
 !!! example
 

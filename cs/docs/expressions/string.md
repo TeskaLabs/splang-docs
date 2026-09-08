@@ -190,8 +190,8 @@ Synopsis:
 ```yaml
 !SUBSTRING
 what: <...>
-from: <...>
-to: <...>
+from: <...>  # nepovinné, výchozí: 0
+to: <...>    # nepovinné, výchozí: -1
 ```
 
 !!! info

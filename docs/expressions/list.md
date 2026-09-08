@@ -16,6 +16,38 @@ Items in the list must be of the same type.
 
 * [`!LIST`](#list): Creates a list of items.
 * [`!GET`](#get): Gets a single item from a list.
+* [`!IN`](#in): Membership test.
+
+---
+
+## `!IN`
+
+Membership test.
+
+Type: _Mapping_.
+
+```yaml
+!IN
+what: <item>
+where: <list>
+```
+
+Check if an `item` is present in the `list`.
+
+!!! example
+
+    ```yaml
+    !IN
+    what: 5
+    where:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    ```
+
+    Returns `true`.
 
 ---
 

@@ -16,6 +16,38 @@ Položky v seznamu musí být stejného typu.
 
 * [`!LIST`](#list): Vytváří seznam položek.
 * [`!GET`](#get): Získá jednotlivou položku ze seznamu.
+* [`!IN`](#in): Test členství.
+
+---
+
+## `!IN`
+
+Test členství.
+
+Typ: _Mapping_.
+
+```yaml
+!IN
+what: <položka>
+where: <seznam>
+```
+
+Zkontroluje, zda je `položka` přítomna v `seznamu`.
+
+!!! příklad
+
+    ```yaml
+    !IN
+    what: 5
+    where:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    ```
+
+    Vrátí `true`.
 
 ---
 

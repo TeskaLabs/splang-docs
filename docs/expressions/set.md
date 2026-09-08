@@ -88,17 +88,48 @@ Membership test.
 
 Type: _Mapping_.
 
-Synopsis:
-
 ```yaml
 !IN
-what: <item>
-where: <set>
+what: <...>
+where: <...>
 ```
 
-Check if `item` is present in the `set`.
+The `!IN` expression is used to check if a value `what` exists in a value `where` or not.
+Value `where` is a string, container (list, set, dictionary), structural type etc.
+Evaluate to `true` if it finds a value `what` in the specified value `where` and `false` otherwise.
 
-The expression `!IN` is described in the [Comparisons](./comparisons.md#in) chapter.
+The `!IN` expression is described for the individual container types in the following chapters:
+
+- [List](./list.md#in)
+- [Dictionary](./dict.md#in)
+- [String](./string.md#in)
+- [Lookup](./lookup.md#in)
+
+!!! example
+
+    ```yaml
+    !IN
+    what: 5
+    where:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    ```
+
+    Check for a presence of the value `5` in the list `where`. Returns `true`.
+
+
+!!! example
+
+    ```yaml
+    !IN
+    what: "Willy"
+    where: "John Willy Boo"
+    ```
+
+    Check for a presence of the substring "Willy" in the `John Willy Boo` value. Returns `true`.
 
 !!! example
 
@@ -113,3 +144,5 @@ The expression `!IN` is described in the [Comparisons](./comparisons.md#in) chap
         - 5
         - 8 
     ```
+
+    Check for a presence of the value `3` in the set `where`. Returns `false`.
