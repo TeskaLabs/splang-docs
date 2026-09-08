@@ -40,7 +40,6 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!LE`](./comparisons.md#le) | sekvence | porovnání | Menší nebo rovno. |
 | [`!GT`](./comparisons.md#gt) | sekvence | porovnání | Větší než. |
 | [`!GE`](./comparisons.md#ge) | sekvence | porovnání | Větší nebo rovno. |
-| [`!IN`](./comparisons.md#in) | mapování | porovnání | Test členství. |
 | [`!IF`](./control.md#if) | mapování | ovládání | Jednoduché podmínkové větvení. |
 | [`!WHEN`](./control.md#when) | sekvence |  ovládání | Silné větvení. |
 | [`!MATCH`](./control.md#match) | mapování | ovládání | Shoda vzoru. |
@@ -89,7 +88,6 @@ Výrazy v SP-Lang jsou psány jako [YAML tagové direktivy](https://yaml.org/spe
 | [`!GET`](./tuple.md#get) | mapování | n-tice |  Získá položku z n-tice. |
 | [`!CAST`](./utility.md#cast) | mapování | utility | Převede typ argumentu na jiný. |
 | [`!HASH`](./utility.md#hash) | mapování | utility | Vypočítá hash. |
-| [`!DEBUG`](./utility.md#debug) | mapování | utility | Ladí výraz. |
 | [`!HEX.BYTES`](./utility.md#hexbytes) | mapování | utility | Převádí hexadecimální řetězec na binární data. |
 | [`!DICT`](./dict.md#dict) | mapování | slovník | Slovník. |
 | [`!DICT.FORMAT`](./dict.md#dictformat) | mapování | slovník | Formátuje slovník do řetězce. |

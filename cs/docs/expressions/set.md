@@ -88,17 +88,47 @@ Test členství.
 
 Typ: _Mapping_.
 
-Synopsis:
-
 ```yaml
 !IN
-what: <item>
-where: <set>
+what: <...>
+where: <...>
 ```
 
-Zkontroluje, zda je `item` přítomna v `set`.
+Výraz `!IN` se používá ke kontrole, zda hodnota `what` vyskytuje v hodnotě `where`, nebo ne.
+Hodnota `where` může být řetězec, kontejner (seznam, množina, slovník), strukturní typ atd.
+Vyhodnotí se na `true`, pokud najde hodnotu `what` v zadané hodnotě `where`, a na `false` v opačném případě.
 
-Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](./comparisons.md#in).
+Výraz `!IN` je popsán pro jednotlivé typy kontejnerů v následujících kapitolách:
+
+- [Seznam](./list.md#in)
+- [Slovník](./dict.md#in)
+- [Řetězec](./string.md#in)
+- [Lookup](./lookup.md#in)
+
+!!! example
+
+    ```yaml
+    !IN
+    what: 5
+    where:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    ```
+
+    Zkontroluje přítomnost hodnoty `5` v seznamu `where`. Vrátí `true`.
+
+!!! example
+
+    ```yaml
+    !IN
+    what: "Willy"
+    where: "John Willy Boo"
+    ```
+
+    Zkontroluje přítomnost podřetězce `Willy` v hodnotě `John Willy Boo`. Vrátí `true`.
 
 !!! example
 
@@ -113,3 +143,5 @@ Výraz `!IN` je popsán v kapitole [Porovnávací výrazy](./comparisons.md#in).
         - 5
         - 8 
     ```
+
+    Zkontroluje přítomnost hodnoty `3` v množině `where`. Vrátí `false`.

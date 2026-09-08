@@ -17,6 +17,7 @@ Položka je dvojice (klíč, hodnota) reprezentovaná jako tuple.
 * [`!DICT`](#dict): Slovník.
 * [`!DICT.FORMAT`](#dictformat): Formátuje slovník do řetězce.
 * [`!GET`](#get): Získat hodnotu ze slovníku.
+* [`!IN`](#in): Test výskytu.
 
 ---
 
@@ -120,6 +121,27 @@ Pokud `key` není nalezen, výraz vrátí `None` (chyba).
     ```
 
     Vrátí `Three`.
+
+---
+
+## `!IN`
+
+Test výskytu.
+
+Typ: _Mapping_.
+
+```yaml
+!IN
+what: <klíč>
+where: <slovník>
+```
+
+Zkontroluje, zda je `klíč` přítomen v hodnotě `where`.
+
+Výraz `!IN` funguje na hodnotách podobných slovníku, které podporují test výskytu, jako je aktuální událost (`!EVENT`) nebo parsovaný JSON dokument.
+Není podporován na nativní struktuře `!DICT`.
+
+Výraz `!IN` je popsán v kapitole [Množiny](./set.md#in).
 
 ---
 

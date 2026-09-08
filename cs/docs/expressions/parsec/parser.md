@@ -333,7 +333,7 @@ Analyzátor uspěje pouze tehdy, když je aktuální pozice analýzy na konci vs
     _Vstupní řetězec:_ `abc`
 
     ```yaml
-    !PARSE.TUPLE
+    !PARSE.KVLIST
     - 'abc'
     - !PARSE.EOF
     ```
@@ -801,6 +801,10 @@ Synopse:
     ```
 
 ### Časové pásmo
+
+!!! poznámka
+
+    Parsování časových pásem v rámci `!PARSE.DATETIME` není plně implementováno. Použijte [zkratky](#zkratky) (`ISO 8601`, `RFC 3339`), které časové pásmo zpracovávají robustněji.
 
 Časové pásmo může být uvedeno v logu, nebo může chybět. Existují dva přístupy:
 

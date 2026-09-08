@@ -40,7 +40,6 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!LE`](./comparisons.md#le) | sequence | comparisons | Less than or equal to. |
 | [`!GT`](./comparisons.md#gt) | sequence | comparisons | Greater than. |
 | [`!GE`](./comparisons.md#ge) | sequence | comparisons | Greater than or equal to. |
-| [`!IN`](./comparisons.md#in) | mapping | comparisons | Membership test. |
 | [`!IF`](./control.md#if) | mapping | control | Simple conditional branching. |
 | [`!WHEN`](./control.md#when) | sequence |  control | Powerful branching. |
 | [`!MATCH`](./control.md#match) | mapping | control | Pattern matching. |
@@ -89,7 +88,6 @@ Expressions in SP-Lang are written as [YAML tags directives](https://yaml.org/sp
 | [`!GET`](./tuple.md#get) | mapping | tuple |  Get item from a tuple. |
 | [`!CAST`](./utility.md#cast) | mapping | utility | Converts type of the argument into another. |
 | [`!HASH`](./utility.md#hash) | mapping | utility | Calculates a digest. |
-| [`!DEBUG`](./utility.md#debug) | mapping | utility | Debugs the expression. |
 | [`!HEX.BYTES`](./utility.md#hexbytes) | mapping | utility | Converts hexadecimal string into binary data. |
 | [`!DICT`](./dict.md#dict) | mapping | dict | Dictionary. |
 | [`!DICT.FORMAT`](./dict.md#dictformat) | mapping | dict | Format a dictionary into a string. |

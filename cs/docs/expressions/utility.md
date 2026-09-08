@@ -8,7 +8,6 @@ title: Pomocné
 
 - [`!CAST`](#cast): Převádí typ argumentu na jiný.
 - [`!HASH`](#hash): Vypočítá digest.
-- [`!DEBUG`](#debug): Ladí výraz.
 - [`!HEX.BYTES`](#hexbytes): Převádí hexadecimální řetězec na binární data.
 
 ---
@@ -91,21 +90,6 @@ Více informací o xxHash naleznete na adrese [xxhash.com](http://www.xxhash.com
     what: "Hello world!"
     seed: 5
     ```
-
----
-
-## `!DEBUG`
-
-Vypíše obsah vstupu a na výstupu předá nezměněnou hodnotu.
-
-Typ: _Mapping_.
-
-Synopse:
-
-```yaml
-!DEBUG
-what: <výraz>
-```
 
 ---
 

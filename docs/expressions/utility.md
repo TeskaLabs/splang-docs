@@ -8,7 +8,6 @@ title: Utility
 
 - [`!CAST`](#cast): Converts type of the argument into another.
 - [`!HASH`](#hash): Calculates a digest.
-- [`!DEBUG`](#debug): Debugs the expression.
 - [`!HEX.BYTES`](#hexbytes): Converts hexadecimal string into binary data.
 
 ---
@@ -91,21 +90,6 @@ More information about xxHash are at [xxhash.com](http://www.xxhash.com/).
     what: "Hello world!"
     seed: 5
     ```
-
----
-
-## `!DEBUG`
-
-Print the content of the input and pass the value unchanged on the output.
-
-Type: _Mapping_.
-
-Synopsis:
-
-```yaml
-!DEBUG
-what: <expression>
-```
 
 ---
 

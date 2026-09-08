@@ -18,6 +18,7 @@ An item is a (key, value) pair, represented as a tuple.
 * [`!DICT`](#dict): Dictionary.
 * [`!DICT.FORMAT`](#dictformat): Format a dictionary into a string.
 * [`!GET`](#get): Get the value from a dictionary.
+* [`!IN`](#in): Membership test.
 
 ---
 
@@ -126,6 +127,27 @@ If the `key` is not found, the expression returns `None` (error).
     ```
 
     Returns `Three`.
+
+---
+
+## `!IN`
+
+Membership test.
+
+Type: _Mapping_.
+
+```yaml
+!IN
+what: <key>
+where: <dict>
+```
+
+Check if a `key` is present in the `where` value.
+
+The expression `!IN` works on dict-like values that support membership, such as the current event (`!EVENT`) or a parsed JSON document.
+It is not supported on a native `!DICT` structure.
+
+The expression `!IN` is described in the [Set](./set.md#in) chapter.
 
 ---
 

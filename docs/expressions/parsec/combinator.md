@@ -198,6 +198,10 @@ Parse list of values to tuple.
 
 Iterating through list of elements `!PARSE.TUPLE` expression collects values to [tuple](../tuple.md).
 
+!!! note
+
+    This expression is not fully implemented. It cannot be used in practice, because its output is not properly adapted with `!PARSE.KVLIST` and lmio-parsec. It is described here for completeness.
+
 Synopsis:
 
 ```yaml
@@ -229,6 +233,10 @@ Synopsis:
 Parse list of values to record structure.
 
 Iterating through list of elements `!PARSE.RECORD` expression collects values to record structure.
+
+!!! note
+
+    This expression is not fully implemented. It cannot be used in practice, because its output is not properly adapted with `!PARSE.KVLIST` and lmio-parsec. It is described here for completeness.
 
 Type: _Combinator_
 
@@ -265,6 +273,10 @@ Synopsis:
 Parse list of key-value pairs into a dictionary.
 
 Iterating through list of elements, the `!PARSE.DICT` expression collects named values into a [dictionary](../../language/types/index.md#dictionary). Non-key elements are parsed, but not collected. Nested dictionary or record results are merged into the parent dictionary.
+
+!!! note
+
+    This expression is not fully implemented. It cannot be used in practice, because its output is not properly adapted with `!PARSE.KVLIST` and lmio-parsec. It is described here for completeness.
 
 Type: _Combinator_
 

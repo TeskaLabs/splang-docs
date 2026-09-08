@@ -338,7 +338,7 @@ The parser succeeds only when the current parsing position is at the end of the 
     _Input string:_ `abc`
 
     ```yaml
-    !PARSE.TUPLE
+    !PARSE.KVLIST
     - 'abc'
     - !PARSE.EOF
     ```
@@ -831,6 +831,10 @@ Synopsis:
     ```
 
 ### Timezone
+
+!!! note
+
+    Timezone parsing within `!PARSE.DATETIME` is not fully implemented. Use the [shortcuts](#shortcuts) (`ISO 8601`, `RFC 3339`), which handle timezones more robustly.
 
 Timezone can be either specified in the log or it can be missing. There are two approaches for that:
 
